@@ -1,0 +1,198 @@
+/* De 959px a 768px */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+/*Cabecera*/
+.header .logo-sep {
+    float: left;
+    width: 210px;
+    height: 80px;
+    background: url(../images/logos/logosep.jpg) 0 0 no-repeat;
+    background-size: 210px;
+    margin-top: 15px;
+}
+
+.header .titulos-enc {
+    display: inline;
+    position: absolute;
+    top: 33px;
+    right: 125px;
+    text-align: center;
+}
+
+.header .titulos-enc > p:first-child {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "SoberanaSans";
+    color: #666;
+}
+
+.header .titulos-enc > p:last-child {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "SoberanaSans";
+    color: #666;
+}
+
+.header .logo-itvh {
+    float: right;
+    width: 40px;
+    height: 60px;
+    background: url(../images/logos/logoitvh.png) 0 0 no-repeat;
+    background-size: 40px;
+    margin-top: 25px;
+}
+
+/*Pie de página*/
+.social_block ul {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    border-left-style: outset;
+    border-left-color: rgb(76, 175, 80);
+    border-right-style: outset;
+    border-right-color: yellow;
+}
+
+.header-itvh {
+    float: center;
+    height: 120px;
+    background: url(../images/logos/header-itvh2.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    margin-top: 5px;
+}
+
+}
+
+/* De 767px a 480px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+/*Encabezado*/
+.header .logo-sep {
+    float: left;
+    width: 150px;
+    height: 55px;
+    background: url(../images/logos/logosep.jpg) 0 0 no-repeat;
+    background-size: 150px;
+    margin-top: 30px;
+}
+
+.header .titulos-enc {
+    display: inline;
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    text-align: center;
+}
+
+.header .titulos-enc > p:first-child {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "SoberanaSans";
+    color: #666;
+}
+
+.header .titulos-enc > p:last-child {
+    font-size: 0.7em;
+    font-weight: bold;
+    font-family: "SoberanaSans";
+    color: #666;
+}
+
+.header .logo-itvh {
+	float: right;
+    width: 30px;
+    height: 40px;
+    background: url(../images/logos/logoitvh.png) 0 0 no-repeat;
+    background-size: 25px;
+    margin-top: 40px;
+}
+
+/*Pie de página*/
+.social_block ul {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    border-left-style: outset;
+    border-left-color: rgb(76, 175, 80);
+    border-right-style: outset;
+    border-right-color: yellow;
+}
+
+.header-itvh {
+    float: center;
+    height: 120px;
+    background: url(../images/logos/header-itvh3.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    margin-top: 5px;
+}
+
+}
+
+/* Sólo 479px */
+@media only screen and (max-width: 479px) {
+
+.header {
+    position: relative;
+    min-height: 70px;
+    z-index: 1001;
+}
+
+.header .logo-sep {
+    float: left;
+    width: 95px;
+    height: 55px;
+    background: url(../images/logos/logosep.jpg) 0 0 no-repeat;
+    background-size: 90px;
+    margin-top: 20px;
+}
+
+.header .titulos-enc {
+    display: inline;
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    text-align: center;
+}
+
+.header .titulos-enc > p:first-child {
+    font-size: 0.7em;
+    font-weight: bold;
+    font-family: "SoberanaSans";
+    color: #666;
+}
+
+.header .titulos-enc > p:last-child {
+    font-size: 0.5em;
+    font-weight: bold;
+    font-family: "SoberanaSans";
+    color: #666;
+}
+
+.header .logo-itvh {
+    float: right;
+    width: 25px;
+    height: 30px;
+    background: url(../images/logos/logoitvh.png) 0 0 no-repeat;
+    background-size: 20px;
+    margin-top: 20px;
+}
+
+/*Pie de página*/
+.social_block ul {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    border-left-style: outset;
+    border-left-color: rgb(76, 175, 80);
+    border-right-style: outset;
+    border-right-color: yellow;
+}
+
+.header-itvh {
+    float: center;
+    height: 120px;
+    background: url(../images/logos/header-itvh4.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    margin-top: 5px;
+}
+
+}

@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/12/2015, 08:45:47 PM
+    Author     : Harvest
+*/
+
+.contenedor {
+    //border: 1px dashed #ccc;
+    position: relative;
+}
+
+.contenedor > div {
+    //background: #CCC;
+    //height: 100px;
+    position: absolute;
+    width: 148px;
+    height: 200px;
+}
+
+.contenedor > div[data-ss-colspan='2'] { width: 150px; }
+
+.contenedor .ss-placeholder-child {
+    background: transparent;
+    //border: 1px dashed red;
+}

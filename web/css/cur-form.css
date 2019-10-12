@@ -1,0 +1,16 @@
+h1{
+	margin-bottom: .5em !important;
+	text-align: center;
+}
+.field-venproducto-temp label{
+	width: 100%;
+}
+h3{
+	margin-bottom: .5em !important;
+	text-align: center;
+}
+@media only screen and (max-width: 479px) 
+{
+        .wraper{width:95%;}
+}
+    
