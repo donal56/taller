@@ -110,9 +110,9 @@ class VenAlmacenController extends Controller
         }
     }
 
-    public function actionReport() 
+    public function actionReport($id) 
     {
-        //$model =  $this->findModel($id);
+        $model =  $this->findModel($id);
 
        /* $numformat= function($cant){
             return number_format($cant,2, '.', ',');
@@ -130,21 +130,8 @@ class VenAlmacenController extends Controller
         
         //ir al archivo pdf_header.php en la carpeta views/ven-ventas
         $pdf->cssFile = '@app/web/css/pdf2.css';
-        $mpdf -> SetHTMLHeader($this->renderPartial('pdfPrueba',
-            [ 'model' =>   $model, ]
-        ));
-
-/*       
-
-        $pdf->content = $this->renderPartial('pdfPrueba',
-            [ 'model' =>   $model,
-              'numformat' =>  $numformat,]
-        ); 
-
-        $mpdf -> SetHTMLFooter($this->renderPartial('pdf_footer', [ 'model' =>   $model, 'numformat' => $numformat]));*/
+        $mpdf -> SetHTMLHeader($this->renderPartial('pdf', [ 'model' =>   $model, ]));
 
          return $pdf->render();
-
-
     }
 }

@@ -2,6 +2,7 @@ body{
 	font-size: 12px;
 	text-align: center;
 	color:#3369b7;
+	font-family: Calibri;
 }
 .borde
 {
@@ -117,4 +118,18 @@ body{
 	width: 110.6mm;
 	height: 75mm;
 	top:210mm;
+}
+.f14
+{
+	font-size: 14px;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+.valign
+{
+	border: 1px solid darkblue;
 }

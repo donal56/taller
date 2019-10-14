@@ -26,7 +26,7 @@
 			  <tr>
 			  	<td style="font-size:2em;border-right: 1.5px solid #3369b7"> <?= date('y-m-d') ?></td>
 			  	<td style="color:red; font-size:2em;">
-			  		No.
+			  		N&#xba;
 			  	</td>
 			  </tr> 
 			</table>
@@ -82,7 +82,7 @@
 			  <tr>
 			  	<td style="font-size:2em;border-right: 1.5px solid #3369b7"> <?= date('y-m-d') ?></td>
 			  	<td style="color:red; font-size:2em;">
-			  		No.
+			  		N&#xba;
 			  	</td>
 			  </tr> 
 			</table>
