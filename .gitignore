@@ -8,8 +8,6 @@
 /web/counters
 /components/widgets
 /widgets
-/web/assets
-/ventas
 
 # phpstorm project files
 .idea
