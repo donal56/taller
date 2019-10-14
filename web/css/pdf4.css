@@ -1,0 +1,121 @@
+body{
+	font-size: 12px;
+	text-align: center;
+	color:#3369b7;
+}
+
+.fblue{
+	color:#3369b7;
+}
+
+.fwhite{
+	background-color: #e4e7ed;
+	border-bottom: 1px solid #3369b7;
+	color: #3369b7;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.right{
+	text-align: right;
+	font-size: 14px;
+}
+
+.bold{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.div-label{
+	float:left;
+	font-size: 5mm;
+	font-weight: bold;
+	color: #3369b7;
+	border: 0px;
+	padding-left: 5px;
+	text-align: left;
+}
+
+.div-underline{
+	float: left;
+	border-bottom: 1.5px solid #3369b7;
+	color: #3369b7;
+	text-align: left;
+	font-size: 5mm;
+}
+
+.center-line{
+	border-bottom: 1.5px solid #3369b7;
+	color: #3369b7;
+	text-align: center;
+	font-size: 5mm;
+	width: 70mm;
+	margin-left: 60mm;
+}
+.border{
+	float: right;
+	border: 0px;
+	padding: 10px 0px 10px 10px;
+	border-radius:10px;
+}
+
+.border table{
+	border-collapse:collapse; 
+	text-align: center;
+}
+
+.border td{
+	border: 1px solid #3369b7;
+	vertical-align: top;
+}
+
+.rounded{
+	border-radius: 10px;
+	border: 2px solid #3369b7;
+}
+.rounded td{
+	border: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.fullheight{
+	padding-top: 5mm;
+	border: 1px solid #3369b7;
+	height: 75mm;
+}
+
+.line{
+	border-top: 0px;
+	border-bottom: 0px;
+	position: absolute; 
+	z-index:99;
+	top: 85mm;
+}
+
+.footer-top{
+	position: absolute; 
+	z-index:99;
+	text-align: justify;
+	left:40mm;
+	width: 128.6mm;
+	height: 28mm;
+	top:180mm;
+}
+.footer-botton{
+	position: absolute; 
+	z-index:99;
+	text-align: justify;
+	left:43mm;
+	width: 110.6mm;
+	height: 75mm;
+	top:210mm;
+}
+
+.firmas{
+	margin-top: 45mm;
+}
+.firmas div{
+	text-align: center;
+}
