@@ -4,13 +4,10 @@ namespace app\controllers;
 
 use Yii;
 use app\models\VenAlmacen;
-use app\models\VenConcepto;
-use app\models\VenFolio;
 use app\models\VenAlmacenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\components\Utilidades;
 
 /**
  * VenAlmacenController implements the CRUD actions for VenAlmacen model.
@@ -66,61 +63,13 @@ class VenAlmacenController extends Controller
      */
     public function actionCreate()
     {
-        #Se crean los modelos de los componentes de un vale
         $model = new VenAlmacen();
-        $modelCon = new VenConcepto();
-        $modelFol = new VenFolio();
 
-        #Si se guarda un vale
-        if(Yii::$app->request->post())
-        {
-            #Se separan los componentes de un vale desde una misma respuesta POST
-            #Se limpian los registros vacios en conceptos
-            $vale = Yii::$app->request->post();
-            $conceptos = Utilidades::limpiarArreglos( array_pop($vale)['temp'] );
-            $folio = array_pop($vale);
-
-            $connection = Yii::$app->db;
-            $transaction = $connection->beginTransaction();
-
-            #Se consigue el folio actual
-            $model->alm_folio = $this->increaseFolio($folio['fol_serie']);
-
-            if($model->load($vale) && $model->save())
-            {
-                foreach($conceptos as $concepto)
-                {
-                    #Si el vale se guarda por cada concepto se guardan sus datos
-                    $concepto['con_fkalm_id'] = $model->alm_id;
-                    $datos['VenConcepto'] = $concepto;
-
-                    if ($modelCon->load($datos) && $modelCon->save())
-                    {
-                        $modelCon = new VenConcepto();    
-                    } 
-                    else 
-                    {
-                        $transaction->rollback();
-                        throw new ServerErrorHttpException('A OCCURIDO UN ERROR CON LOS PRODUCTOS');
-                    }
-                   
-                }
-                $transaction->commit();
-                return $this->redirect(['view', 'id' => $model->alm_id]); 
-            }
-            else
-            {
-                throw new ServerErrorHttpException('NO SE HAN PODIDO GUARDAR LOS CAMBIOS'); 
-            }
-           
-        }
-        else
-        {
-            return $this->render('create', 
-            [
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->alm_id]);
+        } else {
+            return $this->render('create', [
                 'model' => $model,
-                'modelCon' => $modelCon,
-                'modelFol' => $modelFol
             ]);
         }
     }
@@ -161,22 +110,41 @@ class VenAlmacenController extends Controller
         }
     }
 
-    protected function increaseFolio($serie)
+    public function actionReport() 
     {
-        if (($model = VenFolio::find()->where(['fol_serie' => $serie])->one()) !== null) 
-        {
-            $model->aumentarFolio();
+        //$model =  $this->findModel($id);
 
-            if( $model->save())
-            {
-                return $model->getFolio();
-            }
-           
-            throw new NotFoundHttpException('No se pudo actualizar la serie');
-        }  
-        else 
-        {
-            throw new NotFoundHttpException('No se encontro la serie');
-        }
+       /* $numformat= function($cant){
+            return number_format($cant,2, '.', ',');
+        };*/
+
+        $pdf = Yii::$app->pdf;
+        
+        $mpdf = $pdf->api;
+        $mpdf->autoPageBreak = false;
+        //imagenes
+        $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
+        $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
+        $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
+        $mpdf->imageVars['pez'] = file_get_contents('plantillas/itvh/images/logos/pez.png');
+        
+        //ir al archivo pdf_header.php en la carpeta views/ven-ventas
+        $pdf->cssFile = '@app/web/css/pdf2.css';
+        $mpdf -> SetHTMLHeader($this->renderPartial('pdfPrueba',
+            [ 'model' =>   $model, ]
+        ));
+
+/*       
+
+        $pdf->content = $this->renderPartial('pdfPrueba',
+            [ 'model' =>   $model,
+              'numformat' =>  $numformat,]
+        ); 
+
+        $mpdf -> SetHTMLFooter($this->renderPartial('pdf_footer', [ 'model' =>   $model, 'numformat' => $numformat]));*/
+
+         return $pdf->render();
+
+
     }
 }

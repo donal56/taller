@@ -3,7 +3,32 @@ body{
 	text-align: center;
 	color:#3369b7;
 }
-
+.borde
+{
+	border-radius:2mm;
+	border       :1.5px solid;
+	border-color :#3369b7;
+    padding      :0mm;
+}
+.firmas
+{
+	float:left;
+	font-size: 15px;
+	font-weight: bold;
+	color: #3369b7;
+	height: 25px;
+	width:  38mm;
+	text-align: center;
+	margin-left: 5mm;
+}
+.lineaFirmas
+{
+	width: 38mm; 
+	margin-left: 5mm;
+	float: left;
+	border-bottom: 1px solid #3369b7;
+	color: #3369b7;
+}
 .fblue{
 	color:#3369b7;
 }
@@ -20,6 +45,11 @@ body{
 	text-align: right;
 	font-size: 14px;
 }
+.center
+{
+	text-align: center;
+	font-size: 14px;
+}
 
 .bold{
 	font-size: 12px;
@@ -28,29 +58,29 @@ body{
 
 .div-label{
 	float:left;
-	font-size: 14px;
+	font-size: 10px;
 	font-weight: bold;
 	color: #3369b7;
+	height: 25px;
 }
 
 .div-underline{
 	float: left;
-	border-bottom: 1.5px solid #3369b7;
+	border-bottom: 1px solid #3369b7;
 	color: #3369b7;
 	text-align: left;
 }
 
 .rounded{
+	float : right;
+	border: none;
+	width : 35mm;
+	height: 80px;
+}
+.rounded2{
 	float: right;
-	border: 1px solid #3369b7;
-	//border-radius:10px;
+	border: 5px solid #3369b7;
 }
-
-.rounded table{
-	border-collapse:collapse; 
-	text-align: center;
-}
-
 .rounded td{
 	border: 1px solid #3369b7;
 	vertical-align: top;
@@ -58,8 +88,8 @@ body{
 
 
 .fullheight{
-	border: 2px solid #3369b7;
-	height: 175mm;
+	border: 1px solid #3369b7;
+	height: 75mm;
 }
 
 .line{
@@ -67,5 +97,24 @@ body{
 	border-bottom: 0px;
 	position: absolute; 
 	z-index:99;
-	top: 82.2mm;
+	top: 85mm;
+}
+
+.footer-top{
+	position: absolute; 
+	z-index:99;
+	text-align: justify;
+	left:40mm;
+	width: 128.6mm;
+	height: 28mm;
+	top:180mm;
+}
+.footer-botton{
+	position: absolute; 
+	z-index:99;
+	text-align: justify;
+	left:43mm;
+	width: 110.6mm;
+	height: 75mm;
+	top:210mm;
 }

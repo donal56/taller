@@ -1,4 +1,4 @@
-Fimg<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <body>
