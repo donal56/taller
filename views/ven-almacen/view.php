@@ -9,10 +9,8 @@ use yii\widgets\DetailView;
 $this->title = 'Vale ' . $model->alm_folio;
 ?>
 <div class="ven-almacen-view">
-    <br>
-    <h1><?= Html::encode($this->title) ?></h1><br>
-    <?= Html::a('Regresar', ['index'], ['class' => 'btn btn-info']) ?><br>
-    <br>
+
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
         'model' => $model,
