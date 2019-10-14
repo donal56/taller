@@ -380,42 +380,6 @@ class VenVentasController extends Controller
 
     }
 
-     public function actionReport3() 
-    {
-        # $model =  $this->findModel($id);
-
-        $pdf = new Pdf([
-            'format' => [220, 340],
-            'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'destination' => Pdf::DEST_BROWSER, 
-            'marginTop' => '10',
-            'marginHeader' => '10',
-            'marginBottom' => '10',
-            'marginFooter' => '10',
-            'options' => ['title' => 'Orden de servicio'],
-        ]);
-        
-        $mpdf = $pdf->api;
-        $mpdf->autoPageBreak = false;
-
-        //imagenes
-        $mpdf->imageVars['donpolo'] = file_get_contents('img/bluepolo.png');
-        $mpdf->imageVars['logopolo'] = file_get_contents('img/logopolo_letra.png');
-        $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
-        $mpdf->imageVars['whats'] = file_get_contents('img/bluewa.png');
-
-        $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
-        
-        $pdf->cssFile = '@app/web/css/pdf4.css';
-        $pdf->content = $this->renderPartial('pdf_format'); 
-
-         return $pdf->render();
-
-
-    }
-
-
-
     protected function findAllProducto($id)
     {
         if (($model = VenProducto::find()->where(['pro_fkventas' => $id])->asArray()->all()) !== null) {
