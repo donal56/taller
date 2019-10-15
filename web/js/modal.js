@@ -19,7 +19,7 @@ $(document).on('click', '#abrirModal', (function()
                 $.post( '/ven-folio/ajax_create', $('#create-folio-form').serialize())
                 .done( function(data)
                 {
-                    $('#venfolio-fol_serie').append(
+                    $('select#venfolio-fol_serie').append(
                         $('<option></option>').val(data.serie).html(data.serie).attr('selected', true)
                     );
                     $('#modal').modal('hide'); 
