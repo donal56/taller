@@ -15,14 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->rec_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->rec_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
+        <?= Html::a('Imprimir', ['report', 'id' => $model->rec_id], ['class' => 'btn btn-primary','target' => '_blank']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -33,8 +27,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'rec_cantidad',
             'rec_concepto',
             'rec_nomresponsable',
-            'rec_fecha',
-            'rec_folio',
+            'rec_fecha:date',
+            [
+                'attribute' => 'rec_folio',
+                'value'     => function ($model) {
+                    return str_replace('-','',$model->rec_folio);
+                }
+            ],
         ],
     ]) ?>
 

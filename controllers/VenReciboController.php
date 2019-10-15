@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\VenRecibo;
 use app\models\VenReciboSearch;
+use app\models\VenFolio;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,14 +66,41 @@ class VenReciboController extends Controller
     public function actionCreate()
     {
         $model = new VenRecibo();
+        $modelFol = new VenFolio();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->rec_id]);
-        } else {
-            return $this->render('create', [
+        #Si se guarda un vale
+        if(Yii::$app->request->post())
+        {
+            #Se separan los componentes de un vale desde una misma respuesta POST
+            $recibo = Yii::$app->request->post();
+            $folio = array_pop($recibo);
+
+            $connection = Yii::$app->db;
+            $transaction = $connection->beginTransaction();
+
+            #Se consigue el folio actual
+            $model->rec_folio = $this->increaseFolio($folio['fol_serie']);
+
+            if($model->load($recibo) && $model->save())
+            {
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->rec_id]); 
+            }
+            else
+            {
+                throw new ServerErrorHttpException('NO SE HAN PODIDO GUARDAR LOS CAMBIOS'); 
+            }
+           
+        }
+        else
+        {
+            return $this->render('create', 
+            [
                 'model' => $model,
+                'modelFol' => $modelFol
             ]);
         }
+
     }
 
     /**
@@ -150,6 +178,25 @@ class VenReciboController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function increaseFolio($serie)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $serie])->one()) !== null) 
+        {
+            $model->aumentarFolio();
+
+            if( $model->save())
+            {
+                return $model->getFolio();
+            }
+           
+            throw new NotFoundHttpException('No se pudo actualizar la serie');
+        }  
+        else 
+        {
+            throw new NotFoundHttpException('No se encontro la serie');
         }
     }
 }

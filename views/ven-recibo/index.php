@@ -25,15 +25,27 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'rec_id',
-            'rec_folio',
+            [
+                'attribute' => 'rec_folio',
+                'value'     => function ($model) {
+                    return str_replace('-','',$model->rec_folio);
+                }
+            ],
             'rec_fecha',
             'rec_nomcliente',
             //'rec_cantidad',
             //'rec_concepto',
             'rec_nomresponsable',
       
+            ['class' => 'yii\grid\ActionColumn',
+            'buttons' => [
+                'print' => function ($url, $model, $key) {
+                    return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['/ven-recibo/report', 'id' => $model->rec_id],['data-pjax'=>"0",'target' => '_blank']);
 
-            ['class' => 'yii\grid\ActionColumn'],
+                },
+            ],
+            'template' => '{print} '//{view} {update} {delete} '
+            ]
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

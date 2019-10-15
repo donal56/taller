@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn',
             'buttons' => [
                 'print' => function ($url, $model, $key) {
-                    return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-ventas/report', 'id' => $model->ven_id],['data-pjax'=>"0"]);
+                    return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-ventas/report', 'id' => $model->ven_id],['data-pjax'=>"0",'target' => '_blank']);
 
                 },
             ],
