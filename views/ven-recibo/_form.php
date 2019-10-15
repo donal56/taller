@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'rec_cantidad',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'rec_concepto',['options' => ['class' => 'form-group col-sm-8']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'rec_concepto',['options' => ['class' => 'form-group col-sm-8']])->textArea(['maxlength' => true]) ?>
 
     </div>
 
