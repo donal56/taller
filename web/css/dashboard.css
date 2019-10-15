@@ -1,0 +1,26 @@
+table
+{
+    font-family: Calibri;
+    font-size: 20px;
+    text-align: center;
+    color: #272727;
+    width: 100%;
+    height: 70%;
+}
+
+a, a:visited, a:hover, a:link, a:active
+{
+    color: #272727;
+}
+
+#main
+{
+    text-align: center;
+    padding: 40px 0;
+}
+
+a:hover img
+{
+    transform: scale(1.1);
+    padding-bottom: 20px;
+}

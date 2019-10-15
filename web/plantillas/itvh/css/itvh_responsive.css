@@ -5,7 +5,6 @@
     float: left;
     width: 210px;
     height: 80px;
-    background: url(../images/logos/logosep.jpg) 0 0 no-repeat;
     background-size: 210px;
     margin-top: 15px;
 }
@@ -36,7 +35,6 @@
     float: right;
     width: 40px;
     height: 60px;
-    background: url(../images/logos/logoitvh.png) 0 0 no-repeat;
     background-size: 40px;
     margin-top: 25px;
 }
@@ -55,7 +53,6 @@
 .header-itvh {
     float: center;
     height: 120px;
-    background: url(../images/logos/header-itvh2.png) 0 0 no-repeat;
     background-size: 100% 100%;
     margin-top: 5px;
 }
@@ -70,7 +67,6 @@
     float: left;
     width: 150px;
     height: 55px;
-    background: url(../images/logos/logosep.jpg) 0 0 no-repeat;
     background-size: 150px;
     margin-top: 30px;
 }
@@ -101,7 +97,6 @@
 	float: right;
     width: 30px;
     height: 40px;
-    background: url(../images/logos/logoitvh.png) 0 0 no-repeat;
     background-size: 25px;
     margin-top: 40px;
 }
@@ -120,7 +115,6 @@
 .header-itvh {
     float: center;
     height: 120px;
-    background: url(../images/logos/header-itvh3.png) 0 0 no-repeat;
     background-size: 100% 100%;
     margin-top: 5px;
 }
@@ -140,7 +134,6 @@
     float: left;
     width: 95px;
     height: 55px;
-    background: url(../images/logos/logosep.jpg) 0 0 no-repeat;
     background-size: 90px;
     margin-top: 20px;
 }
@@ -171,7 +164,6 @@
     float: right;
     width: 25px;
     height: 30px;
-    background: url(../images/logos/logoitvh.png) 0 0 no-repeat;
     background-size: 20px;
     margin-top: 20px;
 }
@@ -190,7 +182,6 @@
 .header-itvh {
     float: center;
     height: 120px;
-    background: url(../images/logos/header-itvh4.png) 0 0 no-repeat;
     background-size: 100% 100%;
     margin-top: 5px;
 }
