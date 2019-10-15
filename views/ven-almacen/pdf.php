@@ -27,9 +27,9 @@
 			    <td style="border-bottom: 0px;" class="fblue center bold"> AÑO </td>
 			  </tr>
 			  <tr>
-			    <td style="border-top: 0px; text-align: center;"><div class="valign"><?= explode('-',$model->alm_fecha)[2] ?></div></td>
-			    <td style="border-top: 0px; text-align: center;"><div class="valign"><?= explode('-',$model->alm_fecha)[1] ?></div></td>
-			    <td style="border-top: 0px; text-align: center;"><div class="valign"><?= explode('-',$model->alm_fecha)[0] ?></div></td>
+			    <td style="border-top: 0px; text-align: center;"><?= explode('-',$model->alm_fecha)[2] ?></td>
+			    <td style="border-top: 0px; text-align: center;"><?= explode('-',$model->alm_fecha)[1] ?></td>
+			    <td style="border-top: 0px; text-align: center;"><?= explode('-',$model->alm_fecha)[0] ?></td>
 			  </tr>
 			</table>
 		</div>
@@ -56,11 +56,11 @@
 		<div class="fullheight">
 			<table class="rounded2" style="border: 0px;" width="100%" >
 				<tr>
-					<td class="fwhite"><b>PARTIDA   </b></td>
-					<td class="fwhite"><b>CANTIDAD  </b></td>
-					<td class="fwhite"><b>CONCEPTO  </b></td>
-					<td class="fwhite"><b>P.UNITARIO</b></td>
-					<td class="fwhite"><b>IMPORTE   </b></td>
+					<td class="td1 fwhite f12" style= "padding: 0; margin: 0"><b>PARTIDA   </b></td>
+					<td class="td1 fwhite f12" style= "padding: 0; margin: 0"><b>CANTIDAD  </b></td>
+					<td class="td1 fwhite f12" style= "padding: 0; margin: 0"><b>C&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;P&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;O</b></td>
+					<td class="td1 fwhite f12" style= "padding: 0; margin: 0"><b>P.UNITARIO</b></td>
+					<td class="td1 fwhite f12" style= "padding: 0; margin: 0"><b>IMPORTE   </b></td>
 				</tr>
 			</table>
 		</div>

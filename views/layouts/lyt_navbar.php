@@ -3,14 +3,12 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use webvimark\modules\UserManagement\UserManagementModule;
 use app\models\CurCurso;
+
+$menuItems = array();
 ?>
 
 <?php
-$links = [
-  ['label' => 'Depto. Infraestructura', 'url' => ['/ticket/index', 'ads' => 68]],
-  ['label' => 'Depto. Mantenimiento', 'url' => ['/ticket/index', 'ads' => 70]],
-  ['label' => 'Depto. Centro de Cómputo', 'url' => ['/ticket/index', 'ads' => 26]],
-];
+
 NavBar::begin([
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
@@ -18,9 +16,9 @@ NavBar::begin([
     ],
 ]);
 
-$menuItems = [
-    ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => ['ven-ventas/index']],
-];
+if( Yii::$app->user->isSuperAdmin)
+    $menuItems[] = ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => ['/site/']];
+
 if (Yii::$app->user->isGuest) {
 
 //oculta reservar si el cupo esta lleno

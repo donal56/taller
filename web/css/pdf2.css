@@ -2,7 +2,7 @@ body{
 	font-size: 12px;
 	text-align: center;
 	color:#3369b7;
-	font-family: Calibri;
+	font-family: Arial;
 }
 .borde
 {
@@ -89,7 +89,7 @@ body{
 
 
 .fullheight{
-	border: 1px solid #3369b7;
+	
 	height: 75mm;
 }
 
@@ -121,7 +121,12 @@ body{
 }
 .f14
 {
-	font-size: 14px;
+	font-size: 14px !important;
+}
+
+.f12
+{
+	font-size: 12px !important;
 }
 
 .bold
@@ -129,7 +134,7 @@ body{
 	font-weight: bold;
 }
 
-.valign
+.td1
 {
-	border: 1px solid darkblue;
+	height: 6mm;
 }
