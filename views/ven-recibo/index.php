@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\VenReciboSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ven Recibos';
+$this->title = 'Recibos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ven-recibo-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Ven Recibo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Generar Recibo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,15 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'rec_id',
+            //'rec_id',
+            'rec_folio',
+            'rec_fecha',
             'rec_nomcliente',
-            'rec_cantidad',
-            'rec_concepto',
+            //'rec_cantidad',
+            //'rec_concepto',
             'rec_nomresponsable',
-            // 'rec_fecha',
-            // 'rec_folio',
+      
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>
+
+<?= $this->registerCssFile("/css/cur-form.css"); ?>

@@ -45,13 +45,13 @@ class VenRecibo extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'rec_id' => 'Rec ID',
-            'rec_nomcliente' => 'Rec Nomcliente',
-            'rec_cantidad' => 'Rec Cantidad',
-            'rec_concepto' => 'Rec Concepto',
-            'rec_nomresponsable' => 'Rec Nomresponsable',
-            'rec_fecha' => 'Rec Fecha',
-            'rec_folio' => 'Rec Folio',
+            'rec_id' => 'ID',
+            'rec_fecha' => 'Fecha',
+            'rec_folio' => 'Folio',
+            'rec_nomcliente' => 'Recibí de',
+            'rec_cantidad' => 'Cantidad',
+            'rec_concepto' => 'Concepto',
+            'rec_nomresponsable' => 'Recibió',
         ];
     }
 }

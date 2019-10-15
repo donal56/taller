@@ -119,18 +119,13 @@ class VenReciboController extends Controller
             'marginHeader' => '10',
             'marginBottom' => '10',
             'marginFooter' => '10',
-            'options' => ['title' => 'Orden de servicio'],
+            'options' => ['title' => 'Recibo'],
         ]);
         
         $mpdf = $pdf->api;
         $mpdf->autoPageBreak = false;
 
         //imagenes
-        $mpdf->imageVars['donpolo'] = file_get_contents('img/bluepolo.png');
-        $mpdf->imageVars['logopolo'] = file_get_contents('img/logopolo_letra.png');
-        $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
-        $mpdf->imageVars['whats'] = file_get_contents('img/bluewa.png');
-
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         
         $pdf->cssFile = '@app/web/css/pdf4.css';

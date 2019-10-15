@@ -18,17 +18,7 @@ use yii\helpers\Url;
 <br>
 <div class="row"> 
 
-    <?php
-        echo $form->field($model, 'ven_fecha' , ['options' => ['class' => 'form-group col-sm-3']]) -> widget(DatePicker::classname(), 
-        [
-            'language' => 'es',
-            'removeButton' => false,
-            'pluginOptions' => [
-                'todayHighlight' => true,
-                'autoclose' => true, 
-                'format' => 'yyyy-mm-dd']
-        ]); 
-    ?>  
+    <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>'true']) ?> 
     
     <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_serie'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
