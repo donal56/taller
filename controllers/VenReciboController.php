@@ -157,7 +157,8 @@ class VenReciboController extends Controller
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         
         $pdf->cssFile = '@app/web/css/pdf4.css';
-        $pdf->content = $this->renderPartial('pdf_recibo'); 
+        $pdf->content = $this->renderPartial('pdf_recibo',['recibo' =>  $model]).'<hr>'; 
+        $pdf->content .= $pdf->content;
 
          return $pdf->render();
 
