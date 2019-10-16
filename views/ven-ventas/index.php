@@ -44,8 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 },
             ],
-            'template' => '{print} '//{view} {update} {delete} '
-            ]
+            'template' => '{print}'
+            ],
+
+            ['class' => 'yii\grid\ActionColumn', 
+            'visible' => Yii::$app->user->isSuperAdmin,
+            'template' => '{view} {update} {delete}'
+            ],
         ],
     ]); ?>
 </div>

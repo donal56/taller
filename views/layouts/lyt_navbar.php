@@ -16,26 +16,32 @@ NavBar::begin([
     ],
 ]);
 
-if( Yii::$app->user->isSuperAdmin)
+if( !Yii::$app->user->isGuest)
     $menuItems[] = ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => ['/site/']];
+
+if(Yii::$app->user->isSuperAdmin)
+{
+    //Agregar opciones de administrador
+    $menuItems[] = ['label' => 'Administrador', 'items'=>UserManagementModule::menuItems()];
+    
+}
+
 
 if (Yii::$app->user->isGuest) {
 
 //oculta reservar si el cupo esta lleno
   $menuItems[] = ['label' => 'Iniciar Sesión', 'url' => ['/user-management/auth/login']];
 
-} else {
-  
-  //Agregar opciones de administrador
-  //if(Yii::$app->user->identity->hasRole('Admin')):
-    $menuItems[] = ['label' => 'Administrador', 'items'=>UserManagementModule::menuItems()];
-  //endif;
-  $menuItems[] = [
-  'label' => 'Cerrar Sesión (' . Yii::$app->user->identity->username . ')',
-  'url' => ['/user-management/auth/logout'],
-  'linkOptions' => ['data-method' => 'post'],
-  ];
 }
+else 
+{
+    $menuItems[] = [
+        'label' => 'Cerrar Sesión (' . Yii::$app->user->identity->username . ')',
+        'url' => ['/user-management/auth/logout'],
+        'linkOptions' => ['data-method' => 'post'],
+    ];
+}
+
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-left'],
     'encodeLabels' => false,

@@ -13,7 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ven-almacen-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <p><?= Html::a('Crear vale', ['create'], ['class' => 'btn btn-success']) ?></p>
+    <p>
+        <?= Html::a('Crear vale', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Gestionar Folios', ['ven-folio/index'], ['class' => 'btn btn-info']) ?>
+    </p>
     <br>
 
 <?php Pjax::begin(); ?>    <?= GridView::widget([
