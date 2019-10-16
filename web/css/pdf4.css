@@ -29,7 +29,7 @@ body{
 
 .div-label{
 	float:left;
-	font-size: 5mm;
+	font-size: 4mm;
 	font-weight: bold;
 	color: #3369b7;
 	border: 0px;
@@ -42,7 +42,7 @@ body{
 	border-bottom: 1.5px solid #3369b7;
 	color: #3369b7;
 	text-align: left;
-	font-size: 5mm;
+	font-size: 4mm;
 }
 
 .center-line{
@@ -51,7 +51,7 @@ body{
 	text-align: center;
 	font-size: 5mm;
 	width: 70mm;
-	margin-left: 60mm;
+	margin-left: 55mm;
 }
 .border{
 	float: right;
@@ -76,14 +76,14 @@ body{
 }
 .rounded td{
 	border: 0px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .fullheight{
 	padding-top: 5mm;
 	border: 1px solid #3369b7;
-	height: 75mm;
+	height: 90mm;
 }
 
 .line{
@@ -114,7 +114,7 @@ body{
 }
 
 .firmas{
-	margin-top: 45mm;
+	margin-top: 30mm;
 }
 .firmas div{
 	text-align: center;

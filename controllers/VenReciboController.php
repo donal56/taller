@@ -140,7 +140,7 @@ class VenReciboController extends Controller
         $model =  $this->findModel($id);
 
         $pdf = new Pdf([
-            'format' => [220, 340],
+            'format' => Pdf::FORMAT_A4,
             'orientation' => Pdf::ORIENT_PORTRAIT, 
             'destination' => Pdf::DEST_BROWSER, 
             'marginTop' => '10',
@@ -157,8 +157,8 @@ class VenReciboController extends Controller
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         
         $pdf->cssFile = '@app/web/css/pdf4.css';
-        $pdf->content = $this->renderPartial('pdf_recibo',['recibo' =>  $model]).'<hr>'; 
-        $pdf->content .= $pdf->content;
+        $pdf->content = $this->renderPartial('pdf_recibo',['recibo' =>  $model]); 
+        $pdf->content .= '<hr>'.$pdf->content;
 
          return $pdf->render();
 

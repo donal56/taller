@@ -34,14 +34,14 @@
 	</div>	
 </div>
 <div class="fullheight rounded">
-		<div style="width: 30mm;" class="div-label">RECIBÍ DE:</div>
-		<div style="width: 150mm;" class="div-underline">&#8203; <?= $recibo->rec_nomcliente ?></div>
+		<div style="width: 25mm;" class="div-label">RECIBÍ DE:</div>
+		<div style="width: 145mm;" class="div-underline">&#8203; <?= $recibo->rec_nomcliente ?></div>
 	<br><br>
-		<div style="width: 47mm;" class="div-label">LA CANTIDAD DE:</div>
-		<div style="width: 133mm;" class="div-underline">&#8203; <?= $recibo->rec_cantidad ?></div>
+		<div style="width: 38mm;" class="div-label">LA CANTIDAD DE:</div>
+		<div style="width: 132mm;" class="div-underline">&#8203; <?= $recibo->rec_cantidad ?></div>
 	<br><br>
-		<div style="width: 53mm;" class="div-label">POR CONCEPTO DE:</div>
-		<div style="width: 127mm;" class="div-underline">&#8203; <?= $recibo->rec_concepto ?></div>
+		<div style="width: 43mm;" class="div-label">POR CONCEPTO DE:</div>
+		<div style="width: 127mm;" class="div-underline">&#8203; <?= $recibo->rec_concepto ?><?= $recibo->rec_concepto ?><?= $recibo->rec_concepto ?><?= $recibo->rec_concepto ?></div>
 	<br><br><br>
 	<div class="firmas">
 		<div class="div-label">RECIBIÓ</div>
