@@ -37,8 +37,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-almacen/report', 'id' => $model->alm_id],['data-pjax'=>"0"]);
                     },
                 ],
-                'template' => '{print} {view}'
-            ]
+                'template' => '{print}'
+            ],
+            ['class' => 'yii\grid\ActionColumn', 
+            'visible' => Yii::$app->user->isSuperAdmin,
+            'template' => '{view} {update} {delete}'
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

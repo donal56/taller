@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
- Source Server Type    : MySQL
- Source Server Version : 80016
+ Source Server         : MariaDB_localhost
+ Source Server Type    : MariaDB
+ Source Server Version : 100406
  Source Host           : localhost:3306
  Source Schema         : taller
 
- Target Server Type    : MySQL
- Target Server Version : 80016
+ Target Server Type    : MariaDB
+ Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 15/10/2019 16:18:41
+ Date: 16/10/2019 14:37:46
 */
 
 SET NAMES utf8mb4;
@@ -74,50 +74,50 @@ CREATE TABLE `auth_item_child`  (
 -- ----------------------------
 -- Records of auth_item_child
 -- ----------------------------
-INSERT INTO `auth_item_child` VALUES ('prueba', '/dashboard/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/create');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/report');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/update');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/view');
-INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('Usuario General', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
-INSERT INTO `auth_item_child` VALUES ('changeOwnPassword', '/user-management/auth/change-own-password');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set-roles');
-INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/grid-page-size');
-INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/index');
-INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/view');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-activate');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-deactivate');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/bulk-delete');
-INSERT INTO `auth_item_child` VALUES ('changeUserPassword', '/user-management/user/change-password');
-INSERT INTO `auth_item_child` VALUES ('createUsers', '/user-management/user/create');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/delete');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/view');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'assignRolesToUsers');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'changeOwnPassword');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'changeUserPassword');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'createUsers');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'deleteUsers');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'editUsers');
-INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set-roles');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUserRoles');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('changeOwnPassword', '/user-management/auth/change-own-password');
+INSERT INTO `auth_item_child` VALUES ('changeUserPassword', '/user-management/user/change-password');
+INSERT INTO `auth_item_child` VALUES ('changeUserPassword', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('createUsers', '/user-management/user/create');
+INSERT INTO `auth_item_child` VALUES ('createUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/bulk-delete');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/delete');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('editUserEmail', 'viewUserEmail');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-activate');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-deactivate');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
+INSERT INTO `auth_item_child` VALUES ('editUsers', 'viewUsers');
 INSERT INTO `auth_item_child` VALUES ('jefe', 'prueba');
 INSERT INTO `auth_item_child` VALUES ('otro', 'Usuario General');
-INSERT INTO `auth_item_child` VALUES ('editUserEmail', 'viewUserEmail');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUserRoles');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('changeUserPassword', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('createUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('editUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
+INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/dashboard/index');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/create');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/index');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/report');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/update');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/view');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/site/index');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
+INSERT INTO `auth_item_child` VALUES ('Usuario General', '/site/index');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/view');
+INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/grid-page-size');
+INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/index');
+INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/view');
 
 -- ----------------------------
 -- Table structure for auth_item_group
@@ -170,13 +170,14 @@ CREATE TABLE `user`  (
   `email` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `email_confirmed` smallint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'superadmin', 'kz2px152FAWlkHbkZoCiXgBAd-S8SSjF', '$2y$13$MhlYe12xkGFnSeK0sO2up.Y9kAD9Ct6JS1i9VLP7YAqd1dFsSylz2', NULL, 1, 1, 1426062188, 1426062188, NULL, NULL, NULL, 0);
 INSERT INTO `user` VALUES (4, 'otro', 'NEDNdq8Kt7291gYRuEAMtla4XCMF_tMe', '$2y$13$zeHS/vr1TLWqbGdEk09SNe2dePeXFnRoj0FQhvM.4GjlRvGFCWJNW', NULL, 1, 0, 1566596324, 1566596324, '127.0.0.1', '', '', 0);
+INSERT INTO `user` VALUES (5, 'polo', 'frM3C3hHw3if4TI4zX_zsgX7oU9qBIRt', '$2y$13$r/lxPp71z1gbfj8cuNeKc..tozuUDqaMIjE5GqnyFVCG0bQJEkYQe', NULL, 1, 0, 1571181464, 1571181464, '127.0.0.1', '', '', 0);
 
 -- ----------------------------
 -- Table structure for user_visit_log
@@ -195,7 +196,7 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
@@ -218,6 +219,17 @@ INSERT INTO `user_visit_log` VALUES (15, '5d9f4a202a022', '127.0.0.1', 'es', 'Mo
 INSERT INTO `user_visit_log` VALUES (16, '5da0cf6aed40a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1570819947, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (17, '5da6110739a95', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571164423, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (18, '5da62b95422c3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571171221, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (19, '5da63b1a7bede', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571175194, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (20, '5da6537506901', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571181429, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (21, '5da653a9e082b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571181481, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (22, '5da656e8eaef7', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182312, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (23, '5da656f207199', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571182322, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (24, '5da65782d5152', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182466, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (25, '5da65784d6215', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182468, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (26, '5da6582ff3a8f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182639, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (27, '5da65fced177f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571184590, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (28, '5da65fd0c0d91', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571184592, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (29, '5da760abb68e2', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571250347, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -236,7 +248,12 @@ CREATE TABLE `ven_almacen`  (
   `alm_trabajo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `alm_garantia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`alm_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ven_almacen
+-- ----------------------------
+INSERT INTO `ven_almacen` VALUES (1, 'f-1', '2019-10-16', 213, 'Nissan', 'Sports', 'Juan José', '123', 'Rojo', '3145', '6 meses');
 
 -- ----------------------------
 -- Table structure for ven_concepto
@@ -251,7 +268,13 @@ CREATE TABLE `ven_concepto`  (
   PRIMARY KEY (`con_id`) USING BTREE,
   INDEX `con_fkalm_id`(`con_fkalm_id`) USING BTREE,
   CONSTRAINT `con_fk1` FOREIGN KEY (`con_fkalm_id`) REFERENCES `ven_almacen` (`alm_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ven_concepto
+-- ----------------------------
+INSERT INTO `ven_concepto` VALUES (1, 3.00, '-----', 204.50, 1);
+INSERT INTO `ven_concepto` VALUES (2, 2.00, '----', 12.00, 1);
 
 -- ----------------------------
 -- Table structure for ven_folio
@@ -263,19 +286,21 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
 INSERT INTO `ven_folio` VALUES (11, 'A', '2', NULL);
 INSERT INTO `ven_folio` VALUES (19, 'B', '0', NULL);
-INSERT INTO `ven_folio` VALUES (20, 'f', '0', NULL);
+INSERT INTO `ven_folio` VALUES (20, 'f', '1', NULL);
 INSERT INTO `ven_folio` VALUES (21, 'C', '0', NULL);
 INSERT INTO `ven_folio` VALUES (22, 'BF', '0', NULL);
 INSERT INTO `ven_folio` VALUES (23, 'test', '0', NULL);
 INSERT INTO `ven_folio` VALUES (24, 'DSDS', '0', NULL);
 INSERT INTO `ven_folio` VALUES (25, 'z', '1', NULL);
+INSERT INTO `ven_folio` VALUES (26, 'F', '0', NULL);
+INSERT INTO `ven_folio` VALUES (27, 'F', '0', NULL);
 
 -- ----------------------------
 -- Table structure for ven_producto
@@ -311,7 +336,7 @@ CREATE TABLE `ven_recibo`  (
   `rec_fecha` date NOT NULL,
   `rec_folio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`rec_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_recibo

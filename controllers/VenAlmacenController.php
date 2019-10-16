@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\components\Utilidades;
+use kartik\mpdf\Pdf;
 
 /**
  * VenAlmacenController implements the CRUD actions for VenAlmacen model.
@@ -183,24 +184,31 @@ class VenAlmacenController extends Controller
     public function actionReport($id) 
     {
         $model =  $this->findModel($id);
+        $modelCon = VenConcepto::findAll($id);
 
-       /* $numformat= function($cant){
-            return number_format($cant,2, '.', ',');
-        };*/
-
-        $pdf = Yii::$app->pdf;
+        $pdf = new Pdf([
+            'format' => Pdf::FORMAT_A4,
+            'orientation' => Pdf::ORIENT_PORTRAIT, 
+            'destination' => Pdf::DEST_BROWSER, 
+            'marginTop' => '10',
+            'marginHeader' => '10',
+            'marginBottom' => '10',
+            'marginFooter' => '10',
+            'options' => ['title' => 'Vale de almacén'],
+        ]);
         
         $mpdf = $pdf->api;
         $mpdf->autoPageBreak = false;
+
         //imagenes
         $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
         $mpdf->imageVars['pez'] = file_get_contents('plantillas/itvh/images/logos/pez.png');
         
-        //ir al archivo pdf_header.php en la carpeta views/ven-ventas
         $pdf->cssFile = '@app/web/css/pdf2.css';
-        $mpdf -> SetHTMLHeader($this->renderPartial('pdf', [ 'model' =>   $model, ]));
+        $pdf->content = $this->renderPartial('pdf', [ 'model' =>   $model, 'modelCon' => $modelCon ]);
+        $pdf->content .= '<hr>'. $pdf->content;
 
          return $pdf->render();
     }
