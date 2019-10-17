@@ -51,5 +51,3 @@
 	</div>
 	<br>
 </div>
-<div class="underline" style="position:absolute;top:79.5mm;left:66mm; width: 122.5mm;"></div>
-<div class="underline" style="position:absolute;top:220.5mm;left:66mm; width: 122.5mm;"></div>

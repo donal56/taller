@@ -170,7 +170,10 @@ class VenReciboController extends Controller
         $pdf->cssFile = '@app/web/css/pdf4.css';
         $pdf->content = $this->renderPartial('pdf_recibo',['recibo' =>  $model]); 
         $pdf->content .= '<hr>'.$pdf->content;
-
+        $pdf->content .= 
+        '<div class="underline" style="position:absolute;top:79.5mm;left:66mm; width: 122.5mm;"></div>
+         <div class="underline" style="position:absolute;top:220.5mm;left:66mm; width: 122.5mm;"></div>
+        ';
          return $pdf->render();
 
 
