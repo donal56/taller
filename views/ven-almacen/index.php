@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'print' => function ($url, $model, $key) 
                     {
-                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-almacen/report', 'id' => $model->alm_id],['data-pjax'=>"0"]);
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-almacen/report', 'id' => $model->alm_id],['data-pjax'=>"0",'target' => '_blank']);
                     },
                 ],
                 'template' => '{print}'

@@ -11,7 +11,8 @@ $this->title = 'Vale ' . $model->alm_folio;
 <div class="ven-almacen-view">
     <br>
     <h1><?= Html::encode($this->title) ?></h1><br>
-    <?= Html::a('Regresar', ['index'], ['class' => 'btn btn-info']) ?><br>
+    <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
+    <?= Html::a('Imprimir', ['report', 'id' => $model->alm_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
     <br>
 
     <?= DetailView::widget([
