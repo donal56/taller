@@ -156,7 +156,7 @@ class VenReciboController extends Controller
         //marca de agua
         $mpdf->SetWatermarkImage(
             'img/marca_agua.png',
-            .2,
+            .15,
             //tamaño x,y
             [250,400],
             //posicion x,y
