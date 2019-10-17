@@ -35,18 +35,18 @@
 </div>
 <div class="fullheight rounded">
 		<div style="width: 23mm;" class="div-label">RECIBÍ DE:</div>
-		<div style="width: 145mm;" class="underline">&#8203;<?= $recibo->rec_nomcliente ?></div>
+		<div style="width: 145mm;" class="underline">&#8203;<?= strtoupper($recibo->rec_nomcliente) ?></div>
 	<br>
 		<div style="width: 37mm;" class="div-label">LA CANTIDAD DE:</div>
 		<div style="width: 131mm;" class="underline">&#8203;$<?= number_format($recibo->rec_cantidad,2, '.', ',') ?> MXN</div>
 	<br>
 	<div style="height: 40mm;text-align: justify;">
 		<span class="div-label">POR CONCEPTO DE:</span>
-		<span class="underline">&#8203;<?= str_replace(" ", "&nbsp;", str_pad($recibo->rec_concepto,91)) ?></span>
+		<span class="underline">&#8203;<?= str_replace(" ", "&nbsp;", strtoupper(str_pad($recibo->rec_concepto,81))) ?></span>
 	</div>
 	<div class="firmas">
 		<div class="div-label">RECIBIÓ</div>
-		<div class="center-line">&#8203;<?= $recibo->rec_nomresponsable ?></div>
+		<div class="center-line">&#8203;<?= strtoupper($recibo->rec_nomresponsable) ?></div>
 		<div class="div-label">NOMBRE Y FIRMA</div>
 	</div>
 	<br>
