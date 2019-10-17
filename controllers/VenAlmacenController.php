@@ -203,7 +203,7 @@ class VenAlmacenController extends Controller
         //marca de agua
         $mpdf->SetWatermarkImage(
             'img/marca_agua2.png',
-            .2,
+            .1,
             //tamaño x,y
             [250,400],
             //posicion x,y
