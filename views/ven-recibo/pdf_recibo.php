@@ -42,7 +42,7 @@
 	<br>
 	<div style="height: 40mm;text-align: justify;">
 		<span class="div-label">POR CONCEPTO DE:</span>
-		<span class="underline">&#8203;<?= str_replace(" ", "&nbsp;", strtoupper(str_pad($recibo->rec_concepto,81))) ?></span>
+		<span class="underline">&#8203;<?= strtoupper($recibo->rec_concepto) ?></span>
 	</div>
 	<div class="firmas">
 		<div class="div-label">RECIBIÓ</div>
@@ -51,3 +51,5 @@
 	</div>
 	<br>
 </div>
+<div class="underline" style="position:absolute;top:79.5mm;left:66mm; width: 122.5mm;"></div>
+<div class="underline" style="position:absolute;top:220.5mm;left:66mm; width: 122.5mm;"></div>
