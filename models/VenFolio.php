@@ -10,6 +10,7 @@ use Yii;
  * @property integer $fol_id
  * @property string $fol_serie
  * @property string $fol_folio
+ * @property string $fol_descripcion
  */
 class VenFolio extends \yii\db\ActiveRecord
 {
@@ -29,7 +30,7 @@ class VenFolio extends \yii\db\ActiveRecord
         return [
             [['fol_id'], 'integer'],
             [['fol_serie'], 'required'],
-            [['fol_serie', 'fol_folio'], 'string', 'max' => 255],
+            [['fol_serie', 'fol_folio', 'fol_descripcion'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,6 +43,7 @@ class VenFolio extends \yii\db\ActiveRecord
             'fol_id' => 'ID',
             'fol_serie' => 'Serie',
             'fol_folio' => 'Folio Anterior',
+            'fol_descripcion' => 'Descripción'
         ];
     }
 

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenFolio */
 
-$this->title = 'Crear Folio';
+$this->title = 'Crear folio';
 $this->params['breadcrumbs'][] = ['label' => 'Ven Folios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

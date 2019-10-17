@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenFolio */
 
-$this->title = $model->fol_id;
+$this->title = $model->fol_serie;
 $this->params['breadcrumbs'][] = ['label' => 'Ven Folios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    <br>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -32,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'fol_id',
             'fol_serie',
             'fol_folio',
+            'fol_descripcion'
         ],
     ]) ?>
 

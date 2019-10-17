@@ -75,6 +75,7 @@ use yii\bootstrap\Modal;
                 'allowEmptyList'    => false,
                 'addButtonPosition' => MultipleInput::POS_HEADER,
                 'sortable'  => true, 
+                'max' => 10,
                 'addButtonOptions' => 
                 [
                     'class' => 'btn btn-success',

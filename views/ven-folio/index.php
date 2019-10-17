@@ -28,8 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'fol_id',
             'fol_serie',
             'fol_folio',
+            'fol_descripcion:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{delete}'
+        
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

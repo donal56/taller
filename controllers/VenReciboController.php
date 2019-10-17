@@ -153,6 +153,17 @@ class VenReciboController extends Controller
         $mpdf = $pdf->api;
         $mpdf->autoPageBreak = false;
 
+        //marca de agua
+        $mpdf->SetWatermarkImage(
+            'img/marca_agua.png',
+            .2,
+            //tamaño x,y
+            [250,400],
+            //posicion x,y
+            [0,0]
+        );
+        $mpdf->showWatermarkImage = true;
+
         //imagenes
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         
