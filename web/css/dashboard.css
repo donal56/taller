@@ -32,6 +32,8 @@ img
 
 a:hover img
 {
+    transition: all 0.5s ease;
+
     -webkit-filter: drop-shadow(5px 5px 5px rgba(39,39,39,0.5));
     filter: drop-shadow(5px 5px 5px rgba(39,39,39,0.5));
 

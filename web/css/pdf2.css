@@ -14,7 +14,7 @@ body{
 .firmas
 {
 	float:left;
-	font-size: 15px;
+	font-size: 11px;
 	font-weight: bold;
 	color: #3369b7;
 	height: 25px;
@@ -85,6 +85,7 @@ body{
 .rounded td{
 	border: 1px solid #3369b7;
 	vertical-align: top;
+	padding: 0;
 }
 
 
@@ -119,6 +120,12 @@ body{
 	height: 75mm;
 	top:210mm;
 }
+
+.f16
+{
+	font-size: 16px !important;
+}
+
 .f14
 {
 	font-size: 14px !important;
@@ -137,4 +144,11 @@ body{
 .td1
 {
 	height: 6mm;
+}
+
+.cell
+{
+	text-align: center;
+	font-size: 14px;
+	border: 1px solid #3369b7;
 }
