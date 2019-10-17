@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenAlmacen */
 
-$this->title = 'Vale ' . $model->alm_folio;
+$this->title = 'Vale ' . str_replace('-','',$model->alm_folio);
 ?>
 <div class="ven-almacen-view">
     <br>
@@ -18,8 +18,13 @@ $this->title = 'Vale ' . $model->alm_folio;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'alm_folio',
-            'alm_fecha',
+            [
+                'attribute' => 'alm_folio',
+                'value'     => function ($model) {
+                    return str_replace('-','',$model->alm_folio);
+                }
+            ],
+            'alm_fecha:date',
             'alm_noPedido',
             'alm_vehiculo',
             'alm_modelo',

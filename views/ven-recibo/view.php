@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenRecibo */
 
-$this->title = $model->rec_id;
+$this->title = 'Recibo '.str_replace('-','',$model->rec_folio);
 $this->params['breadcrumbs'][] = ['label' => 'Ven Recibos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -22,18 +22,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'rec_id',
-            'rec_nomcliente',
-            'rec_cantidad',
-            'rec_concepto',
-            'rec_nomresponsable',
-            'rec_fecha:date',
             [
                 'attribute' => 'rec_folio',
                 'value'     => function ($model) {
                     return str_replace('-','',$model->rec_folio);
                 }
             ],
+            'rec_fecha:date',
+            'rec_nomcliente',
+            'rec_cantidad',
+            'rec_concepto',
+            'rec_nomresponsable',
+           
         ],
     ]) ?>
 

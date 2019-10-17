@@ -43,7 +43,7 @@ class VenReciboSearch extends VenRecibo
     public function search($params)
     {
         $query = VenRecibo::find();
-
+        $fecha = explode( ' a ', $params['VenReciboSearch']['intervalo']);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -69,6 +69,10 @@ class VenReciboSearch extends VenRecibo
             ->andFilterWhere(['like', 'rec_concepto', $this->rec_concepto])
             ->andFilterWhere(['like', 'rec_nomresponsable', $this->rec_nomresponsable])
             ->andFilterWhere(['like', 'rec_folio', $this->rec_folio]);
+
+            
+        $query->andFilterWhere(['>=', 'rec_fecha', $fecha[0] ])
+        ->andFilterWhere(['<=', 'rec_fecha', $fecha[1]]);
 
         return $dataProvider;
     }

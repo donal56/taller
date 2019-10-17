@@ -42,6 +42,7 @@ class VenAlmacenSearch extends VenAlmacen
     public function search($params)
     {
         $query = VenAlmacen::find();
+        $fecha = explode( ' a ', $params['VenAlmacenSearch']['intervalo']);
 
         // add conditions that should always apply here
 
@@ -73,6 +74,9 @@ class VenAlmacenSearch extends VenAlmacen
             ->andFilterWhere(['like', 'alm_trabajo', $this->alm_trabajo])
             ->andFilterWhere(['like', 'alm_garantia', $this->alm_garantia]);
 
+        $query->andFilterWhere(['>=', 'alm_fecha', $fecha[0] ])
+            ->andFilterWhere(['<=', 'alm_fecha', $fecha[1]]);
+            
         return $dataProvider;
     }
 }

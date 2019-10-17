@@ -39,7 +39,7 @@
 			  </tr>
 			  <tr>
 			  	<td style="color:red; font-size:2em;" colspan="3" >
-			  		No. <?= str_replace("-", "",  $model->ven_folio) ?> 
+			  		N&#186; <?= str_replace("-", "",  $model->ven_folio) ?> 
 			  	</td>
 			  </tr>
 			  <tr>
