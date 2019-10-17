@@ -13,7 +13,7 @@
 	</div>	
 
 	<div class="border">
-		<div style="font-size: 13px;">
+		<div style="font-size: 12px;">
 			<b>POLO TRANSMISIONES AUTOMÁTICAS S. DE R.L. DE C.V.</b>
 		</div>
 		<span class="fblue">R.F.C. PTA0907035Q1</span><br><br>
@@ -26,7 +26,7 @@
 			  <tr>
 			  	<td style="font-size:2em;border-right: 1.5px solid #3369b7"> <?= date('d-m-Y') ?></td>
 			  	<td style="color:red; font-size:2em;">
-			  		N&#186; <?= str_replace("-", "",  $recibo->rec_folio) ?>
+			  		N&#186; <?= strtoupper(str_replace("-", "",  $recibo->rec_folio)) ?>
 			  	</td>
 			  </tr> 
 			</table>
@@ -34,19 +34,19 @@
 	</div>	
 </div>
 <div class="fullheight rounded">
-		<div style="width: 25mm;" class="div-label">RECIBÍ DE:</div>
-		<div style="width: 145mm;" class="div-underline">&#8203; <?= $recibo->rec_nomcliente ?></div>
-	<br><br>
-		<div style="width: 38mm;" class="div-label">LA CANTIDAD DE:</div>
-		<div style="width: 132mm;" class="div-underline">&#8203; <?= $recibo->rec_cantidad ?></div>
-	<br><br>
-		<div style="width: 43mm;" class="div-label">POR CONCEPTO DE:</div>
-		<div style="width: 127mm;" class="div-underline">&#8203; <?= $recibo->rec_concepto ?><?= $recibo->rec_concepto ?><?= $recibo->rec_concepto ?><?= $recibo->rec_concepto ?></div>
-	<br><br><br>
+		<div style="width: 23mm;" class="div-label">RECIBÍ DE:</div>
+		<div style="width: 145mm;" class="underline">&#8203;<?= $recibo->rec_nomcliente ?></div>
+	<br>
+		<div style="width: 37mm;" class="div-label">LA CANTIDAD DE:</div>
+		<div style="width: 131mm;" class="underline">&#8203;$<?= number_format($recibo->rec_cantidad,2, '.', ',') ?> MXN</div>
+	<br>
+	<div style="height: 40mm;text-align: justify;">
+		<span class="div-label">POR CONCEPTO DE:</span>
+		<span class="underline">&#8203;<?= str_replace(" ", "&nbsp;", str_pad($recibo->rec_concepto,91)) ?></span>
+	</div>
 	<div class="firmas">
 		<div class="div-label">RECIBIÓ</div>
-		<br><br>
-		<div class="center-line">&#8203; <?= $recibo->rec_nomresponsable ?></div>
+		<div class="center-line">&#8203;<?= $recibo->rec_nomresponsable ?></div>
 		<div class="div-label">NOMBRE Y FIRMA</div>
 	</div>
 	<br>

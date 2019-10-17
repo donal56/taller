@@ -2,6 +2,7 @@ body{
 	font-size: 12px;
 	text-align: center;
 	color:#3369b7;
+	font-family: Arial;
 }
 
 .fblue{
@@ -33,11 +34,10 @@ body{
 	font-weight: bold;
 	color: #3369b7;
 	border: 0px;
-	padding-left: 5px;
 	text-align: left;
 }
 
-.div-underline{
+div.underline {
 	float: left;
 	border-bottom: 1.5px solid #3369b7;
 	color: #3369b7;
@@ -45,14 +45,22 @@ body{
 	font-size: 4mm;
 }
 
+span.underline {
+	border-bottom: 1.5px solid #3369b7;
+	color: #3369b7;
+	font-size: 4mm;
+}
+
+
 .center-line{
 	border-bottom: 1.5px solid #3369b7;
 	color: #3369b7;
+	font-size: 4mm;
+	margin: 10mm auto 0 auto; 
 	text-align: center;
-	font-size: 5mm;
-	width: 70mm;
-	margin-left: 55mm;
+	width: 45%;
 }
+
 .border{
 	float: right;
 	border: 0px;
@@ -76,12 +84,11 @@ body{
 }
 .rounded td{
 	border: 0px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
-
 .fullheight{
-	padding-top: 5mm;
+	padding: 5mm 5mm 0mm 5mm;
 	border: 1px solid #3369b7;
 	height: 90mm;
 }
@@ -111,10 +118,6 @@ body{
 	width: 110.6mm;
 	height: 75mm;
 	top:210mm;
-}
-
-.firmas{
-	margin-top: 30mm;
 }
 .firmas div{
 	text-align: center;
