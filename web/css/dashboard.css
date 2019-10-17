@@ -1,17 +1,17 @@
 table
 {
-    font-family: Calibri;
-    text-align: center;
-    width: 100%;
-    height: 70%;
-    font-size: 22px;
-    letter-spacing: 2px;
-    word-spacing: 0.4px;
-    color: #272727;
-    font-weight: 700;
-    text-decoration: none;
-    font-style: normal;
-    font-variant: small-caps;
+    font-family:        Calibri;
+    text-align:         center;
+    width:              100%;
+    height:             70%;
+    font-size:          22px;
+    letter-spacing:     2px;
+    word-spacing:       0.4px;
+    color:             #272727;
+    font-weight:        700;
+    text-decoration:    none;
+    font-style:         normal;
+    font-variant:       small-caps;
 }
 
 a, a:visited, a:hover, a:link, a:active
@@ -22,7 +22,7 @@ a, a:visited, a:hover, a:link, a:active
 #main
 {
     text-align: center;
-    padding: 40px 0;
+    padding:    40px 0;
 }
 
 img
@@ -32,14 +32,14 @@ img
 
 a:hover img
 {
-    transition: all 0.5s ease;
+    transition:         all 0.5s ease;
 
-    -webkit-filter: drop-shadow(5px 5px 5px rgba(39,39,39,0.5));
-    filter: drop-shadow(5px 5px 5px rgba(39,39,39,0.5));
+    -webkit-filter:     drop-shadow(5px 5px 5px rgba(39,39,39,0.5));
+    filter:             drop-shadow(5px 5px 5px rgba(39,39,39,0.5));
 
-    -moz-transform: scale(1.1) translate(0px, -10px);
-    -webkit-transform: scale(1.1) translate(0px, -10px);
-    -o-transform: scale(1.1) translate(0px, -10px);
-    -ms-transform: scale(1.1) translate(0px, -10px);
-    transform: scale(1.1) translate(0px, -10px);
+    -moz-transform:     scale(1.1) translate(0px, -10px);
+    -webkit-transform:  scale(1.1) translate(0px, -10px);
+    -o-transform:       scale(1.1) translate(0px, -10px);
+    -ms-transform:      scale(1.1) translate(0px, -10px);
+    transform:          scale(1.1) translate(0px, -10px);
 }

@@ -184,7 +184,7 @@ class VenAlmacenController extends Controller
     public function actionReport($id) 
     {
         $model =  $this->findModel($id);
-        $modelCon = VenConcepto::findAll($id);
+        $modelCon = VenConcepto::findAll(['con_fkalm_id' => $id]);
 
         $pdf = new Pdf([
             'format' => Pdf::FORMAT_A4,
@@ -199,6 +199,17 @@ class VenAlmacenController extends Controller
         
         $mpdf = $pdf->api;
         $mpdf->autoPageBreak = false;
+
+        //marca de agua
+        $mpdf->SetWatermarkImage(
+            'img/marca_agua2.png',
+            .2,
+            //tamaño x,y
+            [250,400],
+            //posicion x,y
+            [0,0]
+        );
+        $mpdf->showWatermarkImage = true;
 
         //imagenes
         $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');

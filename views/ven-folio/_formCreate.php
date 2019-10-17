@@ -17,7 +17,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fol_serie')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'fol_descripcion')->textArea(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'fol_folio')->textInput(['maxlength' => true,'value' => '0'])->hiddenInput()->label(false) ?>
+    
 
  	<div class="form-group">
         <?= Html::SubmitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'id' => 'createButton']) ?>
