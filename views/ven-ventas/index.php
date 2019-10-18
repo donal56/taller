@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\daterange\DateRangePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenVentasSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -32,7 +33,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     return str_replace('-','',$model->ven_folio);
                 }
             ],
-            //'ven_fecha',
+            [
+                'attribute'=>'ven_fecha',
+                'label'=>'Fecha de elaboración  ',
+                'format'=>'date',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenVentaSearch[intervalo]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+                'contentOptions' => ['style' => 'width: 12em; font-size: 0.85em'],
+            ],
             'ven_fullname',
             //'ven_domicilio',
             //'ven_ciudad',

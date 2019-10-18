@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\daterange\DateRangePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenAlmacenSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,8 +25,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'alm_folio',
-            'alm_fecha',
+            [
+                'attribute' => 'alm_folio',
+                'value'     => function ($model) {
+                    return str_replace('-','',$model->alm_folio);
+                }
+            ],
+            [
+                'attribute'=>'alm_fecha',
+                'label'=>'Fecha de elaboración  ',
+                'format'=>'date',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenAlmacenSearch[intervalo]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+                'contentOptions' => ['style' => 'width: 12em; font-size: 0.85em'],
+            ],
             'alm_noPedido',
             'alm_mecanico',
             [
@@ -34,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'print' => function ($url, $model, $key) 
                     {
-                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-almacen/report', 'id' => $model->alm_id],['data-pjax'=>"0"]);
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-almacen/report', 'id' => $model->alm_id],['data-pjax'=>"0",'target' => '_blank']);
                     },
                 ],
                 'template' => '{print}'

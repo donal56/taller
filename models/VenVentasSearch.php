@@ -42,6 +42,7 @@ class VenVentasSearch extends VenVentas
     public function search($params)
     {
         $query = VenVentas::find();
+        $fecha = explode( ' a ', $params['VenVentaSearch']['intervalo']);
 
         // add conditions that should always apply here
 
@@ -74,6 +75,8 @@ class VenVentasSearch extends VenVentas
             ->andFilterWhere(['like', 'ven_ciudad', $this->ven_ciudad])
             ->andFilterWhere(['like', 'ven_rfc', $this->ven_rfc]);
 
+        $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0] ])
+            ->andFilterWhere(['<=', 'ven_fecha', $fecha[1]]);
         return $dataProvider;
     }
 }

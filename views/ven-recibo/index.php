@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\daterange\DateRangePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenReciboSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -34,7 +35,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     return str_replace('-','',$model->rec_folio);
                 }
             ],
-            'rec_fecha',
+            [
+                'attribute'=>'rec_fecha',
+                'label'=>'Fecha de elaboración  ',
+                'format'=>'date',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenReciboSearch[intervalo]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+                'contentOptions' => ['style' => 'width: 12em; font-size: 0.85em'],
+            ],
             'rec_nomcliente',
             //'rec_cantidad',
             //'rec_concepto',

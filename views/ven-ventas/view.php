@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenVentas */
 
-$this->title = $model->ven_id;
+$this->title = 'Venta ' . str_replace('-','',$model->ven_folio);
 $this->params['breadcrumbs'][] = ['label' => 'Ven Ventas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
-        <?= Html::a('Imprimir', ['report', 'id' => $model->ven_id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Imprimir', ['report', 'id' => $model->ven_id], ['class' => 'btn btn-primary','target' => '_blank']) ?>
         <?/*= Html::a('Actualizar', ['update', 'id' => $model->ven_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Eliminar', ['delete', 'id' => $model->ven_id], [
             'class' => 'btn btn-danger',
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return str_replace('-','',$model->ven_folio);
                 }
             ],
-            'ven_fecha',
+            'ven_fecha:date',
             'ven_fullname',
             'ven_domicilio',
             'ven_ciudad',

@@ -31,6 +31,7 @@ class VenFolio extends \yii\db\ActiveRecord
             [['fol_id'], 'integer'],
             [['fol_serie'], 'required'],
             [['fol_serie', 'fol_folio', 'fol_descripcion'], 'string', 'max' => 255],
+            [['fol_serie'], 'filter', 'filter'=>'strtoupper'],
         ];
     }
 
