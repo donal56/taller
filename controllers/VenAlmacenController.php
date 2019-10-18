@@ -9,6 +9,7 @@ use app\models\VenFolio;
 use app\models\VenAlmacenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ServerErrorHttpException;
 use yii\filters\VerbFilter;
 use app\components\Utilidades;
 use kartik\mpdf\Pdf;
@@ -102,11 +103,18 @@ class VenAlmacenController extends Controller
                     else 
                     {
                         $transaction->rollback();
-                        throw new ServerErrorHttpException('A OCCURIDO UN ERROR CON LOS PRODUCTOS');
+                        $model->isNewRecord = true;
+                        return $this->render('create', 
+                        [
+                            'model' => $model,
+                            'modelCon' => $modelCon,
+                            'modelFol' => $modelFol
+                        ]);
                     }
                    
                 }
-                $transaction->commit();
+                    $transaction->commit();
+                
                 return $this->redirect(['view', 'id' => $model->alm_id]); 
             }
             else
@@ -190,7 +198,7 @@ class VenAlmacenController extends Controller
             'format' => Pdf::FORMAT_A4,
             'orientation' => Pdf::ORIENT_PORTRAIT, 
             'destination' => Pdf::DEST_BROWSER, 
-            'marginTop' => '10',
+            'marginTop' => '15',
             'marginHeader' => '10',
             'marginBottom' => '10',
             'marginFooter' => '10',
@@ -214,6 +222,7 @@ class VenAlmacenController extends Controller
         //imagenes
         $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
+        $mpdf->imageVars['polo0'] = file_get_contents('img/logoagua.jpg');
         $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
         $mpdf->imageVars['pez'] = file_get_contents('plantillas/itvh/images/logos/pez.png');
         

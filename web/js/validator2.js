@@ -16,6 +16,7 @@ $('.multiple-input').on('afterInit', function()
 {
     var conf;
 
+    
     if ($(row).find('input').eq(0).val()== ""&&
         $(row).find('input').eq(1).val()== ""&&
         $(row).find('input').eq(2).val()== "")
@@ -39,12 +40,12 @@ $('.multiple-input').on('afterInit', function()
 //on change
 function validateDetalles(){
 
-    $("[id^='venproducto-temp']").on('blur.yii',function(){
+    $("[id^='venconcepto-temp']").on('blur.yii',function(){
 
     var detalle = $(this).attr('id');
 
         if($(this).val().length > 0){
-            if (detalle.includes('pro_unidad')){
+            if (detalle.includes('con_cantidad')){
                 if($(this).val().length > 9)
                 {
                     $('#w0').yiiActiveForm('updateAttribute', $(this).attr('id'), 
@@ -60,7 +61,7 @@ function validateDetalles(){
                 }
 
             }
-            if (detalle.includes('pro_nombre')){
+            if (detalle.includes('con_descripcion')){
                 $(this).val($(this).val().toUpperCase());
                 if($(this).val().length > 255)
                 {
@@ -73,7 +74,7 @@ function validateDetalles(){
                 }
 
             }
-            if (detalle.includes('pro_precio')){
+            if (detalle.includes('con_preciounitario')){
                 
                 if($(this).val().length > 8)
                 {

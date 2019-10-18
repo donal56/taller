@@ -15,18 +15,18 @@ use yii\helpers\Url;
 
 <div class="ven-ventas-form">
     <?php $form = ActiveForm::begin(); ?>
-<br>
-<div class="row"> 
+    <br>
+    <div class="row">
 
-    <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>'true']) ?> 
-    
-    <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_serie'),[ 'prompt' => 'Seleccione Uno' ]) ?>
+        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>'true']) ?>
+
+        <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_serie'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
 
-    <?= $form->field($modelfol, 'fol_folio',['options' => ['class' => 'form-group col-sm-4', 'style' => 'width: calc(33.33333333% + 36px)']])->textInput(['maxlength' => true,'readonly' => true]) ?>
+        <?= $form->field($modelfol, 'fol_folio',['options' => ['class' => 'form-group col-sm-4', 'style' => 'width: calc(33.33333333% + 36px)']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
-    <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>  
-    <?= Html::a('', '',[
+        <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
+        <?= Html::a('', '',[
                         'id' => 'abrirModal',
                         'class' => 'btn btn-success glyphicon glyphicon-plus',
                         'data-toggle' => 'modal',
@@ -46,40 +46,40 @@ use yii\helpers\Url;
         ?>
 
 
-</div>
-<br>
-<div class="row">
+    </div>
+    <br>
+    <div class="row">
 
-    <?= $form->field($model, 'ven_nombre', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_nombre', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ven_paterno', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_paterno', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ven_materno', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_materno', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ven_rfc', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_rfc', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
 
-</div>
+    </div>
 
-<div class="row">
-    <?= $form->field($model, 'ven_domicilio',['options' => ['class' => 'form-group col-sm-8']])->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <?= $form->field($model, 'ven_domicilio',['options' => ['class' => 'form-group col-sm-8']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ven_ciudad',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
-	
-	<?= $form->field($model, 'ven_vehiculo',['options' => ['class' => 'form-group col-sm-6']])->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'ven_placa',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
-	<?= $form->field($model, 'ven_modelo',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
-	<?= $form->field($model, 'ven_color',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
-	<?= $form->field($model, 'ven_tecnico',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
-	<?= $form->field($model, 'ven_oi',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
-	<?= $form->field($model, 'ven_garantia',['options' => ['class' => 'form-group col-sm-12']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_ciudad',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
 
-</div>
+        <?= $form->field($model, 'ven_vehiculo',['options' => ['class' => 'form-group col-sm-6']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_placa',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_modelo',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_color',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_tecnico',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_oi',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'ven_garantia',['options' => ['class' => 'form-group col-sm-12']])->textInput(['maxlength' => true]) ?>
+
+    </div>
 
 
     <?= $form->field($modelpro,'temp')->widget(MultipleInput::className(), 
         [
         	'enableError' => true,
-            'allowEmptyList'    => false,
+            'allowEmptyList' => true,
             'addButtonPosition' => MultipleInput::POS_HEADER,
             'sortable'  => true, 
             'addButtonOptions' => 
@@ -111,7 +111,8 @@ use yii\helpers\Url;
             ]
         ])->label("<h3>Productos</h3>");
         ?>
-
+    <br>
+    <br>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         <?= Html::a('Cancelar','/ven-ventas/index', ['class' => 'btn btn-danger']) ?>

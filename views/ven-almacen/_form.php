@@ -18,7 +18,7 @@ use yii\bootstrap\Modal;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <div class="row">
+    <div class="row col-sm-12">
         <?php 
             Modal::begin([
                 'id'     =>'modal',
@@ -39,6 +39,7 @@ use yii\bootstrap\Modal;
         <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-3']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_serie'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
         <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
+
         <div class="form-group col-sm-1">
             <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?>
             <?= Html::a('', '',[
@@ -52,6 +53,9 @@ use yii\bootstrap\Modal;
                             ]) 
             ?>
         </div>
+    </div>
+
+    <div class="row col-sm-12">
         
         <?= $form->field($model, 'alm_vehiculo', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
 
@@ -72,7 +76,7 @@ use yii\bootstrap\Modal;
         <?= $form->field($modelCon,'temp')->widget(MultipleInput::className(), 
             [
                 'enableError' => true,
-                'allowEmptyList'    => false,
+                'allowEmptyList'    => true,
                 'addButtonPosition' => MultipleInput::POS_HEADER,
                 'sortable'  => true, 
                 'max' => 10,
@@ -93,6 +97,7 @@ use yii\bootstrap\Modal;
                     [
                         'name'  => 'con_descripcion',
                         'title' => 'Concepto',
+                        'type' => 'textarea',
                         'enableError' => true,
                     ],
 
@@ -105,6 +110,8 @@ use yii\bootstrap\Modal;
             ])->label("<h3>Productos</h3>");
         ?>
     </div>
+    <br>
+    <br>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -143,4 +150,4 @@ EOD;
 <?= $this->registerCssFile("/css/cur-form.css"); ?>
 <?= $this->registerJs($js) ?>
 <?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-<?= $this->registerJsFile("/js/validator.js",['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/validator2.js",['depends' => 'yii\web\JqueryAsset']); ?>
