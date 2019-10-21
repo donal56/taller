@@ -7,59 +7,130 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\VenOrden */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+<br><br>
 <div class="ven-orden-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin();?>
 
-    <?= $form->field($model, 'ord_folio')->textInput() ?>
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion_sce_1" href="#collapse1">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default btn-xs" data-content="Minimizar/Maximizar"
+                    data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top">
+                    <i class="glyphicon glyphicon-eye-open"></i> Min/Max
+                </button>
+            </div>
+            <h4 class="panel-title" style="color: white">Datos generales</h4>
+            </h4>
+        </div>
 
-    <?= $form->field($model, 'ord_nombre')->textInput(['maxlength' => true]) ?>
+        <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row col-sm-12">
+                    <?=$form->field($model, 'ord_folio', ['options' => ['class' => 'form-group col-sm-2']])->textInput()?>
 
-    <?= $form->field($model, 'ord_direccion')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_nombre', ['options' => ['class' => 'form-group col-sm-5']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_codigoPostal')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_direccion', ['options' => ['class' => 'form-group col-sm-5']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_telefono')->textInput(['maxlength' => true]) ?>
+                </div>
 
-    <?= $form->field($model, 'ord_ife')->textInput(['maxlength' => true]) ?>
+                <div class="row col-sm-12">
 
-    <?= $form->field($model, 'ord_modelo')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_codigoPostal', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_marca')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_telefono', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_placa')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_ife', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_fechaIngreso')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_modelo', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_fechaEntrega')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_marca', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_noSerie')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_placa', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_color')->textInput(['maxlength' => true]) ?>
+                </div>
 
-    <?= $form->field($model, 'ord_kilometraje')->textInput() ?>
 
-    <?= $form->field($model, 'ord_vehiculoExterior')->textarea(['rows' => 6]) ?>
+                <div class="row col-sm-12">
 
-    <?= $form->field($model, 'ord_vehiculoInterior')->textarea(['rows' => 6]) ?>
+                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_observaciones')->textarea(['rows' => 6]) ?>
+                    <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_tanque')->textInput(['maxlength' => true]) ?>
+                    <?=$form->field($model, 'ord_noSerie', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_accesoriosExterior')->textarea(['rows' => 6]) ?>
+                    <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'ord_accesoriosInterior')->textarea(['rows' => 6]) ?>
+                </div>
 
-    <?= $form->field($model, 'ord_problemas')->textarea(['rows' => 6]) ?>
+                <div class="row col-sm-12">
 
-    <?= $form->field($model, 'ord_diagnostico')->textarea(['rows' => 6]) ?>
+                    <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <?php ActiveForm::end(); ?>
+
+    <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion_sce_1" href="#collapse2">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default btn-xs" data-content="Minimizar/Maximizar"
+                    data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top">
+                    <i class="glyphicon glyphicon-eye-open"></i> Min/Max
+                </button>
+            </div>
+            <h4 class="panel-title">Inventario del vehículo</h4>
+            </h4>
+        </div>
+
+        <div id="collapse2" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_vehiculoExterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+
+                    <?=$form->field($model, 'ord_vehiculoInterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+
+                </div>
+
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_accesoriosExterior', ['options' => ['class' => 'form-group col-sm-5']])->textarea(['rows' => 6])?>
+
+                    <?=$form->field($model, 'ord_accesoriosInterior', ['options' => ['class' => 'form-group col-sm-5']])->textarea(['rows' => 6])?>
+
+                    <?=$form->field($model, 'ord_tanque', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
+
+                </div>
+
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_observaciones', ['options' => ['class' => 'form-group col-sm-12']])->textarea(['rows' => 2])?>
+
+                </div>
+
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_problemas', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+
+                    <?=$form->field($model, 'ord_diagnostico', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <?=Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'])?>
+    <?=Html::a('Cancelar', '/ven-orden/index', ['class' => 'btn btn-danger'])?>
+</div>
+
+<?php ActiveForm::end();?>
 
 </div>
+
+<?= $this->registerJsFile("/js/yii-panel.js", ['depends' => 'yii\web\JqueryAsset']); ?>

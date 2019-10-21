@@ -37,7 +37,7 @@ $('#modal').on("hide.bs.modal", function() {
 
 
 function validateForm(form){
-    var $form = $(form), 
+    var $form = $(form);
     data = $form.data("yiiActiveForm");
     $.each(data.attributes, function() 
     {
