@@ -10,15 +10,17 @@ use kartik\daterange\DateRangePicker;
 
 $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
+if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->superadmin) {
 ?>
 <div class="ven-ventas-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
+    <p>  
+        <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Generar Ventas', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Gestionar Folios', ['ven-folio/index'], ['class' => 'btn btn-info']) ?>
+      
     </p><br>
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -69,6 +71,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'template' => '{view} {update} {delete}'
             ],
         ],
-    ]); ?>
+    ]); 
+}else{  header ("Location: /ven-folio");  //cambiar ruta
+}
+    ?>
 </div>
 <?= $this->registerCssFile("/css/cur-form.css");   ?>

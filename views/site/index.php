@@ -1,26 +1,41 @@
 <?php
-use yii\helpers\Html;
+use webvimark\modules\UserManagement\components\GhostMenu;
+use webvimark\modules\UserManagement\UserManagementModule;
+use app\components\widgets\krnpanel\KrnPanel;
+use yii\helpers\Url;
+
+
+$this->registerCssFile("@web/css/dashboard.css"); 
 
 $this->title = 'Polo - Transmisiones autómaticas';
 ?>
 
 <div id= 'main'>
-    <table>
-        <tr>
-            <td><?= Html::a(Html::img('@web/img/ventas.png', ['alt' => 'Ventas', 'id' => 'ventas']), ['/ven-ventas']) ?></td>
-            <td><?= Html::a(Html::img('@web/img/almacen.png', ['alt' => 'Vales de almacén', 'id' => 'almacen']), ['/ven-almacen']) ?></td>
-            <td><?= Html::a(Html::img('@web/img/recibo.png', ['alt' => 'Recibos', 'id' => 'recibo']), ['/ven-recibo']) ?></td>
-        </tr>
-        <tr class= 'labels'>
-            <td><?= Html::a(Html::label('Ventas', 'ventas'), ['/ven-ventas']) ?></td>
-            <td><?= Html::a(Html::label('Vales de almacén', 'almacen'), ['/ven-almacen'])  ?></td>
-            <td><?= Html::a(Html::label('Recibos', 'recibo'), ['/ven-recibo'])  ?></td>
-        </tr>
-    </table>
-</div>
+<?php 
+    $botones = [];
+//echo Yii::$app->user->identity->id;
 
+if(Yii::$app->user->identity->hasRole('Admin')) {
+  $botones = [
+    ['texto' => 'Ventas', 'ruta' => ['/ven-ventas'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+    ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+    ['texto' => 'Recibos', 'ruta' => ['/ven-recibo'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
+    ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
+    ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+  ];
+} else if(Yii::$app->user->identity->hasRole('operador')) {
+ $botones = [
+    ['texto' => 'Ventas', 'ruta' => ['/ven-ventas'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+    ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+    ['texto' => 'Recibos', 'ruta' => ['/ven-recibo'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+    ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
+    ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+   
+  ];
+}
 
-<?php
-    $this->registerCssFile("@web/css/dashboard.css"); 
+echo krnPanel::widget(['buttons'=>$botones]);
+
 ?>
 
+</div>

@@ -9,6 +9,7 @@ use yii\widgets\Pjax;
 
 $this->title = 'Folios';
 $this->params['breadcrumbs'][] = $this->title;
+if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->superadmin) {
 ?>
 <div class="ven-folio-index">
 
@@ -16,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('','/ven-ventas/index', ['class' => 'btn btn-primary glyphicon glyphicon-arrow-left']) ?>
+        <?php /*= Html::a('','/ven-ventas/index', ['class' => 'btn btn-primary glyphicon glyphicon-arrow-left']) */?>
+        <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Crear Folio', ['create'], ['class' => 'btn btn-success']) ?>
     </p><br>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
@@ -35,6 +37,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{delete}'
         
             ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update}{delete}',
+                'visible' =>Yii::$app->user->identity->superadmin
+        
+            ],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?>
+<?php }else{  header ("Location: /ven-folio");  //cambiar ruta
+}?>
+</div>

@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 21/10/2019 15:22:53
+ Date: 16/10/2019 14:37:46
 */
 
 SET NAMES utf8mb4;
@@ -34,9 +34,6 @@ CREATE TABLE `auth_assignment`  (
 -- ----------------------------
 -- Records of auth_assignment
 -- ----------------------------
-INSERT INTO `auth_assignment` VALUES ('Mecanico', 8, 1571593106);
-INSERT INTO `auth_assignment` VALUES ('operador', 5, 1571510454);
-INSERT INTO `auth_assignment` VALUES ('operador', 7, 1571591867);
 INSERT INTO `auth_assignment` VALUES ('otro', 4, 1566596332);
 INSERT INTO `auth_assignment` VALUES ('otros', 4, 1566597215);
 
@@ -60,148 +57,6 @@ CREATE TABLE `auth_item`  (
   CONSTRAINT `auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `auth_item_ibfk_2` FOREIGN KEY (`group_code`) REFERENCES `auth_item_group` (`code`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of auth_item
--- ----------------------------
-INSERT INTO `auth_item` VALUES ('/*', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/default/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/default/action', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/default/diff', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/default/index', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/default/preview', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gii/default/view', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gridview/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gridview/export/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/gridview/export/download', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/acceso', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/captcha', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/dash', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/error', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/index', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/login', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/site/logout', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/*', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/bulk-activate', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/bulk-deactivate', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/bulk-delete', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/create', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/delete', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/grid-page-size', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/grid-sort', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/index', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/toggle-attribute', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/update', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth-item-group/view', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/*', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/captcha', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/change-own-password', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/confirm-email', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/confirm-email-receive', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/confirm-registration-email', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/login', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/logout', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/password-recovery', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/password-recovery-receive', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/auth/registration', 3, NULL, NULL, NULL, 1571510329, 1571510329, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/*', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/bulk-activate', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/bulk-deactivate', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/bulk-delete', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/create', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/delete', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/grid-page-size', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/grid-sort', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/index', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/refresh-routes', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/set-child-permissions', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/set-child-routes', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/toggle-attribute', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/update', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/permission/view', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/*', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/bulk-activate', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/bulk-deactivate', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/bulk-delete', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/create', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/delete', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/grid-page-size', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/grid-sort', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/index', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/set-child-permissions', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/set-child-roles', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/toggle-attribute', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/update', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/role/view', 3, NULL, NULL, NULL, 1571510328, 1571510328, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-permission/*', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-permission/set', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-permission/set-roles', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/bulk-activate', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/bulk-deactivate', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/bulk-delete', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/create', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/delete', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/grid-page-size', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/grid-sort', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/index', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/toggle-attribute', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/update', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user-visit-log/view', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/*', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/bulk-activate', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/bulk-deactivate', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/bulk-delete', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/change-password', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/create', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/delete', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/grid-page-size', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/grid-sort', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/index', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/toggle-attribute', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/update', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/user-management/user/view', 3, NULL, NULL, NULL, 1571510327, 1571510327, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-almacen/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-almacen/create', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-almacen/index', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-almacen/report', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-almacen/view', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-concepto/*', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/*', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/ajax-create', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/create', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/delete', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/index', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/update', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-folio/view', 3, NULL, NULL, NULL, 1571510326, 1571510326, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-producto/*', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-producto/create', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-producto/delete', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-producto/index', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-producto/update', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-producto/view', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/*', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/create', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/delete', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/index', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/report', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/update', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-recibo/view', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/*', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/create', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/delete', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/index', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/report', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/report2', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/update', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('/ven-ventas/view', 3, NULL, NULL, NULL, 1571510325, 1571510325, NULL);
-INSERT INTO `auth_item` VALUES ('Mecanico', 1, 'Mecanico', NULL, NULL, 1571592758, 1571592758, NULL);
-INSERT INTO `auth_item` VALUES ('operador', 1, 'operador', NULL, NULL, 1571510265, 1571545220, NULL);
-INSERT INTO `auth_item` VALUES ('operar', 2, 'operador', NULL, NULL, 1571510318, 1571510318, NULL);
-INSERT INTO `auth_item` VALUES ('tecnico', 2, 'Mecanico', NULL, NULL, 1571592796, 1571592796, NULL);
 
 -- ----------------------------
 -- Table structure for auth_item_child
@@ -244,12 +99,6 @@ INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-d
 INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
 INSERT INTO `auth_item_child` VALUES ('editUsers', 'viewUsers');
 INSERT INTO `auth_item_child` VALUES ('jefe', 'prueba');
-INSERT INTO `auth_item_child` VALUES ('operador', 'operar');
-INSERT INTO `auth_item_child` VALUES ('operar', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/create');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/index');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/update');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/view');
 INSERT INTO `auth_item_child` VALUES ('otro', 'Usuario General');
 INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
 INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
@@ -262,7 +111,6 @@ INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/view');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/site/index');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
-INSERT INTO `auth_item_child` VALUES ('tecnico', '/site/index');
 INSERT INTO `auth_item_child` VALUES ('Usuario General', '/site/index');
 INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
 INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
@@ -322,17 +170,14 @@ CREATE TABLE `user`  (
   `email` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `email_confirmed` smallint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'superadmin', 'kz2px152FAWlkHbkZoCiXgBAd-S8SSjF', '$2y$13$MhlYe12xkGFnSeK0sO2up.Y9kAD9Ct6JS1i9VLP7YAqd1dFsSylz2', NULL, 1, 1, 1426062188, 1426062188, NULL, NULL, NULL, 0);
 INSERT INTO `user` VALUES (4, 'otro', 'NEDNdq8Kt7291gYRuEAMtla4XCMF_tMe', '$2y$13$zeHS/vr1TLWqbGdEk09SNe2dePeXFnRoj0FQhvM.4GjlRvGFCWJNW', NULL, 1, 0, 1566596324, 1566596324, '127.0.0.1', '', '', 0);
-INSERT INTO `user` VALUES (5, 'polo', 'aHZwmwypWrGKdoIR2fc9Z8L7csxnm1O3', '$2y$13$67nfEOEKXk8frbDWov5xH.8sfLYZO2lDfBgO6X1hrM62OYmr1j8o6', NULL, 1, 0, 1571340187, 1571340187, '127.0.0.1', '', '', 0);
-INSERT INTO `user` VALUES (6, '11', 'Y1aZlqwvLnSHdT03e-103VctJ52jg-s5', '$2y$13$EpwcqOS07AgbA8sJF6WwQeRvXxddbERlx2dtThRgsl8uuo1g9YWaC', NULL, 1, 0, 1571591649, 1571591649, '127.0.0.1', '', '', 0);
-INSERT INTO `user` VALUES (7, 'aa', 'CfXxvCTzyVi_v4I2BJhwisfj9GhUl4W3', '$2y$13$qDNsMDjVTSUQ3oA4yjaXWu99DVLXXccqqetSeBI2Anx8cfsR0U/L.', NULL, 1, 0, 1571591867, 1571591867, '127.0.0.1', '', '', 0);
-INSERT INTO `user` VALUES (8, 'ss', 'xy5_WRNHEj0erBr-f2KReBEv6L3uezI-', '$2y$13$HRdbOvlRPZj7LABOsWUyMujoYFLfa9RvF5PjNJPBda32.ZhfS3Tqe', NULL, 1, 0, 1571592271, 1571593094, '127.0.0.1', '', NULL, 0);
+INSERT INTO `user` VALUES (5, 'polo', 'frM3C3hHw3if4TI4zX_zsgX7oU9qBIRt', '$2y$13$r/lxPp71z1gbfj8cuNeKc..tozuUDqaMIjE5GqnyFVCG0bQJEkYQe', NULL, 1, 0, 1571181464, 1571181464, '127.0.0.1', '', '', 0);
 
 -- ----------------------------
 -- Table structure for user_visit_log
@@ -351,29 +196,40 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
 -- ----------------------------
-INSERT INTO `user_visit_log` VALUES (1, '5daa9fe115080', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571463137, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (28, '5dab56181b5e7', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571509784, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (29, '5dab57d2c188b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571510226, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (30, '5dab58cf9dd00', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571510479, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (31, '5dabc4e17d496', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571538145, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (32, '5dabdce31a608', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571544291, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (33, '5dabdf0f4d298', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571544847, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (34, '5dabdf36b2cd3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571544886, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (35, '5dabe0a59b439', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571545253, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (36, '5dac4cee06526', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571572974, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (37, '5dac551c5a450', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571575068, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (38, '5dac84d20ccd3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571587282, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (39, '5dac852f1a80a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571587375, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (40, '5dac9ba1af7a5', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 8, 1571593121, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (41, '5dac9c4871d92', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571593288, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (42, '5dae033f59444', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571685183, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (43, '5dae03531a1c6', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571685203, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (44, '5dae048d4063f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571685517, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (1, '5cae8867448fc', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 1, 1554942055, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (2, '5d7ee7dd99c7a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1568597981, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (3, '5d816521da1bb', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1568761121, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (4, '5d82c5894e1f9', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1568851337, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (5, '5d841b5a6ffe3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1568938842, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (6, '5d84d8aedc9ec', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1568987310, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (7, '5d85430a0473c', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1569014538, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (8, '5d8543eadfa4e', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1569014762, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (9, '5d8544a63cab0', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1569014950, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (10, '5d8553593c2cd', '192.168.4.24', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1569018713, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (11, '5d855e5856df2', '192.16.24.80', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1, 1569021528, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (12, '5d8d20adc3c70', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1569530029, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (13, '5d97f374e4e86', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1570239348, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (14, '5d97f5eecc274', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1570239982, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (15, '5d9f4a202a022', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1570720288, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (16, '5da0cf6aed40a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36', 1, 1570819947, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (17, '5da6110739a95', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571164423, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (18, '5da62b95422c3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571171221, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (19, '5da63b1a7bede', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571175194, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (20, '5da6537506901', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571181429, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (21, '5da653a9e082b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571181481, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (22, '5da656e8eaef7', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182312, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (23, '5da656f207199', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571182322, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (24, '5da65782d5152', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182466, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (25, '5da65784d6215', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182468, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (26, '5da6582ff3a8f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571182639, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (27, '5da65fced177f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571184590, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (28, '5da65fd0c0d91', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571184592, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (29, '5da760abb68e2', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571250347, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -397,7 +253,7 @@ CREATE TABLE `ven_almacen`  (
 -- ----------------------------
 -- Records of ven_almacen
 -- ----------------------------
-INSERT INTO `ven_almacen` VALUES (1, 'z-4', '2019-10-16', 123, 'NISSAN', 'MAZDA', 'JOSE ALBERTO', '232FERG', 'ROJO', 'PINTURA', '6 MESES');
+INSERT INTO `ven_almacen` VALUES (1, 'f-1', '2019-10-16', 213, 'Nissan', 'Sports', 'Juan José', '123', 'Rojo', '3145', '6 meses');
 
 -- ----------------------------
 -- Table structure for ven_concepto
@@ -412,12 +268,13 @@ CREATE TABLE `ven_concepto`  (
   PRIMARY KEY (`con_id`) USING BTREE,
   INDEX `con_fkalm_id`(`con_fkalm_id`) USING BTREE,
   CONSTRAINT `con_fk1` FOREIGN KEY (`con_fkalm_id`) REFERENCES `ven_almacen` (`alm_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_concepto
 -- ----------------------------
-INSERT INTO `ven_concepto` VALUES (1, 1.00, 'PINTURA CAPA', 123.24, 1);
+INSERT INTO `ven_concepto` VALUES (1, 3.00, '-----', 204.50, 1);
+INSERT INTO `ven_concepto` VALUES (2, 2.00, '----', 12.00, 1);
 
 -- ----------------------------
 -- Table structure for ven_folio
@@ -429,44 +286,21 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
-INSERT INTO `ven_folio` VALUES (11, 'A', '2', '11');
-INSERT INTO `ven_folio` VALUES (25, 'z', '4', 'ss');
-
--- ----------------------------
--- Table structure for ven_orden
--- ----------------------------
-DROP TABLE IF EXISTS `ven_orden`;
-CREATE TABLE `ven_orden`  (
-  `ord_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ord_folio` int(11) NOT NULL,
-  `ord_nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `ord_direccion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_codigoPostal` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_telefono` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_ife` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_modelo` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_marca` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_placa` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_fechaIngreso` datetime(6) NOT NULL,
-  `ord_fechaEntrega` datetime(6) DEFAULT NULL,
-  `ord_noSerie` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_color` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_kilometraje` int(10) DEFAULT NULL,
-  `ord_vehiculoExterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  `ord_vehiculoInterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  `ord_observaciones` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `ord_tanque` set('0','25','50','75','100') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
-  `ord_accesoriosExterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  `ord_accesoriosInterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `ord_diagnostico` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  PRIMARY KEY (`ord_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+INSERT INTO `ven_folio` VALUES (11, 'A', '2', NULL);
+INSERT INTO `ven_folio` VALUES (19, 'B', '0', NULL);
+INSERT INTO `ven_folio` VALUES (20, 'f', '1', NULL);
+INSERT INTO `ven_folio` VALUES (21, 'C', '0', NULL);
+INSERT INTO `ven_folio` VALUES (22, 'BF', '0', NULL);
+INSERT INTO `ven_folio` VALUES (23, 'test', '0', NULL);
+INSERT INTO `ven_folio` VALUES (24, 'DSDS', '0', NULL);
+INSERT INTO `ven_folio` VALUES (25, 'z', '1', NULL);
+INSERT INTO `ven_folio` VALUES (26, 'F', '0', NULL);
+INSERT INTO `ven_folio` VALUES (27, 'F', '0', NULL);
 
 -- ----------------------------
 -- Table structure for ven_producto
@@ -486,6 +320,7 @@ CREATE TABLE `ven_producto`  (
 -- ----------------------------
 -- Records of ven_producto
 -- ----------------------------
+INSERT INTO `ven_producto` VALUES (87, 1, 'ACEITE', 500.00, 97);
 INSERT INTO `ven_producto` VALUES (88, 1, 'ACEITE', 500.00, 98);
 
 -- ----------------------------
@@ -501,12 +336,14 @@ CREATE TABLE `ven_recibo`  (
   `rec_fecha` date NOT NULL,
   `rec_folio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`rec_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_recibo
 -- ----------------------------
-INSERT INTO `ven_recibo` VALUES (1, 'Daniel Osorio', 123.23, 'TESTEO DE  RECIBOS', 'Felipe Osorio', '2019-10-15', 'z-1');
+INSERT INTO `ven_recibo` VALUES (1, 'Daniel Osorio', 123.23, 'efe', 'Felipe Osorio', '0000-00-00', '');
+INSERT INTO `ven_recibo` VALUES (2, 'Daniel Osorio', 123.23, 'Utiles', 'Felipe Osorio', '2019-10-15', '123a');
+INSERT INTO `ven_recibo` VALUES (3, 'Daniel Osorio', 123.23, 'TESTEO DE  RECIBOS', 'Felipe Osorio', '2019-10-15', 'z-1');
 
 -- ----------------------------
 -- Table structure for ven_ventas
@@ -536,6 +373,7 @@ CREATE TABLE `ven_ventas`  (
 -- ----------------------------
 -- Records of ven_ventas
 -- ----------------------------
+INSERT INTO `ven_ventas` VALUES (97, 'A-1', '2019-09-19', 'alberto', 'chable', 'rodriguez', 'a', 'Villahermosa', 'hydhfhhf', 'vocho', 'azul', '2015', 'hfgfgf', 'jose', '24314', '6 meses de garantia');
 INSERT INTO `ven_ventas` VALUES (98, 'A-2', '2019-09-20', 'ALBERTO', 'CHABLE', 'RODRIGUEZ', 'industrial', 'villahermosa', '', 'bocho', 'gris', '2019', '555fff', 'lupe', '554664', '6 meses de garantia');
 
 SET FOREIGN_KEY_CHECKS = 1;

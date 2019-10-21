@@ -10,6 +10,7 @@ use kartik\daterange\DateRangePicker;
 
 $this->title = 'Recibos';
 $this->params['breadcrumbs'][] = $this->title;
+if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->superadmin) {
 ?>
 <div class="ven-recibo-index">
 
@@ -17,8 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
+        <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Generar Recibo', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Gestionar Folios', ['ven-folio/index'], ['class' => 'btn btn-info']) ?>
     </p>
     <br>
     
@@ -72,6 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?>
+<?php }else{  header ("Location: /ven-folio");  //cambiar ruta
+}?>
+</div>
 
 <?= $this->registerCssFile("/css/cur-form.css"); ?>
