@@ -20,7 +20,7 @@ use yii\helpers\Url;
 
         <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>'true']) ?>
 
-        <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_id','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
+        <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
 
         <?= $form->field($modelfol, 'fol_folio',['options' => ['class' => 'form-group col-sm-4', 'style' => 'width: calc(33.33333333% + 36px)']])->textInput(['maxlength' => true,'readonly' => true]) ?>
