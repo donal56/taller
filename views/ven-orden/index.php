@@ -18,7 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Crear orden', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Generar orden de servicio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <br>
 
@@ -27,19 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'ord_id',
             'ord_folio',
             'ord_nombre',
-            'ord_direccion',
-            'ord_codigoPostal',
+            //'ord_codigoPostal',
             //'ord_telefono',
             //'ord_ife',
-            //'ord_modelo',
-            //'ord_marca',
-            //'ord_placa',
-            //'ord_fechaIngreso',
-            //'ord_fechaEntrega',
+            'ord_modelo',
+            'ord_marca',
+            'ord_placa',
+            'ord_fechaIngreso:datetime',
+            'ord_fechaEntrega:datetime',
             //'ord_noSerie',
             //'ord_color',
             //'ord_kilometraje',
@@ -57,3 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
     <?php Pjax::end(); ?>
 </div>
+
+
+<?= $this->registerCssFile("/css/cur-form.css"); ?>
