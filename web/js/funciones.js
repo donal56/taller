@@ -1,3 +1,8 @@
+$(function() {
+  $('img[alt="www.000webhost.com"]').parent().parent().next().remove();
+  $('img[alt="www.000webhost.com"]').parent().parent().remove();
+});
+
 var csrfToken = $('meta[name=csrf-token]').attr('content');
 
 function espera() {
