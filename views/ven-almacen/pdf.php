@@ -83,7 +83,8 @@
 				<?php
 					for($i = 1; $i <= 10; $i++)
 					{	
-						$concepto = $modelCon[$i-1];
+
+						$concepto = isset($modelCon[$i-1]) ? $modelCon[$i-1] : null ;
 						
 						$cantidad = $concepto['con_cantidad'];
 						$descripcion = '&nbsp;' . mb_strtoupper($concepto['con_descripcion']);
