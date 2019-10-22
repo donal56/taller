@@ -8,6 +8,7 @@ use app\models\VenOrdenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use kartik\mpdf\Pdf;
 use app\models\VenFolio;
 
 /**
@@ -126,5 +127,36 @@ class VenOrdenController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+     public function actionReport() 
+    {
+        # $model =  $this->findModel($id);
+
+        $pdf = new Pdf([
+            'orientation' => Pdf::ORIENT_PORTRAIT, 
+            'destination' => Pdf::DEST_BROWSER, 
+            'marginTop' => '10',
+            'marginHeader' => '10',
+            'marginBottom' => '10',
+            'marginFooter' => '10',
+            'options' => ['title' => 'Orden de servicio'],
+        ]);
+        
+        $mpdf = $pdf->api;
+        $mpdf->autoPageBreak = false;
+
+        //imagenes
+        $mpdf->imageVars['donpolo']  = file_get_contents('img/bluepolo.png');
+        $mpdf->imageVars['logopolo'] = file_get_contents('img/logopolo_letra.png');
+        $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
+        $mpdf->imageVars['whats']    = file_get_contents('img/bluewa.png');
+        
+        $pdf->cssFile = '@app/web/css/pdf5.css';
+        /*$mpdf -> SetHTMLHeader($this->renderPartial('pdf_header',
+            [ 'model' =>   $model, ]
+        )); */
+        $pdf->content = $this->renderPartial('body'); 
+
+         return $pdf->render();
     }
 }

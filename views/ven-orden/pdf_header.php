@@ -1,13 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 
 <body>
-
-<div class="bordered tamañoOficio">
-	<div class="oficio fondoAzul">
-		
-		<br><br><br><br><br>
-
+<div class="bordered">
+	<div class="fondoAzul">
+		<br><br><br><br><br><br>
 		<b>No es con espada ni con ejército, sino con el poder del espíritu santo</b>
 		<br>
 
@@ -29,19 +26,18 @@
 	</div>
 </div>
 
-<!--Solo elementos hijos directos de body pueden ser absolutos, fijos-->
 
-<div id="cuadroFolio" class= "bordered">
-</div>
-
-<div style= "position: absolute; top: 21mm; left: 30mm">
+<div id="cuadroFolio" class= "bordered"></div>
+<!-- Letras-->
+<div style= "position: absolute; top: 0mm; left: 30mm">
 	<img src="var:logopolo" style= "width: 140mm">	
 	<hr class="azul">
 </div>
-
-<div style= "position: absolute; top: 28mm; left: 16mm">
-		<img src="var:donpolo" id= "polo" >
+<!--Logo-->
+<div style= "position: absolute; top: 22mm; left: 16mm">
+	<img src="var:donpolo" id= "polo" >
 </div>
 
+<!--Solo elementos hijos directos de body pueden ser absolutos, fijos-->
 </body>
 </html>
