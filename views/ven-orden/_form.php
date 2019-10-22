@@ -10,6 +10,16 @@ use yii\bootstrap\Modal;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
 /* @var $form yii\widgets\ActiveForm */
+
+$esUpdate = !$model->isNewRecord;
+
+$vi = [
+    'unidad_de_luces' => null,
+    'cuarto_de_luces' => null,
+    'antena' => null,
+    'espejo_lateral' => null,
+];
+
 ?>
 <br><br>
 <div class="ven-orden-form">
@@ -118,7 +128,31 @@ use yii\bootstrap\Modal;
         <div class="panel-body">
             <div class="row col-sm-12">
 
-                <?=$form->field($model, 'ord_vehiculoExterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+                <div class="myContainer col-sm-6">
+                    <ul class="ks-cboxtags">
+                        <?php $vi = json_decode($model->ord_vehiculoInterior, true); ?>
+                        <li>
+                            <input type="checkbox" id= "unidad_de_luces" name= "unidad_de_luces" 
+                                    <?php echo $esUpdate && array_key_exists('unidad_de_luces', $vi) ? 'checked' : "" ?> >
+                            <label for="unidad_de_luces">Unidad de luces</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id= "cuarto_de_luces" name= "cuarto_de_luces" 
+                                    <?php echo $esUpdate && array_key_exists('cuarto_de_luces', $vi) ? 'checked' : "" ?> >
+                            <label for="cuarto_de_luces">Cuarto de luces</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id= "antena" name= "antena" 
+                                    <?php echo $esUpdate && array_key_exists('antena', $vi) ? 'checked' : "" ?> >
+                            <label for="antena">Antena</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id= "espejo_lateral" name= "espejo_lateral" 
+                                    <?php echo $esUpdate && array_key_exists('espejo_lateral', $vi) ? 'checked' : "" ?> >
+                            <label for="espejo_lateral">Espejo lateral</label>
+                        </li>
+                    <ul>
+                </div>
 
                 <?=$form->field($model, 'ord_vehiculoInterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
 
@@ -131,7 +165,7 @@ use yii\bootstrap\Modal;
                 <?=$form->field($model, 'ord_accesoriosInterior', ['options' => ['class' => 'form-group col-sm-5']])->textarea(['rows' => 6])?>
 
                 <!-- <?=$form->field($model, 'ord_tanque', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?> -->
-
+                
                 <input type="range" min="0" max="100" value="50" step= "25" class="slider" id="tanque" orient= "vertical">
             </div>
 
