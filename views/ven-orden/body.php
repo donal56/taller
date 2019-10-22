@@ -34,39 +34,63 @@
 			<span><b class="blanco px-18">ORDEN DE SERVICIO</b></span>
 		</div>
 
-		<!-- *************************** body ************************ -->
-		<div style="width: 100%; height: 20px; float: center;">
-			<div style="width: 15mm ; margin: 0" class="div-label">NOMBRE:</div>
-			<div style="width: 158mm;" class="div-underline">&#8203;</div>
-			<div style="width: 19mm ;" class="div-label">DIRECCIÓN :</div>
-			<div style="width: 153mm;" class="div-underline">&#8203;</div>
-			<div style="width: 13mm ;" class="div-label">C.P.:</div>
-			<div style="width: 18mm ;" class="div-underline">&#8203;</div>
+		<!-- *************************** body ****************************** -->
+		<!--   ********************** 1era Parte ***********************     -->
+		<div class="panel">
+			<!-- linea1 -->
+			<div style="width: 15mm ;" class="div-label">NOMBRE:</div>
+			<div style="width: 160mm;" class="div-underline">&#8203;</div>
+			<!-- linea2 -->
+			<div style="width: 18mm ;" class="div-label">DIRECCIÓN:</div>
+			<div style="width: 157mm;" class="div-underline">&#8203;</div>
+			<!-- linea3 -->
+			<div style="width: 7mm  ;" class="div-label">C.P.:</div>
+			<div style="width: 45mm ;" class="div-underline">&#8203;</div>
+			
 			<div style="width: 18mm ;" class="div-label">TELEFONO:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">IFE:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">MODELO:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">TIPO:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">MARCA:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">PLACAS:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">FECHA DE INGRESO:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">HORA:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">FECHA DE ENTREGA:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">NO.DE SERIE:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">COLOR:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
-			<div style="width: 18mm ;" class="div-label">KM.RECORRIDOS:</div>
-			<div style="width: 27mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 50mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 6mm  ;" class="div-label">IFE:</div>
+			<div style="width: 46.3mm ;" class="div-underline">&#8203;</div>
+			
+			<!-- linea4 -->
+			<div style="width: 14mm ;" class="div-label">MODELO:</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 9mm ;" class="div-label">TIPO:</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 13mm ;" class="div-label">MARCA:</div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 13mm ;" class="div-label">PLACAS:</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			
+			<!-- linea5 -->
+			<div style="width: 31mm ;" class="div-label">FECHA DE INGRESO:</div>
+			<div style="width: 40mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 10mm ;" class="div-label">HORA:</div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 18mm ;" class="div-label">F/ENTREGA:</div>
+			<div style="width: 41.3mm ;" class="div-underline">&#8203;</div>
+
+			<!-- linea6 -->
+			<div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
+			<div style="width: 35mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 12mm ;" class="div-label">COLOR:</div>
+			<div style="width: 35mm ;" class="div-underline">&#8203;</div>
+			
+			<div style="width: 27mm ;" class="div-label">KM.RECORRIDOS:</div>
+			<div style="width: 42.2mm ;" class="div-underline">&#8203;</div>
 		</div>
+		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
+		<div class="azul px-16 bold">INVENTARIO DEL VEHICULO</div>
+
+		<div style="width: 60mm; float:left;" class="div-label2 borde">EXTERIORES</div>
+		<div style="width: 60mm; float:right;" class="div-label2 borde">INTERIORES</div>
 	</div>
 </body>
 </html>
