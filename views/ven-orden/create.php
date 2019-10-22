@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
 
-$this->title = 'Crear orden de servicio';
+$this->title = 'Generar orden de servicio';
 $this->params['breadcrumbs'][] = ['label' => 'Ven Ordens', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'modelFol' => $modelFol
     ]) ?>
 
 </div>

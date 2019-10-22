@@ -34,7 +34,7 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}'
+                'template' => '{view}'
         
             ],
             [

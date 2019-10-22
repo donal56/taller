@@ -29,7 +29,7 @@ use yii\bootstrap\Modal;
 
         <?= $form->field($model, 'rec_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>true]) ?>
 
-        <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_serie'),[ 'prompt' => 'Seleccione Uno' ]) ?>
+        <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
         <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true,'readonly' => true]) ?>
         <div class="form-group col-sm-1">

@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
+use app\models\VenFolio;
+
 /**
  * VenOrdenController implements the CRUD actions for VenOrden model.
  */
@@ -65,6 +67,7 @@ class VenOrdenController extends Controller
     public function actionCreate()
     {
         $model = new VenOrden();
+        $modelFol = new VenFolio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ord_id]);
@@ -72,6 +75,7 @@ class VenOrdenController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'modelFol' => $modelFol
         ]);
     }
 
