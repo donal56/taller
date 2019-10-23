@@ -156,6 +156,8 @@ $vi = [
 
                 <?=$form->field($model, 'ord_vehiculoInterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
 
+                <div id="wPaint" style="width:400px; height:500px;" class= "col-sm-6"></div>
+
             </div>
 
             <div class="row col-sm-12">
@@ -198,4 +200,15 @@ $vi = [
 
 <?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
 <?= $this->registerJsFile("/js/yii-panel.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+
+
+<?= $this->registerJsFile("/js/jquery.1.10.2.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/wColorPicker.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/wPaint.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/wPaint.menu.main.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+
+<?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+
+<?= $this->registerCssFile("/css/wPaint.min.css"); ?>
+<?= $this->registerCssFile("/css/wColorPicker.min.css"); ?>
 <?= $this->registerCssFile("/css/ordenServicio.css"); ?>
