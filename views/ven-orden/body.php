@@ -6,6 +6,10 @@
 <div style= "position: absolute; top: 25mm; left: 15mm">
 	<img src="var:donpolo" id= "polo" >
 </div>
+<!-- Imagen auto -->
+<div style= "position: absolute; top: 105mm; left: 70mm">
+	<img width="50%" src="var:auto" id= "auto" >
+</div>
 <div id="cuadroFolio" class= "bordered"></div>
 
 	<div class="borde">
@@ -89,8 +93,43 @@
 		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
 		<div class="azul px-16 bold">INVENTARIO DEL VEHICULO</div>
 
+		<!-- titulos -->
 		<div style="width: 60mm; float:left;" class="div-label2 borde">EXTERIORES</div>
 		<div style="width: 60mm; float:right;" class="div-label2 borde">INTERIORES</div>
+		<!-- tabla exteriores -->
+		<br><br>
+		<div style="width: 60mm;float:left;">
+			<table class="tabla" border="1">
+				<tr>
+					<th></th>
+					<th>Si</th>	
+					<th>No</th>
+				</tr>
+			</table>
+		</div>
+
+		<!-- tabla interiores -->
+		<div style="width: 60mm; float:right;">
+			<table class="tabla" border="1">
+				<tr>
+					<th></th>
+					<th>Si</th>	
+					<th>No</th>
+				</tr>
+			</table>
+		</div>
+		<br><br><br><br><br><br><br><br><br><br><br>
+
+		<!-- observaciones -->
+		<div style="width: 30mm ;" class="div-label">OBSERVACIONES:</div>
+		<div style="width: 145mm;" class="div-underline">&#8203;</div>
 	</div>
+
+<!-- tanque de gasolina -->
+<div class="tanque">
+</div>
+
+<div class="medidor cien">
+</div>
 </body>
 </html>

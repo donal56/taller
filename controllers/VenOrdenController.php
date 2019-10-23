@@ -146,10 +146,11 @@ class VenOrdenController extends Controller
         $mpdf->autoPageBreak = false;
 
         //imagenes
-        $mpdf->imageVars['donpolo']  = file_get_contents('img/bluepolo.png');
+        $mpdf->imageVars['donpolo' ] = file_get_contents('img/bluepolo.png');
         $mpdf->imageVars['logopolo'] = file_get_contents('img/logopolo_letra.png');
+        $mpdf->imageVars['auto'    ] = file_get_contents('img/auto.jpg');
         $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
-        $mpdf->imageVars['whats']    = file_get_contents('img/bluewa.png');
+        $mpdf->imageVars['whats'   ] = file_get_contents('img/bluewa.png');
         
         $pdf->cssFile = '@app/web/css/pdf5.css';
         /*$mpdf -> SetHTMLHeader($this->renderPartial('pdf_header',

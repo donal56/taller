@@ -1,6 +1,6 @@
 .tanque {
     width: 10em;
-    height: 10em;
+    height: 5em;
     display: block;
     background: tomato;
     float: left;
@@ -12,18 +12,14 @@
 }
 
 .medidor {
-    width: 10em;
+    width: 2.5em;
     height: 5em;
     background-color: white;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
     border: 3px solid gray;
     border-bottom: 0;
-    
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+    }
 
 .cincuenta
 {
@@ -172,6 +168,7 @@ hr.azul
     font-size: 8px;
     padding: 3px 0px;  
 }
+
 .panel
 {
     width: 100%;
@@ -179,4 +176,15 @@ hr.azul
     text-align: left;
     border-bottom: 1px solid #3369b7;
     padding-bottom: 8px;
+}
+
+table.tabla
+{
+     border-collapse: collapse;
+     text-align: right;
+}
+
+.tabla th
+{
+    padding:5px 15px; 
 }
