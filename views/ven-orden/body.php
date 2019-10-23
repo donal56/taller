@@ -13,7 +13,7 @@
 
 <!-- linea del tanque -->
 <div class="linea">
-	<img class="uncuarto" src="var:linea"  id= "linea">
+	<img class="unmedio" src="var:linea"  id= "linea" >
 </div>
 <!-- Cuadro del folio -->
 <div id="cuadroFolio" class= "bordered"></div>
