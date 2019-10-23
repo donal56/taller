@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use app\models\VenFolio;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
+use app\assets\wPaintAsset;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -156,6 +157,8 @@ $vi = [
 
                 <?=$form->field($model, 'ord_vehiculoInterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
 
+                <div id="wPaint" style="width:400px; height:500px;" class= "col-sm-6"></div>
+
             </div>
 
             <div class="row col-sm-12">
@@ -198,4 +201,6 @@ $vi = [
 
 <?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
 <?= $this->registerJsFile("/js/yii-panel.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'app\assets\wPaintAsset']); ?>
+
 <?= $this->registerCssFile("/css/ordenServicio.css"); ?>

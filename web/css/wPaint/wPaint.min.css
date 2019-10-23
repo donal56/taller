@@ -64,3 +64,5 @@
 .wPaint-theme-classic .wPaint-menu-select-option{-webkit-box-shadow:inset 2px 2px 3px #fff;box-shadow:inset 2px 2px 3px #fff;border-top-color:#cacaca;background-color:#f0f0f0}
 .wPaint-theme-classic .wPaint-menu-select-option:hover{-webkit-box-shadow:inset 1px 1px 1px #fff;box-shadow:inset 1px 1px 1px #fff;background-color:#9cf;color:#f0f0f0}
 .wPaint-theme-classic .wPaint-modal-close,.wPaint-theme-classic .wPaint-modal-holder{border-color:#3a3a3a;background-color:#f0f0f0}
+
+div.wPaint-menu-icon.wPaint-menu-icon-name-reset div.wPaint-menu-icon-img{background-position: -36px 0px !important;}
