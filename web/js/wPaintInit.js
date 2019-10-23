@@ -49,6 +49,10 @@ $.fn.wPaint.menus.main =
     }
 };
 
+$.extend($.fn.wPaint.cursors, {
+  pencil: 'url("img/wPaint/cursor-pencil.png") 0 11.99, default',
+});
+
 $.extend($.fn.wPaint.defaults, 
 {
     mode:        'pencil',  // set mode
