@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use app\models\VenFolio;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
+use app\assets\wPaintAsset;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -52,7 +53,7 @@ $vi = [
                     <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
                     <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
-                    <?= Html::a('', '',[
+                    <?= Html::a('', ['ven-orden/create#'],[
                         'id' => 'abrirModal',
                         'class' => 'btn btn-success glyphicon glyphicon-plus',
                         'data-toggle' => 'modal',
@@ -200,15 +201,6 @@ $vi = [
 
 <?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
 <?= $this->registerJsFile("/js/yii-panel.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'app\assets\wPaintAsset']); ?>
 
-
-<?= $this->registerJsFile("/js/jquery.1.10.2.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-<?= $this->registerJsFile("/js/wColorPicker.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-<?= $this->registerJsFile("/js/wPaint.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-<?= $this->registerJsFile("/js/wPaint.menu.main.min.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-
-<?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-
-<?= $this->registerCssFile("/css/wPaint.min.css"); ?>
-<?= $this->registerCssFile("/css/wColorPicker.min.css"); ?>
 <?= $this->registerCssFile("/css/ordenServicio.css"); ?>
