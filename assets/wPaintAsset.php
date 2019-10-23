@@ -13,7 +13,6 @@
             "css/wPaint/wColorPicker.min.css",
         ];
         public $js = [
-            "js/wPaint/jquery.1.10.2.min.js",
             "js/wPaint/wColorPicker.min.js",
             "js/wPaint/wPaint.min.js",
             "js/wPaint/wPaint.menu.main.min.js"
