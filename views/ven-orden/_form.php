@@ -45,7 +45,7 @@ use kartik\slider\Slider;
                     <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
                     <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
-                    <?= Html::a('', ['ven-orden/create#'],[
+                    <?= Html::a('', '',[
                         'id' => 'abrirModal',
                         'class' => 'btn btn-success glyphicon glyphicon-plus',
                         'data-toggle' => 'modal',

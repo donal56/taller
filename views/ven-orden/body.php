@@ -10,6 +10,12 @@
 <div style= "position: absolute; top: 105mm; left: 70mm">
 	<img width="50%" src="var:auto" id= "auto" >
 </div>
+
+<!-- linea del tanque -->
+<div class="linea">
+	<img class="unmedio" src="var:linea"  id= "linea" >
+</div>
+<!-- Cuadro del folio -->
 <div id="cuadroFolio" class= "bordered"></div>
 
 	<div class="borde">
@@ -123,13 +129,11 @@
 		<!-- observaciones -->
 		<div style="width: 30mm ;" class="div-label">OBSERVACIONES:</div>
 		<div style="width: 145mm;" class="div-underline">&#8203;</div>
+
+		<!-- tanque de gasolina -->
+		<div>
+			<img class ="tanque" src="var:fondoTan" id= "fondoTanque" >
+		</div>
 	</div>
-
-<!-- tanque de gasolina -->
-<div class="tanque">
-</div>
-
-<div class="medidor cien">
-</div>
 </body>
 </html>
