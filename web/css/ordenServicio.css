@@ -10,7 +10,7 @@
 ul.ks-cboxtags 
 {
     list-style: none;
-    padding: 20px;
+    padding: 20px 0px;
 }
 
 ul.ks-cboxtags li
@@ -34,11 +34,8 @@ ul.ks-cboxtags li label
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     transition: all .2s;
-}
-
-ul.ks-cboxtags li label 
-{
-    padding: 8px 12px;
+    max-width: none !important;
+    padding: 6px 8px;
     cursor: pointer;
 }
 
@@ -86,4 +83,25 @@ ul.ks-cboxtags li input[type="checkbox"]
 ul.ks-cboxtags li input[type="checkbox"]:focus + label 
 {
   border: 2px solid rgba(139, 139, 139, .3);
+}
+
+.wPaint-canvas
+{
+  width: 100%
+}
+
+.wPaint-canvas-bg
+{
+  width: 100%
+}
+
+.title
+{
+  font-weight: bold;
+  color: #272727;
+}
+
+.pt-10
+{
+  padding-top: 10px;
 }

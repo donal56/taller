@@ -31,8 +31,15 @@ use Yii;
  * @property string $ord_problemas
  * @property string $ord_diagnostico
  */
+
+
 class VenOrden extends \yii\db\ActiveRecord
 {
+    public $vehiculoExterior = ['Unidad de luces', 'Cuarto de luces', 'Antena', 'Espejo lateral', 'Cristales', 'Emblema', 'Llantas(4)', 'Tapon de ruedas(4)', 'Molduras completas', 'Tapón de gasolina', 'Carrocería sin golpes', 'Bocinas de claxón'];
+    public $vehiculoInterior = ['Instalación de tablero', 'Calefacción', 'Limpiadores plumas', 'Radio tipo', 'Bocinas', 'Encendedor', 'Espejo retrovisor', 'Ceniceros', 'Botones interiores', 'Manijas interiores', 'Tapetes', 'Vestiduras', 'Cinturones'];
+    public $accesoriosExterior = ['Gato', 'Maneral de gato', 'Llave de ruedas', 'Estuche de  herramientas', 'Triángulos de seguridad', 'Llantas de refacción', 'Extintor'];
+    public $accesoriosInterior = ['Claxón', 'Tapón de aceite', 'Tapón de radiador', 'Varilla para aceite', 'Filtro de aire', 'Batería'];
+
     /**
      * {@inheritdoc}
      */
@@ -70,7 +77,7 @@ class VenOrden extends \yii\db\ActiveRecord
             'ord_direccion' => 'Dirección',
             'ord_codigoPostal' => 'Código Postal',
             'ord_telefono' => 'Teléfono',
-            'ord_ife' => 'Número de INE',
+            'ord_ife' => 'INE',
             'ord_modelo' => 'Modelo',
             'ord_marca' => 'Marca',
             'ord_placa' => 'Placa',
