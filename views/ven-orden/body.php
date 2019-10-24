@@ -8,11 +8,11 @@
 </div>
 <!-- Imagen auto -->
 <div style= "position: absolute; top: 90.5mm; left: 70mm">
-	<img width="50%" src="var:auto" id= "auto" >
+	<img  width="50%" src="var:auto" id= "auto" >
 </div>
 <!-- linea del tanque -->
 <div class="linea">
-	<img class="unmedio" src="var:linea"  id= "linea" >
+	<img  style="transform: rotate(45);" src="var:linea"  id= "linea" >
 </div>
 <!-- tanque de gasolina -->
 <div class="tanque">

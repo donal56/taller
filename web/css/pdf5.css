@@ -6,19 +6,12 @@
 }
 .linea {
     position: absolute; 
-    top: 151mm; 
-    left: 41.5mm; 
+    top: 152mm; 
+    left: 25mm; 
+    width: 33mm; 
     float: left;
-    width: 40mm; 
 }
-img.uncuarto
-{
-    transform: translate(-28,5) rotate(0); 
-}
-img.unmedio
-{
-    transform: translate(-10,-5) rotate(25); 
-}
+
 body
 {
     font-size: 11px;
