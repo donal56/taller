@@ -9,15 +9,15 @@
     top: 151mm; 
     left: 41.5mm; 
     float: left;
-    width: 6mm; 
+    width: 40mm; 
 }
 img.uncuarto
 {
-    transform: translate(-28,5) rotate(-58); 
+    transform: translate(-28,5) rotate(0); 
 }
 img.unmedio
 {
-    transform: translate(-10,-5) rotate(0); 
+    transform: translate(-10,-5) rotate(25); 
 }
 body
 {
