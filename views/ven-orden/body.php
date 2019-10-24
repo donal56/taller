@@ -157,7 +157,7 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br><br>
+		<br><br><br><br><br><br><br>
 
 		<!-- problemas del vehiculo -->
 		<div class="borde" style="width: 80mm; height: 50mm; float: left;">
