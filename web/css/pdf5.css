@@ -1,13 +1,12 @@
 .tanque {
     position: absolute; 
-    top: 160mm; 
-    left: 0; 
-    float: left;
-    width: 30%;
+    top: 147mm; 
+    left: 15.5mm; 
+    width: 25%;
 }
 .linea {
     position: absolute; 
-    top: 163mm; 
+    top: 151mm; 
     left: 41.5mm; 
     float: left;
     width: 6mm; 
@@ -55,14 +54,14 @@ body
 {
     background: #b7dafd;
     width : 180mm; 
-    height: 42mm;
+    height: 10mm;
 }
 
 #barraAzul
 {
     background: #659dd4;
     width: 210mm;
-    height: 8mm;
+    height: 6mm;
 }
 
 hr.azul
@@ -91,6 +90,14 @@ hr.azul
 {
     font-size: 10px;
 }
+.px-12
+{
+    font-size: 12px;
+}
+.px-8
+{
+    font-size: 8px;
+}
 .bold{
     font-weight: bold;
 }
@@ -101,8 +108,8 @@ hr.azul
     height: 8mm;
     background: white;
     position: absolute; 
-    top: 52mm; 
-    left: 163mm;
+    top: 40mm; 
+    left: 164mm;
 }
 
 .condensed
@@ -123,12 +130,12 @@ hr.azul
     /*border: 1px solid;*/
 }
 .div-label2{
-    float:left;
+    float:right;
     font-size: 12px;
     font-weight: bold;
     color: #3369b7;
     padding: 7px 0px 0px 5px;
-    /*border: 1px solid;*/
+    border: 1px solid;
 }
 
 .div-underline{
@@ -157,5 +164,5 @@ table.tabla
 
 .tabla th
 {
-    padding:5px 15px; 
+    padding:2px 15px; 
 }
