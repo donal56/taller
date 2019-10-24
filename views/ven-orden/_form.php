@@ -7,19 +7,11 @@ use app\models\VenFolio;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use app\assets\wPaintAsset;
+use kartik\slider\Slider;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
 /* @var $form yii\widgets\ActiveForm */
-
-$esUpdate = !$model->isNewRecord;
-
-$vi = [
-    'unidad_de_luces' => null,
-    'cuarto_de_luces' => null,
-    'antena' => null,
-    'espejo_lateral' => null,
-];
 
 ?>
 <br><br>
@@ -71,123 +63,227 @@ $vi = [
                         echo "<div style='text-align:center'><img width= '40%' src='/img/loading.gif'></div>";
                     Modal::end();
                     ?>
-                <br>
-            </div>
-
-            <div class="row col-sm-12">
-
-                <?=$form->field($model, 'ord_codigoPostal', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_telefono', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_ife', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_modelo', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_marca', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_placa', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-            </div>
-
-
-            <div class="row col-sm-12">
-
-                <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_noSerie', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
-
-                <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
-
-            </div>
-
-            <div class="row col-sm-12">
-
-                <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="panel panel-info">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion_sce_1" href="#collapse2">
-        <div class="pull-right">
-            <button type="button" class="btn btn-default btn-xs" data-content="Minimizar/Maximizar"
-                data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top">
-                <i class="glyphicon glyphicon-eye-open"></i> Min/Max
-            </button>
-        </div>
-        <h4 class="panel-title">Inventario del vehículo</h4>
-        </h4>
-    </div>
-
-    <div id="collapse2" class="panel-collapse collapse in">
-        <div class="panel-body">
-            <div class="row col-sm-12">
-
-                <div class="myContainer col-sm-6">
-                    <ul class="ks-cboxtags">
-                        <?php $vi = json_decode($model->ord_vehiculoInterior, true); ?>
-                        <li>
-                            <input type="checkbox" id= "unidad_de_luces" name= "unidad_de_luces" 
-                                    <?php echo $esUpdate && array_key_exists('unidad_de_luces', $vi) ? 'checked' : "" ?> >
-                            <label for="unidad_de_luces">Unidad de luces</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id= "cuarto_de_luces" name= "cuarto_de_luces" 
-                                    <?php echo $esUpdate && array_key_exists('cuarto_de_luces', $vi) ? 'checked' : "" ?> >
-                            <label for="cuarto_de_luces">Cuarto de luces</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id= "antena" name= "antena" 
-                                    <?php echo $esUpdate && array_key_exists('antena', $vi) ? 'checked' : "" ?> >
-                            <label for="antena">Antena</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id= "espejo_lateral" name= "espejo_lateral" 
-                                    <?php echo $esUpdate && array_key_exists('espejo_lateral', $vi) ? 'checked' : "" ?> >
-                            <label for="espejo_lateral">Espejo lateral</label>
-                        </li>
-                    <ul>
+                    <br>
                 </div>
 
-                <?=$form->field($model, 'ord_vehiculoInterior', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+                <div class="row col-sm-12">
 
-                <div id="wPaint" style="width:400px; height:500px;" class= "col-sm-6"></div>
+                    <?=$form->field($model, 'ord_codigoPostal', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-            </div>
+                    <?=$form->field($model, 'ord_telefono', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-            <div class="row col-sm-12">
+                    <?=$form->field($model, 'ord_ife', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-                <?=$form->field($model, 'ord_accesoriosExterior', ['options' => ['class' => 'form-group col-sm-5']])->textarea(['rows' => 6])?>
+                    <?=$form->field($model, 'ord_modelo', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-                <?=$form->field($model, 'ord_accesoriosInterior', ['options' => ['class' => 'form-group col-sm-5']])->textarea(['rows' => 6])?>
+                    <?=$form->field($model, 'ord_marca', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-                <!-- <?=$form->field($model, 'ord_tanque', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?> -->
-                
-                <input type="range" min="0" max="100" value="50" step= "25" class="slider" id="tanque" orient= "vertical">
-            </div>
+                    <?=$form->field($model, 'ord_placa', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-            <div class="row col-sm-12">
+                </div>
 
-                <?=$form->field($model, 'ord_observaciones', ['options' => ['class' => 'form-group col-sm-12']])->textarea(['rows' => 2])?>
 
-            </div>
+                <div class="row col-sm-12">
 
-            <div class="row col-sm-12">
+                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-                <?=$form->field($model, 'ord_problemas', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+                    <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-                <?=$form->field($model, 'ord_diagnostico', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+                    <?=$form->field($model, 'ord_noSerie', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
+                    <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
+
+                </div>
+
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion_sce_1" href="#collapse2">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default btn-xs" data-content="Minimizar/Maximizar"
+                    data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top">
+                    <i class="glyphicon glyphicon-eye-open"></i> Min/Max
+                </button>
+            </div>
+            <h4 class="panel-title">Inventario del vehículo</h4>
+            </h4>
+        </div>
+
+        <div id="collapse2" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row col-sm-12 pt-10" style="min-height: 650px">
+
+                    <div class="col-sm-3">
+                        <h4 class="title">Exteriores</h4>
+                        <ul class="ks-cboxtags">
+                            <?php 
+                            $ve;
+                            if(!$model->isNewRecord)
+                                $ve = json_decode($model->ord_vehiculoExterior, true);
+                            else
+                                $ve = array_fill_keys($model->vehiculoExterior, null);   
+
+                            foreach($ve as $key=>$value)
+                            {
+                                $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
+                                $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
+                                
+                                if(!$model->isNewRecord && $value)
+                                    $str .= 'checked';
+                                            
+                                $str .= "> <label for='" . $el ."'>" . $key . "</label>";
+                                echo $str;
+                            }
+                        ?>
+                            <ul>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div id="wPaint" style="width:400px; height:500px;"></div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <h4 class="title">Interiores</h4>
+                        <ul class="ks-cboxtags">
+                            <?php 
+                            $vi;
+                            if(!$model->isNewRecord)
+                                $vi = json_decode($model->ord_vehiculoInterior, true);
+                            else
+                                $vi = array_fill_keys($model->vehiculoInterior, null);   
+
+                            foreach($vi as $key=>$value)
+                            {
+                                $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
+                                $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
+                                
+                                if(!$model->isNewRecord && $value)
+                                    $str .= 'checked';
+                                            
+                                $str .= "> <label for='" . $el ."'>" . $key . "</label>";
+                                echo $str;
+                            }
+                        ?>
+                            <ul>
+                    </div>
+
+                </div>
+
+                <div class="row col-sm-12 pt-10">
+
+                    <div class="col-sm-5">
+                        <h4 class="title">Exteriores</h4>
+                        <ul class="ks-cboxtags">
+                            <?php 
+                                $ae;
+                                if(!$model->isNewRecord)
+                                    $ae = json_decode($model->ord_accesoriosExterior, true);
+                                else
+                                    $ae = array_fill_keys($model->accesoriosExterior, null);   
+
+                                foreach($ae as $key=>$value)
+                                {
+                                    $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
+                                    $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
+                                    
+                                    if(!$model->isNewRecord && $value)
+                                        $str .= 'checked';
+                                                
+                                    $str .= "> <label for='" . $el ."'>" . $key . "</label>";
+                                    echo $str;
+                                }
+                            ?>
+                            <ul>
+                    </div>
+
+                    <?= $form->field($model, 'ord_tanque', ['options' => ['class' => 'form-group col-sm-2']])->widget(Slider::classname(), [
+                        'bsVersion' => '3.x',
+                        'pluginConflict' => true,
+                        'value' => 0.5,
+                        'sliderColor' => Slider::TYPE_GREY,
+                        'handleColor' => Slider::TYPE_DANGER,
+                        'pluginOptions'=>
+                        [
+                            'min'=>0,
+                            'max'=>1,
+                            'step'=>0.25,
+                            'handle'=>'triangle',
+                            'tooltip'=>'always',
+                            'orientation'=>'vertical',
+                            'reversed' => true,
+                            'formatter'=>new yii\web\JsExpression("function(val) { 
+                                if (val == 0) 
+                                    return 'Tanque vacío';
+                                
+                                if (val == 0.25) 
+                                    return 'Cuarto de tanque';
+                                
+                                if (val == 0.5) 
+                                    return 'Medio tanque';
+                                
+                                if (val == 0.75) 
+                                    return 'Tres cuartos de tanque';
+                                
+                                if (val == 1) 
+                                    return 'Tanque lleno';
+                            }"),
+                            'ticks_positions' => [0, 0.25, 0.5, 0.75, 1],
+                            'ticks_labels' => ['0', '¼', '½', '¾', '1'],
+                            //https://demos.krajee.com/slider
+                        ],
+                        ]);
+                    ?>
+
+                    <div class="col-sm-5">
+                        <h4 class="title">Interiores</h4>
+                        <ul class="ks-cboxtags">
+                            <?php 
+                            $ai;
+                            if(!$model->isNewRecord)
+                                $ai = json_decode($model->ord_accesoriosInterior, true);
+                            else
+                                $ai = array_fill_keys($model->accesoriosInterior, null);   
+
+                            foreach($ai as $key=>$value)
+                            {
+                                $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
+                                $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
+                                
+                                if(!$model->isNewRecord && $value)
+                                    $str .= 'checked';
+                                            
+                                $str .= "> <label for='" . $el ."'>" . $key . "</label>";
+                                echo $str;
+                            }
+                        ?>
+                            <ul>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_observaciones', ['options' => ['class' => 'form-group col-sm-12']])->textarea(['rows' => 2])?>
+
+                </div>
+
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_problemas', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+
+                    <?=$form->field($model, 'ord_diagnostico', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">

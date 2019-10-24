@@ -2,12 +2,12 @@ $.fn.wPaint.defaults =
 {
     path:            '/',
     theme:           'standard classic', // set theme
-    autoScaleImage:  true,               // auto scale images to size of canvas (fg and bg)
+    autoScaleImage: true,               // auto scale images to size of canvas (fg and bg)
     autoCenterImage: true,               // auto center images (fg and bg, default is left/top corner)
     menuHandle:      false,               // setting to false will means menus cannot be dragged around
     menuOrientation: 'vertical',       // menu alignment (horizontal,vertical)
-    menuOffsetLeft:  -50,                  // left offset of primary menu
-    menuOffsetTop:   0,                  // top offset of primary menu
+    menuOffsetLeft:  -30,                  // left offset of primary menu
+    menuOffsetTop:   185,                  // top offset of primary menu
     bg: "/img/auto.jpg"	
 };
 
