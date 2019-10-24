@@ -68,15 +68,65 @@ class VenOrdenController extends Controller
     {
         $model = new VenOrden();
         $modelFol = new VenFolio();
+        
+        $datos = Yii::$app->request->post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ord_id]);
+        if($datos)
+        {
+            //quitar load
+            if ($model->load($datos)) 
+            {
+
+                array_shift($datos);
+                
+                $orden = array_shift($datos);
+                $folio = array_shift($datos);
+                $image = array_pop($datos);
+
+                $baseVE = array_fill_keys($model->vehiculoExterior, 'off');
+                $baseVI = array_fill_keys($model->vehiculoInterior, 'off');
+                $baseAE = array_fill_keys($model->accesoriosExterior, 'off');
+                $baseAI = array_fill_keys($model->accesoriosInterior, 'off');
+                
+                $opciones = array_map(function($value)
+                            {
+                                return mb_ereg_replace( "_", " ", ucfirst($value));
+                            }, array_keys($datos));
+
+                $opciones = array_fill_keys($opciones, "on");
+                
+                
+                
+                //array_uintersect_assoc($baseVE, $opciones, "strcmp")
+
+                $array1 = array("a" => "verde", "b" => "marron", );
+                $array2 = array("a" => "VERDE", "b" => "MARRON", );
+
+                print_r($array1);
+                echo '<br>';
+                print_r($array2);
+                echo '<br>';
+                print_r(array_uintersect_assoc($array1, $array2, "strcasecmp"));
+                echo '<br>';
+                print_r($opciones);
+                echo '<br>';
+                print_r($baseVE);
+                echo '<br>';
+                print_r(array_uintersect_assoc($opciones, $baseVE, "strcasecmp"));
+
+                if($model->save()) 
+                {
+                    return $this->redirect(['view', 'id' => $model->ord_id]);
+                }
+            }
         }
-
-        return $this->render('create', [
-            'model' => $model,
-            'modelFol' => $modelFol
-        ]);
+        else
+        {
+            return $this->render('create', [
+                'model' => $model,
+                'modelFol' => $modelFol
+            ]);
+        }
     }
 
     /**

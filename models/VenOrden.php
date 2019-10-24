@@ -40,6 +40,8 @@ class VenOrden extends \yii\db\ActiveRecord
     public $accesoriosExterior = ['Gato', 'Maneral de gato', 'Llave de ruedas', 'Estuche de  herramientas', 'Triángulos de seguridad', 'Llantas de refacción', 'Extintor'];
     public $accesoriosInterior = ['Claxón', 'Tapón de aceite', 'Tapón de radiador', 'Varilla para aceite', 'Filtro de aire', 'Batería'];
 
+    public $image = null;
+
     /**
      * {@inheritdoc}
      */
@@ -56,8 +58,9 @@ class VenOrden extends \yii\db\ActiveRecord
         return [
             [['ord_folio', 'ord_nombre', 'ord_fechaIngreso'], 'required'],
             [['ord_folio', 'ord_kilometraje'], 'integer'],
-            [['ord_fechaIngreso', 'ord_fechaEntrega'], 'safe'],
-            [['ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_observaciones', 'ord_tanque', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_problemas', 'ord_diagnostico'], 'string'],
+            [['ord_fechaIngreso', 'ord_fechaEntrega', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_accesoriosExterior', 'ord_accesoriosInterior','image'], 'safe'],
+            [['ord_observaciones',  'ord_problemas', 'ord_diagnostico'], 'string'],
+            [['ord_tanque'], 'number'],
             [['ord_nombre', 'ord_direccion'], 'string', 'max' => 255],
             [['ord_codigoPostal'], 'string', 'max' => 11],
             [['ord_telefono', 'ord_ife', 'ord_placa', 'ord_noSerie', 'ord_color'], 'string', 'max' => 20],
