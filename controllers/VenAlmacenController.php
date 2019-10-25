@@ -141,6 +141,22 @@ class VenAlmacenController extends Controller
      * @return mixed
      */
 
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+        $modelFol = $this->findFolio(explode("-", $model->alm_folio)[0]); 
+        $modelFol->fol_folio = explode("-", $model->alm_folio)[1];
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->alm_id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+                'modelFol' => $modelFol
+            ]);
+        }
+    }
+
     /**
      * Deletes an existing VenAlmacen model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -154,40 +170,6 @@ class VenAlmacenController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the VenAlmacen model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return VenAlmacen the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = VenAlmacen::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-
-    protected function increaseFolio($serie)
-    {
-        if (($model = VenFolio::find()->where(['fol_serie' => $serie])->one()) !== null) 
-        {
-            $model->aumentarFolio();
-
-            if( $model->save())
-            {
-                return $model->getFolio();
-            }
-           
-            throw new NotFoundHttpException('No se pudo actualizar la serie');
-        }  
-        else 
-        {
-            throw new NotFoundHttpException('No se encontro la serie');
-        }
-    }
 
     public function actionReport($id) 
     {
@@ -231,5 +213,48 @@ class VenAlmacenController extends Controller
         $pdf->content .= '<hr>'. $pdf->content;
 
          return $pdf->render();
+    }
+    /**
+     * Finds the VenAlmacen model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return VenAlmacen the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = VenAlmacen::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function increaseFolio($serie)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $serie])->one()) !== null) 
+        {
+            $model->aumentarFolio();
+
+            if( $model->save())
+            {
+                return $model->getFolio();
+            }
+           
+            throw new NotFoundHttpException('No se pudo actualizar la serie');
+        }  
+        else 
+        {
+            throw new NotFoundHttpException('No se encontro la serie');
+        }
+    }
+
+    protected function findFolio($id)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $id])->one()) !== null) {
+            return $model;
+        } else {
+            return $model = new VenFolio();
+        }
     }
 }

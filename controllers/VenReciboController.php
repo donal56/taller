@@ -112,7 +112,8 @@ class VenReciboController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelFol = new VenFolio();
+        $modelFol = $this->findFolio(explode("-", $model->rec_folio)[0]); 
+        $modelFol->fol_folio = explode("-", $model->rec_folio)[1];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->rec_id]);
@@ -214,4 +215,14 @@ class VenReciboController extends Controller
             throw new NotFoundHttpException('No se encontro la serie');
         }
     }
+
+    protected function findFolio($id)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $id])->one()) !== null) {
+            return $model;
+        } else {
+            return $model = new VenFolio();
+        }
+    }
+
 }

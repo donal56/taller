@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use app\models\VenFolio;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
+use app\components\Utilidades;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenVentas */
 /* @var $form yii\widgets\ActiveForm */
@@ -18,7 +19,7 @@ use yii\helpers\Url;
     <br>
     <div class="row">
 
-        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>'true']) ?>
+        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => Utilidades::getDate('Y-m-d'),'readonly' =>'true']) ?>
 
         <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 

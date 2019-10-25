@@ -6,6 +6,7 @@ use app\models\VenFolio;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
+use app\components\Utilidades;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenRecibo */
@@ -27,7 +28,7 @@ use yii\bootstrap\Modal;
         ?>
 
 
-        <?= $form->field($model, 'rec_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => date('Y-m-d'),'readonly' =>true]) ?>
+        <?= $form->field($model, 'rec_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => Utilidades::getDate('Y-m-d'),'readonly' =>true]) ?>
 
         <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
