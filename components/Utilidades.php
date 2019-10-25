@@ -2,6 +2,7 @@
 namespace app\components;
 
 use Yii;
+
 class Utilidades
 {
     public static function minizarString($str,$longitud)
@@ -454,5 +455,11 @@ class Utilidades
       
        #Se convierten en json
        return json_encode($res);
+    }
+    public static function getDate($format)
+    {   
+    // format 'Y-m-d :: H:i:s'
+      $date = new \DateTime('NOW', new \DateTimeZone('America/Mexico_City'));
+      return $date->format($format);
     }
 }
