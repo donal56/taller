@@ -1,6 +1,8 @@
 $('.multiple-input').on('afterInit', function() 
 {
-    $('.multiple-input-list__btn.js-input-plus.btn.btn-success').trigger('click');
+    if (!$('tr.multiple-input-list__item').length) {
+        $('.multiple-input-list__btn.js-input-plus.btn.btn-success').trigger('click');  
+    }
     validateDetalles();
 
 }).on('beforeAddRow', function(e, row, currentIndex)
@@ -16,8 +18,8 @@ $('.multiple-input').on('afterInit', function()
 {
     var conf;
 
-    if ($(row).find('input').eq(0).val()== ""&&
-        $(row).find('input').eq(1).val()== ""&&
+    if ($(row).find('input').eq(0).val()== "" &&
+        $(row).find('input').eq(1).val()== "" &&
         $(row).find('input').eq(2).val()== "")
     {
         conf = true;

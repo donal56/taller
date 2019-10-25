@@ -68,7 +68,7 @@ use yii\bootstrap\Modal;
 <?php 
     $folios =  ArrayHelper::index(VenFolio::find()->asArray()->all(),'fol_serie');
     if (!$model->isNewRecord) {
-        $folios[$modelFol->fol_serie]['fol_folio'] = explode("-", $model->alm_folio)[1];
+        $folios[$modelFol->fol_serie]['fol_folio'] = explode("-", $model->rec_folio)[1];
     }
     $folios = json_encode($folios);
     $js = <<<EOD
