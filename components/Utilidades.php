@@ -451,7 +451,7 @@ class Utilidades
        
        #Se separa cada grupo de opciones
        $res = array_merge($base, array_intersect_key($newValues, $base));
-       print_r($res); echo '<br>';
+      
        #Se convierten en json
        return json_encode($res);
     }
