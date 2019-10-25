@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 25/10/2019 11:31:20
+ Date: 25/10/2019 12:43:46
 */
 
 SET NAMES utf8mb4;
@@ -443,8 +443,8 @@ CREATE TABLE `ven_folio`  (
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
-INSERT INTO `ven_folio` VALUES (11, 'A', '2', '11');
-INSERT INTO `ven_folio` VALUES (25, 'z', '4', 'ss');
+INSERT INTO `ven_folio` VALUES (11, 'A', '6', '11');
+INSERT INTO `ven_folio` VALUES (25, 'Z', '11', 'ss');
 INSERT INTO `ven_folio` VALUES (29, 'ADADA', '0', '123141');
 INSERT INTO `ven_folio` VALUES (30, 'ADADA', '0', '123141');
 INSERT INTO `ven_folio` VALUES (31, 'DF', '0', 'Refacciones');
@@ -458,7 +458,7 @@ INSERT INTO `ven_folio` VALUES (34, 'XS', '0', 'asdasd');
 DROP TABLE IF EXISTS `ven_orden`;
 CREATE TABLE `ven_orden`  (
   `ord_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ord_folio` int(11) NOT NULL,
+  `ord_folio` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ord_nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ord_direccion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_codigoPostal` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -467,8 +467,8 @@ CREATE TABLE `ven_orden`  (
   `ord_modelo` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_marca` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_placa` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_fechaIngreso` datetime(6) NOT NULL,
-  `ord_fechaEntrega` datetime(6) DEFAULT NULL,
+  `ord_fechaIngreso` datetime(0) NOT NULL,
+  `ord_fechaEntrega` datetime(0) DEFAULT NULL,
   `ord_noSerie` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_color` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_kilometraje` int(10) DEFAULT NULL,
@@ -481,7 +481,13 @@ CREATE TABLE `ven_orden`  (
   `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `ord_diagnostico` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   PRIMARY KEY (`ord_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ven_orden
+-- ----------------------------
+INSERT INTO `ven_orden` VALUES (15, 'A-6', 'Carlos Donaldo', 'Colonia Espejo 1 #133', '86108', '9932978261', '4151f3sf', 'afsd', 'adasd', 'asdasd', '2019-10-08 12:36:51', '2019-10-25 12:35:22', '24', 'zfsgf', NULL, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
+INSERT INTO `ven_orden` VALUES (16, 'Z-11', 'asdasd', 'Colonia Espejo 1 #133', '86108', '9932978261', '980622', 'afsd', 'adasd', '12FS42', '2019-10-25 12:38:42', '2019-10-25 12:38:42', '123', 'zfsgf', 123, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
 
 -- ----------------------------
 -- Table structure for ven_producto

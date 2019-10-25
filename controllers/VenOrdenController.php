@@ -81,7 +81,10 @@ class VenOrdenController extends Controller
             #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
             $orden['VenOrden'] = array_shift($datos);
             $folio = array_shift($datos);
-            $image = base64_decode(array_pop($datos));
+
+            #Se guarda la imagen codificada sin el identificador data:image/png;base64,
+            $data = explode(',', array_pop($datos));
+            $image = base64_decode($data[1]);
 
             #Se guardan los datos del folio
             $modelFol             = $this->findFolio( $folio['fol_serie'] ); 
@@ -106,7 +109,7 @@ class VenOrdenController extends Controller
                 $model->ord_vehiculoInterior    = Utilidades::transpose_array_json($model->vehiculoInterior, $opciones);
                 $model->ord_accesoriosExterior  = Utilidades::transpose_array_json($model->accesoriosExterior, $opciones);
                 $model->ord_accesoriosInterior  = Utilidades::transpose_array_json($model->accesoriosInterior, $opciones);
-
+                
                 #Si se guarda la imagen correctamente y la orden se guarda
                 if($model->save())
                 {

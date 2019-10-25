@@ -8,7 +8,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use app\assets\wPaintAsset;
 use kartik\slider\Slider;
-use kartik\date\DatePicker;
+use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -86,18 +86,18 @@ use kartik\date\DatePicker;
 
                 <div class="row col-sm-12">
 
-                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => date('Y-m-d')]) ?>
+                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => date('Y-m-d H:i:s')]) ?>
 
-                    <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']]) -> widget(DatePicker::classname(), 
+                    <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
                         [
-                            'options' => ['value' => $model->isNewRecord ? date('Y-m-d') :  $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
+                            'options' => ['value' => $model->isNewRecord ? date('Y-m-d H:i:s') :  $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
                             'language' => 'es',
                             'removeButton' => false,
                             'pluginOptions' => [
                                 'todayHighlight' => true,
                                 'todayBtn' => true,
                                 'autoclose' => true, 
-                                'format' => 'yyyy-mm-dd']
+                                'format' => 'yyyy-mm-dd hh:ii:ss']
                         ]); 
                     ?>
 

@@ -57,8 +57,8 @@ class VenOrden extends \yii\db\ActiveRecord
     {
         return [
             [['ord_folio', 'ord_nombre', 'ord_fechaIngreso'], 'required'],
-            [['ord_folio', 'ord_kilometraje'], 'integer'],
-            [['ord_fechaIngreso', 'ord_fechaEntrega', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_accesoriosExterior', 'ord_accesoriosInterior','image'], 'safe'],
+            [['ord_kilometraje'], 'integer'],
+            [['ord_fechaIngreso', 'ord_fechaEntrega', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_folio'], 'safe'],
             [['ord_observaciones',  'ord_problemas', 'ord_diagnostico'], 'string'],
             [['ord_tanque'], 'number'],
             [['ord_nombre', 'ord_direccion'], 'string', 'max' => 255],
