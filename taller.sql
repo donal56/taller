@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 21/10/2019 16:01:39
+ Date: 25/10/2019 12:43:46
 */
 
 SET NAMES utf8mb4;
@@ -351,7 +351,7 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
@@ -374,6 +374,15 @@ INSERT INTO `user_visit_log` VALUES (41, '5dac9c4871d92', '127.0.0.1', 'es', 'Mo
 INSERT INTO `user_visit_log` VALUES (42, '5dae033f59444', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571685183, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (43, '5dae03531a1c6', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571685203, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (44, '5dae048d4063f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571685517, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (45, '5dae1d708cf9a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571691888, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (46, '5dae429f6f8ce', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571701407, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (47, '5daf664acdafa', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571776074, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (48, '5db0a5dcd7f9d', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571857884, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (49, '5db0a87e3bca3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571858558, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (50, '5db2071d69f0b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571948317, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (51, '5db2071d69f17', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571948317, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (52, '5db21ab4acf05', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571953332, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (53, '5db3033013efe', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572012848, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -429,13 +438,19 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
-INSERT INTO `ven_folio` VALUES (11, 'A', '2', '11');
-INSERT INTO `ven_folio` VALUES (25, 'z', '4', 'ss');
+INSERT INTO `ven_folio` VALUES (11, 'A', '6', '11');
+INSERT INTO `ven_folio` VALUES (25, 'Z', '11', 'ss');
+INSERT INTO `ven_folio` VALUES (29, 'ADADA', '0', '123141');
+INSERT INTO `ven_folio` VALUES (30, 'ADADA', '0', '123141');
+INSERT INTO `ven_folio` VALUES (31, 'DF', '0', 'Refacciones');
+INSERT INTO `ven_folio` VALUES (32, 'DF', '0', 'Refacciones');
+INSERT INTO `ven_folio` VALUES (33, 'AD', '0', 'afasfd');
+INSERT INTO `ven_folio` VALUES (34, 'XS', '0', 'asdasd');
 
 -- ----------------------------
 -- Table structure for ven_orden
@@ -443,7 +458,7 @@ INSERT INTO `ven_folio` VALUES (25, 'z', '4', 'ss');
 DROP TABLE IF EXISTS `ven_orden`;
 CREATE TABLE `ven_orden`  (
   `ord_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ord_folio` int(11) NOT NULL,
+  `ord_folio` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ord_nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ord_direccion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_codigoPostal` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -452,21 +467,27 @@ CREATE TABLE `ven_orden`  (
   `ord_modelo` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_marca` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_placa` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `ord_fechaIngreso` datetime(6) NOT NULL,
-  `ord_fechaEntrega` datetime(6) DEFAULT NULL,
+  `ord_fechaIngreso` datetime(0) NOT NULL,
+  `ord_fechaEntrega` datetime(0) DEFAULT NULL,
   `ord_noSerie` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_color` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_kilometraje` int(10) DEFAULT NULL,
   `ord_vehiculoExterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_vehiculoInterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_observaciones` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `ord_tanque` set('0','25','50','75','100') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
+  `ord_tanque` decimal(3, 2) DEFAULT NULL,
   `ord_accesoriosExterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_accesoriosInterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `ord_diagnostico` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   PRIMARY KEY (`ord_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ven_orden
+-- ----------------------------
+INSERT INTO `ven_orden` VALUES (15, 'A-6', 'Carlos Donaldo', 'Colonia Espejo 1 #133', '86108', '9932978261', '4151f3sf', 'afsd', 'adasd', 'asdasd', '2019-10-08 12:36:51', '2019-10-25 12:35:22', '24', 'zfsgf', NULL, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
+INSERT INTO `ven_orden` VALUES (16, 'Z-11', 'asdasd', 'Colonia Espejo 1 #133', '86108', '9932978261', '980622', 'afsd', 'adasd', '12FS42', '2019-10-25 12:38:42', '2019-10-25 12:38:42', '123', 'zfsgf', 123, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
 
 -- ----------------------------
 -- Table structure for ven_producto

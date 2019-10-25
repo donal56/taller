@@ -2,6 +2,7 @@
 namespace app\components;
 
 use Yii;
+
 class Utilidades
 {
     public static function minizarString($str,$longitud)
@@ -442,5 +443,23 @@ class Utilidades
             }
         }
         return $return;
+    }
+
+    public static function transpose_array_json($base, $newValues)
+    {
+       #Se llama a todas las opciones de vehiculo y accesorios disponibles
+       $base = array_fill_keys($base, 'off');
+       
+       #Se separa cada grupo de opciones
+       $res = array_merge($base, array_intersect_key($newValues, $base));
+       
+       #Se convierten en json
+       return json_encode($res);
+    }
+    public static function getDate($format)
+    {   
+    // format 'Y-m-d :: H:i:s'
+      $date = new \DateTime('NOW', new \DateTimeZone('America/Mexico_City'));
+      return $date->format($format);
     }
 }

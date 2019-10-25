@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenRecibo */
 
-$this->title = 'Update Ven Recibo: ' . $model->rec_id;
-$this->params['breadcrumbs'][] = ['label' => 'Ven Recibos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->rec_id, 'url' => ['view', 'id' => $model->rec_id]];
+$this->title = 'Actualizar Recibo: ' . str_replace("-", "",  $model->rec_folio);
+$this->params['breadcrumbs'][] = ['label' => 'Recibos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->rec_id, 'url' => ['view', 'id' => $model->rec_folio]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="ven-recibo-update">
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'modelFol' => $modelFol,
     ]) ?>
 
 </div>

@@ -8,6 +8,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Modal;
 use app\assets\wPaintAsset;
 use kartik\slider\Slider;
+use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -85,9 +86,20 @@ use kartik\slider\Slider;
 
                 <div class="row col-sm-12">
 
-                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
+                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => date('Y-m-d H:i:s')]) ?>
 
-                    <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
+                    <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
+                        [
+                            'options' => ['value' => $model->isNewRecord ? date('Y-m-d H:i:s') :  $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
+                            'language' => 'es',
+                            'removeButton' => false,
+                            'pluginOptions' => [
+                                'todayHighlight' => true,
+                                'todayBtn' => true,
+                                'autoclose' => true, 
+                                'format' => 'yyyy-mm-dd hh:ii:ss']
+                        ]); 
+                    ?>
 
                     <?=$form->field($model, 'ord_noSerie', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
@@ -204,43 +216,36 @@ use kartik\slider\Slider;
                             <ul>
                     </div>
 
+
                     <?= $form->field($model, 'ord_tanque', ['options' => ['class' => 'form-group col-sm-2']])->widget(Slider::classname(), [
                         'bsVersion' => '3.x',
                         'pluginConflict' => true,
-                        'value' => 0.5,
                         'sliderColor' => Slider::TYPE_GREY,
                         'handleColor' => Slider::TYPE_DANGER,
                         'pluginOptions'=>
                         [
                             'min'=>0,
                             'max'=>1,
-                            'step'=>0.25,
-                            'handle'=>'triangle',
+                            'step'=>0.05,
                             'tooltip'=>'always',
                             'orientation'=>'vertical',
                             'reversed' => true,
                             'formatter'=>new yii\web\JsExpression("function(val) { 
                                 if (val == 0) 
                                     return 'Tanque vacío';
-                                
-                                if (val == 0.25) 
+                                else if (val == 0.25) 
                                     return 'Cuarto de tanque';
-                                
-                                if (val == 0.5) 
+                                else if (val == 0.5) 
                                     return 'Medio tanque';
-                                
-                                if (val == 0.75) 
+                                else if (val == 0.75) 
                                     return 'Tres cuartos de tanque';
-                                
-                                if (val == 1) 
+                                else if (val == 1) 
                                     return 'Tanque lleno';
+                                else
+                                    return parseInt(val * 100) + '%';
                             }"),
-                            'ticks_positions' => [0, 0.25, 0.5, 0.75, 1],
-                            'ticks_labels' => ['0', '¼', '½', '¾', '1'],
-                            //https://demos.krajee.com/slider
-                        ],
-                        ]);
-                    ?>
+                        ]]);
+                    ?> 
 
                     <div class="col-sm-5">
                         <h4 class="title">Interiores</h4>
@@ -257,7 +262,7 @@ use kartik\slider\Slider;
                                 $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
                                 $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
                                 
-                                if(!$model->isNewRecord && $value)
+                                if(!$model->isNewRecord && $value == "on")
                                     $str .= 'checked';
                                             
                                 $str .= "> <label for='" . $el ."'>" . $key . "</label>";
@@ -281,6 +286,8 @@ use kartik\slider\Slider;
                     <?=$form->field($model, 'ord_diagnostico', ['options' => ['class' => 'form-group col-sm-6']])->textarea(['rows' => 6])?>
 
                 </div>
+
+                <?= Html::hiddenInput('image' , '', ['id' => 'image']); ?>
             </div>
         </div>
     </div>
@@ -295,8 +302,34 @@ use kartik\slider\Slider;
 
 </div>
 
-<?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-<?= $this->registerJsFile("/js/yii-panel.js", ['depends' => 'yii\web\JqueryAsset']); ?>
-<?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'app\assets\wPaintAsset']); ?>
+<?php 
+    $folios =  ArrayHelper::index(VenFolio::find()->asArray()->all(),'fol_serie');
+    if (!$model->isNewRecord) {
+        $folios[$modelFol->fol_serie]['fol_folio'] = explode("-", $model->ord_folio)[1];
+    }
+    $folios = json_encode($folios);
+    $js = <<<EOD
+    window.folios = {$folios};
+    $( document ).ready(function() {
+        folioin = $('#venfolio-fol_folio');
+        seriein = $('#venfolio-fol_serie');
+        seriein.on('change', function(e){
+            if (folios[$(this).val()] != null) {
+                folioin.val(folios[$(this).val()].fol_folio);
+            }else{
+                folioin.val('0');
+            }  
+        
+        });
+        seriein.trigger('change');
 
+    });
+EOD;
+
+?>
+
+<?= $this->registerJs($js) ?>
+<?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/ordenServicio.js", ['depends' => 'yii\web\JqueryAsset']); ?>
+<?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'app\assets\wPaintAsset']); ?>
 <?= $this->registerCssFile("/css/ordenServicio.css"); ?>

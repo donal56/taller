@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use app\models\VenFolio;
+use app\components\Utilidades;
 
 /**
  * VenOrdenController implements the CRUD actions for VenOrden model.
@@ -66,17 +67,82 @@ class VenOrdenController extends Controller
      */
     public function actionCreate()
     {
-        $model = new VenOrden();
+        $model = new VenOrden(); 
         $modelFol = new VenFolio();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ord_id]);
-        }
+        $transaction = \Yii::$app->db->beginTransaction();
+        $datos = Yii::$app->request->post();
 
-        return $this->render('create', [
-            'model' => $model,
-            'modelFol' => $modelFol
-        ]);
+        if($datos)
+        {
+            #Se remueve el csrf
+            array_shift($datos);
+            
+            #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
+            $orden['VenOrden'] = array_shift($datos);
+            $folio = array_shift($datos);
+
+            #Se guarda la imagen codificada sin el identificador data:image/png;base64,
+            $data = explode(',', array_pop($datos));
+            $image = base64_decode($data[1]);
+
+            #Se guardan los datos del folio
+            $modelFol             = $this->findFolio( $folio['fol_serie'] ); 
+            $modelFol->fol_folio  = strval( $modelFol->fol_folio + 1 );
+
+            if ( $modelFol->save() && $model->load($orden) ) 
+            {
+                #Se añade el folio nuevo al modelo
+                $model->ord_folio = $modelFol->fol_serie . "-" . $modelFol->fol_folio;
+
+                #Se cambian los valores POST de name por los labels correctos
+                $opciones = array_map(function($value)
+                {
+                    return mb_ereg_replace( "_", " ", ucfirst($value));
+                }, array_keys($datos));
+    
+                #Se les asigna como encendidos
+                $opciones = array_fill_keys($opciones, "on");
+
+                #Se crean los JSON clasificados por su grupo y se guardan en el modelo
+                $model->ord_vehiculoExterior    = Utilidades::transpose_array_json($model->vehiculoExterior, $opciones);
+                $model->ord_vehiculoInterior    = Utilidades::transpose_array_json($model->vehiculoInterior, $opciones);
+                $model->ord_accesoriosExterior  = Utilidades::transpose_array_json($model->accesoriosExterior, $opciones);
+                $model->ord_accesoriosInterior  = Utilidades::transpose_array_json($model->accesoriosInterior, $opciones);
+                
+                #Si se guarda la imagen correctamente y la orden se guarda
+                if($model->save())
+                {
+                    #Directorio de la imagen
+                    $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->ord_id . '.png';
+
+                    if(file_put_contents($path, $image))
+                    {
+                        $transaction->commit();
+                        return $this->redirect(['view', 'id' => $model->ord_id]);
+                    }
+                    else
+                    {
+                        $transaction->rollback();
+                        throw new \yii\base\Exception("No se pudo guardar la imagen.");
+                    }    
+                }
+                else
+                {
+                    $transaction->rollback();
+                    throw new \yii\base\Exception("No se pudo guardar la orden de servicio.");
+                }
+            }
+            else
+            {
+                $transaction->rollback();
+                throw new \yii\base\Exception("Ocurrio un error durante la solicitud.");
+            }
+        }
+        else
+        {
+            return $this->render('create', ['model' => $model, 'modelFol' => $modelFol]);
+        }
     }
 
     /**
@@ -161,5 +227,14 @@ class VenOrdenController extends Controller
         $pdf->content = $this->renderPartial('body'); 
 
          return $pdf->render();
+    }
+
+    protected function findFolio($id)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $id])->one()) !== null) {
+            return $model;
+        } else {
+            return $model = new VenFolio();
+        }
     }
 }
