@@ -112,12 +112,14 @@ class VenReciboController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $modelFol = new VenFolio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->rec_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'modelFol' => $modelFol
             ]);
         }
     }
