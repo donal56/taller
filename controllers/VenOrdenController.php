@@ -67,24 +67,30 @@ class VenOrdenController extends Controller
      */
     public function actionCreate()
     {
-        $model = new VenOrden();
+        $model = new VenOrden(); 
         $modelFol = new VenFolio();
-        
+
         $transaction = \Yii::$app->db->beginTransaction();
         $datos = Yii::$app->request->post();
 
         if($datos)
         {
-            //quitar load
-            if ($model->load($datos)) 
+            #Se remueve el csrf
+            array_shift($datos);
+            
+            #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
+            $orden['VenOrden'] = array_shift($datos);
+            $folio = array_shift($datos);
+            $image = base64_decode(array_pop($datos));
+
+            #Se guardan los datos del folio
+            $modelFol             = $this->findFolio( $folio['fol_serie'] ); 
+            $modelFol->fol_folio  = strval( $modelFol->fol_folio + 1 );
+
+            if ( $modelFol->save() && $model->load($orden) ) 
             {
-                #Se remueve el csrf
-                array_shift($datos);
-                
-                #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
-                $orden = array_shift($datos);
-                $folio = array_shift($datos);
-                $image = base64_decode(array_pop($datos));
+                #Se añade el folio nuevo al modelo
+                $model->ord_folio = $modelFol->fol_serie . "-" . $modelFol->fol_folio;
 
                 #Se cambian los valores POST de name por los labels correctos
                 $opciones = array_map(function($value)
@@ -95,29 +101,39 @@ class VenOrdenController extends Controller
                 #Se les asigna como encendidos
                 $opciones = array_fill_keys($opciones, "on");
 
-                #Se crean los JSON clasificados por su grupo
-                $ve = Utilidades::transpose_array_json($model->vehiculoExterior, $opciones);
-                $vi = Utilidades::transpose_array_json($model->vehiculoInterior, $opciones);
-                $ae = Utilidades::transpose_array_json($model->accesoriosExterior, $opciones);
-                $ai = Utilidades::transpose_array_json($model->accesoriosInterior, $opciones);
+                #Se crean los JSON clasificados por su grupo y se guardan en el modelo
+                $model->ord_vehiculoExterior    = Utilidades::transpose_array_json($model->vehiculoExterior, $opciones);
+                $model->ord_vehiculoInterior    = Utilidades::transpose_array_json($model->vehiculoInterior, $opciones);
+                $model->ord_accesoriosExterior  = Utilidades::transpose_array_json($model->accesoriosExterior, $opciones);
+                $model->ord_accesoriosInterior  = Utilidades::transpose_array_json($model->accesoriosInterior, $opciones);
 
-                die();
+                #Si se guarda la imagen correctamente y la orden se guarda
+                if($model->save())
+                {
+                    #Directorio de la imagen
+                    $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->ord_id . '.png';
 
-                $filename = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->id . '.png';
-
-                if (file_put_contents($filename, $image))
-                    throw new \yii\base\Exception("No se pudo guardar la imagen.");
-
-                $model->image = UploadedFile::getInstance($model, 'file');
-                $model->image->saveAs( Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->id . '.' . $model->file->extension, false);
-               
-                if($model->save()) 
-                    return $this->redirect(['view', 'id' => $model->ord_id]);
+                    if(file_put_contents($path, $image))
+                    {
+                        $transaction->commit();
+                        return $this->redirect(['view', 'id' => $model->ord_id]);
+                    }
+                    else
+                    {
+                        $transaction->rollback();
+                        throw new \yii\base\Exception("No se pudo guardar la imagen.");
+                    }    
+                }
                 else
                 {
-                    unlink($filename);
-                    throw new \yii\base\Exception("No se pudo guardar la imagen.");
+                    $transaction->rollback();
+                    throw new \yii\base\Exception("No se pudo guardar la orden de servicio.");
                 }
+            }
+            else
+            {
+                $transaction->rollback();
+                throw new \yii\base\Exception("Ocurrio un error durante la solicitud.");
             }
         }
         else
@@ -208,5 +224,14 @@ class VenOrdenController extends Controller
         $pdf->content = $this->renderPartial('body'); 
 
          return $pdf->render();
+    }
+
+    protected function findFolio($id)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $id])->one()) !== null) {
+            return $model;
+        } else {
+            return $model = new VenFolio();
+        }
     }
 }

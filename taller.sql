@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 21/10/2019 16:01:39
+ Date: 25/10/2019 11:31:20
 */
 
 SET NAMES utf8mb4;
@@ -351,7 +351,7 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
@@ -374,6 +374,15 @@ INSERT INTO `user_visit_log` VALUES (41, '5dac9c4871d92', '127.0.0.1', 'es', 'Mo
 INSERT INTO `user_visit_log` VALUES (42, '5dae033f59444', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571685183, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (43, '5dae03531a1c6', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571685203, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (44, '5dae048d4063f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571685517, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (45, '5dae1d708cf9a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571691888, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (46, '5dae429f6f8ce', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1571701407, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (47, '5daf664acdafa', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571776074, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (48, '5db0a5dcd7f9d', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571857884, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (49, '5db0a87e3bca3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1571858558, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (50, '5db2071d69f0b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571948317, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (51, '5db2071d69f17', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571948317, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (52, '5db21ab4acf05', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571953332, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (53, '5db3033013efe', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572012848, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -429,13 +438,19 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
 INSERT INTO `ven_folio` VALUES (11, 'A', '2', '11');
 INSERT INTO `ven_folio` VALUES (25, 'z', '4', 'ss');
+INSERT INTO `ven_folio` VALUES (29, 'ADADA', '0', '123141');
+INSERT INTO `ven_folio` VALUES (30, 'ADADA', '0', '123141');
+INSERT INTO `ven_folio` VALUES (31, 'DF', '0', 'Refacciones');
+INSERT INTO `ven_folio` VALUES (32, 'DF', '0', 'Refacciones');
+INSERT INTO `ven_folio` VALUES (33, 'AD', '0', 'afasfd');
+INSERT INTO `ven_folio` VALUES (34, 'XS', '0', 'asdasd');
 
 -- ----------------------------
 -- Table structure for ven_orden
@@ -460,7 +475,7 @@ CREATE TABLE `ven_orden`  (
   `ord_vehiculoExterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_vehiculoInterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_observaciones` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `ord_tanque` set('0','25','50','75','100') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
+  `ord_tanque` decimal(3, 2) DEFAULT NULL,
   `ord_accesoriosExterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_accesoriosInterior` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
