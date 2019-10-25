@@ -8,7 +8,7 @@ use unclead\multipleinput\MultipleInput;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
-
+use app\components\Utilidades;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenAlmacen */
 /* @var $form yii\widgets\ActiveForm */
@@ -31,7 +31,7 @@ use yii\bootstrap\Modal;
 
 
         <?php
-            echo $form->field($model, 'alm_fecha' , ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => date('Y-m-d')])
+            echo $form->field($model, 'alm_fecha' , ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => Utilidades::getDate('Y-m-d')])
         ?>  
 
         <?= $form->field($model, 'alm_noPedido', ['options' => ['class' => 'form-group col-sm-3']])->textInput() ?>
