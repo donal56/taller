@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\components\Utilidades;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -29,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p> -->
     <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
     <?= Html::a('Imprimir', ['report', 'id' => $model->ord_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
+    <br>
 
     
     <br>    
@@ -38,7 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             [
                 'attribute' => 'ord_folio',
-                'value'     => function ($model) {
+                'value'     => function ($model) 
+                {
                     return str_replace('-','', $model->ord_folio);
                 }
             ],
@@ -50,15 +53,60 @@ $this->params['breadcrumbs'][] = $this->title;
             'ord_modelo',
             'ord_marca',
             'ord_placa',
-            'ord_fechaIngreso:datetime',
-            'ord_fechaEntrega:datetime',
+            [
+                'attribute' => 'ord_fechaIngreso',
+                'value' => function($model)
+                {
+                    return Yii::$app->formatter->asDateTime($model->ord_fechaIngreso, 'php:d/m/Y H:i:s');
+                }
+            ],
+            [
+                'attribute' => 'ord_fechaIngreso',
+                'value' => function($model)
+                {
+                    return Yii::$app->formatter->asDateTime($model->ord_fechaEntrega, 'php:d/m/Y H:i:s');
+                }
+            ],
             'ord_noSerie',
             'ord_color',
             'ord_kilometraje',
-            'ord_vehiculoExterior:ntext',
+            [
+                'attribute' => 'ord_vehiculoExterior',
+                'value'     => function ($model) 
+                {
+                    $list= json_decode($model->ord_vehiculoExterior, true);
+                    $aux = array_map(function($val)
+                    {
+                        return $val == "on" ? "✓" : "✗" ;
+                    }, array_values($list));
+                    # $list = array_combine($aux, $list);
+
+                    return Utilidades::array2table($list);
+                },
+                'format' => 'raw'
+            ],
             'ord_vehiculoInterior:ntext',
             'ord_observaciones:ntext',
-            'ord_tanque',
+            [
+                'attribute' => 'ord_fechaIngreso',
+                'value' => function($model)
+                {
+                    $val = $model->ord_tanque;
+
+                    if ($val == 0) 
+                        return 'Tanque vacío';
+                    else if ($val == 0.25) 
+                        return 'Cuarto de tanque';
+                    else if ($val == 0.5) 
+                        return 'Medio tanque';
+                    else if ($val == 0.75) 
+                        return 'Tres cuartos de tanque';
+                    else if ($val == 1) 
+                        return 'Tanque lleno';
+                    else
+                        return ($val * 100) . '%';
+                }
+            ],
             'ord_accesoriosExterior:ntext',
             'ord_accesoriosInterior:ntext',
             'ord_problemas:ntext',

@@ -9,6 +9,7 @@ use yii\bootstrap\Modal;
 use app\assets\wPaintAsset;
 use kartik\slider\Slider;
 use kartik\datetime\DateTimePicker;
+use app\components\Utilidades;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -86,11 +87,11 @@ use kartik\datetime\DateTimePicker;
 
                 <div class="row col-sm-12">
 
-                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => date('Y-m-d H:i:s')]) ?>
+                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => Utilidades::getDate('Y-m-d H:i:s')]) ?>
 
                     <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
                         [
-                            'options' => ['value' => $model->isNewRecord ? date('Y-m-d H:i:s') :  $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
+                            'options' => ['value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d H:i:s') :  $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
                             'language' => 'es',
                             'removeButton' => false,
                             'pluginOptions' => [
