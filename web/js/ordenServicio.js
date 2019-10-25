@@ -3,7 +3,6 @@ $('#w0').on('submit', function (e)
     var imageData = $("#wPaint").wPaint("image");
 
     $('#image').val(imageData);
-    console.log($('#image').val());
 
     validateForm('#w0');
     

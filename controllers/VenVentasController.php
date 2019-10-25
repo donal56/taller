@@ -101,8 +101,7 @@ class VenVentasController extends Controller
 
             $venta['_csrf'] = Yii::$app->request->post()['_csrf'];
             //transaction
-            $connection = \Yii::$app->db;
-            $transaction = $connection->beginTransaction();
+            $connection = \Yii::$app->db>beginTransaction();
 
             $countPro = 0;
 

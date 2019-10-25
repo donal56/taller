@@ -443,4 +443,16 @@ class Utilidades
         }
         return $return;
     }
+
+    public static function transpose_array_json($base, $newValues)
+    {
+       #Se llama a todas las opciones de vehiculo y accesorios disponibles
+       $base = array_fill_keys($base, 'off');
+       
+       #Se separa cada grupo de opciones
+       $res = array_merge($base, array_intersect_key($newValues, $base));
+       print_r($res); echo '<br>';
+       #Se convierten en json
+       return json_encode($res);
+    }
 }
