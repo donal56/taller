@@ -7,8 +7,8 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 90.5mm; left: 70mm">
-	<img  width="50%" src="var:auto" id= "auto" >
+<div style= "position: absolute; top: 90.5mm; left: 66mm">
+	<img  width="54%" src="var:auto" id= "auto" >
 </div>
 <!-- linea del tanque -->
 <div class="linea">
@@ -17,6 +17,7 @@
 <!-- tanque de gasolina -->
 <div class="tanque">
 	<img src="var:fondoTan" id="fondoTanque">
+	<br><br>
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!-- Cuadro del folio -->
@@ -96,38 +97,162 @@
 			<div style="width: 42.2mm ;" class="div-underline">&#8203;</div>
 		</div>
 		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
-		<div class="azul px-16 bold">INVENTARIO DEL VEHICULO</div>
+		<div class="azul px-14 bold">INVENTARIO DEL VEHICULO</div>
 
-		<!-- titulos -->
-		<div style="width: 60mm; float:left;" class="div-label2 borde">EXTERIORES</div>
-		<div style="width: 60mm; float:right;" class="div-label2 borde">INTERIORES</div>
-		<!-- tabla exteriores -->
-		<br><br>
-		<div style="width: 60mm;float:left;">
-			<table class="tabla" border="1">
-				<tr>
-					<th></th>
-					<th>Si</th>	
-					<th>No</th>
-				</tr>
-			</table>
+		<div style="width: 200mm; position: absolute;">
+			<!-- titulos -->
+			<div style="width: 60mm; float:left;"  class="div-label2 borde">EXTERIORES</div>
+			<div style="width: 60mm; float:right;" class="div-label2 borde">INTERIORES</div>
+			<!-- tabla exteriores -->
+			<div style="width: 60mm;float:left;">
+				<table class="tabla">
+					<tr>
+						<td></td>
+						<td>Si</td>	
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>UNIDAD DE LUCES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>1/4 DE LUCES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ANTENA</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ESPEJO LATERAL </td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>CRISTALES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>EMBLEMA</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>LLANTAS(4)</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TAPON DE RUEDAS(4)</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>MOLDURAS COMPL</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TAPON DE GASOLINA</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>CARROCER.S/GOLPES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>BOCINAS DE CLAXON</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+
+			<!-- tabla interiores -->
+			<div style="width: 60mm; float:right;">
+				<table class="tabla">
+					<tr>
+						<td></td>
+						<td>Si</td>	
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>INST.DE TABLERO</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>CALEFACCIÓN</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>LIMPIADORES PLUMAS</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>RADIO TIPO</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>BOCINAS</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ENCENDEDOR</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ESPEJO RETROVISOR</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>CENICEROS</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>BOTONES INTERIORES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>MANIJAS INTERIORES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TAPETES</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>VESTIDURAS</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>CINTURONES</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
 		</div>
-
-		<!-- tabla interiores -->
-		<div style="width: 60mm; float:right;">
-			<table class="tabla" border="1">
-				<tr>
-					<th></th>
-					<th>Si</th>	
-					<th>No</th>
-				</tr>
-			</table>
-		</div>
-		<br><br><br><br><br><br><br><br><br><br><br>
-
 		<!-- observaciones -->
-		<div style="width: 30mm ;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm;" class="div-underline">&#8203;</div>
+		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
+		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;</div>
 
 		<!-- titulos2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
@@ -138,50 +263,123 @@
 		<!-- tablas 2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
 			<div style="width: 50mm;float:left;">
-				<table class="tabla" border="1">
+				<table class="tabla2" border="1">
 					<tr>
-						<th></th>
-						<th>Si</th>	
-						<th>No</th>
+						<td></td>
+						<td>Si</td>	
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>GATO</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>MANERALDE GATO</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>LLAVE DE RUEDAS</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ESTUCHE HERRAMIENTAS</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TRIANGULOS SEGURIDAD</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>LLANTA DE REFACCION</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>EXTINTOR</td>
+						<td></td>
+						<td></td>
 					</tr>
 				</table>
 			</div>
 			<div style="width: 50mm; float:right;">
-				<table class="tabla" border="1">
+				<table class="tabla2" border="1">
 					<tr>
-						<th></th>
-						<th>Si</th>	
-						<th>No</th>
+						<td></td>
+						<td>Si</td>	
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>CLAXON</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TAPON ACEITE</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>TAPON RADIADOR</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>VARILLA ACEITE</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>FILTRO AIRE</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>BATERIA</td>
+						<td></td>
+						<td></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-
-		<br><br><br><br><br><br><br>
-
-		<!-- problemas del vehiculo -->
-		<div class="borde" style="width: 80mm; height: 50mm; float: left;">
-			<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
-			<div style="width: 70mm ;" class="div-underline">&#8203;</div>
+		<br><br><br><br><br><br><br><br>
+		<div>
+			<!-- problemas del vehiculo -->
+			<div style="width: 80mm; height: 40mm; float: left;">
+				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
+			</div>
+			<!-- diagnostico tecnico -->
+			<div style="width: 80mm; height: 40mm; float: right;">
+				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
+			</div>
 		</div>
-		<!-- diagnostico tecnico -->
-		<div class="borde" style="width: 80mm; height: 50mm; float: right;">
-			<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
+		<div style="width: 180mm; height: 20mm;">
+			<br><br><br>
+			<div class="lineaFirmas">&#8203;</div>
+			<div class="lineaFirmas">&#8203;</div>
+			<div class="lineaFirmas">&#8203;</div>
+			<div class="firmas">FIRMA DEL ASESOR</div>
+			<div class="firmas">FIRMA DEL MECANICO</div>
+			<div class="firmas">FIRMA DEL CLIENTE</div>
 		</div>
 	</div>
 	<!-- *************************** footer ************************ -->
 	<div class="px-16 azul bold">NOTAS IMPORTANTES</div>
-	<div style="text-align: justify;">1.- EL CLIENTE ESTÁ DE ACUERDO Y AUTORIZA QUE SU UNIDAD SEA PROBADA Y CHECADA FUERA DE NUESTRAS INSTALACIONES EN UN RADIO DE DISTANCIA NO MAYOR A 50 KILÓMETROS A LA REDONDA PARA GARANTIZAR EL BUEN DESEMPEÑO DE LA MISMA PARA LO CUAL EL CLIENTE FIRMA DE CONFORMIDAD.</div>
-	<div style="text-align: justify;">
+	<div class="px-10" style="text-align: justify;">1.- EL CLIENTE ESTÁ DE ACUERDO Y AUTORIZA QUE SU UNIDAD SEA PROBADA Y CHECADA FUERA DE NUESTRAS INSTALACIONES EN UN RADIO DE DISTANCIA NO MAYOR A 50 KILÓMETROS A LA REDONDA PARA GARANTIZAR EL BUEN DESEMPEÑO DE LA MISMA PARA LO CUAL EL CLIENTE FIRMA DE CONFORMIDAD.</div>
+	<div class="px-10" style="text-align: justify;">
 	2.- DURANTE EL PERIODO DE PRUEBA LA RESPONSABILIDAD DE ACCIDENTES O DAÑOS QUE SUFRA LA UNIDAD DURANTE EL PERIODO DE PRUEBA POR MOTIVOS AJENOS A NUESTRA RESPONSABILIDAD TÉCNICA SERA BAJO LA COBERTURA PRIMERAMENTE POR EL SEGURO DEL CLIENTE Y EN CASO DE CARECER DE DICHO SEGURO, EL CLIENTE PAGARÁ EL DEDUCIBLE QUE SE DERIVE EL PAGO DE DAÑOS QUE NUESTRO SEGURO LIQUIDE.
 	</div>
-	<div style="text-align: justify;">
+	<div class="px-10" style="text-align: justify;">
 	3.-EN PARTES ELECTRÓNICAS NO HAY GARANTÍAS.
 	</div>
-	<div style="text-align: justify;">
+	<div class="px-10" style="text-align: justify;">
 	4.- NO NOS HACEMOS RESPONSABLES POR OBJETOS DE VALOR NO REPORTADOS EN LA ADMINISTRACIÓN.
 	</div>
-	<div style="text-align: justify;">
+	<div class="px-10" style="text-align: justify;">
 	5.- DESPUÉS DE 24 HRS. QUE HAYA RECIBIDO EL CLIENTE LA CONFIRMACIÓN DE TERMINADA SU UNIDAD Y ÉSTA NO ES RECOGIDA PAGARÁ $50 PESOS DE PENSIÓN DIARIA Y SERÁ RESPONSABLE DE LOS DAÑOS QUE ÉSTA SUFRA DURANTE LA ESTANCIA.
 	</div>
 </body>
