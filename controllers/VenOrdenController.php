@@ -69,7 +69,6 @@ class VenOrdenController extends Controller
         $model = new VenOrden();
         $modelFol = new VenFolio();
         
-        #Solicitud POST
         $datos = Yii::$app->request->post();
 
         if($datos)
@@ -77,34 +76,44 @@ class VenOrdenController extends Controller
             //quitar load
             if ($model->load($datos)) 
             {
-                #Se remueve el csrf
+
                 array_shift($datos);
                 
-                #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
                 $orden = array_shift($datos);
                 $folio = array_shift($datos);
                 $image = array_pop($datos);
 
-                #Se llama a todas las opciones de vehiculo y accesorios disponibles
                 $baseVE = array_fill_keys($model->vehiculoExterior, 'off');
                 $baseVI = array_fill_keys($model->vehiculoInterior, 'off');
                 $baseAE = array_fill_keys($model->accesoriosExterior, 'off');
                 $baseAI = array_fill_keys($model->accesoriosInterior, 'off');
                 
-                #Se cambian los valores POST de name por los labels correctos
                 $opciones = array_map(function($value)
                             {
                                 return mb_ereg_replace( "_", " ", ucfirst($value));
                             }, array_keys($datos));
 
-                #Se les asigna como encendidos
                 $opciones = array_fill_keys($opciones, "on");
                 
-                $ve = array_merge($baseVE, array_intersect_key($opciones, $baseVE));
-                $vi = array_merge($baseVI, array_intersect_key($opciones, $baseVE));
-                $ae = array_merge($baseAE, array_intersect_key($opciones, $baseVE));
-                $ai = array_merge($baseAI, array_intersect_key($opciones, $baseVE));
                 
+                
+                //array_uintersect_assoc($baseVE, $opciones, "strcmp")
+
+                $array1 = array("a" => "verde", "b" => "marron", );
+                $array2 = array("a" => "VERDE", "b" => "MARRON", );
+
+                print_r($array1);
+                echo '<br>';
+                print_r($array2);
+                echo '<br>';
+                print_r(array_uintersect_assoc($array1, $array2, "strcasecmp"));
+                echo '<br>';
+                print_r($opciones);
+                echo '<br>';
+                print_r($baseVE);
+                echo '<br>';
+                print_r(array_uintersect_assoc($opciones, $baseVE, "strcasecmp"));
+
                 if($model->save()) 
                 {
                     return $this->redirect(['view', 'id' => $model->ord_id]);
