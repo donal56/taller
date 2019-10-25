@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use app\models\VenFolio;
+use app\components\Utilidades;
 
 /**
  * VenOrdenController implements the CRUD actions for VenOrden model.
@@ -69,7 +70,7 @@ class VenOrdenController extends Controller
         $model = new VenOrden();
         $modelFol = new VenFolio();
         
-        #Solicitud POST
+        $transaction = \Yii::$app->db->beginTransaction();
         $datos = Yii::$app->request->post();
 
         if($datos)
@@ -83,40 +84,45 @@ class VenOrdenController extends Controller
                 #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
                 $orden = array_shift($datos);
                 $folio = array_shift($datos);
-                $image = array_pop($datos);
+                $image = base64_decode(array_pop($datos));
 
-                #Se llama a todas las opciones de vehiculo y accesorios disponibles
-                $baseVE = array_fill_keys($model->vehiculoExterior, 'off');
-                $baseVI = array_fill_keys($model->vehiculoInterior, 'off');
-                $baseAE = array_fill_keys($model->accesoriosExterior, 'off');
-                $baseAI = array_fill_keys($model->accesoriosInterior, 'off');
-                
                 #Se cambian los valores POST de name por los labels correctos
                 $opciones = array_map(function($value)
-                            {
-                                return mb_ereg_replace( "_", " ", ucfirst($value));
-                            }, array_keys($datos));
-
+                {
+                    return mb_ereg_replace( "_", " ", ucfirst($value));
+                }, array_keys($datos));
+    
                 #Se les asigna como encendidos
                 $opciones = array_fill_keys($opciones, "on");
-                
-                $ve = array_merge($baseVE, array_intersect_key($opciones, $baseVE));
-                $vi = array_merge($baseVI, array_intersect_key($opciones, $baseVE));
-                $ae = array_merge($baseAE, array_intersect_key($opciones, $baseVE));
-                $ai = array_merge($baseAI, array_intersect_key($opciones, $baseVE));
-                
+
+                #Se crean los JSON clasificados por su grupo
+                $ve = Utilidades::transpose_array_json($model->vehiculoExterior, $opciones);
+                $vi = Utilidades::transpose_array_json($model->vehiculoInterior, $opciones);
+                $ae = Utilidades::transpose_array_json($model->accesoriosExterior, $opciones);
+                $ai = Utilidades::transpose_array_json($model->accesoriosInterior, $opciones);
+
+                die();
+
+                $filename = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->id . '.png';
+
+                if (file_put_contents($filename, $image))
+                    throw new \yii\base\Exception("No se pudo guardar la imagen.");
+
+                $model->image = UploadedFile::getInstance($model, 'file');
+                $model->image->saveAs( Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->id . '.' . $model->file->extension, false);
+               
                 if($model->save()) 
-                {
                     return $this->redirect(['view', 'id' => $model->ord_id]);
+                else
+                {
+                    unlink($filename);
+                    throw new \yii\base\Exception("No se pudo guardar la imagen.");
                 }
             }
         }
         else
         {
-            return $this->render('create', [
-                'model' => $model,
-                'modelFol' => $modelFol
-            ]);
+            return $this->render('create', ['model' => $model, 'modelFol' => $modelFol]);
         }
     }
 
