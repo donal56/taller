@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <body>
@@ -13,6 +12,7 @@
 <!-- linea del tanque -->
 <div class="linea">
 	<img  style="transform: rotate(45);" src="var:linea"  id= "linea" >
+	<?= print_r($model->ord_tanque);?>
 </div>
 <!-- tanque de gasolina -->
 <div class="tanque">
@@ -21,8 +21,9 @@
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!-- Cuadro del folio -->
-<div id="cuadroFolio" class= "bordered"></div>
-
+<div id="cuadroFolio" class= "bordered px-16 azul">
+	<?= mb_strtoupper($model->ord_folio)?>
+</div>
 	<div class="borde">
 		<!-- *************************** header ************************ -->
 		<div class="fondoAzul">
@@ -52,34 +53,34 @@
 		<div class="panel">
 			<!-- linea1 -->
 			<div style="width: 15mm ;" class="div-label">NOMBRE:</div>
-			<div style="width: 160mm;" class="div-underline">&#8203;</div>
+			<div style="width: 160mm;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_nombre) ?></div>
 			<!-- linea2 -->
 			<div style="width: 18mm ;" class="div-label">DIRECCIÓN:</div>
-			<div style="width: 157mm;" class="div-underline">&#8203;</div>
+			<div style="width: 157mm;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_direccion)?></div>
 			<!-- linea3 -->
 			<div style="width: 7mm  ;" class="div-label">C.P.:</div>
-			<div style="width: 45mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 45mm ;" class="div-underline">&#8203; <?=$model->ord_codigoPostal?></div>
 			
 			<div style="width: 18mm ;" class="div-label">TELEFONO:</div>
-			<div style="width: 50mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 50mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_telefono)?></div>
 			
 			<div style="width: 6mm  ;" class="div-label">IFE:</div>
-			<div style="width: 46.3mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 46.3mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_ife)?></div>
 			<!-- linea4 -->
 			<div style="width: 14mm ;" class="div-label">MODELO:</div>
-			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_modelo)?></div>
 			
 			<div style="width: 9mm ;" class="div-label">TIPO:</div>
 			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
 			
 			<div style="width: 13mm ;" class="div-label">MARCA:</div>
-			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_marca)?></div>
 			
 			<div style="width: 13mm ;" class="div-label">PLACAS:</div>
-			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_placa)?></div>
 			<!-- linea5 -->
 			<div style="width: 31mm ;" class="div-label">FECHA DE INGRESO:</div>
-			<div style="width: 40mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 40mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_fechaIngreso)?></div>
 			
 			<div style="width: 10mm ;" class="div-label">HORA:</div>
 			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
@@ -88,13 +89,13 @@
 			<div style="width: 41.3mm ;" class="div-underline">&#8203;</div>
 			<!-- linea6 -->
 			<div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
-			<div style="width: 35mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 35mm ;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_noSerie)?></div>
 			
 			<div style="width: 12mm ;" class="div-label">COLOR:</div>
-			<div style="width: 35mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 35mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_color)?></div>
 			
 			<div style="width: 27mm ;" class="div-label">KM.RECORRIDOS:</div>
-			<div style="width: 42.2mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 42.2mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_kilometraje)?></div>
 		</div>
 		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
 		<div class="azul px-14 bold">INVENTARIO DEL VEHICULO</div>

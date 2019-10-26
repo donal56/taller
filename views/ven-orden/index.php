@@ -49,8 +49,17 @@ $this->params['breadcrumbs'][] = $this->title;
             //'ord_accesoriosInterior:ntext',
             //'ord_problemas:ntext',
             //'ord_diagnostico:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'buttons' => 
+                [
+                    'print' => function ($url, $model, $key) 
+                    {
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-orden/report', 'id' => $model->ord_id],['data-pjax'=>"0",'target' => '_blank']);
+                    },
+                ],
+                'template' => '{view} {update} {delete} {print}'
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

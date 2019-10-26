@@ -194,9 +194,9 @@ class VenOrdenController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-     public function actionReport() 
+    public function actionReport($id) 
     {
-        # $model =  $this->findModel($id);
+        $model =$this->findModel($id);
 
         $pdf = new Pdf([
             'orientation' => Pdf::ORIENT_PORTRAIT, 
@@ -224,7 +224,8 @@ class VenOrdenController extends Controller
         /*$mpdf -> SetHTMLHeader($this->renderPartial('pdf_header',
             [ 'model' =>   $model, ]
         )); */
-        $pdf->content = $this->renderPartial('body'); 
+        $pdf->content = $this->renderPartial('body',[ 'model' =>$model]); 
+        $pdf->content .= '<hr>'. $pdf->content;
 
          return $pdf->render();
     }
