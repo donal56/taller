@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ord_codigoPostal',
             'ord_telefono',
             'ord_ife',
+            'ord_tipo',
             'ord_modelo',
             'ord_marca',
             'ord_placa',
@@ -75,20 +76,40 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => function ($model) 
                 {
                     $list= json_decode($model->ord_vehiculoExterior, true);
-                    $aux = array_map(function($val)
+                    
+                    foreach($list as $key => $element)
                     {
-                        return $val == "on" ? "✓" : "✗" ;
-                    }, array_values($list));
-                    # $list = array_combine($aux, $list);
+                        if ($element == "on")
+                            $list[$key] = '✔';
+                        else
+                            $list[$key] = '✘';
+                    }
 
                     return Utilidades::array2table($list);
                 },
                 'format' => 'raw'
             ],
-            'ord_vehiculoInterior:ntext',
+            [
+                'attribute' => 'ord_vehiculoInterior',
+                'value'     => function ($model) 
+                {
+                    $list= json_decode($model->ord_vehiculoInterior, true);
+                    
+                    foreach($list as $key => $element)
+                    {
+                        if ($element == "on")
+                            $list[$key] = '✔';
+                        else
+                            $list[$key] = '✘';
+                    }
+
+                    return Utilidades::array2table($list);
+                },
+                'format' => 'raw'
+            ],
             'ord_observaciones:ntext',
             [
-                'attribute' => 'ord_fechaIngreso',
+                'attribute' => 'ord_tanque',
                 'value' => function($model)
                 {
                     $val = $model->ord_tanque;
@@ -107,10 +128,52 @@ $this->params['breadcrumbs'][] = $this->title;
                         return ($val * 100) . '%';
                 }
             ],
-            'ord_accesoriosExterior:ntext',
-            'ord_accesoriosInterior:ntext',
+            [
+                'attribute' => 'ord_accesoriosExterior',
+                'value'     => function ($model) 
+                {
+                    $list= json_decode($model->ord_accesoriosExterior, true);
+                    
+                    foreach($list as $key => $element)
+                    {
+                        if ($element == "on")
+                            $list[$key] = '✔';
+                        else
+                            $list[$key] = '✘';
+                    }
+
+                    return Utilidades::array2table($list);
+                },
+                'format' => 'raw'
+            ],
+            [
+                'attribute' => 'ord_accesoriosInterior',
+                'value'     => function ($model) 
+                {
+                    $list= json_decode($model->ord_accesoriosInterior, true);
+                    
+                    foreach($list as $key => $element)
+                    {
+                        if ($element == "on")
+                            $list[$key] = '✔';
+                        else
+                            $list[$key] = '✘';
+                    }
+
+                    return Utilidades::array2table($list);
+                },
+                'format' => 'raw'
+            ],
             'ord_problemas:ntext',
             'ord_diagnostico:ntext',
+            [
+                'label' => 'Vehículo',
+                'format' => 'raw',
+                'value' => function ($model) 
+                {
+                    return Html::img('@web/img/wPaint/files/' . $model->ord_id . ".png", ['alt'=>'Logo', 'width'=>'350']);
+                }
+            ],
         ],
     ]) ?>
 

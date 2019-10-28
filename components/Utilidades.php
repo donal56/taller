@@ -333,7 +333,7 @@ class Utilidades
       $array,
       $transpose = false,
       $recursive = false,
-      $typeHint = true,
+      $typeHint = false,
       $tableOptions = ['class' => 'table table-bordered table-striped'],
       $keyOptions = [],
       $valueOptions = ['style' => 'cursor: default; border-bottom: 1px #aaa dashed;'],

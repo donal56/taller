@@ -60,6 +60,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'template' => '{view} {update} {delete} {print}'
             ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'buttons' => 
+                [
+                    'print' => function ($url, $model, $key) 
+                    {
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-orden/report', 'id' => $model->ord_id],['data-pjax'=>"0",'target' => '_blank']);
+                    },
+                ],
+                'template' => '{print}'
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn', 
+                'visible' => Yii::$app->user->isSuperAdmin,
+                'template' => '{view} {update} {delete}'
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

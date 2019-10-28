@@ -81,6 +81,7 @@ class VenOrden extends \yii\db\ActiveRecord
             'ord_codigoPostal' => 'Código Postal',
             'ord_telefono' => 'Teléfono',
             'ord_ife' => 'INE',
+            'ord_tipo' => 'Tipo',
             'ord_modelo' => 'Modelo',
             'ord_marca' => 'Marca',
             'ord_placa' => 'Placa',

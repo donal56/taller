@@ -12,7 +12,7 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<!-- <div style= "position: absolute; top: 92mm; left: 66mm">
+<div style= "position: absolute; top: 92mm; left: 66mm; border: 0">
 	<img  width="53%" src="var:auto" id= "auto" >
 </div> -->
 <!-- linea del tanque -->
@@ -113,7 +113,7 @@
 				<table class="tabla">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<?php
@@ -157,7 +157,7 @@ CAD;
 				<table class="tabla">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -171,7 +171,7 @@ CAD;
 		<br><br><br><br><br><br><br><br><br>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
+		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
 
 		<!-- titulos2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
@@ -185,7 +185,7 @@ CAD;
 				<table class="tabla2" border="1">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -229,7 +229,7 @@ CAD;
 				<table class="tabla2" border="1">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -270,12 +270,12 @@ CAD;
 			<!-- problemas del vehiculo -->
 			<div style="width: 80mm; height: 40mm; float: left;">
 				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
-				<div class="div-underline">&#8203;<?= mb_strtoupper($model->ord_problemas)?></div>
+				<div class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_problemas)?></div>
 			</div>
 			<!-- diagnostico tecnico -->
 			<div style="width: 80mm; height: 40mm; float: right;">
 				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
-				<div class="div-underline">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></div>
+				<div class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></div>
 			</div>
 		</div>
 		<div style="width: 180mm; height: 20mm;">
