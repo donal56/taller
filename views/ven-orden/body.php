@@ -3,6 +3,8 @@
 <?php 
 	$date1=new DateTime($model->ord_fechaIngreso);
 	$date2=new DateTime($model->ord_fechaEntrega);
+	$exteriores=json_decode($model->ord_vehiculoExterior,true);
+	print_r($exteriores);
 ?>
 <body>
 <!--Logo-->
@@ -10,9 +12,9 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 92mm; left: 66mm">
+<!-- <div style= "position: absolute; top: 92mm; left: 66mm">
 	<img  width="53%" src="var:auto" id= "auto" >
-</div>
+</div> -->
 <!-- linea del tanque -->
 <div class="linea">
 	<img  style="transform: rotate(<?= (($model->ord_tanque)*180);?>);" src="var:linea"  id= "linea" >
@@ -114,63 +116,36 @@
 						<td>Si</td>	
 						<td>No</td>
 					</tr>
+					<?php
+						$exteriores=json_decode($model->ord_vehiculoExterior,true);
+						print_r("<p>".$exteriores."</p>");
+						foreach ($exteriores as $exterior) 
+						{
+							if($exterior=='off')
+							{
+								$cad= <<<CAD
+								<tr>
+								<td></td>
+								<td></td>
+								<td>*</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad= <<<CAD
+								<tr>
+								<td></td>
+								<td>*</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+
+							}
+						}
+					?>
 					<tr>
 						<td>UNIDAD DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>1/4 DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ANTENA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESPEJO LATERAL </td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CRISTALES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>EMBLEMA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLANTAS(4)</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON DE RUEDAS(4)</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MOLDURAS COMPL</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON DE GASOLINA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CARROCER.S/GOLPES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOCINAS DE CLAXON</td>
 						<td></td>
 						<td></td>
 					</tr>
@@ -190,69 +165,10 @@
 						<td></td>
 						<td></td>
 					</tr>
-					<tr>
-						<td>CALEFACCIÓN</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LIMPIADORES PLUMAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>RADIO TIPO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOCINAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ENCENDEDOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESPEJO RETROVISOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CENICEROS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOTONES INTERIORES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MANIJAS INTERIORES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPETES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>VESTIDURAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CINTURONES</td>
-						<td></td>
-						<td></td>
-					</tr>
 				</table>
 			</div>
 		</div>
+		<br><br><br><br><br><br><br><br><br>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
 		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
