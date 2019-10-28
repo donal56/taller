@@ -208,3 +208,14 @@ table.tabla2
     border-bottom: 2px solid #3369b7;
     color: #3369b7;
 }
+
+span.underline2
+{
+    border-bottom: 0.05mm solid #3369b7;
+}
+
+div.bigger-spacing
+{
+    padding-bottom: 1.5mm;
+    line-height: 4mm;
+}

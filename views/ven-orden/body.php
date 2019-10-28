@@ -11,15 +11,15 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 92mm; left: 66mm; border: 0">
-	<img  width="53%" src="var:auto" id= "auto" >
+<div style= "position: absolute; top: 92mm; left: 66mm">
+	<img  width="53%" src="var:auto">
 </div>
 <!-- linea del tanque -->
 <div class="linea">
 	<img  style="transform: rotate(<?= (($model->ord_tanque)*180);?>);" src="var:linea"  id= "linea" >
 </div>
 <!-- tanque de gasolina -->
-<div class="tanque">
+<div class="tanque" style= "padding-left: 3mm; padding-top: 3mm">
 	<img src="var:fondoTan" id="fondoTanque">
 	<br><br>
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
@@ -180,7 +180,7 @@ CAD;
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
 		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
-
+		<br>
 		<!-- titulos2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
 			<div style="width: 51mm; float:left;" class="div-label2 borde">EXTERIORES</div>
@@ -259,14 +259,14 @@ CAD;
 		<br><br><br><br><br><br><br><br>
 		<div>
 			<!-- problemas del vehiculo -->
-			<div style="width: 80mm; height: 40mm; float: left;">
+			<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
 				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
-				<div class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_problemas)?></div>
+				<div class="px-8 justify bigger-spacing"><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_problemas)?></span></div>
 			</div>
 			<!-- diagnostico tecnico -->
-			<div style="width: 80mm; height: 40mm; float: right;">
+			<div style="width: 80mm; height: 40mm; float: right; padding-right: 3mm">
 				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
-				<div class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></div>
+				<div class="px-8 justify bigger-spacing" ><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></span></div>
 			</div>
 		</div>
 		<div style="width: 180mm; height: 20mm;">
