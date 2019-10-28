@@ -1,18 +1,20 @@
 <html>
-
+<?php 
+	$list=json_decode($model->ord_vehiculoExterior, true);
+	print_r($list ['Unidad de luces']);
+?>
 <body>
 <!--Logo-->
 <div style= "position: absolute; top: 16mm; left: 15mm">
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 90.5mm; left: 66mm">
-	<img  width="54%" src="var:auto" id= "auto" >
+<div style= "position: absolute; top: 92mm; left: 66mm">
+	<img  width="53%" src="var:auto" id= "auto" >
 </div>
 <!-- linea del tanque -->
 <div class="linea">
-	<img  style="transform: rotate(45);" src="var:linea"  id= "linea" >
-	<?= print_r($model->ord_tanque);?>
+	<img  style="transform: rotate(<?= (($model->ord_tanque)*180);?>);" src="var:linea"  id= "linea" >
 </div>
 <!-- tanque de gasolina -->
 <div class="tanque">
@@ -21,7 +23,7 @@
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!-- Cuadro del folio -->
-<div id="cuadroFolio" class= "bordered px-16 azul">
+<div id="cuadroFolio" class= "bordered px-16 azul" style="color:red; font-size:3em; text-align: center; vertical-align: middle;">
 	<?= mb_strtoupper($model->ord_folio)?>
 </div>
 	<div class="borde">
@@ -98,8 +100,7 @@
 			<div style="width: 42.2mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_kilometraje)?></div>
 		</div>
 		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
-		<div class="azul px-14 bold">INVENTARIO DEL VEHICULO</div>
-
+		<div class="azul px-12 bold">INVENTARIO DEL VEHICULO</div>
 		<div style="width: 200mm; position: absolute;">
 			<!-- titulos -->
 			<div style="width: 60mm; float:left;"  class="div-label2 borde">EXTERIORES</div>
@@ -253,7 +254,7 @@
 		</div>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;</div>
+		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
 
 		<!-- titulos2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
@@ -352,10 +353,12 @@
 			<!-- problemas del vehiculo -->
 			<div style="width: 80mm; height: 40mm; float: left;">
 				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
+				<div class="div-underline">&#8203;<?= mb_strtoupper($model->ord_problemas)?></div>
 			</div>
 			<!-- diagnostico tecnico -->
 			<div style="width: 80mm; height: 40mm; float: right;">
 				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
+				<div class="div-underline">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></div>
 			</div>
 		</div>
 		<div style="width: 180mm; height: 20mm;">

@@ -118,7 +118,7 @@ hr.azul
     font-size: 10px;
     font-weight: bold;
     color: #3369b7;
-    padding: 7px 0px 0px 5px;
+    padding: 5px 0px 0px 2px;
     /*border: 1px solid;*/
 }
 .div-label2{
@@ -141,7 +141,8 @@ hr.azul
     color: #3369b7;
     text-align: left;
     font-size: 10px;
-    padding: 2px 0px;  
+    padding: 2px 0px 0px 1px;
+    margin-top: 2px;  
 }
 .div-linea
 {
