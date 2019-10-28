@@ -63,7 +63,7 @@ class VenOrden extends \yii\db\ActiveRecord
             [['ord_tanque'], 'number'],
             [['ord_nombre', 'ord_direccion'], 'string', 'max' => 255],
             [['ord_codigoPostal'], 'string', 'max' => 11],
-            [['ord_telefono', 'ord_ife', 'ord_placa', 'ord_noSerie', 'ord_color'], 'string', 'max' => 20],
+            [['ord_telefono', 'ord_ife', 'ord_placa', 'ord_noSerie', 'ord_color','ord_tipo'], 'string', 'max' => 20],
             [['ord_modelo', 'ord_marca'], 'string', 'max' => 100],
         ];
     }

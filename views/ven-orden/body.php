@@ -1,8 +1,5 @@
 <html>
-<?php 
-	$list=json_decode($model->ord_vehiculoExterior, true);
-	print_r($list ['Unidad de luces']);
-?>
+
 <body>
 <!--Logo-->
 <div style= "position: absolute; top: 16mm; left: 15mm">
@@ -73,7 +70,7 @@
 			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_modelo)?></div>
 			
 			<div style="width: 9mm ;" class="div-label">TIPO:</div>
-			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_tipo)?></div>
 			
 			<div style="width: 13mm ;" class="div-label">MARCA:</div>
 			<div style="width: 32mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_marca)?></div>
