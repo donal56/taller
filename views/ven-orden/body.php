@@ -150,15 +150,33 @@ CAD;
 						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>INST.DE TABLERO</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$interiores=json_decode($model->ord_vehiculoInterior,true);
+						foreach ($interiores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br><br><br>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
 		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
@@ -178,41 +196,30 @@ CAD;
 						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>GATO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MANERALDE GATO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLAVE DE RUEDAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESTUCHE HERRAMIENTAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TRIANGULOS SEGURIDAD</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLANTA DE REFACCION</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>EXTINTOR</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$exteriores=json_decode($model->ord_accesoriosExterior,true);
+						foreach ($exteriores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 			<div style="width: 50mm; float:right;">
@@ -222,36 +229,30 @@ CAD;
 						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>CLAXON</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON ACEITE</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON RADIADOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>VARILLA ACEITE</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>FILTRO AIRE</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BATERIA</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$interiores=json_decode($model->ord_accesoriosInterior,true);
+						foreach ($interiores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 		</div>
