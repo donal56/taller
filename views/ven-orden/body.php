@@ -1,28 +1,33 @@
-<!DOCTYPE html>
 <html>
 
+<?php 
+	$date1=new DateTime($model->ord_fechaIngreso);
+	$date2=new DateTime($model->ord_fechaEntrega);
+	$exteriores=json_decode($model->ord_vehiculoExterior,true);
+?>
 <body>
 <!--Logo-->
 <div style= "position: absolute; top: 16mm; left: 15mm">
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 90.5mm; left: 66mm">
-	<img  width="54%" src="var:auto" id= "auto" >
+<div style= "position: absolute; top: 92mm; left: 66mm">
+	<img  width="53%" src="var:auto">
 </div>
 <!-- linea del tanque -->
 <div class="linea">
-	<img  style="transform: rotate(45);" src="var:linea"  id= "linea" >
+	<img  style="transform: rotate(<?= (($model->ord_tanque)*180);?>);" src="var:linea"  id= "linea" >
 </div>
 <!-- tanque de gasolina -->
-<div class="tanque">
+<div class="tanque" style= "padding-left: 3mm; padding-top: 3mm">
 	<img src="var:fondoTan" id="fondoTanque">
 	<br><br>
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!-- Cuadro del folio -->
-<div id="cuadroFolio" class= "bordered"></div>
-
+<div id="cuadroFolio" class= "bordered px-16 azul" style="color:red; font-size:3em; text-align: center; vertical-align: middle;">
+	<?= mb_strtoupper($model->ord_folio)?>
+</div>
 	<div class="borde">
 		<!-- *************************** header ************************ -->
 		<div class="fondoAzul">
@@ -52,53 +57,52 @@
 		<div class="panel">
 			<!-- linea1 -->
 			<div style="width: 15mm ;" class="div-label">NOMBRE:</div>
-			<div style="width: 160mm;" class="div-underline">&#8203;</div>
+			<div style="width: 160mm;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_nombre) ?></div>
 			<!-- linea2 -->
 			<div style="width: 18mm ;" class="div-label">DIRECCIÓN:</div>
-			<div style="width: 157mm;" class="div-underline">&#8203;</div>
+			<div style="width: 157mm;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_direccion)?></div>
 			<!-- linea3 -->
 			<div style="width: 7mm  ;" class="div-label">C.P.:</div>
-			<div style="width: 45mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 45mm ;" class="div-underline">&#8203; <?=$model->ord_codigoPostal?></div>
 			
 			<div style="width: 18mm ;" class="div-label">TELEFONO:</div>
-			<div style="width: 50mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 50mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_telefono)?></div>
 			
 			<div style="width: 6mm  ;" class="div-label">IFE:</div>
-			<div style="width: 46.3mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 46.3mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_ife)?></div>
 			<!-- linea4 -->
 			<div style="width: 14mm ;" class="div-label">MODELO:</div>
-			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_modelo)?></div>
 			
 			<div style="width: 9mm ;" class="div-label">TIPO:</div>
-			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_tipo)?></div>
 			
 			<div style="width: 13mm ;" class="div-label">MARCA:</div>
-			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_marca)?></div>
 			
 			<div style="width: 13mm ;" class="div-label">PLACAS:</div>
-			<div style="width: 30mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_placa)?></div>
 			<!-- linea5 -->
 			<div style="width: 31mm ;" class="div-label">FECHA DE INGRESO:</div>
-			<div style="width: 40mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 40mm ;" class="div-underline">&#8203;<?= $date1->format('d/m/Y')?></div>
 			
 			<div style="width: 10mm ;" class="div-label">HORA:</div>
-			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;<?= $date1->format('g:i A')?></div>
 			
 			<div style="width: 18mm ;" class="div-label">F/ENTREGA:</div>
-			<div style="width: 41.3mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 41.3mm ;" class="div-underline">&#8203;<?= $date2->format('g:i A');?></div>
 			<!-- linea6 -->
 			<div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
-			<div style="width: 35mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 35mm ;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_noSerie)?></div>
 			
 			<div style="width: 12mm ;" class="div-label">COLOR:</div>
-			<div style="width: 35mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 35mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_color)?></div>
 			
 			<div style="width: 27mm ;" class="div-label">KM.RECORRIDOS:</div>
-			<div style="width: 42.2mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 42.2mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_kilometraje)?></div>
 		</div>
 		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
-		<div class="azul px-14 bold">INVENTARIO DEL VEHICULO</div>
-
+		<div class="azul px-12 bold">INVENTARIO DEL VEHICULO</div>
 		<div style="width: 200mm; position: absolute;">
 			<!-- titulos -->
 			<div style="width: 60mm; float:left;"  class="div-label2 borde">EXTERIORES</div>
@@ -108,69 +112,33 @@
 				<table class="tabla">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>UNIDAD DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>1/4 DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ANTENA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESPEJO LATERAL </td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CRISTALES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>EMBLEMA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLANTAS(4)</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON DE RUEDAS(4)</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MOLDURAS COMPL</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON DE GASOLINA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CARROCER.S/GOLPES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOCINAS DE CLAXON</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$exteriores=json_decode($model->ord_vehiculoExterior,true);
+						foreach ($exteriores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 
@@ -179,81 +147,40 @@
 				<table class="tabla">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>INST.DE TABLERO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CALEFACCIÓN</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LIMPIADORES PLUMAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>RADIO TIPO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOCINAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ENCENDEDOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESPEJO RETROVISOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CENICEROS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOTONES INTERIORES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MANIJAS INTERIORES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPETES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>VESTIDURAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CINTURONES</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$interiores=json_decode($model->ord_vehiculoInterior,true);
+						foreach ($interiores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 		</div>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;</div>
-
+		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
+		<br>
 		<!-- titulos2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
 			<div style="width: 51mm; float:left;" class="div-label2 borde">EXTERIORES</div>
@@ -266,95 +193,80 @@
 				<table class="tabla2" border="1">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>GATO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MANERALDE GATO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLAVE DE RUEDAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESTUCHE HERRAMIENTAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TRIANGULOS SEGURIDAD</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLANTA DE REFACCION</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>EXTINTOR</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$exteriores=json_decode($model->ord_accesoriosExterior,true);
+						foreach ($exteriores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 			<div style="width: 50mm; float:right;">
 				<table class="tabla2" border="1">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>CLAXON</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON ACEITE</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON RADIADOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>VARILLA ACEITE</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>FILTRO AIRE</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BATERIA</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$interiores=json_decode($model->ord_accesoriosInterior,true);
+						foreach ($interiores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 		</div>
 		<br><br><br><br><br><br><br><br>
 		<div>
 			<!-- problemas del vehiculo -->
-			<div style="width: 80mm; height: 40mm; float: left;">
+			<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
 				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
+				<div class="px-8 justify bigger-spacing"><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_problemas)?></span></div>
 			</div>
 			<!-- diagnostico tecnico -->
-			<div style="width: 80mm; height: 40mm; float: right;">
+			<div style="width: 80mm; height: 40mm; float: right; padding-right: 3mm">
 				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
+				<div class="px-8 justify bigger-spacing" ><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></span></div>
 			</div>
 		</div>
 		<div style="width: 180mm; height: 20mm;">
