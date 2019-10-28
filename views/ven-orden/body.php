@@ -6,7 +6,7 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 92mm; left: 66mm">
+<div style= "position: absolute; top: 92mm; left: 66mm; border: 0">
 	<img  width="53%" src="var:auto" id= "auto" >
 </div>
 <!-- linea del tanque -->
@@ -79,13 +79,13 @@
 			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_placa)?></div>
 			<!-- linea5 -->
 			<div style="width: 31mm ;" class="div-label">FECHA DE INGRESO:</div>
-			<div style="width: 40mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_fechaIngreso)?></div>
+			<div style="width: 40mm ;" class="div-underline">&#8203;<?= mb_strtoupper(DateTime::createFromFormat('Y-m-d H:i:s', $model->ord_fechaIngreso)->format('d-m-Y'))?></div>
 			
 			<div style="width: 10mm ;" class="div-label">HORA:</div>
-			<div style="width: 32mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;<?= mb_strtoupper(DateTime::createFromFormat('Y-m-d H:i:s', $model->ord_fechaIngreso)->format('H:i'))?></div>
 			
 			<div style="width: 18mm ;" class="div-label">F/ENTREGA:</div>
-			<div style="width: 41.3mm ;" class="div-underline">&#8203;</div>
+			<div style="width: 41.3mm ;" class="div-underline">&#8203;<?= mb_strtoupper(DateTime::createFromFormat('Y-m-d H:i:s', $model->ord_fechaEntrega)->format('d-m-Y'))?></div>
 			<!-- linea6 -->
 			<div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
 			<div style="width: 35mm ;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_noSerie)?></div>
@@ -107,7 +107,7 @@
 				<table class="tabla">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -178,7 +178,7 @@
 				<table class="tabla">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -251,7 +251,7 @@
 		</div>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm; padding: 0;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
+		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
 
 		<!-- titulos2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
@@ -265,7 +265,7 @@
 				<table class="tabla2" border="1">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -309,7 +309,7 @@
 				<table class="tabla2" border="1">
 					<tr>
 						<td></td>
-						<td>Si</td>	
+						<td>Sí</td>	
 						<td>No</td>
 					</tr>
 					<tr>
@@ -350,12 +350,12 @@
 			<!-- problemas del vehiculo -->
 			<div style="width: 80mm; height: 40mm; float: left;">
 				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
-				<div class="div-underline">&#8203;<?= mb_strtoupper($model->ord_problemas)?></div>
+				<div class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_problemas)?></div>
 			</div>
 			<!-- diagnostico tecnico -->
 			<div style="width: 80mm; height: 40mm; float: right;">
 				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
-				<div class="div-underline">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></div>
+				<div class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></div>
 			</div>
 		</div>
 		<div style="width: 180mm; height: 20mm;">

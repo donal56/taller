@@ -43,7 +43,6 @@ use app\components\Utilidades;
 
                     <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-2']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => '...' ]) ?>
 
-
                     <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
                     <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
@@ -70,23 +69,6 @@ use app\components\Utilidades;
 
                 <div class="row col-sm-12">
 
-                    <?=$form->field($model, 'ord_codigoPostal', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                    <?=$form->field($model, 'ord_telefono', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                    <?=$form->field($model, 'ord_ife', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                    <?=$form->field($model, 'ord_modelo', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                    <?=$form->field($model, 'ord_marca', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                    <?=$form->field($model, 'ord_placa', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
-
-                </div>
-
-
-                <div class="row col-sm-12">
-
                     <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => Utilidades::getDate('Y-m-d H:i:s')]) ?>
 
                     <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
@@ -102,13 +84,31 @@ use app\components\Utilidades;
                         ]); 
                     ?>
 
-                    <?=$form->field($model, 'ord_noSerie', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
+                    <?=$form->field($model, 'ord_codigoPostal', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
 
-                    <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
+                    <?=$form->field($model, 'ord_telefono', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
+
+                    <?=$form->field($model, 'ord_ife', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
+
+                </div>
+                
+                <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_tipo', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
+   
+                    <?=$form->field($model, 'ord_marca', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
+
+                    <?=$form->field($model, 'ord_modelo', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
+
+                    <?=$form->field($model, 'ord_placa', ['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true])?>
+
+                    <?=$form->field($model, 'ord_noSerie', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
                 </div>
 
                 <div class="row col-sm-12">
+
+                    <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
                     <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
 

@@ -90,7 +90,12 @@ hr.azul
 {
     font-size: 8px;
 }
-.bold{
+.justify
+{
+    text-align: justify;
+}
+.bold
+{
     font-weight: bold;
 }
 
