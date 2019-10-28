@@ -4,7 +4,6 @@
 	$date1=new DateTime($model->ord_fechaIngreso);
 	$date2=new DateTime($model->ord_fechaEntrega);
 	$exteriores=json_decode($model->ord_vehiculoExterior,true);
-	print_r($exteriores);
 ?>
 <body>
 <!--Logo-->
@@ -14,7 +13,7 @@
 <!-- Imagen auto -->
 <div style= "position: absolute; top: 92mm; left: 66mm; border: 0">
 	<img  width="53%" src="var:auto" id= "auto" >
-</div> -->
+</div>
 <!-- linea del tanque -->
 <div class="linea">
 	<img  style="transform: rotate(<?= (($model->ord_tanque)*180);?>);" src="var:linea"  id= "linea" >
@@ -118,37 +117,28 @@
 					</tr>
 					<?php
 						$exteriores=json_decode($model->ord_vehiculoExterior,true);
-						print_r("<p>".$exteriores."</p>");
-						foreach ($exteriores as $exterior) 
+						foreach ($exteriores as $key=>$value) 
 						{
-							if($exterior=='off')
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
 							{
-								$cad= <<<CAD
-								<tr>
+								$cad .=<<<CAD
 								<td></td>
-								<td></td>
-								<td>*</td>
+								<td class="px-14">✓</td>
 								</tr>
 CAD;
 							echo ($cad);
 							}else{
-								$cad= <<<CAD
-								<tr>
-								<td></td>
-								<td>*</td>
+								$cad .= <<<CAD
+								<td style="">✓</td>
 								<td></td>
 								</tr>
 CAD;
 							echo ($cad);
-
 							}
 						}
 					?>
-					<tr>
-						<td>UNIDAD DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
 				</table>
 			</div>
 
