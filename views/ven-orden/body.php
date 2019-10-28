@@ -1,5 +1,10 @@
 <html>
 
+<?php 
+	$date1=new DateTime($model->ord_fechaIngreso);
+	$date2=new DateTime($model->ord_fechaEntrega);
+	$exteriores=json_decode($model->ord_vehiculoExterior,true);
+?>
 <body>
 <!--Logo-->
 <div style= "position: absolute; top: 16mm; left: 15mm">
@@ -79,13 +84,13 @@
 			<div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_placa)?></div>
 			<!-- linea5 -->
 			<div style="width: 31mm ;" class="div-label">FECHA DE INGRESO:</div>
-			<div style="width: 40mm ;" class="div-underline">&#8203;<?= mb_strtoupper(DateTime::createFromFormat('Y-m-d H:i:s', $model->ord_fechaIngreso)->format('d-m-Y'))?></div>
+			<div style="width: 40mm ;" class="div-underline">&#8203;<?= $date1->format('d/m/Y')?></div>
 			
 			<div style="width: 10mm ;" class="div-label">HORA:</div>
-			<div style="width: 32mm ;" class="div-underline">&#8203;<?= mb_strtoupper(DateTime::createFromFormat('Y-m-d H:i:s', $model->ord_fechaIngreso)->format('H:i'))?></div>
+			<div style="width: 32mm ;" class="div-underline">&#8203;<?= $date1->format('g:i A')?></div>
 			
 			<div style="width: 18mm ;" class="div-label">F/ENTREGA:</div>
-			<div style="width: 41.3mm ;" class="div-underline">&#8203;<?= mb_strtoupper(DateTime::createFromFormat('Y-m-d H:i:s', $model->ord_fechaEntrega)->format('d-m-Y'))?></div>
+			<div style="width: 41.3mm ;" class="div-underline">&#8203;<?= $date2->format('g:i A');?></div>
 			<!-- linea6 -->
 			<div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
 			<div style="width: 35mm ;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_noSerie)?></div>
@@ -110,66 +115,30 @@
 						<td>Sí</td>	
 						<td>No</td>
 					</tr>
-					<tr>
-						<td>UNIDAD DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>1/4 DE LUCES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ANTENA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESPEJO LATERAL </td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CRISTALES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>EMBLEMA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LLANTAS(4)</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON DE RUEDAS(4)</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MOLDURAS COMPL</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPON DE GASOLINA</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CARROCER.S/GOLPES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOCINAS DE CLAXON</td>
-						<td></td>
-						<td></td>
-					</tr>
+					<?php
+						$exteriores=json_decode($model->ord_vehiculoExterior,true);
+						foreach ($exteriores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 
@@ -186,69 +155,10 @@
 						<td></td>
 						<td></td>
 					</tr>
-					<tr>
-						<td>CALEFACCIÓN</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>LIMPIADORES PLUMAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>RADIO TIPO</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOCINAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ENCENDEDOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>ESPEJO RETROVISOR</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CENICEROS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>BOTONES INTERIORES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>MANIJAS INTERIORES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>TAPETES</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>VESTIDURAS</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>CINTURONES</td>
-						<td></td>
-						<td></td>
-					</tr>
 				</table>
 			</div>
 		</div>
+		<br><br><br><br><br><br><br><br><br>
 		<!-- observaciones -->
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
 		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
