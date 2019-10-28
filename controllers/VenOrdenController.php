@@ -218,7 +218,6 @@ class VenOrdenController extends Controller
         $mpdf->imageVars['linea'   ] = file_get_contents('img/linea.png');
         $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
         $mpdf->imageVars['whats'   ] = file_get_contents('img/bluewa.png');
-        
         $mpdf->imageVars['auto'    ] = file_get_contents('img/wPaint/files/'.$id.".png");
 
 
