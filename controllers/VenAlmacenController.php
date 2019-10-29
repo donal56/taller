@@ -222,7 +222,7 @@ class VenAlmacenController extends Controller
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         $mpdf->imageVars['polo0'] = file_get_contents('img/logoagua.jpg');
         $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
-        $mpdf->imageVars['pez'] = file_get_contents('plantillas/itvh/images/logos/pez.png');
+        $mpdf->imageVars['pez'] = file_get_contents('img/pez.png');
         
         $pdf->cssFile = '@app/web/css/pdf2.css';
         $pdf->content = $this->renderPartial('pdf', [ 'model' =>   $model, 'modelCon' => $modelCon ]);

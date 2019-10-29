@@ -22,15 +22,21 @@
 <div class="tanque" style= "padding-left: 3mm; padding-top: 3mm">
 	<img src="var:fondoTan" id="fondoTanque">
 	<br><br>
+	<span><?= $model->ord_tanque*100 ?> %</span>
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!--Líneas fijas-->
 <div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 92mm; left: 66mm"></div>
 <div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 92mm; left: 66mm"></div>
+<!-- Imagen pez -->
+<div style="position: absolute; top:11mm; left: 160mm;">
+	<img width="77%" src="var:pez" id="pez">
+</div>
 <!-- Cuadro del folio -->
 <div id="cuadroFolio" class= "bordered px-16 azul" style="color:red; font-size:3em; text-align: center; vertical-align: middle;">
 	<?= mb_strtoupper('Nº ' . explode("-", $model->ord_folio)[1])?>
 </div>
+
 	<div class="borde">
 		<!-- *************************** header ************************ -->
 		<div class="fondoAzul">
