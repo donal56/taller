@@ -12,8 +12,8 @@
 				<span class="fblue">No es con espada ni con ejército, sino el poder del espíritu santo</span>
 			</div>
 
-			<div style="float:left;  width: 55mm;"><img src="var:polo"></div>
-			<div class="fblue" style="float:right; text-align:center;width: 70mm;">
+			<div style="float:left;  width: 70mm;"><img src="var:polo"></div>
+			<div class="fblue" style="float:right; text-align:center;width: 55mm;">
 				<b>Niños Heroes No. 165 Col. Atasta,
 					<br>Villahermosa, Centro, Tabasco
 					<br>Tels. 354 02 47, 354 86 83 
@@ -25,7 +25,7 @@
 					
 				</b>
 	
-				<div class="fblue" style="float:right; text-align:center;width: 90mm;"><b>E-mail: <br>polotransmisionesautomaticas@hotmail.com<b>
+				<div class="fblue" style="float:right; text-align:center;width: 72mm;"><b>E-mail: <br>polotransmisionesautomaticas@hotmail.com<b>
 				<!--<span style="font-size:12px;"><b>E-mail: polotransmisionesautomaticas@hotmail.com<b>
 				</span>-->
 				</div>
