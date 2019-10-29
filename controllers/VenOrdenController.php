@@ -103,14 +103,10 @@ class VenOrdenController extends Controller
             $data = explode(',', array_pop($datos));
             $image = base64_decode($data[1]);
 
-            #Se guardan los datos del folio
-            $modelFol             = $this->findFolio( $folio['fol_serie'] ); 
-            $modelFol->fol_folio  = strval( $modelFol->fol_folio + 1 );
-
-            if ( $modelFol->save() && $model->load($orden) ) 
+            if ( $model->load($orden) ) 
             {
                 #Se añade el folio nuevo al modelo
-                $model->ord_folio = $modelFol->fol_serie . "-" . $modelFol->fol_folio;
+                $model->ord_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
                 #Se cambian los valores POST de name por los labels correctos
                 $opciones = array_map(function($value)
@@ -254,6 +250,25 @@ class VenOrdenController extends Controller
             return $model;
         } else {
             return $model = new VenFolio();
+        }
+    }
+
+    protected function increaseFolio($serie)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $serie])->one()) !== null) 
+        {
+            $model->aumentarFolio();
+
+            if( $model->save())
+            {
+                return $model->getFolio();
+            }
+           
+            throw new NotFoundHttpException('No se pudo actualizar la serie');
+        }  
+        else 
+        {
+            throw new NotFoundHttpException('No se encontro la serie');
         }
     }
 }

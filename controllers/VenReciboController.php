@@ -95,7 +95,7 @@ class VenReciboController extends Controller
             $transaction = $connection->beginTransaction();
 
             #Se consigue el folio actual
-            $model->rec_folio = $this->increaseFolio($folio['fol_serie']);
+            $model->rec_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
             if($model->load($recibo) && $model->save())
             {

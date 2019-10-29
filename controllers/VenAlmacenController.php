@@ -102,7 +102,7 @@ class VenAlmacenController extends Controller
             $transaction = $connection->beginTransaction();
 
             #Se consigue el folio actual
-            $model->alm_folio = $this->increaseFolio($folio['fol_serie']);
+            $model->alm_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
             if($model->load($vale) && $model->save())
             {
