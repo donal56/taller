@@ -108,12 +108,13 @@
 		<!--   ********************** 2da  Parte Inventario del Vehiculo  ***********************     -->
 		<div class="azul px-12 bold">INVENTARIO DEL VEHICULO</div>
 		<div style="width: 200mm; position: absolute;">
-			<!-- titulos -->
-			<div style="width: 60mm; float:left;"  class="div-label2 borde">EXTERIORES</div>
-			<div style="width: 60mm; float:right;" class="div-label2 borde">INTERIORES</div>
+
 			<!-- tabla exteriores -->
 			<div style="width: 60mm;float:left;">
 				<table class="tabla">
+					<tr>
+						<td style="text-align: center; font-size: 10px;" colspan="3">EXTERIORES</td>
+					</tr>
 					<tr>
 						<td></td>
 						<td>Sí</td>	
@@ -150,6 +151,9 @@ CAD;
 			<div style="width: 60mm; float:right;">
 				<table class="tabla">
 					<tr>
+						<td style="text-align: center; font-size: 10px;"  colspan="3">INTERIORES</td>
+					</tr>
+					<tr>
 						<td></td>
 						<td>Sí</td>	
 						<td>No</td>
@@ -185,16 +189,14 @@ CAD;
 		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
 		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
 		<br>
-		<!-- titulos2 -->
-		<div style="width: 120mm; height: 5mm; float: right;">
-			<div style="width: 51mm; float:left;" class="div-label2 borde">EXTERIORES</div>
-			<div style="width: 50mm; float:right;" class="div-label2 borde">INTERIORES</div>
-		</div>
 
 		<!-- tablas 2 -->
 		<div style="width: 120mm; height: 5mm; float: right;">
 			<div style="width: 50mm;float:left;">
 				<table class="tabla2" border="1">
+					<tr>
+						<td style="text-align: center; font-size: 10px;" colspan="3">EXTERIORES</td>
+					</tr>
 					<tr>
 						<td></td>
 						<td>Sí</td>	
@@ -229,6 +231,9 @@ CAD;
 			<div style="width: 50mm; float:right;">
 				<table class="tabla2" border="1">
 					<tr>
+						<td style="text-align: center; font-size: 10px;" colspan="3">INTERIORES</td>
+					</tr>
+					<tr>
 						<td></td>
 						<td>Sí</td>	
 						<td>No</td>
@@ -260,7 +265,6 @@ CAD;
 				</table>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br><br>
 		<div>
 			<!-- problemas del vehiculo -->
 			<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
