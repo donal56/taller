@@ -1,0 +1,319 @@
+
+@-webkit-keyframes bigAssButtonPulse{from{background-color:#749a02;-webkit-box-shadow:0 0 25px #333;}50%{background-color:#91bd09;-webkit-box-shadow:0 0 50px #91bd09;}to{background-color:#749a02;-webkit-box-shadow:0 0 25px #333;}}
+//@-webkit-keyframes greenPulse{from{background-color:#749a02;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#91bd09;-webkit-box-shadow:0 0 18px #91bd09;}to{background-color:#749a02;-webkit-box-shadow:0 0 9px #333;}}
+@-webkit-keyframes greenPulse{
+    from
+    {
+        background-color:#4B8A08;
+        -webkit-box-shadow:0 0 9px #333;
+    }
+    50%{
+        background-color:#91bd09;
+        -webkit-box-shadow:0 0 18px #0404B4;
+    }
+    to{background-color:#4B8A08;
+       -webkit-box-shadow:0 0 9px #333;}}
+
+@-webkit-keyframes bluePulse{from{background-color:#007d9a;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#2daebf;-webkit-box-shadow:0 0 18px #2daebf;}to{background-color:#007d9a;-webkit-box-shadow:0 0 9px #333;}}
+@-webkit-keyframes redPulse{from{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#e33100;-webkit-box-shadow:0 0 18px #e33100;}to{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}}
+@-webkit-keyframes magentaPulse{from{background-color:#630030;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#a9014b;-webkit-box-shadow:0 0 18px #a9014b;}to{background-color:#630030;-webkit-box-shadow:0 0 9px #333;}}
+@-webkit-keyframes orangePulse{from{background-color:#d45500;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#ff5c00;-webkit-box-shadow:0 0 18px #ff5c00;}to{background-color:#d45500;-webkit-box-shadow:0 0 9px #333;}}
+@-webkit-keyframes orangellowPulse{from{background-color:#fc9200;-webkit-box-shadow:0 0 9px #333;}50%{background-color:#ffb515;-webkit-box-shadow:0 0 18px #ffb515;}to{background-color:#fc9200;-webkit-box-shadow:0 0 9px #333;}}
+
+.boton_prototype_1
+{
+    //position: absolute;
+    //border-radius: 50%;
+    border-radius: 4px;
+    transition-property: background, border-radius;
+    transition-duration: .2s, .3s;
+    transition-timing-function: linear;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: normal;
+    margin-right:0.5em;
+    //border-radius:4px;
+    background: none no-repeat;
+    color: #fafafa;
+    display: block;
+    font: 13px/29px monospace;
+    height: 115px;
+    width: 115px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.boton_prototype_2
+{
+    //position: absolute;
+    border-radius: 50%;
+    //border-radius: 4px;
+    transition-property: background, border-radius;
+    transition-duration: .1s, .1s;
+    transition-timing-function: linear;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: normal;
+    margin-left:3.5em;
+    //border-radius:4px;
+    background: none no-repeat;
+    color: #fafafa;
+    display: block;
+    font: 13px/29px monospace;
+    height: 115px;
+    width: 115px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.boton_prototype_3
+{
+    border-radius: 50%;
+    transition-property: background, border-radius;
+    transition-duration: .1s, .1s;
+    transition-timing-function: linear;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: normal;
+    //margin-left: -0.5em;
+    color: #fafafa;
+    display: block;
+    font: 13px/29px monospace;
+    height: 115px;
+    width: 115px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.boton_prototype_3:hover
+{
+    /*border-radius: 50%;*/
+    -webkit-transform: translate(0,-1.2em);
+    -moz-transform: translate(0,-1.2em);
+    -o-transform: translate(0,-1.2em);
+    -ms-transform: translate(0,-1.2em);
+    transform: translate(0,-1.2em);
+}
+
+a.boton_prototype_3
+{
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+}
+
+
+/*Boton principal*/
+a.boton_prototype_3.acceder_al_cuestionario
+{
+    background: url(../images/acceder.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+
+/*Boton administrar cuestionario*/
+a.boton_prototype_3.administrar_cuestionario
+{
+    background: url(../images/admin_cuestionario.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+
+/*Boton estadisticas*/
+a.boton_prototype_3.estadisticas
+{
+    background: url(../images/grafica.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+
+/*Boton periodo escolar*/
+a.boton_prototype_3.periodos
+{
+    background: url(../images/periodo_escolar.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+
+/*Boton cambiar_clave*/
+a.boton_prototype_3.cambiar_clave
+{
+    background: url(../images/password.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+
+/*Boton coleccion genero femenino*/
+a.boton_prototype_3.coleccion-genero-femenino
+{
+    background: url(../images/woman.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+/*Boton coleccion genero masculino*/
+a.boton_prototype_3.coleccion-genero-masculino
+{
+    background: url(../images/men.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+
+/*Botón de solicitantes*/
+a.boton_prototype_3.btn-solicitantes
+{
+    background: url(../images/certificate.png) no-repeat;
+    background-position: 0px 0px;
+    background-size: 115px 115px;
+}
+
+/*Botón de usuarios*/
+a.boton_prototype_3.btn-usuarios
+{
+    background: url(../images/user.png) no-repeat;
+    background-position: 0px 0px;
+    background-size: 115px 115px;
+}
+
+/*Botón de artículos*/
+a.boton_prototype_3.btn-articulos
+{
+    background: url(../images/tools.png) no-repeat;
+    background-position: 0px 0px;
+    background-size: 115px 115px;
+}
+
+/*Botón de almacénes*/
+a.boton_prototype_3.btn-almacenes
+{
+    background: url(../images/werehouse.png) no-repeat;
+    background-position: 0px 0px;
+    background-size: 115px 115px;
+}
+
+/*Botón de contraseña*/
+a.boton_prototype_3.btn-clave
+{
+    background: url(../images/password.png) no-repeat;
+    background-position: 0px 0px;
+    background-size: 115px 115px;
+}
+
+/*Original*/
+a.boton_prototype_3.nota-nvo
+{
+    background: url(../images/graphic.png) no-repeat;
+    background-position: 13px 13px;
+    background-size: 90px 90px;
+}
+/**/
+
+a.boton_prototype_3.plantilla
+{
+    background-color:#EFFBF8;
+	-webkit-box-shadow: 0px 0px 13px -1px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 13px -1px rgba(0,0,0,1);
+	box-shadow: 0px 0px 13px -1px rgba(0,0,0,1);
+}
+
+a.boton_prototype_3.plantilla_hover:hover
+{
+	background-color: rgba(255,255,255,0.15);
+    -webkit-box-shadow: 0px 0px 22px 2px rgb(26, 187, 156);
+    -moz-box-shadow: 0px 0px 22px 2px rgba(212,212,0,1);
+    box-shadow: 0px 0px 22px 2px #1abb9c;
+}
+
+a.boton_prototype_3.oscuro
+{
+    background-color:#151515;
+    -webkit-box-shadow:0 0 9px #04B404;
+}
+
+a.boton_prototype_3.oscuro_hover:hover
+{
+    background-color:#DF7401;
+    -webkit-box-shadow:0 0 18px #08088A;
+}
+
+
+.green.boton_prototype_1{
+    -webkit-animation-name:greenPulse;-webkit-animation-duration:3s;/* Chrome,Safari4+ */
+    -moz-animation-name:greenPulse; -moz-animation-duration: 3s;  /* FF3.6+ */
+}
+.blue.boton_prototype_1{-webkit-animation-name:bluePulse;-webkit-animation-duration:4s;}
+.red.boton_prototype_1{-webkit-animation-name:redPulse;-webkit-animation-duration:1s;}
+.magenta.boton_prototype_1{-webkit-animation-name:magentaPulse;-webkit-animation-duration:2s;}
+.orange.boton_prototype_1{-webkit-animation-name:orangePulse;-webkit-animation-duration:3s;}
+.orangellow.boton_prototype_1{-webkit-animation-name:orangellowPulse;-webkit-animation-duration:5s;}
+
+.green.boton_prototype_2{-webkit-animation-name:greenPulse;-webkit-animation-duration:3s;}
+.blue.boton_prototype_2{-webkit-animation-name:bluePulse;-webkit-animation-duration:4s;}
+.red.boton_prototype_2{-webkit-animation-name:redPulse;-webkit-animation-duration:1s;}
+.magenta.boton_prototype_2{-webkit-animation-name:magentaPulse;-webkit-animation-duration:2s;}
+.orange.boton_prototype_2{-webkit-animation-name:orangePulse;-webkit-animation-duration:3s;}
+.orangellow.boton_prototype_2{-webkit-animation-name:orangellowPulse;-webkit-animation-duration:5s;}
+
+
+
+/*.wall-of-buttons{text-align:center;margin-top:2em;margin-bottom:2em;}*/
+.short_text_layout_nv ul li {
+    float: left;
+    position: relative;
+    text-align: center;
+    width: auto;
+    padding: 0;
+    margin: 10px 0 45px 0;
+    background: rgba(255,255,255,0.15);
+    /*border-bottom: 1px solid #c8c6c6;*/
+}
+
+.short_text_col_4_nv ul li {
+    width: 212px;
+    margin-right: 37px;
+}
+.short_text_col_4_nv ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.gallery_list_col_4_nv ul li {
+    width: 212px;
+    padding-bottom: 35px;
+    margin-right: 37px;
+}
+.gallery_list_col_4_nv ul li:nth-child(4n) {
+    margin-right: 0;
+}
+.gallery_list_col_4_nv ul li .img:before {
+    width: 202px;
+    height: 127px;
+}
+
+hr.estilo_nvo
+{
+    margin: 20px 0;
+    border: 0;
+    border-top: 0px solid #eee;
+    border-bottom: 0px solid #fff;
+}

@@ -17,10 +17,10 @@ $this->title = 'Polo - Transmisiones autómaticas';
 
 if(Yii::$app->user->identity->hasRole('Admin')) {
   $botones = [
-    ['texto' => 'Ventas', 'ruta' => ['/ven-ventas'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover nota-nvo'],
-    ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
-    ['texto' => 'Recibos', 'ruta' => ['/ven-recibo'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
-    ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
+    ['texto' => 'Ventas', 'ruta' => ['/ven-ventas'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-empresa'],
+    ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
+    ['texto' => 'Recibos', 'ruta' => ['/ven-recibo'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-seguimiento'],
+    ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-checador'],
     ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
     ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
   ];
