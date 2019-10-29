@@ -22,6 +22,7 @@
 <div class="tanque" style= "padding-left: 3mm; padding-top: 3mm">
 	<img src="var:fondoTan" id="fondoTanque">
 	<br><br>
+	<span><?= $model->ord_tanque*100 ?> %</span>
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!--Líneas fijas-->
