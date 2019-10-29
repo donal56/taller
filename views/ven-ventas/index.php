@@ -37,7 +37,7 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             ],
             [
                 'attribute'=>'ven_fecha',
-                'label'=>'Fecha de elaboración  ',
+                'label'=>'Fecha de elaboración',
                 'format'=>'date',
                 'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
                     DateRangePicker::widget(

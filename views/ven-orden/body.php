@@ -26,8 +26,8 @@
 	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
 </div>
 <!--Líneas fijas-->
-<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 92mm; left: 66mm"></div>
-<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 92mm; left: 66mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 196.1mm; left: 18.2mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 196.1mm; left: 112mm"></div>
 <!-- Imagen pez -->
 <div style="position: absolute; top:11mm; left: 160mm;">
 	<img width="77%" src="var:pez" id="pez">

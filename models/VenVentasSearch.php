@@ -80,8 +80,7 @@ class VenVentasSearch extends VenVentas
             ->andFilterWhere(['like', 'ven_domicilio', $this->ven_domicilio])
             ->andFilterWhere(['like', 'ven_ciudad', $this->ven_ciudad])
             ->andFilterWhere(['like', 'ven_rfc', $this->ven_rfc]);
-        
-       
+
         return $dataProvider;
     }
 }
