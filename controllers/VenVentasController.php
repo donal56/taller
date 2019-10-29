@@ -312,7 +312,7 @@ class VenVentasController extends Controller
         $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
         $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
-        $mpdf->imageVars['pez'] = file_get_contents('plantillas/itvh/images/logos/pez.png');
+        $mpdf->imageVars['pez'] = file_get_contents('img/pez.png');
         
         //marca de agua
         $mpdf->SetWatermarkImage(
