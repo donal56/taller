@@ -39,7 +39,7 @@
 			  </tr>
 			  <tr>
 			  	<td style="color:red; font-size:2em;" colspan="3" >
-			  		N&#186; <?= str_replace("-", "",  $model->ven_folio) ?> 
+			  		<?= mb_strtoupper('Nº ' . explode("-", $model->ven_folio)[1]) ?> 
 			  	</td>
 			  </tr>
 			  <tr>

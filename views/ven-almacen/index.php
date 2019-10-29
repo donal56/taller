@@ -52,7 +52,8 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             'alm_noPedido',
             'alm_mecanico',
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => 'app\components\ActionColumnPlus',
+                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
                 'buttons' => 
                 [
                     'print' => function ($url, $model, $key) 
@@ -62,9 +63,10 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                 ],
                 'template' => '{print}'
             ],
-            ['class' => 'yii\grid\ActionColumn', 
-            'visible' => Yii::$app->user->isSuperAdmin,
-            'template' => '{view} {update} {delete}'
+            [
+                'class' => 'yii\grid\ActionColumn', 
+                'visible' => Yii::$app->user->isSuperAdmin,
+             'template' => '{view} {update} {delete}'
             ],
         ],
     ]); ?>

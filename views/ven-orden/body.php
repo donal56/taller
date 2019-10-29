@@ -29,7 +29,7 @@
 <div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 92mm; left: 66mm"></div>
 <!-- Cuadro del folio -->
 <div id="cuadroFolio" class= "bordered px-16 azul" style="color:red; font-size:3em; text-align: center; vertical-align: middle;">
-	<?= mb_strtoupper($model->ord_folio)?>
+	<?= mb_strtoupper('Nº ' . explode("-", $model->ord_folio)[1])?>
 </div>
 	<div class="borde">
 		<!-- *************************** header ************************ -->

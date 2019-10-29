@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\daterange\DateRangePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenOrdenSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -28,29 +29,55 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'ord_folio',
+            [
+                'attribute' => 'ord_folio',
+                'value' => function($model)
+                {
+                    return str_replace('-','',$model->ord_folio);
+                },
+                'label' => 'Folio'
+            ],
             'ord_nombre',
-            //'ord_codigoPostal',
-            //'ord_telefono',
-            //'ord_ife',
             'ord_modelo',
             'ord_marca',
             'ord_placa',
-            'ord_fechaIngreso:datetime',
-            'ord_fechaEntrega:datetime',
-            //'ord_noSerie',
-            //'ord_color',
-            //'ord_kilometraje',
-            //'ord_vehiculoExterior:ntext',
-            //'ord_vehiculoInterior:ntext',
-            //'ord_observaciones:ntext',
-            //'ord_tanque',
-            //'ord_accesoriosExterior:ntext',
-            //'ord_accesoriosInterior:ntext',
-            //'ord_problemas:ntext',
-            //'ord_diagnostico:ntext',
             [
-                'class' => 'yii\grid\ActionColumn',
+                'attribute'=>'ord_fechaIngreso',
+                'label'=>'Fecha de ingreso',
+                'format'=>'datetime',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenOrdenSearch[intervaloIngreso]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+                'contentOptions' => ['style' => 'width: 12em; font-size: 0.85em'],
+            ],
+            [
+                'attribute'=>'ord_fechaEntrega',
+                'label'=>'Fecha de Entrega',
+                'format'=>'datetime',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenOrdenSearch[intervaloEntrega]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+                'contentOptions' => ['style' => 'width: 12em; font-size: 0.85em'],
+            ],
+            [
+                'class' => 'app\components\ActionColumnPlus',
+                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
                 'buttons' => 
                 [
                     'print' => function ($url, $model, $key) 

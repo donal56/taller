@@ -17,8 +17,8 @@ class VenOrdenSearch extends VenOrden
     public function rules()
     {
         return [
-            [['ord_id', 'ord_folio', 'ord_kilometraje'], 'integer'],
-            [['ord_nombre', 'ord_direccion', 'ord_codigoPostal', 'ord_telefono', 'ord_ife', 'ord_modelo', 'ord_marca', 'ord_placa', 'ord_fechaIngreso', 'ord_fechaEntrega', 'ord_noSerie', 'ord_color', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_observaciones', 'ord_tanque', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_problemas', 'ord_diagnostico'], 'safe'],
+            [['ord_id', 'ord_kilometraje'], 'integer'],
+            [['ord_folio', 'ord_nombre', 'ord_direccion', 'ord_codigoPostal', 'ord_telefono', 'ord_ife', 'ord_modelo', 'ord_marca', 'ord_placa', 'ord_fechaIngreso', 'ord_fechaEntrega', 'ord_noSerie', 'ord_color', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_observaciones', 'ord_tanque', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_problemas', 'ord_diagnostico'], 'safe'],
         ];
     }
 
@@ -49,6 +49,18 @@ class VenOrdenSearch extends VenOrden
         ]);
 
         $this->load($params);
+        
+        if (isset($params['VenOrdenSearch'])) 
+        {
+            $fechaIngreso = explode( ' a ', $params['VenOrdenSearch']['intervaloIngreso']);
+            $fechaEntrega = explode( ' a ', $params['VenOrdenSearch']['intervaloEntrega']);
+
+            $query->andFilterWhere(['>=', 'ord_fechaIngreso', $fechaIngreso[0] ])
+             ->andFilterWhere(['<=', 'ord_fechaIngreso', $fechaIngreso[1]])
+             ->andFilterWhere(['>=', 'ord_fechaEntrega', $fechaEntrega[0]])
+             ->andFilterWhere(['<=', 'ord_fechaEntrega', $fechaEntrega[1]]);
+
+         }
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -59,13 +71,11 @@ class VenOrdenSearch extends VenOrden
         // grid filtering conditions
         $query->andFilterWhere([
             'ord_id' => $this->ord_id,
-            'ord_folio' => $this->ord_folio,
-            'ord_fechaIngreso' => $this->ord_fechaIngreso,
-            'ord_fechaEntrega' => $this->ord_fechaEntrega,
             'ord_kilometraje' => $this->ord_kilometraje,
         ]);
 
         $query->andFilterWhere(['like', 'ord_nombre', $this->ord_nombre])
+            ->andFilterWhere(['like', 'ord_folio',  $this->ord_folio])
             ->andFilterWhere(['like', 'ord_direccion', $this->ord_direccion])
             ->andFilterWhere(['like', 'ord_codigoPostal', $this->ord_codigoPostal])
             ->andFilterWhere(['like', 'ord_telefono', $this->ord_telefono])

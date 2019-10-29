@@ -1,6 +1,6 @@
 <html>
 	<div style= "position: absolute; width: 15mm; top: 18mm; right: 100mm;"><img src="var:polo0"></div>
-	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 17mm; right: 165px;">TEL. 993 3 54  86 83</div>
+	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 17mm; right: 165px;">TEL. 993 3 54 86 83</div>
 	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 21mm; right: 150px;">     993 3 54 02 47</div>
 	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 25mm; right: 158px;">
 		<img src="var:whats" style="vertical-align: middle;width:12px;"> 993 3 86 74 17<br>
@@ -8,7 +8,7 @@
 	<div style= "position: absolute; margin-left: 2mm; width: 42mm; font-size:10px;font-style: italic; text-align: justify; top: 30mm; right: 198px;">"No es con espada ni con ejército, sino con el poder del espíritu santo"</div>
 	
 	<div style= "position: absolute; width: 15mm; top: 153mm; right: 100mm;"><img src="var:polo0"></div>
-	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 152mm; right: 165px;">TEL. 993 3 54  86 83</div>
+	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 152mm; right: 165px;">TEL. 993 3 54 86 83</div>
 	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 156mm; right: 150px;">     993 3 54 02 47</div>
 	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 160mm; right: 158px;">
 		<img src="var:whats" style="vertical-align: middle;width:12px;"> 993 3 86 74 17<br>
@@ -27,7 +27,7 @@
 			  </tr>
 			  <tr>
 			  	<td style="color:red; font-size:3em;height: 22mm; text-align: center; vertical-align: middle" colspan="3" >
-			  		N&#xba; <?= str_replace("-", "",  mb_strtoupper($model->alm_folio)) ?> 
+			  		<?= mb_strtoupper('Nº ' . explode("-", $model->alm_folio)[1]) ?> 
 			  	</td>
 			  </tr>
 			  <tr>

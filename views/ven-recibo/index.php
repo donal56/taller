@@ -58,18 +58,23 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             //'rec_concepto',
             'rec_nomresponsable',
       
-            ['class' => 'yii\grid\ActionColumn',
-            'buttons' => [
-                'print' => function ($url, $model, $key) {
-                    return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['/ven-recibo/report', 'id' => $model->rec_id],['data-pjax'=>"0",'target' => '_blank']);
+            [
+                'class' => 'app\components\ActionColumnPlus',
+                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
+                'buttons' => 
+                [
+                    'print' => function ($url, $model, $key) 
+                    {
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['/ven-recibo/report', 'id' => $model->rec_id],['data-pjax'=>"0",'target' => '_blank']);
 
-                },
-            ],
-            'template' => '{print} '
+                    },
+                ],
+                'template' => '{print} '
         ],
-        ['class' => 'yii\grid\ActionColumn', 
-        'visible' => Yii::$app->user->isSuperAdmin,
-        'template' => '{view} {update} {delete}'
+        [
+            'class' => 'yii\grid\ActionColumn', 
+            'visible' => Yii::$app->user->isSuperAdmin,
+            'template' => '{view} {update} {delete}'
         ],
         ],
     ]); ?>

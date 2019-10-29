@@ -30,7 +30,7 @@
                 <tr>
                     <td style="font-size:2em;border-right: 1.5px solid #3369b7"> <?= date('d-m-Y') ?></td>
                     <td style="color:red; font-size:2em;">
-                        N&#186; <?= strtoupper(str_replace("-", "",  $recibo->rec_folio)) ?>
+                        <?= mb_strtoupper('Nº ' . explode("-", $recibo->rec_folio)[1]) ?>
                     </td>
                 </tr>
             </table>

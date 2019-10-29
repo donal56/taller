@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ven-ventas-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <br>
     <p>
         <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
         <?= Html::a('Imprimir', ['report', 'id' => $model->ven_id], ['class' => 'btn btn-primary','target' => '_blank']) ?>
@@ -26,7 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ])*/ ?>
     </p>
-
+    <br>
+    
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
