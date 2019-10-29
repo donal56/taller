@@ -71,7 +71,7 @@ class VenVentasSearch extends VenVentas
         ]);
 
         $query->andFilterWhere(['like', 'ven_folio', $this->ven_folio])
-            ->andFilterWhere(['like', 'ven_nombre', $this->ven_nombre])
+            //->andFilterWhere(['like', 'ven_nombre', $this->ven_nombre])
             ->andFilterWhere([
             	'like',
             	'concat_ws(ven_nombre,ven_paterno,ven_materno)',

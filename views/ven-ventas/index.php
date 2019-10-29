@@ -56,19 +56,26 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             //'ven_domicilio',
             //'ven_ciudad',
             'ven_rfc',
-            ['class' => 'yii\grid\ActionColumn',
-            'buttons' => [
-                'print' => function ($url, $model, $key) {
-                    return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-ventas/report', 'id' => $model->ven_id],['data-pjax'=>"0",'target' => '_blank']);
-
-                },
+            [
+                'class' => 'app\components\ActionColumnPlus',
+                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
+                'buttons' => 
+                [
+                    'print' => function ($url, $model, $key) 
+                    {
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-ventas/report', 'id' => $model->ven_id],['data-pjax'=>"0",'target' => '_blank']);
+                    },
+                ],
+                'template' => '{print}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'filterOptions' => ['style' => 'text-align: center']
             ],
-            'template' => '{print}'
-            ],
 
-            ['class' => 'yii\grid\ActionColumn', 
-            'visible' => Yii::$app->user->isSuperAdmin,
-            'template' => '{view} {update} {delete}'
+            [
+                'class' => 'yii\grid\ActionColumn', 
+                'visible' => Yii::$app->user->isSuperAdmin,
+                'template' => '{view} {update} {delete}',
+                'contentOptions' => ['style' => 'text-align: center']
             ],
         ],
     ]); 
