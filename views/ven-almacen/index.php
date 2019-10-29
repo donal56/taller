@@ -61,12 +61,15 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                         return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-almacen/report', 'id' => $model->alm_id],['data-pjax'=>"0",'target' => '_blank']);
                     },
                 ],
-                'template' => '{print}'
+                'template' => '{print}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'filterOptions' => ['style' => 'text-align: center']
             ],
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'visible' => Yii::$app->user->isSuperAdmin,
-             'template' => '{view} {update} {delete}'
+                'template' => '{view} {update} {delete}',
+                'contentOptions' => ['style' => 'text-align: center']
             ],
         ],
     ]); ?>

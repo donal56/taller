@@ -69,12 +69,15 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
 
                     },
                 ],
-                'template' => '{print} '
+                'template' => '{print}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'filterOptions' => ['style' => 'text-align: center']
         ],
         [
             'class' => 'yii\grid\ActionColumn', 
             'visible' => Yii::$app->user->isSuperAdmin,
-            'template' => '{view} {update} {delete}'
+            'template' => '{view} {update} {delete}',
+            'contentOptions' => ['style' => 'text-align: center']
         ],
         ],
     ]); ?>

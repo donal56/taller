@@ -85,12 +85,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['ven-orden/report', 'id' => $model->ord_id],['data-pjax'=>"0",'target' => '_blank']);
                     },
                 ],
-                'template' => '{print}'
+                'template' => '{print}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'filterOptions' => ['style' => 'text-align: center']
             ],
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'visible' => Yii::$app->user->isSuperAdmin,
-                'template' => '{view} {update} {delete}'
+                'template' => '{view} {update} {delete}',
+                'contentOptions' => ['style' => 'text-align: center']
             ],
         ],
     ]); ?>

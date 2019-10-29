@@ -74,7 +74,8 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'visible' => Yii::$app->user->isSuperAdmin,
-                'template' => '{view} {update} {delete}'
+                'template' => '{view} {update} {delete}',
+                'contentOptions' => ['style' => 'text-align: center']
             ],
         ],
     ]); 
