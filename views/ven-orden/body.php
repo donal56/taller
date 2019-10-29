@@ -196,7 +196,7 @@ CAD;
 		<br>
 
 		<!-- tablas 2 -->
-		<div style="width: 120mm; height: 5mm; float: right;">
+		<div style="width: 120mm; height: 5mm; float: right;margin-bottom: 15px;">
 			<div style="width: 50mm;float:left;">
 				<table class="tabla2" border="1">
 					<tr>
@@ -270,20 +270,19 @@ CAD;
 				</table>
 			</div>
 		</div>
-		<div>
-			<!-- problemas del vehiculo -->
-			<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
-				<div class="px-14 azul bold" style="text-align: left;">PROBLEMAS DEL VEHICULO</div>
-				<div class="px-8 justify bigger-spacing"><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_problemas)?></span></div>
-			</div>
-			<!-- diagnostico tecnico -->
-			<div style="width: 80mm; height: 40mm; float: right; padding-right: 3mm">
-				<div class="px-14 azul bold" style="text-align: left;">DIAGNOSTICO TECNICO</div>
-				<div class="px-8 justify bigger-spacing" ><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></span></div>
-			</div>
+
+		<!-- problemas del vehiculo -->
+		<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
+			<div class="px-14 azul bold" style="text-align: center;">PROBLEMAS DEL VEHICULO</div>
+			<div class="px-8 justify bigger-spacing"><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_problemas)?></span></div>
 		</div>
+		<!-- diagnostico tecnico -->
+		<div style="width: 80mm; height: 40mm; float: right; padding-right: 3mm">
+			<div class="px-14 azul bold" style="text-align: center;">DIAGNOSTICO TECNICO</div>
+			<div class="px-8 justify bigger-spacing" ><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></span></div>
+		</div>
+	
 		<div style="width: 180mm; height: 20mm;">
-			<br><br><br>
 			<div class="lineaFirmas">&#8203;</div>
 			<div class="lineaFirmas">&#8203;</div>
 			<div class="lineaFirmas">&#8203;</div>
