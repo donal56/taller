@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
+use yii\filters\AccessControl;
 
 /**
  * VenReciboController implements the CRUD actions for VenRecibo model.
@@ -22,6 +23,21 @@ class VenReciboController extends Controller
     public function behaviors()
     {
         return [
+            'access' =>  
+            [ 
+ 
+                'class' => AccessControl::className(),
+                'only' =>  ['index', 'view', 'create','update','delete','report'],
+                'rules' =>  
+                [ 
+                    // allow authenticated users
+                    [ 
+                        'allow' => true, 
+                        'roles' => ['@'], 
+                    ], 
+                    // everything else is denied 
+                ], 
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

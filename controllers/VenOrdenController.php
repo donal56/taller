@@ -11,6 +11,8 @@ use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use app\models\VenFolio;
 use app\components\Utilidades;
+use yii\filters\AccessControl;
+
 
 /**
  * VenOrdenController implements the CRUD actions for VenOrden model.
@@ -23,6 +25,21 @@ class VenOrdenController extends Controller
     public function behaviors()
     {
         return [
+            'access' =>  
+            [ 
+ 
+                'class' => AccessControl::className(),
+                'only' =>  ['index', 'view', 'create','update','delete','report'],
+                'rules' =>  
+                [ 
+                    // allow authenticated users
+                    [ 
+                        'allow' => true, 
+                        'roles' => ['@'], 
+                    ], 
+                    // everything else is denied 
+                ], 
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

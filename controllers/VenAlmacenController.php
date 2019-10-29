@@ -8,6 +8,7 @@ use app\models\VenConcepto;
 use app\models\VenFolio;
 use app\models\VenAlmacenSearch;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\web\ServerErrorHttpException;
 use yii\filters\VerbFilter;
@@ -25,6 +26,21 @@ class VenAlmacenController extends Controller
     public function behaviors()
     {
         return [
+            'access' =>  
+            [ 
+ 
+                'class' => AccessControl::className(),
+                'only' =>  ['index', 'view', 'create','update','delete','report'],
+                'rules' =>  
+                [ 
+                    // allow authenticated users
+                    [ 
+                        'allow' => true, 
+                        'roles' => ['@'], 
+                    ], 
+                    // everything else is denied 
+                ], 
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

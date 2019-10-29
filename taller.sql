@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost_3306
- Source Server Type    : MySQL
- Source Server Version : 80016
+ Source Server         : MariaDB_localhost
+ Source Server Type    : MariaDB
+ Source Server Version : 100406
  Source Host           : localhost:3306
  Source Schema         : taller
 
- Target Server Type    : MySQL
- Target Server Version : 80016
+ Target Server Type    : MariaDB
+ Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 28/10/2019 14:34:20
+ Date: 28/10/2019 18:22:50
 */
 
 SET NAMES utf8mb4;
@@ -219,57 +219,57 @@ CREATE TABLE `auth_item_child`  (
 -- ----------------------------
 -- Records of auth_item_child
 -- ----------------------------
-INSERT INTO `auth_item_child` VALUES ('prueba', '/dashboard/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/create');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/report');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/update');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/view');
-INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
-INSERT INTO `auth_item_child` VALUES ('operar', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('tecnico', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('Usuario General', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
-INSERT INTO `auth_item_child` VALUES ('changeOwnPassword', '/user-management/auth/change-own-password');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set-roles');
-INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/grid-page-size');
-INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/index');
-INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/view');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-activate');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-deactivate');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/bulk-delete');
-INSERT INTO `auth_item_child` VALUES ('changeUserPassword', '/user-management/user/change-password');
-INSERT INTO `auth_item_child` VALUES ('createUsers', '/user-management/user/create');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/create');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/delete');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/index');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/update');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/view');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/view');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'assignRolesToUsers');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'changeOwnPassword');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'changeUserPassword');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'createUsers');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'deleteUsers');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'editUsers');
-INSERT INTO `auth_item_child` VALUES ('operador', 'operar');
-INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
-INSERT INTO `auth_item_child` VALUES ('jefe', 'prueba');
-INSERT INTO `auth_item_child` VALUES ('otro', 'Usuario General');
-INSERT INTO `auth_item_child` VALUES ('editUserEmail', 'viewUserEmail');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUserRoles');
 INSERT INTO `auth_item_child` VALUES ('Admin', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set-roles');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUserRoles');
 INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('changeOwnPassword', '/user-management/auth/change-own-password');
+INSERT INTO `auth_item_child` VALUES ('changeUserPassword', '/user-management/user/change-password');
 INSERT INTO `auth_item_child` VALUES ('changeUserPassword', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('createUsers', '/user-management/user/create');
 INSERT INTO `auth_item_child` VALUES ('createUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/bulk-delete');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/delete');
 INSERT INTO `auth_item_child` VALUES ('deleteUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('editUserEmail', 'viewUserEmail');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-activate');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-deactivate');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
 INSERT INTO `auth_item_child` VALUES ('editUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('jefe', 'prueba');
+INSERT INTO `auth_item_child` VALUES ('operador', 'operar');
+INSERT INTO `auth_item_child` VALUES ('operar', '/site/index');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/create');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/index');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/update');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/view');
+INSERT INTO `auth_item_child` VALUES ('otro', 'Usuario General');
+INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
+INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/dashboard/index');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/create');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/index');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/report');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/update');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/view');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/site/index');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
+INSERT INTO `auth_item_child` VALUES ('tecnico', '/site/index');
+INSERT INTO `auth_item_child` VALUES ('Usuario General', '/site/index');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/view');
+INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/grid-page-size');
+INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/index');
+INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/view');
 
 -- ----------------------------
 -- Table structure for auth_item_group
@@ -351,7 +351,7 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
@@ -384,6 +384,9 @@ INSERT INTO `user_visit_log` VALUES (51, '5db2071d69f17', '127.0.0.1', 'es', 'Mo
 INSERT INTO `user_visit_log` VALUES (52, '5db21ab4acf05', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571953332, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (53, '5db3033013efe', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572012848, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (54, '5db3b65f1546d', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1572058719, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (55, '5db77828053f4', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572304936, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (56, '5db7810ddde50', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572307213, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (57, '5db785e6f164f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 5, 1572308454, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -439,7 +442,7 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
@@ -452,6 +455,7 @@ INSERT INTO `ven_folio` VALUES (31, 'DF', '0', 'Refacciones');
 INSERT INTO `ven_folio` VALUES (32, 'DF', '0', 'Refacciones');
 INSERT INTO `ven_folio` VALUES (33, 'AD', '0', 'afasfd');
 INSERT INTO `ven_folio` VALUES (34, 'XS', '0', 'asdasd');
+INSERT INTO `ven_folio` VALUES (35, 'T', '1', 'T es de TTTT');
 
 -- ----------------------------
 -- Table structure for ven_orden
@@ -483,13 +487,12 @@ CREATE TABLE `ven_orden`  (
   `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `ord_diagnostico` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   PRIMARY KEY (`ord_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_orden
 -- ----------------------------
-INSERT INTO `ven_orden` VALUES (15, 'A-6', 'Carlos Donaldo', 'Colonia Espejo 1 #133', '86108', '9932978261', '4151f3sf', 'afsd', '1', 'adasd', 'asdasd', '2019-10-08 12:36:51', '2019-10-25 12:35:22', '24', 'zfsgf', NULL, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
-INSERT INTO `ven_orden` VALUES (16, 'Z-11', 'asdasd', 'Colonia Espejo 1 #133', '86108', '9932978261', '980622', 'afsd', '1', 'adasd', '12FS42', '2019-10-25 12:38:42', '2019-10-25 12:38:42', '123', 'zfsgf', 123, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
+INSERT INTO `ven_orden` VALUES (17, 'T-1', 'Carlos Donaldo Ramón Gómez', 'Colonia Espejo 1 #133', '86108', '9932978261', '45157895', 'Euforia', 'Deportivo', 'Nissan', 'DF5D55', '2019-10-28 14:58:44', '2019-10-28 14:58:44', '51384', 'Rojo', 40000, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"on\",\"Cristales\":\"on\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"on\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"on\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', 0.80, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"on\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"on\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"on\",\"Bater\\u00eda\":\"off\"}', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. ', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ');
 
 -- ----------------------------
 -- Table structure for ven_producto
