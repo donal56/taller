@@ -172,7 +172,8 @@ table.tabla
 }
 .tabla td
 {
-    padding:2px 18px; 
+    padding:2px 2px; 
+    text-align: center;
     font-size: 7px;
     font-weight: bold;
     border:0.2mm solid #3369b7;

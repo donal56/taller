@@ -118,7 +118,7 @@
 		<div style="width: 200mm; position: absolute;">
 
 			<!-- tabla exteriores -->
-			<div style="width: 60mm;float:left;">
+			<div style="width: 55mm;float:left;">
 				<table class="tabla">
 					<tr>
 						<td style="text-align: center; font-size: 10px;" colspan="3">EXTERIORES</td>
@@ -152,11 +152,35 @@ CAD;
 							}
 						}
 					?>
+					<?php
+						$exteriores=json_decode($model->ord_accesoriosExterior,true);
+						foreach ($exteriores as $key=>$value) 
+						{
+							$cad='<tr>
+								<td>'.$key.'</td>';
+							if($value=='off')
+							{
+								$cad .=<<<CAD
+								<td></td>
+								<td class="px-14">✓</td>
+								</tr>
+CAD;
+							echo ($cad);
+							}else{
+								$cad .= <<<CAD
+								<td style="">✓</td>
+								<td></td>
+								</tr>
+CAD;
+							echo ($cad);
+							}
+						}
+					?>
 				</table>
 			</div>
 
 			<!-- tabla interiores -->
-			<div style="width: 60mm; float:right;">
+			<div style="width: 50mm; float:right;">
 				<table class="tabla">
 					<tr>
 						<td style="text-align: center; font-size: 10px;"  colspan="3">INTERIORES</td>
@@ -190,62 +214,6 @@ CAD;
 							}
 						}
 					?>
-				</table>
-			</div>
-		</div>
-		<!-- observaciones -->
-		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
-		<br>
-
-		<!-- tablas 2 -->
-		<div style="width: 120mm; height: 5mm; float: right;margin-bottom: 15px;">
-			<div style="width: 50mm;float:left;">
-				<table class="tabla2" border="1">
-					<tr>
-						<td style="text-align: center; font-size: 10px;" colspan="3">EXTERIORES</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>Sí</td>	
-						<td>No</td>
-					</tr>
-					<?php
-						$exteriores=json_decode($model->ord_accesoriosExterior,true);
-						foreach ($exteriores as $key=>$value) 
-						{
-							$cad='<tr>
-								<td>'.$key.'</td>';
-							if($value=='off')
-							{
-								$cad .=<<<CAD
-								<td></td>
-								<td class="px-14">✓</td>
-								</tr>
-CAD;
-							echo ($cad);
-							}else{
-								$cad .= <<<CAD
-								<td style="">✓</td>
-								<td></td>
-								</tr>
-CAD;
-							echo ($cad);
-							}
-						}
-					?>
-				</table>
-			</div>
-			<div style="width: 50mm; float:right;">
-				<table class="tabla2" border="1">
-					<tr>
-						<td style="text-align: center; font-size: 10px;" colspan="3">INTERIORES</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>Sí</td>	
-						<td>No</td>
-					</tr>
 					<?php
 						$interiores=json_decode($model->ord_accesoriosInterior,true);
 						foreach ($interiores as $key=>$value) 
@@ -273,6 +241,10 @@ CAD;
 				</table>
 			</div>
 		</div>
+		<!-- observaciones -->
+		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
+		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
+		<br>
 
 		<!-- problemas del vehiculo -->
 		<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
