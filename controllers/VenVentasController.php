@@ -377,42 +377,5 @@ class VenVentasController extends Controller
         VenProducto::deleteAll('pro_id NOT IN ('.implode(", ",$idlist).') AND pro_fkventas= '.$id);
 
     }
-
-
-
-
-
-    public function actionReport2() 
-    {
-       
-        $pdf = new Pdf([
-            'format' => Pdf::FORMAT_A4,
-            'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'destination' => Pdf::DEST_BROWSER, 
-            'marginTop' => '5',
-            'marginHeader' => '10',
-            'marginBottom' => '10',
-            'marginFooter' => '10',
-            'marginLeft' => '5',
-            'marginRight' => '5',
-            'options' => ['title' => 'PDF'],
-        ]);
-        
-        
-        $mpdf = $pdf->api;
-        $mpdf->autoPageBreak = false;
-
-        $mpdf->imageVars['sep'] = file_get_contents('img/sep.jpg');
-
-        $pdf->cssFile = '@app/web/css/pdf_sat.css';
-
-        $pdf->content = $this->renderPartial('pdf_sat'); 
-
-
-         return $pdf->render();
-
-    }
-
-
-
+	
 }
