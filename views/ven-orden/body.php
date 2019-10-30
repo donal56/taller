@@ -24,21 +24,21 @@
         <span class="px-10"><b><?= $model->ord_tanque*100 ?>%</b></span>
     </div>
     <!--Líneas fijas-->
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.1mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 207mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.1mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 207mm; left: 111.8mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 210.1mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 211mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 210.1mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 211mm; left: 111.8mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 214.1mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 215mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 214.1mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 215mm; left: 111.8mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 218.1mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 219mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 218.1mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 219mm; left: 111.8mm">
     </div>
 
     <!-- Imagen pez -->
