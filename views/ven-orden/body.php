@@ -197,8 +197,8 @@ CAD;
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Sí</td>
-                        <td>No</td>
+                        <td class="cell-sm">Sí</td>
+                        <td class="cell-sm">No</td>
                     </tr>
                     <?php
 						$interiores=json_decode($model->ord_vehiculoInterior,true);
