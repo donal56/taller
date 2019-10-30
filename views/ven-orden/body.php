@@ -7,7 +7,7 @@
 ?>
 <body>
 <!--Logo-->
-<div style= "position: absolute; top: 16mm; left: 15mm">
+<div style= "position: absolute; top: 6mm; left: 15mm">
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
@@ -32,11 +32,11 @@
 <div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 201.1mm; left: 111.8mm"></div>
 
 <!-- Imagen pez -->
-<div style="position: absolute; top:11mm; left: 160mm;">
+<div style="position: absolute; top:17mm; left: 160mm;">
 	<img width="77%" src="var:pez" id="pez">
 </div>
 <!-- Cuadro del folio -->
-<div id="cuadroFolio" class= "bordered px-16 azul" style="color:red; font-size:3em; text-align: center; vertical-align: middle;">
+<div id="cuadroFolio" class= "bordered azul" style="color:red; font-size:1.5em; text-align: center; vertical-align: middle;">
 	<?= mb_strtoupper('Nº ' . explode("-", $model->ord_folio)[1])?>
 </div>
 
@@ -44,20 +44,19 @@
 		<!-- *************************** header ************************ -->
 		<div class="fondoAzul">
 			<!-- Letras "POLO"-->
-			<div>
-				<img src="var:logopolo" id="letraPolo" style= "width: 120mm;">	
-				<hr class="azul">
+			<div class= "mb-2">
+				<img src="var:logopolo" id="letraPolo" style= "width: 120mm;">
 			</div>
 			<b>No es con espada ni con ejército, sino con el poder del espíritu santo</b>
 			<br>
 			<b>Niños Héroes No. 165 Col. Atasta, Villahermosa, Centro, Tabasco.</b>
 			<br>
 			<b class= "px-12">Tels. 354 86 83 y 354 02 47</b> &nbsp;&nbsp;&nbsp;
-			<img src="var:whats" class= "icon">
+			<img src="var:whats" class= "icon" style= "width: 3mm; height: 3mm">
 			<b class= "px-14">9933 86 74 17</b>
 			<br>
 			<b class= "px-8"><span class="condensed">Email: polotransmisionesautomaticas@hotmail.com</span></b>&nbsp;
-			<img src="var:facebook" class= "icon">
+			<img src="var:facebook" class= "icon" style= "width: 3mm; height: 3mm">
 			<b class= "px-8">polotransmisionesautomaticas</b>
 			<br>
 		</div>	

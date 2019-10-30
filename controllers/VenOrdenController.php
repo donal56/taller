@@ -214,9 +214,12 @@ class VenOrdenController extends Controller
         $pdf = new Pdf([
             'orientation' => Pdf::ORIENT_PORTRAIT, 
             'destination' => Pdf::DEST_BROWSER, 
-            'marginTop' => '10',
-            'marginHeader' => '10',
-            'marginBottom' => '10',
+            'marginTop' => '5',
+            'marginHeader' => '5',
+            'marginBottom' => '5',
+            // 'marginTop' => '10',
+            // 'marginHeader' => '10',
+            // 'marginBottom' => '10',
             'marginFooter' => '10',
             'options' => ['title' => 'Orden de servicio'],
         ]);
