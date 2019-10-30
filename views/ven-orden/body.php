@@ -11,7 +11,7 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 90mm; left: 48mm">
+<div style= "position: absolute; top: 80mm; left: 48mm">
 	<img  width="73%" src="var:auto">
 </div>
 <!-- linea del tanque -->
