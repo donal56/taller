@@ -52,10 +52,12 @@ class VenVentasSearch extends VenVentas
 
         $this->load($params);
 
-        if (isset($params['VenVentaSearch'])) {
+        if (isset($params['VenVentaSearch']['intervalo'])) {
            $fecha = explode( ' a ', $params['VenVentaSearch']['intervalo']);
-            $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0] ])
-            ->andFilterWhere(['<=', 'ven_fecha', $fecha[1]]);
+            if (isset($fecha[1])) {
+                $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0] ])
+                ->andFilterWhere(['<=', 'ven_fecha', $fecha[1]]);
+            }
         }
 
         if (!$this->validate()) {

@@ -44,10 +44,12 @@ class VenReciboSearch extends VenRecibo
     {
         $query = VenRecibo::find();
         
-        if (isset($params['VenReciboSearch'])) {
+        if (isset($params['VenReciboSearch']['intervalo'])) {
             $fecha = explode( ' a ', $params['VenReciboSearch']['intervalo']);   
+            if (isset($fecha[1])) {
             $query->andFilterWhere(['>=', 'rec_fecha', $fecha[0] ])
             ->andFilterWhere(['<=', 'rec_fecha', $fecha[1]]);
+            }
         }
   
         // add conditions that should always apply here

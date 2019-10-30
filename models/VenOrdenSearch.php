@@ -54,11 +54,15 @@ class VenOrdenSearch extends VenOrden
         {
             $fechaIngreso = explode( ' a ', $params['VenOrdenSearch']['intervaloIngreso']);
             $fechaEntrega = explode( ' a ', $params['VenOrdenSearch']['intervaloEntrega']);
-
-            $query->andFilterWhere(['>=', 'ord_fechaIngreso', $fechaIngreso[0] ])
-             ->andFilterWhere(['<=', 'ord_fechaIngreso', $fechaIngreso[1]])
-             ->andFilterWhere(['>=', 'ord_fechaEntrega', $fechaEntrega[0]])
-             ->andFilterWhere(['<=', 'ord_fechaEntrega', $fechaEntrega[1]]);
+            if (isset($fechaIngreso[1])) {
+            	$query->andFilterWhere(['>=', 'ord_fechaIngreso', $fechaIngreso[0] ])
+             	->andFilterWhere(['<=', 'ord_fechaIngreso', $fechaIngreso[1]]);
+            }
+            if (isset($fechaEntrega[1])){
+            	$query->andFilterWhere(['>=', 'ord_fechaEntrega', $fechaEntrega[0]])
+             	->andFilterWhere(['<=', 'ord_fechaEntrega', $fechaEntrega[1]]);
+            }
+          
 
          }
 
