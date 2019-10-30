@@ -108,7 +108,7 @@ class VenVentasController extends Controller
             $modelfol = $this->findFolio($folio['fol_serie']); 
 
             $modelfol->fol_folio = strval($modelfol->fol_folio+1);
-            $model->ven_folio = $modelfol->fol_serie."-". $modelfol->fol_folio;
+            $model->ven_folio = mb_strtoupper($modelfol->fol_serie."-". $modelfol->fol_folio);
 
             if ($modelfol->save() && $model->load($venta) && $model->save()) {
 

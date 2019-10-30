@@ -1,8 +1,8 @@
 .tanque {
     position: absolute; 
-    top: 160mm; 
-    left: 14mm; 
-    width: 20%;
+    top: 147mm; 
+    left: 15.5mm; 
+    width: 25%;
 }
 .linea {
     position: absolute; 
@@ -101,12 +101,12 @@ hr.azul
 
 #cuadroFolio
 {
-    width: 20mm; 
-    height: 6mm;
+    width: 25mm; 
+    height: 8mm;
     background: white;
     position: absolute; 
-    top: 32mm; 
-    left: 170mm;
+    top: 40mm; 
+    left: 164mm;
 }
 
 .condensed
@@ -166,13 +166,13 @@ hr.azul
 }
 
 table.tabla
-{    width: 100%;
+{
      border-collapse: collapse;
      text-align: left;
 }
 .tabla td
 {
-    padding:2px 2px; 
+    padding:2px 18px; 
     font-size: 7px;
     font-weight: bold;
     border:0.2mm solid #3369b7;
@@ -218,30 +218,4 @@ div.bigger-spacing
 {
     padding-bottom: 1.5mm;
     line-height: 4mm;
-}
-
-.mb-2
-{
-    margin-bottom: 2mm;
-}
-
-td.cell-sm
-{
-    text-align: center;
-    width: 5mm;
-}
-
-#progressbar 
-{
-    width: 50mm;
-    border: 1.5px solid #3369b7;
-    border-radius: 13px;
-    padding: 3px;
-}
-  
-#progressbar div 
-{
-  background-color: #3369b7;
-  height: 13px;
-  border-radius: 10px;
 }
