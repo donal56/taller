@@ -166,14 +166,13 @@ hr.azul
 }
 
 table.tabla
-{
+{    width: 100%;
      border-collapse: collapse;
      text-align: left;
 }
 .tabla td
 {
     padding:2px 2px; 
-    text-align: center;
     font-size: 7px;
     font-weight: bold;
     border:0.2mm solid #3369b7;
@@ -224,4 +223,10 @@ div.bigger-spacing
 .mb-2
 {
     margin-bottom: 2mm;
+}
+
+td.cell-sm
+{
+    text-align: center;
+    width: 5mm;
 }

@@ -11,8 +11,8 @@
 	<img src="var:donpolo" id= "polo" >
 </div>
 <!-- Imagen auto -->
-<div style= "position: absolute; top: 92mm; left: 66mm">
-	<img  width="53%" src="var:auto">
+<div style= "position: absolute; top: 90mm; left: 48mm">
+	<img  width="73%" src="var:auto">
 </div>
 <!-- linea del tanque -->
 <div class="linea">
@@ -117,15 +117,15 @@
 		<div style="width: 200mm; position: absolute;">
 
 			<!-- tabla exteriores -->
-			<div style="width: 55mm;float:left;">
+			<div style="width: 40mm;float:left;">
 				<table class="tabla">
 					<tr>
 						<td style="text-align: center; font-size: 10px;" colspan="3">EXTERIORES</td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Sí</td>	
-						<td>No</td>
+						<td class="cell-sm">Sí</td>	
+						<td class="cell-sm">No</td>
 					</tr>
 					<?php
 						$exteriores=json_decode($model->ord_vehiculoExterior,true);
@@ -137,13 +137,13 @@
 							{
 								$cad .=<<<CAD
 								<td></td>
-								<td class="px-14">✓</td>
+								<td class="cell-sm px-14">✓</td>
 								</tr>
 CAD;
 							echo ($cad);
 							}else{
 								$cad .= <<<CAD
-								<td style="">✓</td>
+								<td class="cell-sm">✓</td>
 								<td></td>
 								</tr>
 CAD;
@@ -161,13 +161,13 @@ CAD;
 							{
 								$cad .=<<<CAD
 								<td></td>
-								<td class="px-14">✓</td>
+								<td class="cell-sm px-14">✓</td>
 								</tr>
 CAD;
 							echo ($cad);
 							}else{
 								$cad .= <<<CAD
-								<td style="">✓</td>
+								<td class="cell-sm">✓</td>
 								<td></td>
 								</tr>
 CAD;
@@ -179,7 +179,7 @@ CAD;
 			</div>
 
 			<!-- tabla interiores -->
-			<div style="width: 50mm; float:right;">
+			<div style="width: 35mm; float:right;">
 				<table class="tabla">
 					<tr>
 						<td style="text-align: center; font-size: 10px;"  colspan="3">INTERIORES</td>
@@ -199,13 +199,13 @@ CAD;
 							{
 								$cad .=<<<CAD
 								<td></td>
-								<td class="px-14">✓</td>
+								<td class="cell-sm px-14">✓</td>
 								</tr>
 CAD;
 							echo ($cad);
 							}else{
 								$cad .= <<<CAD
-								<td style="">✓</td>
+								<td class="cell-sm">✓</td>
 								<td></td>
 								</tr>
 CAD;
@@ -223,13 +223,13 @@ CAD;
 							{
 								$cad .=<<<CAD
 								<td></td>
-								<td class="px-14">✓</td>
+								<td class="cell-sm px-14">✓</td>
 								</tr>
 CAD;
 							echo ($cad);
 							}else{
 								$cad .= <<<CAD
-								<td style="">✓</td>
+								<td class="cell-sm">✓</td>
 								<td></td>
 								</tr>
 CAD;
