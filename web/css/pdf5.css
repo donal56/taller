@@ -1,8 +1,8 @@
 .tanque {
     position: absolute; 
-    top: 147mm; 
-    left: 15.5mm; 
-    width: 25%;
+    top: 160mm; 
+    left: 14mm; 
+    width: 20%;
 }
 .linea {
     position: absolute; 
@@ -229,4 +229,19 @@ td.cell-sm
 {
     text-align: center;
     width: 5mm;
+}
+
+#progressbar 
+{
+    width: 50mm;
+    border: 1.5px solid #3369b7;
+    border-radius: 13px;
+    padding: 3px;
+}
+  
+#progressbar div 
+{
+  background-color: #3369b7;
+  height: 13px;
+  border-radius: 10px;
 }

@@ -14,22 +14,23 @@
 <div style= "position: absolute; top: 80mm; left: 48mm">
 	<img  width="73%" src="var:auto">
 </div>
-<!-- linea del tanque -->
-<div class="linea">
-	<img  style="transform: rotate(<?= (($model->ord_tanque)*180);?>);" src="var:linea"  id= "linea" >
-</div>
 <!-- tanque de gasolina -->
 <div class="tanque" style= "padding-left: 3mm; padding-top: 3mm">
-	<img src="var:fondoTan" id="fondoTanque">
-	<br><br>
-	<span class= "px-10"><?= $model->ord_tanque*100 ?>%</span>
-	<div class="px-12 azul bold">TANQUE DE GASOLINA</div>
+	<div class="px-10 azul bold">TANQUE DE GASOLINA</div>
+	<div id="progressbar">
+		<div style= "width: <?= $model->ord_tanque * 100 ?>%"></div>
+	</div>
+	<span class= "px-10"><b><?= $model->ord_tanque*100 ?>%</b></span>
 </div>
 <!--Líneas fijas-->
-<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 197.1mm; left: 18.17mm"></div>
-<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 197.1mm; left: 111.8mm"></div>
-<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 201.1mm; left: 18.17mm"></div>
-<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 201.1mm; left: 111.8mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.1mm; left: 18.17mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.1mm; left: 111.8mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 210.1mm; left: 18.17mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 210.1mm; left: 111.8mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 214.1mm; left: 18.17mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 214.1mm; left: 111.8mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 218.1mm; left: 18.17mm"></div>
+<div style= "border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 218.1mm; left: 111.8mm"></div>
 
 <!-- Imagen pez -->
 <div style="position: absolute; top:17mm; left: 160mm;">
@@ -241,6 +242,12 @@ CAD;
 			</div>
 		</div>	
 
+		<br><br><br><br><br><br><br><br><br>
+		<!-- observaciones -->
+		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
+		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
+		<br>
+
 		<!-- problemas del vehiculo -->
 		<div style="width: 80mm; height: 40mm; float: left; padding-left: 3mm">
 			<div class="px-14 azul bold" style="text-align: center;">PROBLEMAS DEL VEHICULO</div>
@@ -251,11 +258,6 @@ CAD;
 			<div class="px-14 azul bold" style="text-align: center;">DIAGNOSTICO TECNICO</div>
 			<div class="px-8 justify bigger-spacing" ><span class= "underline2">&#8203;<?= mb_strtoupper($model->ord_diagnostico)?></span></div>
 		</div>
-		<br>
-		<!-- observaciones -->
-		<div style="width: 30mm ; padding: 0;" class="div-label">OBSERVACIONES:</div>
-		<div style="width: 145mm; padding: 0;" class="div-underline px-8 justify">&#8203;<?= mb_strtoupper($model->ord_observaciones)?></div>
-
 		<div style="width: 180mm; height: 20mm;">
 			<div class="lineaFirmas">&#8203;</div>
 			<div class="lineaFirmas">&#8203;</div>
