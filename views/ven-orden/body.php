@@ -21,24 +21,33 @@
         <div id="progressbar">
             <div style="width: <?= $model->ord_tanque * 100 ?>%"></div>
         </div>
+        
+        <div class= "medidor-tanque">
+            <div>Vacío</div>
+            <div>&frac14;</div>
+            <div>&nbsp;Medio</div>
+            <div>&nbsp;&frac34;</div>
+            <div>&nbsp;&nbsp; Lleno</div>
+        </div>
+        <br>
         <span class="px-10"><b><?= $model->ord_tanque*100 ?>%</b></span>
     </div>
     <!--Líneas fijas-->
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 207mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.15mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 207mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.15mm; left: 111.8mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 211mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 210.15mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 211mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 210.15mm; left: 111.8mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 215mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 214.15mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 215mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 214.15mm; left: 111.8mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 219mm; left: 18.17mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 218.15mm; left: 18.17mm">
     </div>
-    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 219mm; left: 111.8mm">
+    <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 218.15mm; left: 111.8mm">
     </div>
 
     <!-- Imagen pez -->

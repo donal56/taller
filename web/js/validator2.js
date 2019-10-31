@@ -1,6 +1,8 @@
 $('.multiple-input').on('afterInit', function() 
 {
-    $('.multiple-input-list__btn.js-input-plus.btn.btn-success').trigger('click');
+    if (!$('tr.multiple-input-list__item').length) {
+        $('.multiple-input-list__btn.js-input-plus.btn.btn-success').trigger('click');  
+    }
     validateDetalles();
 
 }).on('beforeAddRow', function(e, row, currentIndex)

@@ -160,17 +160,70 @@ class VenAlmacenController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelFol = $this->findFolio(explode("-", $model->alm_folio)[0]); 
-        $modelFol->fol_folio = explode("-", $model->alm_folio)[1];
+        $idList = []; //listado de los conceptos actualizados y creados, sin eliminados
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->alm_id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-                'modelFol' => $modelFol
-            ]);
+        $modelCon = new VenConcepto();
+        $modelCon->temp = $this->findAllConceptos($id);
+
+        $modelFol = $this->findFolio($model->getSerie()); 
+        $modelFol->fol_folio = $model->getFolio();
+
+        if(Yii::$app->request->post())
+        {
+            $vale = Yii::$app->request->post();
+            $conceptos = Utilidades::limpiarArreglos( array_pop($vale)['temp'] );
+            $folioAnterior = $model->alm_folio;
+            $folio = array_pop($vale);
+
+            //transaction
+           $connection = Yii::$app->db;
+           $transaction = $connection->beginTransaction();
+
+            if ( $model->alm_folio != $folio['fol_serie'] . "-" . $folio['fol_folio']) 
+            {
+                $model->alm_folio = $this->increaseFolio($folio['fol_serie']);
+            }
+
+            if ($model->load($vale) && $model->save()) 
+            {
+                 //update conceptos
+                foreach( $conceptos as $concepto )
+                {  
+                    $concepto['con_fkalm_id'] = $id;
+                    $datos['VenConcepto'] = $concepto;
+             
+                    if ($modelCon->load($datos) && $modelCon->save()) 
+                    {
+                        array_push($idList, $modelCon->con_id);
+                        $modelCon = new VenConcepto();    
+                    } 
+                    else 
+                    {
+                        $idList = null;  
+                        end($conceptos);
+                        break;
+                    }      
+                }
+               
+                if(!empty($idList))
+                {
+                    $this->deleteNotListed($id, $idList);
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $id]);
+                }
+                else
+                {
+                    $model->alm_folio = $folioAnterior;
+                    $transaction->rollback();
+                }
+            }
         }
+
+        return $this->render('update', [
+            'model' => $model,
+            'modelCon' => $modelCon,
+            'modelFol' => $modelFol
+        ]);
     }
 
     /**
@@ -272,5 +325,23 @@ class VenAlmacenController extends Controller
         } else {
             return $model = new VenFolio();
         }
+    }
+    
+    protected function findAllConceptos($id)
+    {
+        if (($model = VenConcepto::find()->where(['con_fkalm_id' => $id])->asArray()->all()) !== null) 
+        {
+            return $model;
+        } 
+        else 
+        {
+            throw new NotFoundHttpException('Los conceptos requeridos no existen.');
+        }
+    }
+
+    public function deleteNotListed($id,$idlist)
+    {
+        VenConcepto::deleteAll('con_id NOT IN ('.implode(", ",$idlist).') AND con_fkalm_id= '.$id);
+
     }
 }

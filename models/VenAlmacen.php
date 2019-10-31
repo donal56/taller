@@ -74,4 +74,15 @@ class VenAlmacen extends \yii\db\ActiveRecord
     {
         return $this->hasMany(VenConcepto::className(), ['con_fkalm_id' => 'alm_id']);
     }
+
+    public function getSerie()
+    {
+        return explode("-", $this->alm_folio)[0];
+    }
+
+
+    public function getFolio()
+    {
+        return explode("-", $this->alm_folio)[1];
+    }
 }

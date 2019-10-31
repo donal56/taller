@@ -241,7 +241,23 @@ td.cell-sm
   
 #progressbar div 
 {
-  background-color: #3369b7;
-  height: 13px;
-  border-radius: 10px;
+    background-color: #3369b7;
+    height: 13px;
+    border-radius: 10px;
+}
+
+div.medidor-tanque
+{
+    width: 100%;
+    text-align: center;
+    padding-left: 4px;
+}
+
+div.medidor-tanque div
+{
+    width: 19.9%;
+  
+    float: left;
+    font-size: 7px;
+    font-weight: bold;
 }
