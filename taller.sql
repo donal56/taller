@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : MariaDB_localhost
- Source Server Type    : MariaDB
- Source Server Version : 100406
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 80016
  Source Host           : localhost:3306
  Source Schema         : taller
 
- Target Server Type    : MariaDB
- Target Server Version : 100406
+ Target Server Type    : MySQL
+ Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 28/10/2019 18:22:50
+ Date: 04/11/2019 15:43:40
 */
 
 SET NAMES utf8mb4;
@@ -35,8 +35,10 @@ CREATE TABLE `auth_assignment`  (
 -- Records of auth_assignment
 -- ----------------------------
 INSERT INTO `auth_assignment` VALUES ('Mecanico', 8, 1571593106);
+INSERT INTO `auth_assignment` VALUES ('Mecanico', 10, 1572903296);
 INSERT INTO `auth_assignment` VALUES ('operador', 5, 1571510454);
 INSERT INTO `auth_assignment` VALUES ('operador', 7, 1571591867);
+INSERT INTO `auth_assignment` VALUES ('operador', 9, 1572903173);
 INSERT INTO `auth_assignment` VALUES ('otro', 4, 1566596332);
 INSERT INTO `auth_assignment` VALUES ('otros', 4, 1566597215);
 
@@ -219,57 +221,57 @@ CREATE TABLE `auth_item_child`  (
 -- ----------------------------
 -- Records of auth_item_child
 -- ----------------------------
-INSERT INTO `auth_item_child` VALUES ('Admin', 'assignRolesToUsers');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'changeOwnPassword');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'changeUserPassword');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'createUsers');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'deleteUsers');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'editUsers');
-INSERT INTO `auth_item_child` VALUES ('Admin', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set-roles');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUserRoles');
-INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('changeOwnPassword', '/user-management/auth/change-own-password');
-INSERT INTO `auth_item_child` VALUES ('changeUserPassword', '/user-management/user/change-password');
-INSERT INTO `auth_item_child` VALUES ('changeUserPassword', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('createUsers', '/user-management/user/create');
-INSERT INTO `auth_item_child` VALUES ('createUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/bulk-delete');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/delete');
-INSERT INTO `auth_item_child` VALUES ('deleteUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('editUserEmail', 'viewUserEmail');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-activate');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-deactivate');
-INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
-INSERT INTO `auth_item_child` VALUES ('editUsers', 'viewUsers');
-INSERT INTO `auth_item_child` VALUES ('jefe', 'prueba');
-INSERT INTO `auth_item_child` VALUES ('operador', 'operar');
-INSERT INTO `auth_item_child` VALUES ('operar', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/create');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/index');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/update');
-INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/view');
-INSERT INTO `auth_item_child` VALUES ('otro', 'Usuario General');
-INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
-INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/dashboard/index');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/create');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/index');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/report');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/update');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/req-requisicion/view');
+INSERT INTO `auth_item_child` VALUES ('permisoOtros', '/site/acceso');
+INSERT INTO `auth_item_child` VALUES ('operar', '/site/index');
 INSERT INTO `auth_item_child` VALUES ('prueba', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
-INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
 INSERT INTO `auth_item_child` VALUES ('tecnico', '/site/index');
 INSERT INTO `auth_item_child` VALUES ('Usuario General', '/site/index');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
-INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/view');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboard/submenu');
+INSERT INTO `auth_item_child` VALUES ('prueba', '/sws-dashboardgrupos/index');
+INSERT INTO `auth_item_child` VALUES ('changeOwnPassword', '/user-management/auth/change-own-password');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', '/user-management/user-permission/set-roles');
 INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/grid-page-size');
 INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/index');
 INSERT INTO `auth_item_child` VALUES ('viewVisitLog', '/user-management/user-visit-log/view');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-activate');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/bulk-deactivate');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/bulk-delete');
+INSERT INTO `auth_item_child` VALUES ('changeUserPassword', '/user-management/user/change-password');
+INSERT INTO `auth_item_child` VALUES ('createUsers', '/user-management/user/create');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/create');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', '/user-management/user/delete');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/grid-page-size');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/index');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/index');
+INSERT INTO `auth_item_child` VALUES ('editUsers', '/user-management/user/update');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/update');
+INSERT INTO `auth_item_child` VALUES ('operar', '/user-management/user/view');
+INSERT INTO `auth_item_child` VALUES ('viewUsers', '/user-management/user/view');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'assignRolesToUsers');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'changeOwnPassword');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'changeUserPassword');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'createUsers');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'deleteUsers');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'editUsers');
+INSERT INTO `auth_item_child` VALUES ('operador', 'operar');
+INSERT INTO `auth_item_child` VALUES ('otros', 'permisoOtros');
+INSERT INTO `auth_item_child` VALUES ('jefe', 'prueba');
+INSERT INTO `auth_item_child` VALUES ('otro', 'Usuario General');
+INSERT INTO `auth_item_child` VALUES ('editUserEmail', 'viewUserEmail');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUserRoles');
+INSERT INTO `auth_item_child` VALUES ('Admin', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('assignRolesToUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('changeUserPassword', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('createUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('deleteUsers', 'viewUsers');
+INSERT INTO `auth_item_child` VALUES ('editUsers', 'viewUsers');
 
 -- ----------------------------
 -- Table structure for auth_item_group
@@ -322,7 +324,7 @@ CREATE TABLE `user`  (
   `email` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `email_confirmed` smallint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
@@ -333,6 +335,8 @@ INSERT INTO `user` VALUES (5, 'polo', 'aHZwmwypWrGKdoIR2fc9Z8L7csxnm1O3', '$2y$1
 INSERT INTO `user` VALUES (6, '11', 'Y1aZlqwvLnSHdT03e-103VctJ52jg-s5', '$2y$13$EpwcqOS07AgbA8sJF6WwQeRvXxddbERlx2dtThRgsl8uuo1g9YWaC', NULL, 1, 0, 1571591649, 1571591649, '127.0.0.1', '', '', 0);
 INSERT INTO `user` VALUES (7, 'aa', 'CfXxvCTzyVi_v4I2BJhwisfj9GhUl4W3', '$2y$13$qDNsMDjVTSUQ3oA4yjaXWu99DVLXXccqqetSeBI2Anx8cfsR0U/L.', NULL, 1, 0, 1571591867, 1571591867, '127.0.0.1', '', '', 0);
 INSERT INTO `user` VALUES (8, 'ss', 'xy5_WRNHEj0erBr-f2KReBEv6L3uezI-', '$2y$13$HRdbOvlRPZj7LABOsWUyMujoYFLfa9RvF5PjNJPBda32.ZhfS3Tqe', NULL, 1, 0, 1571592271, 1571593094, '127.0.0.1', '', NULL, 0);
+INSERT INTO `user` VALUES (9, 'operador', '89zFPnK7Pi7u151hjchckWoyYovt15YC', '$2y$13$wN3n5w2FjJ7IwZEKGMzxX.jEogONetTNLMg.WArjC84NsJWKq3E1y', NULL, 1, 0, 1572903173, 1572903173, '127.0.0.1', '', NULL, 0);
+INSERT INTO `user` VALUES (10, 'mecanico', 'u0qYQ-RKMI6rixefcZKjA63gNB0S2m0k', '$2y$13$dYSLrzETyB0kkEe1OWmeru69w2czOyShBhbgY3SHUTY9oIMf7DEYi', NULL, 1, 0, 1572903296, 1572903296, '127.0.0.1', '', '', 0);
 
 -- ----------------------------
 -- Table structure for user_visit_log
@@ -351,7 +355,7 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
@@ -384,9 +388,26 @@ INSERT INTO `user_visit_log` VALUES (51, '5db2071d69f17', '127.0.0.1', 'es', 'Mo
 INSERT INTO `user_visit_log` VALUES (52, '5db21ab4acf05', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1571953332, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (53, '5db3033013efe', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572012848, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (54, '5db3b65f1546d', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 1, 1572058719, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (55, '5db77828053f4', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572304936, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (56, '5db7810ddde50', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 1, 1572307213, 'Chrome', 'Windows');
-INSERT INTO `user_visit_log` VALUES (57, '5db785e6f164f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36', 5, 1572308454, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (55, '5db782bb97802', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572307643, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (56, '5db791576f089', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572311383, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (57, '5db7a72a06be9', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572316970, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (58, '5db871a367632', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572368803, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (59, '5db89b2a46eab', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572379434, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (60, '5db89dc66352d', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572380102, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (61, '5db8a0dd1254e', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572380893, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (62, '5db8a2eac7375', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572381418, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (63, '5db8a6b89baae', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572382392, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (64, '5db8be24f3712', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572388389, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (65, '5db8c774e081b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572390772, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (66, '5db8dd741d5f6', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36', 5, 1572396404, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (67, '5dbbaae704135', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 5, 1572580071, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (68, '5dc0920c8a3a3', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 5, 1572901388, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (69, '5dc0920c89d8a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 5, 1572901388, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (70, '5dc098d6372ff', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 5, 1572903126, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (71, '5dc098e4b6caf', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 5, 1572903140, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (72, '5dc0991647e5f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 9, 1572903190, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (73, '5dc0995f8450b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572903263, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (74, '5dc099910a298', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 10, 1572903313, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -405,7 +426,7 @@ CREATE TABLE `ven_almacen`  (
   `alm_trabajo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `alm_garantia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`alm_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_almacen
@@ -425,7 +446,7 @@ CREATE TABLE `ven_concepto`  (
   PRIMARY KEY (`con_id`) USING BTREE,
   INDEX `con_fkalm_id`(`con_fkalm_id`) USING BTREE,
   CONSTRAINT `con_fk1` FOREIGN KEY (`con_fkalm_id`) REFERENCES `ven_almacen` (`alm_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_concepto
@@ -442,12 +463,12 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
-INSERT INTO `ven_folio` VALUES (11, 'A', '6', '11');
+INSERT INTO `ven_folio` VALUES (11, 'A', '18', 'Almacen');
 INSERT INTO `ven_folio` VALUES (25, 'Z', '11', 'ss');
 INSERT INTO `ven_folio` VALUES (29, 'ADADA', '0', '123141');
 INSERT INTO `ven_folio` VALUES (30, 'ADADA', '0', '123141');
@@ -455,7 +476,6 @@ INSERT INTO `ven_folio` VALUES (31, 'DF', '0', 'Refacciones');
 INSERT INTO `ven_folio` VALUES (32, 'DF', '0', 'Refacciones');
 INSERT INTO `ven_folio` VALUES (33, 'AD', '0', 'afasfd');
 INSERT INTO `ven_folio` VALUES (34, 'XS', '0', 'asdasd');
-INSERT INTO `ven_folio` VALUES (35, 'T', '1', 'T es de TTTT');
 
 -- ----------------------------
 -- Table structure for ven_orden
@@ -465,6 +485,7 @@ CREATE TABLE `ven_orden`  (
   `ord_id` int(11) NOT NULL AUTO_INCREMENT,
   `ord_folio` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ord_nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ord_user` int(11) DEFAULT NULL,
   `ord_direccion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_codigoPostal` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ord_telefono` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -487,12 +508,25 @@ CREATE TABLE `ven_orden`  (
   `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `ord_diagnostico` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   PRIMARY KEY (`ord_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_orden
 -- ----------------------------
-INSERT INTO `ven_orden` VALUES (17, 'T-1', 'Carlos Donaldo Ramón Gómez', 'Colonia Espejo 1 #133', '86108', '9932978261', '45157895', 'Euforia', 'Deportivo', 'Nissan', 'DF5D55', '2019-10-28 14:58:44', '2019-10-28 14:58:44', '51384', 'Rojo', 40000, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"on\",\"Cristales\":\"on\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"on\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"on\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', 0.80, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"on\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"on\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"on\",\"Bater\\u00eda\":\"off\"}', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. ', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ');
+INSERT INTO `ven_orden` VALUES (15, 'A-6', 'Carlos Donaldo', NULL, 'Colonia Espejo 1 #133', '86108', '9932978261', '4151f3sf', 'afsd', '1', 'adasd', 'asdasd', '2019-10-08 12:36:51', '2019-10-25 12:35:22', '24', 'zfsgf', NULL, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
+INSERT INTO `ven_orden` VALUES (16, 'Z-11', 'asdasd', NULL, 'Colonia Espejo 1 #133', '86108', '9932978261', '980622', 'afsd', '1', 'adasd', '12FS42', '2019-10-25 12:38:42', '2019-10-25 12:38:42', '123', 'zfsgf', 123, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"on\",\"Antena\":\"on\",\"Espejo lateral\":\"on\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"on\",\"Limpiadores plumas\":\"on\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'n', 0.50, '{\"Gato\":\"on\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'i', 'n');
+INSERT INTO `ven_orden` VALUES (17, 'A-7', 'DBS', NULL, 'Av Niños Héroes 165, Cuadrante II, Atasta de Serra', '86100', '21351', 'awrfq', '21a', '1', 'a', 'a', '2019-10-28 19:09:51', '2019-10-03 19:10:52', 'a', '', 5151212, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"on\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"on\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"on\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"on\",\"Bocinas\":\"off\",\"Encendedor\":\"on\",\"Espejo retrovisor\":\"on\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'egew', 0.65, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"on\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"on\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'ewfwe', 'teste');
+INSERT INTO `ven_orden` VALUES (18, 'A-8', 'DBS', NULL, 'Av Niños Héroes 165, Cuadrante II, Atasta de Serra', '86100', '21351', 'awrfq', '21a', '1', 'a', 'a', '2019-10-28 19:09:51', '2019-10-03 19:10:52', 'a', '', 5151212, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"on\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"on\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"on\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"on\",\"Bocinas\":\"off\",\"Encendedor\":\"on\",\"Espejo retrovisor\":\"on\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'egew', 0.65, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"on\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"on\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'ewfwe', 'teste');
+INSERT INTO `ven_orden` VALUES (19, 'A-9', 'DBS', NULL, '', '', '', '', '', '', '', '', '2019-10-28 20:44:45', '2019-10-28 20:44:45', '', '', NULL, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.00, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (20, 'A-10', 'DBS', NULL, '', '', '', '', '', '', '', '', '2019-10-28 20:44:45', '2019-10-28 20:44:45', '', '', NULL, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.00, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (21, 'A-11', 'DBS', NULL, '', '', '', '', '', '', '', '', '2019-10-28 20:45:20', '2019-10-28 20:45:20', '', '', NULL, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.75, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (22, 'A-12', 'DBS', NULL, '', '', '', '', '', '', '', '', '2019-10-28 20:45:20', '2019-10-28 20:45:20', '', '', NULL, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.75, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (23, 'A-13', 'Sergio Daniel Jimenez Zacarias', NULL, 'Fracc.Bonanza Calle 8', '86100', '9935907735', '134TEHERH53Y45YWR', 'F95', 'convertible', 'ferrari', '4F54Y', '2019-10-29 15:00:20', '2019-11-13 18:30:20', '2332535Y1', 'ROJO', 1234, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.00, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (24, 'A-14', 'Sergio Daniel Jimenez Zacarias', NULL, 'Fracc.Bonanza Calle 8', '86100', '9935907735', '134TEHERH53Y45YWR', 'F95', 'convertible', 'ferrari', '4F54Y', '2019-10-29 15:00:20', '2019-11-13 18:30:20', '2332535Y1', 'ROJO', 1234, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.00, '{\"Gato\":\"off\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (25, 'A-15', 'Sergio Daniel Jimenez ZACARIAS', NULL, 'Av Niños Héroes 165, Cuadrante II, Atasta de Serra', '86100', '9952151334', 'FG4532', 'ROJOS', 'Convertible', 'Ferrari', '231415', '2019-10-29 15:06:49', '2019-10-29 15:06:49', '15215', 'rojo', 1213, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"on\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"on\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"on\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.80, '{\"Gato\":\"on\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"on\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (26, 'A-16', 'Sergio Daniel Jimenez ZACARIAS', NULL, 'Av Niños Héroes 165, Cuadrante II, Atasta de Serra', '86100', '9952151334', 'FG4532', 'ROJOS', 'Convertible', 'Ferrari', '231415', '2019-10-29 15:06:49', '2019-10-29 15:06:49', '15215', 'rojo', 1213, '{\"Unidad de luces\":\"on\",\"Cuarto de luces\":\"off\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"on\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"on\",\"Tap\\u00f3n de gasolina\":\"off\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"on\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"on\",\"Bocinas\":\"off\",\"Encendedor\":\"off\",\"Espejo retrovisor\":\"off\",\"Ceniceros\":\"off\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', '', 0.80, '{\"Gato\":\"on\",\"Maneral de gato\":\"off\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"on\",\"Tap\\u00f3n de aceite\":\"on\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"off\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', '', '');
+INSERT INTO `ven_orden` VALUES (27, 'A-17', 'Sergio Daniel Jimenez ZACARIAS', 10, 'Av Niños Héroes 165, Cuadrante II, Atasta de Serra', '86100', '9952151334', 'awrfq', '21a', '1', 'a', '215151', '2019-11-04 15:41:46', '2019-10-28 19:10:50', '15215', 'rojo', 1234, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"on\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"on\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"on\",\"Espejo retrovisor\":\"on\",\"Ceniceros\":\"on\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'noe', 0.55, '{\"Gato\":\"off\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"on\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'nulls', 'nose');
+INSERT INTO `ven_orden` VALUES (28, 'A-18', 'Sergio Daniel Jimenez ZACARIAS', 10, 'Av Niños Héroes 165, Cuadrante II, Atasta de Serra', '86100', '9952151334', 'awrfq', '21a', '1', 'a', '215151', '2019-11-04 15:41:46', '2019-10-28 19:10:50', '15215', 'rojo', 1234, '{\"Unidad de luces\":\"off\",\"Cuarto de luces\":\"on\",\"Antena\":\"off\",\"Espejo lateral\":\"off\",\"Cristales\":\"off\",\"Emblema\":\"off\",\"Llantas(4)\":\"off\",\"Tapon de ruedas(4)\":\"off\",\"Molduras completas\":\"off\",\"Tap\\u00f3n de gasolina\":\"on\",\"Carrocer\\u00eda sin golpes\":\"off\",\"Bocinas de clax\\u00f3n\":\"off\"}', '{\"Instalaci\\u00f3n de tablero\":\"off\",\"Calefacci\\u00f3n\":\"off\",\"Limpiadores plumas\":\"off\",\"Radio tipo\":\"off\",\"Bocinas\":\"off\",\"Encendedor\":\"on\",\"Espejo retrovisor\":\"on\",\"Ceniceros\":\"on\",\"Botones interiores\":\"off\",\"Manijas interiores\":\"off\",\"Tapetes\":\"off\",\"Vestiduras\":\"off\",\"Cinturones\":\"off\"}', 'noe', 0.55, '{\"Gato\":\"off\",\"Maneral de gato\":\"on\",\"Llave de ruedas\":\"off\",\"Estuche de  herramientas\":\"off\",\"Tri\\u00e1ngulos de seguridad\":\"off\",\"Llantas de refacci\\u00f3n\":\"off\",\"Extintor\":\"off\"}', '{\"Clax\\u00f3n\":\"off\",\"Tap\\u00f3n de aceite\":\"off\",\"Tap\\u00f3n de radiador\":\"off\",\"Varilla para aceite\":\"on\",\"Filtro de aire\":\"off\",\"Bater\\u00eda\":\"off\"}', 'nulls', 'nose');
 
 -- ----------------------------
 -- Table structure for ven_producto
@@ -507,7 +541,7 @@ CREATE TABLE `ven_producto`  (
   PRIMARY KEY (`pro_id`) USING BTREE,
   INDEX `pro_fkven_folio`(`pro_fkventas`) USING BTREE,
   CONSTRAINT `ven_producto_ibfk_1` FOREIGN KEY (`pro_fkventas`) REFERENCES `ven_ventas` (`ven_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 89 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 88 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_producto
@@ -527,7 +561,7 @@ CREATE TABLE `ven_recibo`  (
   `rec_fecha` date NOT NULL,
   `rec_folio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`rec_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_recibo
@@ -557,7 +591,7 @@ CREATE TABLE `ven_ventas`  (
   `ven_garantia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ven_id`) USING BTREE,
   INDEX `ven_fkfolio`(`ven_folio`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 98 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_ventas
