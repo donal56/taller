@@ -53,7 +53,7 @@ class VenOrdenController extends Controller
      * Lists all VenOrden models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($usr)
     {
         $searchModel = new VenOrdenSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);

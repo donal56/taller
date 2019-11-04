@@ -341,7 +341,7 @@ class VenAlmacenController extends Controller
 
     public function deleteNotListed($id,$idlist)
     {
-        VenConcepto::deleteAll('con_id NOT IN ('.implode(", ",$idlist).') AND con_fkalm_id= '.$id);
+        VenConcepto::deleteAll('con_id NOT IN ('.implode(", ",$idlist).') AND con_fkalm_id = '.$id);
 
     }
 }

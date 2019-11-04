@@ -56,8 +56,8 @@ class VenOrden extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ord_folio', 'ord_nombre'], 'required'],
-            [['ord_kilometraje'], 'integer'],
+            [['ord_folio', 'ord_nombre', 'ord_fechaIngreso'], 'required'],
+            [['ord_kilometraje','ord_user'], 'integer'],
             [['ord_fechaIngreso', 'ord_fechaEntrega', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_folio'], 'safe'],
             [['ord_observaciones',  'ord_problemas', 'ord_diagnostico'], 'string'],
             [['ord_tanque'], 'number'],
@@ -98,6 +98,7 @@ class VenOrden extends \yii\db\ActiveRecord
             'ord_accesoriosInterior' => 'Accesorios Interior',
             'ord_problemas' => 'Problemas',
             'ord_diagnostico' => 'Diagnóstico',
+            'ord_user' => 'Tecnico',
         ];
     }
 }

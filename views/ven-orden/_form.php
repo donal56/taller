@@ -44,7 +44,7 @@ use app\components\Utilidades;
                     <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-2']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => '...' ]) ?>
 
                     <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
-
+                    <?php if(Yii::$app->user->identity->hasRole('Admin')){?>
                     <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
                     <?= Html::a('', '',[
                         'id' => 'abrirModal',
@@ -65,6 +65,7 @@ use app\components\Utilidades;
                     Modal::end();
                     ?>
                     <br>
+                    <?php } ?>
                 </div>
 
                 <div class="row col-sm-12">
@@ -73,7 +74,7 @@ use app\components\Utilidades;
 
                     <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
                         [
-                            'options' => ['value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d H:i:s') :  $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
+                            'options' => ['value' => /*$model->isNewRecord ? Utilidades::getDate('Y-m-d H:i:s') :  */$model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
                             'language' => 'es',
                             'removeButton' => false,
                             'pluginOptions' => [
@@ -111,6 +112,9 @@ use app\components\Utilidades;
                     <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
                     <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
+
+                     <?=$form->field($model, 'ord_user', ['options' => ['class' => 'form-group col-sm-3']])->hiddenInput(['readonly' => true, 'value' => Yii::$app->user->identity->id])->label(false) ?>
+
 
                 </div>
             </div>

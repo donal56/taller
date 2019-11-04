@@ -35,7 +35,7 @@ class VenProducto extends \yii\db\ActiveRecord
     {
         return [
             [[ 'temp'] , 'safe' ],
-            [['pro_unidad', 'pro_nombre', 'pro_precio'], 'required'],
+            [[ 'pro_id','pro_unidad', 'pro_nombre', 'pro_precio'], 'required'],
             [['pro_unidad', 'pro_fkventas'], 'integer'],
             [['pro_precio'], 'number'],
             [['pro_nombre'], 'string', 'max' => 255],

@@ -33,6 +33,10 @@ if(Yii::$app->user->identity->hasRole('Admin')) {
     ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
     ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
   ];
+}else if(Yii::$app->user->identity->hasRole('Mecanico')) {
+ $botones = [
+    ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index?usr='.Yii::$app->user->identity->id], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-checador']
+  ];
 }
 
 echo krnPanel::widget(['buttons'=>$botones]);

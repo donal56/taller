@@ -17,7 +17,7 @@ class VenOrdenSearch extends VenOrden
     public function rules()
     {
         return [
-            [['ord_id', 'ord_kilometraje'], 'integer'],
+            [['ord_id', 'ord_kilometraje','ord_user'], 'integer'],
             [['ord_folio', 'ord_nombre', 'ord_direccion', 'ord_codigoPostal', 'ord_telefono', 'ord_ife', 'ord_modelo', 'ord_marca', 'ord_placa', 'ord_fechaIngreso', 'ord_fechaEntrega', 'ord_noSerie', 'ord_color', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_observaciones', 'ord_tanque', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_problemas', 'ord_diagnostico'], 'safe'],
         ];
     }
@@ -65,6 +65,9 @@ class VenOrdenSearch extends VenOrden
           
 
          }
+          if( array_key_exists('usr', $params) ):
+          $query->where(['ord_user' => $params['usr']]);
+        endif;
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -76,6 +79,7 @@ class VenOrdenSearch extends VenOrden
         $query->andFilterWhere([
             'ord_id' => $this->ord_id,
             'ord_kilometraje' => $this->ord_kilometraje,
+            'ord_user' => $this->ord_user,
         ]);
 
         $query->andFilterWhere(['like', 'ord_nombre', $this->ord_nombre])
@@ -96,6 +100,7 @@ class VenOrdenSearch extends VenOrden
             ->andFilterWhere(['like', 'ord_accesoriosExterior', $this->ord_accesoriosExterior])
             ->andFilterWhere(['like', 'ord_accesoriosInterior', $this->ord_accesoriosInterior])
             ->andFilterWhere(['like', 'ord_problemas', $this->ord_problemas])
+            ->andFilterWhere(['like', 'ord_user', $this->ord_user])
             ->andFilterWhere(['like', 'ord_diagnostico', $this->ord_diagnostico]);
 
         return $dataProvider;

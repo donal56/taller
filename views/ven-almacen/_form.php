@@ -90,6 +90,13 @@ use app\components\Utilidades;
                 'columns' => 
                 [
                     [
+                        'name' => 'con_id',
+                        'options' => 
+                        [
+                            'style' => 'display: none'
+                        ]
+                    ],
+                    [
                         'name'  => 'con_cantidad',
                         'title' => 'Cantidad',
                         'enableError' => true,

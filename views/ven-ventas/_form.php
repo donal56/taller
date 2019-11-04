@@ -93,6 +93,13 @@ use app\components\Utilidades;
             'columns' => 
             [
                 [
+                    'name' => 'pro_id',
+                    'options' => 
+                    [
+                        'style' => 'display: none'
+                    ]
+                ],
+                [
                     'name'  => 'pro_unidad',
                     'title' => 'Cantidad',
                     'enableError' => true,
