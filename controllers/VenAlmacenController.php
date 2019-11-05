@@ -191,11 +191,11 @@ class VenAlmacenController extends Controller
                 {  
                     $concepto['con_fkalm_id'] = $id;
                     $datos['VenConcepto'] = $concepto;
-             
+                    $modelCon =  $this->findConcepto($datos['VenConcepto']['con_id']);
                     if ($modelCon->load($datos) && $modelCon->save()) 
                     {
                         array_push($idList, $modelCon->con_id);
-                        $modelCon = new VenConcepto();    
+                
                     } 
                     else 
                     {
@@ -339,9 +339,22 @@ class VenAlmacenController extends Controller
         }
     }
 
-    public function deleteNotListed($id,$idlist)
+    protected function findConcepto($id)
+    {
+        if(isset($id)){
+            if (($model = VenConcepto::findOne($id)) !== null) {
+                return $model;
+            }
+        }
+        return new VenConcepto(); 
+      
+    }
+
+    private function deleteNotListed($id,$idlist)
     {
         VenConcepto::deleteAll('con_id NOT IN ('.implode(", ",$idlist).') AND con_fkalm_id = '.$id);
 
     }
+
+
 }

@@ -36,7 +36,7 @@ class VenConcepto extends \yii\db\ActiveRecord
             [[ 'temp'] , 'safe' ],
             [['con_cantidad', 'con_descripcion', 'con_precioUnitario', 'con_fkalm_id'], 'required'],
             [['con_cantidad', 'con_precioUnitario'], 'number'],
-            [['con_fkalm_id'], 'integer'],
+            [['con_id','con_fkalm_id'], 'integer'],
             [['con_descripcion'], 'string', 'max' => 255],
             [['con_fkalm_id'], 'exist', 'skipOnError' => true, 'targetClass' => VenAlmacen::className(), 'targetAttribute' => ['con_fkalm_id' => 'alm_id']],
         ];

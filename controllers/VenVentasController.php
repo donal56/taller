@@ -101,7 +101,8 @@ class VenVentasController extends Controller
 
             $venta['_csrf'] = Yii::$app->request->post()['_csrf'];
             //transaction
-            $connection = \Yii::$app->db>beginTransaction();
+            $connection = \Yii::$app->db;
+            $transaction = $connection->beginTransaction();
 
             $countPro = 0;
 
@@ -229,10 +230,11 @@ class VenVentasController extends Controller
 
                     if ($datapro['VenProducto']['pro_nombre'] != "") 
                     {    
+                        $modelpro = $this->findProducto($datapro['VenProducto']['pro_id']);
+           
                         if ($modelpro->load($datapro) && $modelpro->save()) 
                         {
                             $idlist[$i] = $modelpro->pro_id;
-                            $modelpro = new VenProducto();    
                         } 
                         else 
                         {
@@ -371,6 +373,16 @@ class VenVentasController extends Controller
         }
     }
 
+    protected function findProducto($id)
+    {
+        if(isset($id)){
+            if (($model = VenProducto::findOne($id)) !== null) {
+                return $model;
+            } 
+        }
+        return new VenProducto(); 
+      
+    }
 
     public function deleteNotListed($id,$idlist)
     {

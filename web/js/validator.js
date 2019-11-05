@@ -44,8 +44,7 @@ function validateDetalles(){
     $("[id^='venproducto-temp']").on('blur.yii',function(){
 
     var detalle = $(this).attr('id');
-
-        if($(this).val().length > 0){
+        if($(this).val().length > 0 || detalle.includes('pro_id')){
             if (detalle.includes('pro_unidad')){
                 if($(this).val().length > 9)
                 {
