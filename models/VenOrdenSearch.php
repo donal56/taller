@@ -66,7 +66,7 @@ class VenOrdenSearch extends VenOrden
 
          }
           if( array_key_exists('usr', $params) && ! \Yii::$app->user->isSuperAdmin ):
-          $query->where(['ord_user' => $params['usr']]);
+          $query->andFilterWhere(['ord_user' => $params['usr']]);
         endif;
 
         if (!$this->validate()) {
