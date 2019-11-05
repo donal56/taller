@@ -34,9 +34,9 @@ class VenProducto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'temp'] , 'safe' ],
-            [[ 'pro_id','pro_unidad', 'pro_nombre', 'pro_precio'], 'required'],
-            [['pro_unidad', 'pro_fkventas'], 'integer'],
+            [['temp'] , 'safe' ],
+            [['pro_unidad', 'pro_nombre', 'pro_precio', 'pro_fkventas'], 'required'],
+            [['pro_id','pro_unidad', 'pro_fkventas'], 'integer'],
             [['pro_precio'], 'number'],
             [['pro_nombre'], 'string', 'max' => 255],
             [['pro_fkventas'], 'exist', 'skipOnError' => true, 'targetClass' => VenVentas::className(), 'targetAttribute' => ['pro_fkventas' => 'ven_id']],
