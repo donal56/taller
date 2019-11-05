@@ -7,6 +7,7 @@ use app\models\VenOrden;
 use app\models\VenOrdenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ServerErrorHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use app\models\VenFolio;
