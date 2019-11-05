@@ -101,4 +101,15 @@ class VenOrden extends \yii\db\ActiveRecord
             'ord_user' => 'Tecnico',
         ];
     }
+
+    public function getSerie()
+    {
+        return explode("-", $this->ord_folio)[0];
+    }
+
+
+    public function getFolio()
+    {
+        return explode("-", $this->ord_folio)[1];
+    }
 }

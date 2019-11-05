@@ -13,11 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ven-recibo-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <br>
     <p>
         <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
         <?= Html::a('Imprimir', ['report', 'id' => $model->rec_id], ['class' => 'btn btn-primary','target' => '_blank']) ?>
     </p>
+    <br>
 
     <?= DetailView::widget([
         'model' => $model,

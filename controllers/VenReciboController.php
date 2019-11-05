@@ -131,10 +131,44 @@ class VenReciboController extends Controller
         $modelFol = $this->findFolio(explode("-", $model->rec_folio)[0]); 
         $modelFol->fol_folio = explode("-", $model->rec_folio)[1];
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->rec_id]);
-        } else {
-            return $this->render('update', [
+        //transacción
+        $connection = \Yii::$app->db;
+        $transaction = $connection->beginTransaction();
+        $datos = Yii::$app->request->post();
+
+        if ($datos) 
+        {
+            $folio = array_pop($datos);
+
+            if ( $model->rec_folio != $folio['fol_serie']."-".$folio['fol_folio']) 
+            {
+                $modelFol = $this->findFolio($folio['fol_serie']); 
+                $modelFol->fol_folio = strval($modelFol->fol_folio + 1);
+
+                $model->rec_folio = $modelFol->fol_serie."-". $modelFol->fol_folio;
+
+                if (!$modelFol->save())
+                {
+                    $transaction->rollback();               
+                    throw new ServerErrorHttpException('ERROR AL INCREMENTAR EL FOLIO.');
+                }
+           }
+
+           if($model->load($datos) && $model->save())
+           {
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->rec_id]);
+           }
+           else
+           {
+                $transaction->rollback();               
+               throw new ServerErrorHttpException('ERROR AL GUARDAR EL RECIBO.');  
+           }
+        } 
+        else 
+        {
+            return $this->render('update', 
+            [
                 'model' => $model,
                 'modelFol' => $modelFol
             ]);
@@ -240,5 +274,4 @@ class VenReciboController extends Controller
             return $model = new VenFolio();
         }
     }
-
 }

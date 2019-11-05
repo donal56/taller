@@ -8,7 +8,7 @@ $.fn.wPaint.defaults =
     menuOrientation: 'vertical',       // menu alignment (horizontal,vertical)
     menuOffsetLeft:  -30,                  // left offset of primary menu
     menuOffsetTop:   185,                  // top offset of primary menu
-    bg: "/img/auto.jpg"	
+    bg: "/img/auto.jpg"
 };
 
 $.fn.wPaint.menus.main = 
@@ -45,7 +45,21 @@ $.fn.wPaint.menus.main =
             { 
                 this.clear();
             }
-        }
+        },
+        eraser: 
+        {
+            icon: 'activate',
+            title: 'Borrador',
+            index: 8,
+            callback: function () { this.setMode('eraser'); }
+        },  
+        pencil: 
+        {
+            icon: 'activate',
+            title: 'Lápiz',
+            index: 6,
+            callback: function () { this.setMode('pencil'); }
+        },
     }
 };
 
@@ -56,7 +70,7 @@ $.extend($.fn.wPaint.cursors, {
 $.extend($.fn.wPaint.defaults, 
 {
     mode:        'pencil',  // set mode
-    lineWidth:   '2',       // starting line width
+    lineWidth:   '3',       // starting line width
     fillStyle:   '#000000', // starting fill style
     strokeStyle: '#000000',  // start stroke style
     //disableMobileDefaults:false,

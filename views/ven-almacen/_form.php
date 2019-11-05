@@ -19,26 +19,15 @@ use app\components\Utilidades;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row col-sm-12">
-        <?php 
-            Modal::begin([
-                'id'     =>'modal',
-                'clientOptions' => ['backdrop' => 'static'],
-                'header' => '<h4 class="modal-title">Rellene</h4>',
-                'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Cerrar</a>',]);
-                echo "<div style='text-align:center'><img width= '40%' src='/img/loading.gif'></div>";
-            Modal::end();
-        ?>
-
-
-        <?php
-            echo $form->field($model, 'alm_fecha' , ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => Utilidades::getDate('Y-m-d')])
-        ?>  
+        <?= $form->field($model, 'alm_fecha' , ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => Utilidades::getDate('Y-m-d')]) ?>  
 
         <?= $form->field($model, 'alm_noPedido', ['options' => ['class' => 'form-group col-sm-3']])->textInput() ?>
 
         <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-3']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
         <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
+
+        <?php if(Yii::$app->user->isSuperAdmin) {?>
 
         <div class="form-group col-sm-1">
             <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?>
@@ -53,6 +42,18 @@ use app\components\Utilidades;
                             ]) 
             ?>
         </div>
+
+        <?php 
+            Modal::begin([
+                'id'     =>'modal',
+                'clientOptions' => ['backdrop' => 'static'],
+                'header' => '<h4 class="modal-title">Rellene</h4>',
+                'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Cerrar</a>',]);
+                echo "<div style='text-align:center'><img width= '40%' src='/img/loading.gif'></div>";
+            Modal::end();
+        ?>
+
+            <?php } ?>
     </div>
 
     <div class="row col-sm-12">
@@ -93,8 +94,9 @@ use app\components\Utilidades;
                         'name' => 'con_id',
                         'options' => 
                         [
-                            'style' => 'display: none'
-                        ]
+                            'style' => 'display: none',
+                        ],
+                        'enableError' => false,
                     ],
                     [
                         'name'  => 'con_cantidad',

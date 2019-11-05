@@ -1,4 +1,4 @@
-$('#w0').on('submit', function (e) 
+$('#w0').one('submit', function (e) 
 {
     var imageData = $("#wPaint").wPaint("image");
 

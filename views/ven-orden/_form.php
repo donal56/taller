@@ -10,6 +10,7 @@ use app\assets\wPaintAsset;
 use kartik\slider\Slider;
 use kartik\datetime\DateTimePicker;
 use app\components\Utilidades;
+use yii\web\View;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -41,10 +42,12 @@ use app\components\Utilidades;
 
                     <?=$form->field($model, 'ord_direccion', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
-                    <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-2']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => '...' ]) ?>
+                    <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-2']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'), [ 'prompt' => '...']) ?>        
 
                     <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2']])->textInput(['maxlength' => true,'readonly' => true]) ?>
-                    <?php if(Yii::$app->user->identity->hasRole('Admin')){?>
+                   
+                    <?php if(Yii::$app->user->isSuperAdmin) {?>
+                   
                     <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
                     <?= Html::a('', '',[
                         'id' => 'abrirModal',
@@ -153,7 +156,7 @@ use app\components\Utilidades;
                                 $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
                                 $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
                                 
-                                if(!$model->isNewRecord && $value)
+                                if(!$model->isNewRecord && $value == "on")
                                     $str .= 'checked';
                                             
                                 $str .= "> <label for='" . $el ."'>" . $key . "</label>";
@@ -182,7 +185,7 @@ use app\components\Utilidades;
                                 $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
                                 $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
                                 
-                                if(!$model->isNewRecord && $value)
+                                if(!$model->isNewRecord && $value == "on")
                                     $str .= 'checked';
                                             
                                 $str .= "> <label for='" . $el ."'>" . $key . "</label>";
@@ -211,7 +214,7 @@ use app\components\Utilidades;
                                     $el = mb_ereg_replace( "\s", "_", mb_strtolower($key));
                                     $str = "<li><input type= 'checkbox' id= '" . $el . "' name= '" . $el ."' ";
                                     
-                                    if(!$model->isNewRecord && $value)
+                                    if(!$model->isNewRecord && $value == "on")
                                         $str .= 'checked';
                                                 
                                     $str .= "> <label for='" . $el ."'>" . $key . "</label>";
@@ -338,3 +341,10 @@ EOD;
 <?= $this->registerJsFile("/js/ordenServicio.js", ['depends' => 'yii\web\JqueryAsset']); ?>
 <?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'app\assets\wPaintAsset']); ?>
 <?= $this->registerCssFile("/css/ordenServicio.css"); ?>
+
+<?php 
+    if (!$model->isNewRecord)
+        echo $this->registerJs("
+            $('#wPaint').wPaint('image', '/img/wPaint/files/" . $model->ord_id . ".png');
+        ", View::POS_READY, "wPaintUpdate");
+?>

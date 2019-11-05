@@ -23,8 +23,9 @@ use app\components\Utilidades;
 
         <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
-
         <?= $form->field($modelfol, 'fol_folio',['options' => ['class' => 'form-group col-sm-4', 'style' => 'width: calc(33.33333333% + 36px)']])->textInput(['maxlength' => true,'readonly' => true]) ?>
+
+        <?php if(Yii::$app->user->isSuperAdmin) {?>
 
         <?= Html::Label('Nuevo', 'fol_serie', ['class' => 'control-label']) ?><br>
         <?= Html::a('', '',[
@@ -45,6 +46,8 @@ use app\components\Utilidades;
             echo "<div style='text-align:center'><img width= '40%' src='/img/loading.gif'></div>";
         Modal::end();
         ?>
+
+        <?php } ?>
 
 
     </div>

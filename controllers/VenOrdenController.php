@@ -53,8 +53,11 @@ class VenOrdenController extends Controller
      * Lists all VenOrden models.
      * @return mixed
      */
-    public function actionIndex($usr)
+    public function actionIndex($usr = null)
     {
+        if(!$usr && !Yii::$app->user->isSuperAdmin)
+            throw new ServerErrorHttpException('PARÁMETROS REQUERIDOS AUSENTES'); 
+
         $searchModel = new VenOrdenSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -87,11 +90,12 @@ class VenOrdenController extends Controller
         $model = new VenOrden(); 
         $modelFol = new VenFolio();
 
-        $transaction = \Yii::$app->db->beginTransaction();
         $datos = Yii::$app->request->post();
-
-        if($datos)
+        
+        if($datos && isset($_POST['_csrf']))
         {
+            $transaction = \Yii::$app->db->beginTransaction();
+            
             #Se remueve el csrf
             array_shift($datos);
             
@@ -168,14 +172,70 @@ class VenOrdenController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $modelFol = $this->findFolio($model->getSerie()); 
+        $modelFol->fol_folio = $model->getFolio();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $datos = Yii::$app->request->post();
+
+        if($datos)
+        {
+            $transaction = \Yii::$app->db->beginTransaction();
+            $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->ord_id . '.png';
+            $folioAnterior = $model->ord_folio;
+            
+            #Se remueve el csrf
+            array_shift($datos);
+            
+            #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
+            $orden['VenOrden'] = array_shift($datos);
+            $folio = array_shift($datos);
+            
+            #Se guarda la imagen codificada sin el identificador data:image/png;base64,
+            $data = explode(',', array_pop($datos));
+            $image = base64_decode($data[1]);
+
+            #Se cambian los valores POST de name por los labels correctos
+            $opciones = array_map(function($value)
+            {
+                return mb_ereg_replace( "_", " ", ucfirst($value));
+            }, array_keys($datos));
+
+            #Se les asigna como encendidos
+            $opciones = array_fill_keys($opciones, "on");
+
+            #Se crean los JSON clasificados por su grupo y se guardan en el modelo
+            $model->ord_vehiculoExterior    = Utilidades::transpose_array_json($model->vehiculoExterior, $opciones);
+            $model->ord_vehiculoInterior    = Utilidades::transpose_array_json($model->vehiculoInterior, $opciones);
+            $model->ord_accesoriosExterior  = Utilidades::transpose_array_json($model->accesoriosExterior, $opciones);
+            $model->ord_accesoriosInterior  = Utilidades::transpose_array_json($model->accesoriosInterior, $opciones);
+                       
+            if ( $model->ord_folio != $folio['fol_serie'] . "-" . $folio['fol_folio']) 
+            {
+                $model->ord_folio = $this->increaseFolio($folio['fol_serie']);
+            }
+
+            if ($model->load($orden) && $model->update()) 
+            {
+                unlink($path);
+
+                if(file_put_contents($path, $image))
+                    $transaction->commit();
+                else
+                    $transaction->rollback();      
+            }
+            else
+            {
+                $transaction->rollback();    
+                throw new \yii\base\Exception("No se pudo guardar la orden de servicio");
+            }
+
+            # $model->ord_folio = $folioAnterior;
+            # $transaction->rollback();
+
             return $this->redirect(['view', 'id' => $model->ord_id]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        else
+            return $this->render('update', [ 'model' => $model, 'modelFol' => $modelFol ]);
     }
 
     /**
@@ -187,9 +247,19 @@ class VenOrdenController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        try
+        {
+            $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $id . '.png';
 
-        return $this->redirect(['index']);
+            unlink($path);
+            $this->findModel($id)->delete();       
+                
+            return $this->redirect(['index']);
+        }
+        catch(\yii\base\Exception $e)
+        {
+            throw new \yii\base\Exception("No se pudo eliminar la orden de servicio");
+        }
     }
 
     /**
