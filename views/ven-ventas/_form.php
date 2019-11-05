@@ -19,7 +19,7 @@ use app\components\Utilidades;
     <br>
     <div class="row">
 
-        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => Utilidades::getDate('Y-m-d'),'readonly' =>'true']) ?>
+        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->ven_fecha ,'readonly' =>'true']) ?>
 
         <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 

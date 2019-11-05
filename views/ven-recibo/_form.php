@@ -17,7 +17,7 @@ use app\components\Utilidades;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <?= $form->field($model, 'rec_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => Utilidades::getDate('Y-m-d'),'readonly' =>true]) ?>
+        <?= $form->field($model, 'rec_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->rec_fecha ,'readonly' =>true]) ?>
 
         <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 

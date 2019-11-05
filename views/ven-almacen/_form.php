@@ -19,7 +19,7 @@ use app\components\Utilidades;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row col-sm-12">
-        <?= $form->field($model, 'alm_fecha' , ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => Utilidades::getDate('Y-m-d')]) ?>  
+        <?= $form->field($model, 'alm_fecha' , ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->alm_fecha ]) ?>  
 
         <?= $form->field($model, 'alm_noPedido', ['options' => ['class' => 'form-group col-sm-3']])->textInput() ?>
 
