@@ -46,7 +46,7 @@ function validateDetalles(){
 
     var detalle = $(this).attr('id');
 
-        if($(this).val().length > 0){
+        if($(this).val().length > 0 || detalle.includes('con_id') ){
             if (detalle.includes('con_cantidad')){
                 if($(this).val().length > 9)
                 {
