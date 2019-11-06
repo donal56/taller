@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 04/11/2019 15:43:40
+ Date: 05/11/2019 17:26:00
 */
 
 SET NAMES utf8mb4;
@@ -355,7 +355,7 @@ CREATE TABLE `user_visit_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_visit_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_visit_log
@@ -408,6 +408,16 @@ INSERT INTO `user_visit_log` VALUES (71, '5dc098e4b6caf', '127.0.0.1', 'es', 'Mo
 INSERT INTO `user_visit_log` VALUES (72, '5dc0991647e5f', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 9, 1572903190, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (73, '5dc0995f8450b', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572903263, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (74, '5dc099910a298', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 10, 1572903313, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (75, '5dc0a50247fd5', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572906242, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (76, '5dc1df6145df1', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572986721, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (77, '5dc1df998ed66', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 10, 1572986777, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (78, '5dc1f927109d5', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572993319, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (79, '5dc1f9471d6f2', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 10, 1572993351, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (80, '5dc1fadeb1e08', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572993758, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (81, '5dc1fb8d796de', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 10, 1572993933, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (82, '5dc1ffe7b9ee4', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 5, 1572995047, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (83, '5dc201ea1e6aa', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 10, 1572995562, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (84, '5dc201f8dfe18', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36', 1, 1572995576, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -426,12 +436,13 @@ CREATE TABLE `ven_almacen`  (
   `alm_trabajo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `alm_garantia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`alm_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_almacen
 -- ----------------------------
-INSERT INTO `ven_almacen` VALUES (1, 'z-4', '2019-10-16', 123, 'NISSAN', 'MAZDA', 'JOSE ALBERTO', '232FERG', 'ROJO', 'PINTURA', '6 MESES');
+INSERT INTO `ven_almacen` VALUES (1, 'Z-12', '2019-11-04', 123, 'NISSAN', 'MAZDA', 'JOSE ALBERTO', '232FERG', 'ROJO', 'PINTURA', '6 MESES');
+INSERT INTO `ven_almacen` VALUES (2, 'DF-1', '2019-11-04', 123, 'NISSAN', 'MAZDA', 'test', 'WTS-98-23', 'ROJO', 'REFACCIÓN', '12 MESES');
 
 -- ----------------------------
 -- Table structure for ven_concepto
@@ -446,12 +457,14 @@ CREATE TABLE `ven_concepto`  (
   PRIMARY KEY (`con_id`) USING BTREE,
   INDEX `con_fkalm_id`(`con_fkalm_id`) USING BTREE,
   CONSTRAINT `con_fk1` FOREIGN KEY (`con_fkalm_id`) REFERENCES `ven_almacen` (`alm_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_concepto
 -- ----------------------------
-INSERT INTO `ven_concepto` VALUES (1, 1.00, 'PINTURA CAPA', 123.24, 1);
+INSERT INTO `ven_concepto` VALUES (2, 2.00, 'PINTURA CAPA', 123.24, 1);
+INSERT INTO `ven_concepto` VALUES (3, 3.00, 'ABRILLANTADOR', 100.99, 1);
+INSERT INTO `ven_concepto` VALUES (4, 1.00, 'REFACCION AUTOMATICA', 1900.50, 2);
 
 -- ----------------------------
 -- Table structure for ven_folio
@@ -463,16 +476,16 @@ CREATE TABLE `ven_folio`  (
   `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '',
   `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_folio
 -- ----------------------------
-INSERT INTO `ven_folio` VALUES (11, 'A', '18', 'Almacen');
-INSERT INTO `ven_folio` VALUES (25, 'Z', '11', 'ss');
+INSERT INTO `ven_folio` VALUES (11, 'A', '19', 'Almacen');
+INSERT INTO `ven_folio` VALUES (25, 'Z', '12', 'ss');
 INSERT INTO `ven_folio` VALUES (29, 'ADADA', '0', '123141');
 INSERT INTO `ven_folio` VALUES (30, 'ADADA', '0', '123141');
-INSERT INTO `ven_folio` VALUES (31, 'DF', '0', 'Refacciones');
+INSERT INTO `ven_folio` VALUES (31, 'DF', '1', 'Refacciones');
 INSERT INTO `ven_folio` VALUES (32, 'DF', '0', 'Refacciones');
 INSERT INTO `ven_folio` VALUES (33, 'AD', '0', 'afasfd');
 INSERT INTO `ven_folio` VALUES (34, 'XS', '0', 'asdasd');
@@ -508,7 +521,7 @@ CREATE TABLE `ven_orden`  (
   `ord_problemas` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   `ord_diagnostico` text CHARACTER SET utf8 COLLATE utf8_general_ci,
   PRIMARY KEY (`ord_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ven_orden
@@ -541,12 +554,14 @@ CREATE TABLE `ven_producto`  (
   PRIMARY KEY (`pro_id`) USING BTREE,
   INDEX `pro_fkven_folio`(`pro_fkventas`) USING BTREE,
   CONSTRAINT `ven_producto_ibfk_1` FOREIGN KEY (`pro_fkventas`) REFERENCES `ven_ventas` (`ven_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 88 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_producto
 -- ----------------------------
-INSERT INTO `ven_producto` VALUES (88, 1, 'ACEITE', 500.00, 98);
+INSERT INTO `ven_producto` VALUES (92, 1, 'ACEITE', 500.00, 98);
+INSERT INTO `ven_producto` VALUES (93, 1, '1', 1.00, 98);
+INSERT INTO `ven_producto` VALUES (94, 2, '1', 1.00, 100);
 
 -- ----------------------------
 -- Table structure for ven_recibo
@@ -591,11 +606,12 @@ CREATE TABLE `ven_ventas`  (
   `ven_garantia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ven_id`) USING BTREE,
   INDEX `ven_fkfolio`(`ven_folio`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 98 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_ventas
 -- ----------------------------
-INSERT INTO `ven_ventas` VALUES (98, 'A-2', '2019-09-20', 'ALBERTO', 'CHABLE', 'RODRIGUEZ', 'industrial', 'villahermosa', '', 'bocho', 'gris', '2019', '555fff', 'lupe', '554664', '6 meses de garantia');
+INSERT INTO `ven_ventas` VALUES (98, 'A-2', '2019-11-04', 'ALBERTO', 'CHABLE', 'RODRIGUEZ', 'industrial', 'villahermosa', '', 'bocho', 'gris', '2019', '555fff', 'lupe', '554664', '6 meses de garantia');
+INSERT INTO `ven_ventas` VALUES (100, 'A-19', '2019-11-04', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 SET FOREIGN_KEY_CHECKS = 1;
