@@ -51,15 +51,15 @@ class VenVentasSearch extends VenVentas
         ]);
 
         $this->load($params);
-
-        if (isset($params['VenVentaSearch']['intervalo'])) {
-           $fecha = explode( ' a ', $params['VenVentaSearch']['intervalo']);
-            if (isset($fecha[1])) {
-                $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0] ])
+       
+        if (!empty($params['VenVentaSearch']['intervalo'])) 
+        {
+            $fecha = explode( ' a ', $params['VenVentaSearch']['intervalo']);
+            $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0]])
                 ->andFilterWhere(['<=', 'ven_fecha', $fecha[1]]);
-            }
         }
 
+       
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
