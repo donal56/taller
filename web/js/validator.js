@@ -110,6 +110,7 @@ function addError(detalle){
 
 
 $('#w0').on('submit', function (e) {
+    validateForm('#w0');
     $('.multiple-input-list__item input,.multiple-input-list__item textarea').blur();
     if($('#w0').find('.has-error').length!=0){
 

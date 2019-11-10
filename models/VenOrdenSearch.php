@@ -50,24 +50,24 @@ class VenOrdenSearch extends VenOrden
 
         $this->load($params);
         
-        if (isset($params['VenOrdenSearch'])) 
+        if ( !empty($params['VenOrdenSearch']['intervaloIngreso'])) 
         {
             $fechaIngreso = explode( ' a ', $params['VenOrdenSearch']['intervaloIngreso']);
-            $fechaEntrega = explode( ' a ', $params['VenOrdenSearch']['intervaloEntrega']);
-            if (isset($fechaIngreso[1])) {
-            	$query->andFilterWhere(['>=', 'ord_fechaIngreso', $fechaIngreso[0] ])
-             	->andFilterWhere(['<=', 'ord_fechaIngreso', $fechaIngreso[1]]);
-            }
-            if (isset($fechaEntrega[1])){
-            	$query->andFilterWhere(['>=', 'ord_fechaEntrega', $fechaEntrega[0]])
-             	->andFilterWhere(['<=', 'ord_fechaEntrega', $fechaEntrega[1]]);
-            }
-          
+            $query->andFilterWhere(['>=', 'ord_fechaIngreso', $fechaIngreso[0] ])
+                ->andFilterWhere(['<=', 'ord_fechaIngreso', $fechaIngreso[1]]);  
+        }
 
-         }
-          if( array_key_exists('usr', $params) && (! \Yii::$app->user->isSuperAdmin || !Yii::$app->user->identity->hasRole('operador'))):
-          $query->andFilterWhere(['ord_user' => $params['usr']]);
-        endif;
+        if ( !empty($params['VenOrdenSearch']['intervaloEntrega'])) 
+        {
+            $fechaEntrega = explode( ' a ', $params['VenOrdenSearch']['intervaloEntrega']);
+            $query->andFilterWhere(['>=', 'ord_fechaEntrega', $fechaEntrega[0]])
+                ->andFilterWhere(['<=', 'ord_fechaEntrega', $fechaEntrega[1]]);
+        }
+
+        if( array_key_exists('usr', $params)){
+            $query->andFilterWhere(['ord_user' => $params['usr']]);
+        }
+      
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

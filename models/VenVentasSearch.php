@@ -51,15 +51,15 @@ class VenVentasSearch extends VenVentas
         ]);
 
         $this->load($params);
-
-        if (isset($params['VenVentaSearch']['intervalo'])) {
-           $fecha = explode( ' a ', $params['VenVentaSearch']['intervalo']);
-            if (isset($fecha[1])) {
-                $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0] ])
+       
+        if (!empty($params['VenVentaSearch']['intervalo'])) 
+        {
+            $fecha = explode( ' a ', $params['VenVentaSearch']['intervalo']);
+            $query->andFilterWhere(['>=', 'ven_fecha', $fecha[0]])
                 ->andFilterWhere(['<=', 'ven_fecha', $fecha[1]]);
-            }
         }
 
+       
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -83,6 +83,11 @@ class VenVentasSearch extends VenVentas
             ->andFilterWhere(['like', 'ven_ciudad', $this->ven_ciudad])
             ->andFilterWhere(['like', 'ven_rfc', $this->ven_rfc]);
 
+        $dataProvider->sort->attributes['ven_fullname'] = [
+                            'asc' => ['ven_nombre' => SORT_ASC],
+                            'desc' => ['ven_nombre' => SORT_DESC],
+                            'default' => SORT_ASC
+                        ];
         return $dataProvider;
     }
 }

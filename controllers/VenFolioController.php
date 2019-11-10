@@ -103,7 +103,7 @@ class VenFolioController extends Controller
 
                 #Se cambia el tipo de respuesta y se envia el nombre e ID
                 \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-                return ['serie' => $model->fol_serie];
+                return ['serie' => $model->fol_serie,'desc' => $model->fol_descripcion];
             }
             else 
             {

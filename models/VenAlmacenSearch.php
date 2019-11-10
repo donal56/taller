@@ -43,13 +43,12 @@ class VenAlmacenSearch extends VenAlmacen
     {
         $query = VenAlmacen::find();
 
-        if (isset($params['VenAlmacenSearch']['intervalo'])) {
+
+        if (!empty($params['VenAlmacenSearch']['intervalo'])) 
+        {
             $fecha = explode( ' a ', $params['VenAlmacenSearch']['intervalo']);
-            if (isset($fecha[1])) {
-                $query->andFilterWhere(['>=', 'alm_fecha', $fecha[0] ])
+            $query->andFilterWhere(['>=', 'alm_fecha', $fecha[0] ])
                 ->andFilterWhere(['<=', 'alm_fecha', $fecha[1]]);
-            }
-           
         }
       
         // add conditions that should always apply here
