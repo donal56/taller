@@ -56,7 +56,7 @@ class VenOrdenController extends Controller
      */
     public function actionIndex($usr = null)
     {
-        if(!$usr && !Yii::$app->user->isSuperAdmin)
+        if(!$usr && !(Yii::$app->user->isSuperAdmin || Yii::$app->user->identity->hasRole('operador')))
             throw new ServerErrorHttpException('PARÁMETROS REQUERIDOS AUSENTES'); 
 
         $searchModel = new VenOrdenSearch();
@@ -217,7 +217,11 @@ class VenOrdenController extends Controller
 
             if ($model->load($orden) && $model->update()) 
             {
-                unlink($path);
+                try
+                {
+                    unlink($path);
+                }
+                catch(\yii\base\Exception $e) {  }
 
                 if(file_put_contents($path, $image))
                     $transaction->commit();
@@ -252,7 +256,12 @@ class VenOrdenController extends Controller
         {
             $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $id . '.png';
 
-            unlink($path);
+            try
+            {
+                unlink($path);
+            }
+            catch(\yii\base\Exception $e) {  }
+
             $this->findModel($id)->delete();       
                 
             return $this->redirect(['index']);

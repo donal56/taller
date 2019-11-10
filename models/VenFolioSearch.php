@@ -20,6 +20,7 @@ class VenFolioSearch extends VenFolio
         return [
             [['fol_id'], 'integer'],
             [['fol_serie', 'fol_folio'], 'safe'],
+            [['fol_descripcion'],'string'],
         ];
     }
 
@@ -63,7 +64,8 @@ class VenFolioSearch extends VenFolio
         ]);
 
         $query->andFilterWhere(['like', 'fol_serie', $this->fol_serie])
-            ->andFilterWhere(['like', 'fol_folio', $this->fol_folio]);
+            ->andFilterWhere(['like', 'fol_folio', $this->fol_folio])
+            ->andFilterWhere(['like','fol_descripcion',$this->fol_descripcion]);
 
         return $dataProvider;
     }

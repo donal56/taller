@@ -20,6 +20,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fol_serie') ?>
 
     <?= $form->field($model, 'fol_folio') ?>
+    
+    <?= $form->field($model, 'fol_descripcion')?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

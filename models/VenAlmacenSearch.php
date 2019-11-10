@@ -73,7 +73,7 @@ class VenAlmacenSearch extends VenAlmacen
             'alm_noPedido' => $this->alm_noPedido,
         ]);
 
-        $query->andFilterWhere(['like', 'alm_folio', $this->alm_folio])
+        $query->andFilterWhere(['like', 'REPLACE(alm_folio, "-", "")',  $this->alm_folio])
             ->andFilterWhere(['like', 'alm_vehiculo', $this->alm_vehiculo])
             ->andFilterWhere(['like', 'alm_modelo', $this->alm_modelo])
             ->andFilterWhere(['like', 'alm_mecanico', $this->alm_mecanico])

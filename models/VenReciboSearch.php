@@ -75,8 +75,8 @@ class VenReciboSearch extends VenRecibo
 
         $query->andFilterWhere(['like', 'rec_nomcliente', $this->rec_nomcliente])
             ->andFilterWhere(['like', 'rec_concepto', $this->rec_concepto])
-            ->andFilterWhere(['like', 'rec_nomresponsable', $this->rec_nomresponsable])
-            ->andFilterWhere(['like', 'rec_folio', $this->rec_folio]);
+            ->andFilterWhere(['like', 'rec_nomresponsable', $this->rec_nomresponsable])   
+            ->andFilterWhere(['like', 'REPLACE(rec_folio, "-", "")',  $this->rec_folio])
 
        
         return $dataProvider;

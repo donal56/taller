@@ -9,7 +9,7 @@
         <span class="fblue">No es con espada ni con ejército, sino el poder del espíritu santo</span>
 
         <div class="fblue bold" style="float:left;">
-            CALLE NiÑOS HEROES No. 165 COL. ATASTA <br>
+            CALLE NIÑOS HEROES No. 165 COL. ATASTA <br>
             C.P. 86100 VILLAHERMOSA, CENTRO, TABASCO
         </div>
     </div>
@@ -39,7 +39,7 @@
 </div>
 <div class="fullheight rounded">
     <div style="width: 23mm;" class="div-label">RECIBÍ DE:</div>
-    <div style="width: 145mm;" class="underline">&#8203;<?= strtoupper($recibo->rec_nomcliente) ?></div>
+    <div style="width: 145mm;" class="underline">&#8203;<?= mb_strtoupper($recibo->rec_nomcliente) ?></div>
     <br>
     <div style="width: 37mm;" class="div-label">LA CANTIDAD DE:</div>
     <div style="width: 131mm;" class="underline">&#8203;$<?= number_format($recibo->rec_cantidad,2, '.', ',') ?> MXN
@@ -47,11 +47,11 @@
     <br>
     <div style="height: 40mm;text-align: left">
         <span class="div-label">POR CONCEPTO DE:</span>
-        <span class="underline">&#8203;<?= strtoupper($recibo->rec_concepto) ?></span>
+        <span class="underline">&#8203;<?= mb_strtoupper($recibo->rec_concepto) ?></span>
     </div>
     <div class="firmas">
         <div class="div-label">RECIBIÓ</div>
-        <div class="center-line">&#8203;<?= strtoupper($recibo->rec_nomresponsable) ?></div>
+        <div class="center-line">&#8203;<?= mb_strtoupper($recibo->rec_nomresponsable) ?></div>
         <div class="div-label">NOMBRE Y FIRMA</div>
     </div>
     <br>

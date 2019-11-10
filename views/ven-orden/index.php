@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'app\components\ActionColumnPlus',
-                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
+                'filter'=> Html::a('Limpiar', ['index', 'usr' => Yii::$app->user->identity->id], ['class' => 'btn btn-sm btn-default']),
                 'buttons' => 
                 [
                     'print' => function ($url, $model, $key) 

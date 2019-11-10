@@ -16,14 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('','/ven-folio/index', ['class' => 'btn btn-primary glyphicon glyphicon-arrow-left']) ?>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->fol_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->fol_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => '¿Seguro quieres eliminar este elemento?',
-                'method' => 'post',
-            ],
-        ]) ?>
     </p>
     <br>
 

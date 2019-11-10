@@ -27,21 +27,17 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'fol_id',
+            //'fol_id',
             'fol_serie',
             'fol_folio',
             'fol_descripcion:ntext',
-
             [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}'
-        
-            ],
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{update}{delete}',
-                'visible' =>Yii::$app->user->identity->superadmin
-        
+                'class' => 'app\components\ActionColumnPlus',
+                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
+                'contentOptions' => ['style' => 'text-align: center'],
+                'filterOptions' => ['style' => 'text-align: center'],
+                'template' => '{update} {delete}',
+                'visible' => Yii::$app->user->isSuperAdmin
             ],
         ],
     ]); ?>

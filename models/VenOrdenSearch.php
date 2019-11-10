@@ -65,7 +65,7 @@ class VenOrdenSearch extends VenOrden
           
 
          }
-          if( array_key_exists('usr', $params) && ! \Yii::$app->user->isSuperAdmin ):
+          if( array_key_exists('usr', $params) && (! \Yii::$app->user->isSuperAdmin || !Yii::$app->user->identity->hasRole('operador'))):
           $query->andFilterWhere(['ord_user' => $params['usr']]);
         endif;
 
@@ -83,7 +83,7 @@ class VenOrdenSearch extends VenOrden
         ]);
 
         $query->andFilterWhere(['like', 'ord_nombre', $this->ord_nombre])
-            ->andFilterWhere(['like', 'ord_folio',  $this->ord_folio])
+            ->andFilterWhere(['like', 'REPLACE(ord_folio, "-", "")',  $this->ord_folio])
             ->andFilterWhere(['like', 'ord_direccion', $this->ord_direccion])
             ->andFilterWhere(['like', 'ord_codigoPostal', $this->ord_codigoPostal])
             ->andFilterWhere(['like', 'ord_telefono', $this->ord_telefono])

@@ -28,7 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p> -->
-    <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
+    <?php 
+    
+    if (Yii::$app->user->isSuperAdmin) 
+        echo Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']);
+    else
+        echo Html::a('', ['index', 'usr' => Yii::$app->user->identity->id], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']); ?>
     <?= Html::a('Imprimir', ['report', 'id' => $model->ord_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
     <br>
 
