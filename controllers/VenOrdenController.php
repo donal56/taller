@@ -56,8 +56,8 @@ class VenOrdenController extends Controller
      */
     public function actionIndex($usr = null)
     {
-        if(!$usr && !Yii::$app->user->isSuperAdmin && !\Yii::$app->user->identity->hasRole('operador')){
-            Yii::$app->response->redirect(['ven-orden/index','usr' => \Yii::$app->user->identity->id]);
+        if(!$usr && !(Yii::$app->user->isSuperAdmin || Yii::$app->user->identity->hasRole('operador'))){
+            Yii::$app->response->redirect(['ven-orden/index','usr' => Yii::$app->user->identity->id]);
         }
            
 
