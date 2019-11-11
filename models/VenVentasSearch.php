@@ -72,7 +72,7 @@ class VenVentasSearch extends VenVentas
             'ven_fecha' => $this->ven_fecha,
         ]);
 
-        $query>andFilterWhere(['like', 'REPLACE(ven_folio, "-", "")',  $this->ven_folio])
+        $query->andFilterWhere(['like', 'REPLACE(ven_folio, "-", "")',  $this->ven_folio])
             //->andFilterWhere(['like', 'ven_nombre', $this->ven_nombre])
             ->andFilterWhere([
             	'like',
