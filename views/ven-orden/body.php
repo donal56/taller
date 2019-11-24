@@ -19,7 +19,7 @@
     <div class="tanque" style="padding-left: 3mm; padding-top: 3mm">
         <div class="px-10 azul bold">TANQUE DE GASOLINA</div>
         <div id="progressbar">
-            <div style="width: <?= $model->ord_tanque * 100 ?>%"></div>
+            <div style="background-size: <?= $model->ord_tanque * 100 ?>%;"></div>
         </div>
         
         <div class= "medidor-tanque">

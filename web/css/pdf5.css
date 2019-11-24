@@ -240,8 +240,8 @@ td.cell-sm
 }
   
 #progressbar div 
-{
-    background-color: #3369b7;
+{   
+    background-image: linear-gradient(to left, #3369b7 100%); 
     height: 13px;
     border-radius: 10px;
 }
