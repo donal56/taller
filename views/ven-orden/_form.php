@@ -73,7 +73,7 @@ use yii\web\View;
 
                 <div class="row col-sm-12">
 
-                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->ord_fechaIngreso ]) ?>
+                    <?=$form->field($model, 'ord_fechaIngreso', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d H:i:s') : $model->ord_fechaIngreso ]) ?>
 
                     <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
                         [

@@ -44,7 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'ord_fechaIngreso',
                 'label'=>'Fecha de ingreso',
-                'format'=>'datetime',
                 'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
                     DateRangePicker::widget(
                     [
@@ -61,7 +60,6 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'ord_fechaEntrega',
                 'label'=>'Fecha de Entrega',
-                'format'=>'datetime',
                 'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
                     DateRangePicker::widget(
                     [

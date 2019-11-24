@@ -115,13 +115,13 @@
             <div style="width: 30mm ;" class="div-underline">&#8203;<?= mb_strtoupper($model->ord_placa)?></div>
             <!-- linea5 -->
             <div style="width: 31mm ;" class="div-label">FECHA DE INGRESO:</div>
-            <div style="width: 40mm ;" class="div-underline">&#8203;<?= $date1->format('d/m/Y')?></div>
+            <div style="width: 40mm ;" class="div-underline">&#8203;<?= $date1->format('d-m-Y')?></div>
 
             <div style="width: 10mm ;" class="div-label">HORA:</div>
-            <div style="width: 32mm ;" class="div-underline">&#8203;<?= $date1->format('g:i A')?></div>
+            <div style="width: 32mm ;" class="div-underline">&#8203;<?= $date1->format('h:i A')?></div>
 
             <div style="width: 18mm ;" class="div-label">F/ENTREGA:</div>
-            <div style="width: 41.3mm ;" class="div-underline">&#8203;<?= $date2->format('g:i A');?></div>
+            <div style="width: 41.3mm ;" class="div-underline">&#8203;<?= $date2->format('d-m-Y h:i A');?></div>
             <!-- linea6 -->
             <div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
             <div style="width: 35mm ;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_noSerie)?></div>

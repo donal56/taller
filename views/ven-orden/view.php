@@ -63,14 +63,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'ord_fechaIngreso',
                 'value' => function($model)
                 {
-                    return Yii::$app->formatter->asDateTime($model->ord_fechaIngreso, 'php:d/m/Y H:i:s');
+                    return (new DateTime($model->ord_fechaIngreso))->format('d-m-Y h:i A');
                 }
             ],
             [
-                'attribute' => 'ord_fechaIngreso',
+                'attribute' => 'ord_fechaEntrega',
                 'value' => function($model)
                 {
-                    return Yii::$app->formatter->asDateTime($model->ord_fechaEntrega, 'php:d/m/Y H:i:s');
+                    return (new DateTime($model->ord_fechaEntrega))->format('d-m-Y h:i A');
                 }
             ],
             'ord_noSerie',
