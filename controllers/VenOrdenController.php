@@ -292,10 +292,11 @@ class VenOrdenController extends Controller
     public function actionReport($id) 
     {
         $model =$this->findModel($id);
-
+        $ruta = '/pdf/'.$model->ord_folio.'.pdf';
         $pdf = new Pdf([
             'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'destination' => Pdf::DEST_BROWSER, 
+            'filename' =>  Yii::getAlias("@webroot").$ruta,
+            'destination' => Pdf::DEST_FILE, 
             'marginTop' => '5',
             'marginHeader' => '5',
             'marginBottom' => '5',
@@ -325,8 +326,9 @@ class VenOrdenController extends Controller
             [ 'model' =>   $model, ]
         )); */
         $pdf->content = $this->renderPartial('body',[ 'model' =>$model]); 
+        $pdf->render();
 
-         return $pdf->render();
+        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
     }
 
     protected function findFolio($id)

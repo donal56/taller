@@ -191,11 +191,13 @@ class VenReciboController extends Controller
     public function actionReport($id) 
     {
         $model =  $this->findModel($id);
+        $ruta = '/pdf/'.$model->rec_folio.'.pdf';
 
         $pdf = new Pdf([
             'format' => Pdf::FORMAT_A4,
             'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'destination' => Pdf::DEST_BROWSER, 
+            'filename' =>  Yii::getAlias("@webroot").$ruta,
+            'destination' => Pdf::DEST_FILE, 
             'marginTop' => '10',
             'marginHeader' => '10',
             'marginBottom' => '10',
@@ -225,8 +227,10 @@ class VenReciboController extends Controller
         $pdf->cssFile = '@app/web/css/pdf4.css';
         $pdf->content = $this->renderPartial('pdf_recibo',['recibo' =>  $model]); 
         $pdf->content .= '<hr>'.$pdf->content;
-         return $pdf->render();
+        
+        $pdf->render();
 
+        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
 
     }
 

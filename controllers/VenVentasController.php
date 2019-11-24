@@ -301,12 +301,16 @@ class VenVentasController extends Controller
     public function actionReport($id) 
     {
         $model =  $this->findModel($id);
+        $ruta = '/pdf/'.$model->ven_folio.'.pdf';
 
         $numformat= function($cant){
             return number_format($cant,2, '.', ',');
         };
 
         $pdf = Yii::$app->pdf;
+
+        $pdf->destination = $pdf::DEST_FILE;
+        $pdf->filename =  Yii::getAlias("@webroot").$ruta;
         
         $mpdf = $pdf->api;
         $mpdf->autoPageBreak = false;
@@ -343,7 +347,9 @@ class VenVentasController extends Controller
 
         $mpdf -> SetHTMLFooter($this->renderPartial('pdf_footer', [ 'model' =>   $model, 'numformat' => $numformat]));
 
-         return $pdf->render();
+        $pdf->render();
+
+        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
     }
 
     protected function findAllProducto($id)

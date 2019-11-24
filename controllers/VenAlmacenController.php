@@ -244,11 +244,13 @@ class VenAlmacenController extends Controller
     {
         $model =  $this->findModel($id);
         $modelCon = VenConcepto::findAll(['con_fkalm_id' => $id]);
+        $ruta = '/pdf/'.$model->alm_folio.'.pdf';
 
         $pdf = new Pdf([
             'format' => Pdf::FORMAT_A4,
             'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'destination' => Pdf::DEST_BROWSER, 
+            'filename' =>  Yii::getAlias("@webroot").$ruta,
+            'destination' => Pdf::DEST_FILE, 
             'marginTop' => '15',
             'marginHeader' => '10',
             'marginBottom' => '10',
@@ -281,7 +283,8 @@ class VenAlmacenController extends Controller
         $pdf->content = $this->renderPartial('pdf', [ 'model' =>   $model, 'modelCon' => $modelCon ]);
         $pdf->content .= '<hr>'. $pdf->content;
 
-         return $pdf->render();
+        $pdf->render();
+        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
     }
     /**
      * Finds the VenAlmacen model based on its primary key value.
