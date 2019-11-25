@@ -109,7 +109,7 @@ function addError(detalle){
 }
 
 
-$('#w0').on('submit', function (e) {
+$('#w0').on('beforeSubmit', function (e) {
     validateForm('#w0');
     $('.multiple-input-list__item input,.multiple-input-list__item textarea').blur();
     if($('#w0').find('.has-error').length!=0){
@@ -120,5 +120,6 @@ $('#w0').on('submit', function (e) {
         
         return false;
    }
+    $("button.btn-success").prop('disabled', true);
  
 }); 
