@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 
 /**
  * VenReciboController implements the CRUD actions for VenRecibo model.
@@ -188,16 +189,18 @@ class VenReciboController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionReport($id) 
+    public function actionReport($id, $pdfjs = false) 
     {
+        if (!$pdfjs) {
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true']) ]);
+        }
+
         $model =  $this->findModel($id);
-        $ruta = '/pdf/'.$model->rec_folio.'.pdf';
 
         $pdf = new Pdf([
             'format' => Pdf::FORMAT_A4,
             'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'filename' =>  Yii::getAlias("@webroot").$ruta,
-            'destination' => Pdf::DEST_FILE, 
+            'destination' => Pdf::DEST_BROWSER, 
             'marginTop' => '10',
             'marginHeader' => '10',
             'marginBottom' => '10',
@@ -228,9 +231,7 @@ class VenReciboController extends Controller
         $pdf->content = $this->renderPartial('pdf_recibo',['recibo' =>  $model]); 
         $pdf->content .= '<hr>'.$pdf->content;
         
-        $pdf->render();
-
-        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
+        return $pdf->render();
 
     }
 

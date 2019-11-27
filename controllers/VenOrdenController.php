@@ -13,6 +13,7 @@ use kartik\mpdf\Pdf;
 use app\models\VenFolio;
 use app\components\Utilidades;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 
 
 /**
@@ -289,14 +290,18 @@ class VenOrdenController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-    public function actionReport($id) 
+
+    public function actionReport($id, $pdfjs = false) 
     {
+        if (!$pdfjs) {
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true']) ]);
+        }
+
         $model =$this->findModel($id);
-        $ruta = '/pdf/'.$model->ord_folio.'.pdf';
+
         $pdf = new Pdf([
             'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'filename' =>  Yii::getAlias("@webroot").$ruta,
-            'destination' => Pdf::DEST_FILE, 
+            'destination' => Pdf::DEST_BROWSER, 
             'marginTop' => '5',
             'marginHeader' => '5',
             'marginBottom' => '5',
@@ -322,13 +327,11 @@ class VenOrdenController extends Controller
 
 
         $pdf->cssFile = '@app/web/css/pdf5.css';
-        /*$mpdf -> SetHTMLHeader($this->renderPartial('pdf_header',
-            [ 'model' =>   $model, ]
-        )); */
+      
         $pdf->content = $this->renderPartial('body',[ 'model' =>$model]); 
-        $pdf->render();
 
-        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
+        return $pdf->render();
+
     }
 
     protected function findFolio($id)

@@ -14,6 +14,7 @@ use yii\web\ServerErrorHttpException;
 use yii\filters\VerbFilter;
 use app\components\Utilidades;
 use kartik\mpdf\Pdf;
+use yii\helpers\Url;
 
 /**
  * VenAlmacenController implements the CRUD actions for VenAlmacen model.
@@ -240,17 +241,19 @@ class VenAlmacenController extends Controller
     }
 
 
-    public function actionReport($id) 
+    public function actionReport($id, $pdfjs = false) 
     {
+        if (!$pdfjs) {
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true']) ]);
+        }
+
         $model =  $this->findModel($id);
         $modelCon = VenConcepto::findAll(['con_fkalm_id' => $id]);
-        $ruta = '/pdf/'.$model->alm_folio.'.pdf';
-
+    
         $pdf = new Pdf([
             'format' => Pdf::FORMAT_A4,
             'orientation' => Pdf::ORIENT_PORTRAIT, 
-            'filename' =>  Yii::getAlias("@webroot").$ruta,
-            'destination' => Pdf::DEST_FILE, 
+            'destination' => Pdf::DEST_BROWSER, 
             'marginTop' => '15',
             'marginHeader' => '10',
             'marginBottom' => '10',
@@ -283,8 +286,7 @@ class VenAlmacenController extends Controller
         $pdf->content = $this->renderPartial('pdf', [ 'model' =>   $model, 'modelCon' => $modelCon ]);
         $pdf->content .= '<hr>'. $pdf->content;
 
-        $pdf->render();
-        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
+        return $pdf->render();
     }
     /**
      * Finds the VenAlmacen model based on its primary key value.

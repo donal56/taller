@@ -15,6 +15,7 @@ use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use kartik\mpdf\Config\ConfigVariables;
 use kartik\mpdf\Config\FontVariables;
+use yii\helpers\Url;
 
 
 
@@ -298,10 +299,13 @@ class VenVentasController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
 
-    public function actionReport($id) 
+    public function actionReport($id, $pdfjs = false) 
     {
+        if (!$pdfjs) {
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true']) ]);
+        }
+
         $model =  $this->findModel($id);
-        $ruta = '/pdf/'.$model->ven_folio.'.pdf';
 
         $numformat= function($cant){
             return number_format($cant,2, '.', ',');
@@ -309,9 +313,6 @@ class VenVentasController extends Controller
 
         $pdf = Yii::$app->pdf;
 
-        $pdf->destination = $pdf::DEST_FILE;
-        $pdf->filename =  Yii::getAlias("@webroot").$ruta;
-        
         $mpdf = $pdf->api;
         $mpdf->autoPageBreak = false;
         //imagenes
@@ -347,9 +348,8 @@ class VenVentasController extends Controller
 
         $mpdf -> SetHTMLFooter($this->renderPartial('pdf_footer', [ 'model' =>   $model, 'numformat' => $numformat]));
 
-        $pdf->render();
+        return $pdf->render();
 
-        return $this->redirect(['/pdfjs', 'file' =>  $ruta]);
     }
 
     protected function findAllProducto($id)
