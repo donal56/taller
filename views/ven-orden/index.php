@@ -137,8 +137,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'text-align: center']
             ],
         ],
+        'responsiveWrap' => false,
     ]); ?>
-</div>|
+</div>
 
 
 <?= $this->registerCssFile("/css/cur-form.css"); ?>
