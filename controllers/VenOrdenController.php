@@ -7,7 +7,7 @@ use app\models\VenOrden;
 use app\models\VenOrdenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\ServerErrorHttpException;
+use webvimark\modules\UserManagement\models\User;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use app\models\VenFolio;
@@ -55,17 +55,18 @@ class VenOrdenController extends Controller
      * Lists all VenOrden models.
      * @return mixed
      */
-    public function actionIndex($usr = null)
+    public function actionIndex($usr = null) 
     {
-        if(!$usr && !(Yii::$app->user->isSuperAdmin || Yii::$app->user->identity->hasRole('operador'))){
-            Yii::$app->response->redirect(['ven-orden/index','usr' => Yii::$app->user->identity->id]);
-        }
-           
-
         $searchModel = new VenOrdenSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        if(!$usr && !User::hasRole('operador'))
+        {
+            Yii::$app->response->redirect(['ven-orden/index','usr' => Yii::$app->user->identity->id]);
+        }
+        
+        return $this->render('index', 
+        [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -164,6 +165,31 @@ class VenOrdenController extends Controller
         {
             return $this->render('create', ['model' => $model, 'modelFol' => $modelFol]);
         }
+    }
+
+
+    public function actionReprogramar()
+    {
+        $model = $this->findModel($_POST['editableKey']);
+
+        if (isset($model) && isset($_POST['hasEditable'])) 
+        {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $model->ord_fechaEntrega = $_POST['VenOrden'][$_POST['editableIndex']]['ord_fechaEntrega'];
+
+            if ($model->update() !== false) 
+            {
+                return ['output'=> $model->ord_fechaEntrega, 'message'=>'Reprogramado!'];
+            }
+            else 
+            {
+                return ['output'=>'', 'message'=>'No se pudo actualizar la fecha. Ingrese una fecha válida.'];
+            }
+        }
+
+        return $this->render('index');
+        //throw new \yii\base\Exception("Ocurrio un error durante la solicitud.");
     }
 
     /**
