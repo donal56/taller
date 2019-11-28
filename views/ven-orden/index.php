@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'inputType' => \kartik\editable\Editable::INPUT_DATETIME,
                     'formOptions' =>
                     [
-                        'action' => '/ven-orden/reprogramar',
+                        'action' => 'reprogramar',
                     ],
                     'pluginOptions' => 
                     [

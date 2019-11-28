@@ -16,10 +16,10 @@ NavBar::begin([
     ],
 ]);
 
-if( !Yii::$app->user->isGuest)
+if( !Yii::$app->user->isGuest){
     $menuItems[] = ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => ['/site/']];
     $menuItems[] = ['label' => 'Usuario', 'items'=> [['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Cambiar Contraseña', 'url' => ['/user-management/auth/change-own-password']]] ];
-
+}
 if(Yii::$app->user->isSuperAdmin)
 {
     //Agregar opciones de administrador

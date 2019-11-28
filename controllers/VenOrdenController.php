@@ -60,7 +60,7 @@ class VenOrdenController extends Controller
         $searchModel = new VenOrdenSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if(!$usr && !User::hasRole('operador'))
+        if(!$usr && !User::hasRole('operador') && !User::hasRole('auxiliar'))
         {
             Yii::$app->response->redirect(['ven-orden/index','usr' => Yii::$app->user->identity->id]);
         }
