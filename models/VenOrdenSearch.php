@@ -18,7 +18,7 @@ class VenOrdenSearch extends VenOrden
     {
         return [
             [['ord_id', 'ord_kilometraje','ord_user'], 'integer'],
-            [['ord_folio', 'ord_nombre', 'ord_direccion', 'ord_codigoPostal', 'ord_telefono', 'ord_ife', 'ord_modelo', 'ord_marca', 'ord_placa', 'ord_fechaIngreso', 'ord_fechaEntrega', 'ord_noSerie', 'ord_color', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_observaciones', 'ord_tanque', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_problemas', 'ord_diagnostico'], 'safe'],
+            [['ord_folio', 'ord_nombre', 'ord_direccion', 'ord_codigoPostal', 'ord_telefono', 'ord_ife', 'ord_modelo', 'ord_marca', 'ord_placa', 'ord_fechaIngreso', 'ord_fechaEntrega', 'ord_noSerie', 'ord_color', 'ord_vehiculoExterior', 'ord_vehiculoInterior', 'ord_tipo', 'ord_observaciones', 'ord_tanque', 'ord_accesoriosExterior', 'ord_accesoriosInterior', 'ord_problemas', 'ord_diagnostico'], 'safe'],
         ];
     }
 
@@ -88,6 +88,7 @@ class VenOrdenSearch extends VenOrden
             ->andFilterWhere(['like', 'ord_codigoPostal', $this->ord_codigoPostal])
             ->andFilterWhere(['like', 'ord_telefono', $this->ord_telefono])
             ->andFilterWhere(['like', 'ord_ife', $this->ord_ife])
+            ->andFilterWhere(['like', 'ord_tipo', $this->ord_tipo])
             ->andFilterWhere(['like', 'ord_modelo', $this->ord_modelo])
             ->andFilterWhere(['like', 'ord_marca', $this->ord_marca])
             ->andFilterWhere(['like', 'ord_placa', $this->ord_placa])

@@ -18,6 +18,7 @@ NavBar::begin([
 
 if( !Yii::$app->user->isGuest)
     $menuItems[] = ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => ['/site/']];
+    $menuItems[] = ['label' => 'Usuario', 'items'=> [['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Cambiar Contraseña', 'url' => ['/user-management/auth/change-own-password']]] ];
 
 if(Yii::$app->user->isSuperAdmin)
 {
@@ -29,7 +30,6 @@ if(Yii::$app->user->isSuperAdmin)
 
 if (Yii::$app->user->isGuest) {
 
-//oculta reservar si el cupo esta lleno
   $menuItems[] = ['label' => 'Iniciar Sesión', 'url' => ['/user-management/auth/login']];
 
 }

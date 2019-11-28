@@ -46,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'label' => 'Folio'
             ],
+            'ord_tipo',
             'ord_nombre',
             'ord_modelo',
             'ord_marca',

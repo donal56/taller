@@ -40,7 +40,7 @@ if(Yii::$app->user->identity->hasRole('Admin')) {
 }else if(Yii::$app->user->identity->hasRole('auxiliar')) {
   $botones = [
     ['texto' => 'Ventas', 'ruta' => ['/ven-ventas/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-empresa'],
-    ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
+    ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-checador'],
   ];
 }
 
