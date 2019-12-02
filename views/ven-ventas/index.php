@@ -10,7 +10,7 @@ use kartik\daterange\DateRangePicker;
 
 $this->title = 'Ventas';
 $this->params['breadcrumbs'][] = $this->title;
-if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->superadmin||Yii::$app->user->identity->hasRole('auxiliar')) {
+if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->superadmin) {
 ?>
 <div class="ven-ventas-index">
 
