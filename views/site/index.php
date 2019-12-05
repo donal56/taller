@@ -41,6 +41,7 @@ if(Yii::$app->user->identity->hasRole('Admin')) {
   $botones = [
     ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
     ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-checador'],
+    ['texto' => 'Ventas', 'ruta' => ['/ven-ventas'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-empresa'],
   ];
 }
 
