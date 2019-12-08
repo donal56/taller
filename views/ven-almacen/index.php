@@ -21,7 +21,9 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
     </p>
     <br>
 
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+<?php Pjax::begin(); ?>    
+
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [

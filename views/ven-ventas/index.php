@@ -22,7 +22,8 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
         <?= Html::a('Generar Ventas', ['create'], ['class' => 'btn btn-success']) ?>
       
     </p><br>
- <?= GridView::widget([
+<?php Pjax::begin(); ?>    
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -79,6 +80,7 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             ],
         ],
     ]); 
+    Pjax::end();
 }else{  header ("Location: /ven-folio");  //cambiar ruta
 }
     ?>
