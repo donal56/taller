@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 09/12/2019 17:30:54
+ Date: 09/12/2019 17:42:37
 */
 
 SET NAMES utf8mb4;
@@ -679,6 +679,8 @@ INSERT INTO `user_visit_log` VALUES (287, '5deebb4c59b4f', '2806:10a6:18:1fa:d0c
 INSERT INTO `user_visit_log` VALUES (288, '5deec750b1c2f', '189.201.129.225', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575929680, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (289, '5deecf4a5765a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575931722, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (290, '5deecfc224f8c', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575931842, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (291, '5deed9a6cb224', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575934374, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (292, '5deeda73d7df5', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575934579, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -884,7 +886,7 @@ CREATE TABLE `ven_cotizacion`  (
   `cot_fecha` date NULL DEFAULT NULL,
   `cot_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `cot_nonuevoscontratos` int(11) NULL DEFAULT NULL,
-  `cot_nocontratos` int(11) NULL DEFAULT NULL,
+  `cot_nocont` int(11) NULL DEFAULT NULL,
   `cot_telefono` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `cot_atencion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `cot_modelo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
