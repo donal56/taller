@@ -5,11 +5,11 @@ body{
 }
 
 .fblue{
-	color:#000000;
+	color:#3369b7;
 }
 
 .fwhite{
-	background-color: #3369b7;/* color relleno de titulos*/
+	background-color: #3369b7;
 	color: white;
 	font-size: 14px;
 	font-weight: bold;
@@ -30,24 +30,20 @@ body{
 	float:left;
 	font-size: 14px;
 	font-weight: bold;
-	/*color: #3369b7;*/
-	color: #000;
+	color: #3369b7;
 }
 
 .div-underline{
 	float: left;
-	/*border-bottom: 1.5px solid #3369b7;*/
-	border-bottom: 1.5px solid black;
-	/*color: #3369b7;*/
-	color: black;
+	border-bottom: 1.5px solid #3369b7;
+	color: #3369b7;
 	text-align: left;
 }
 
 .rounded{
 	float: right;
-	/*border: 1px solid #3369b7;*/
-	border: 1px solid black;
-	/*border-radius:10px;*/
+	border: 1px solid #3369b7;
+	//border-radius:10px;
 }
 
 .rounded table{
@@ -56,15 +52,13 @@ body{
 }
 
 .rounded td{
-	/*border: 1px solid #3369b7;*/
-	border: 1px solid black;
+	border: 1px solid #3369b7;
 	vertical-align: top;
 }
 
 
 .fullheight{
-	/*border: 2px solid #3369b7;*/
-	border: 2px solid black;
+	border: 2px solid #3369b7;
 	height: 175mm;
 }
 
