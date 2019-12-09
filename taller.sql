@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 09/12/2019 16:42:17
+ Date: 09/12/2019 17:30:54
 */
 
 SET NAMES utf8mb4;
@@ -677,6 +677,8 @@ INSERT INTO `user_visit_log` VALUES (285, '5deea495efc78', '2806:10a6:18:1fa:64e
 INSERT INTO `user_visit_log` VALUES (286, '5deead70f1061', '189.201.129.225', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575923056, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (287, '5deebb4c59b4f', '2806:10a6:18:1fa:d0c3:a32c:bd9d:8a60', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 5, 1575926604, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (288, '5deec750b1c2f', '189.201.129.225', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575929680, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (289, '5deecf4a5765a', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575931722, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (290, '5deecfc224f8c', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575931842, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -694,45 +696,46 @@ CREATE TABLE `ven_almacen`  (
   `alm_color` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `alm_trabajo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `alm_garantia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `alm_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`alm_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ven_almacen
 -- ----------------------------
-INSERT INTO `ven_almacen` VALUES (1, 'VALE-1', '2019-11-27', NULL, 'Fiesta', '2003', 'Moises', 'DHE 77 57', 'Azul', 'X', '');
-INSERT INTO `ven_almacen` VALUES (2, 'VALE-2', '2019-11-28', 21749, 'SENTRA', '2013', 'ESTEBAN', 'MYD-93-56', 'NEGRO', 'JF015E', '');
-INSERT INTO `ven_almacen` VALUES (3, 'VALE-3', '2019-11-28', 6, 'EDGE', '2009', 'ESTEBAN', 'NTK-28-20', 'NEGRO', '6F50', '');
-INSERT INTO `ven_almacen` VALUES (4, 'VALE-4', '2019-11-28', 24, 'FOCUS', '2001', 'ESTEBAN', 'WTY-88-65', 'BLANCO', '4F27E', '');
-INSERT INTO `ven_almacen` VALUES (5, 'VALE-5', '2019-11-28', 14, 'DAKOTA', '2006', 'JOVINO', 'VM-74-973', 'ROJO', '42RLE', '');
-INSERT INTO `ven_almacen` VALUES (6, 'VALE-6', '2019-11-28', 4, 'Malibu', '2000', 'Jesus', 'WUB-91-42', 'Azul', '4T40', '');
-INSERT INTO `ven_almacen` VALUES (7, 'VALE-7', '2019-11-28', 23, 'Torrent', '2007', 'Esteban', 'Suelta', 'Suelta', 'AW55-50', '');
-INSERT INTO `ven_almacen` VALUES (8, 'VALE-8', '2019-11-29', 20, 'MAZDA 6', '2009', 'MOISES/MANUEL', 'VMA-129-A', 'AZUL', 'X', '');
-INSERT INTO `ven_almacen` VALUES (9, 'VALE-9', '2019-11-29', 21, 'EUROVAN', '2008', 'MOISÉS ', 'VM-44-581', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (10, 'VALE-10', '2019-11-30', 25, 'TORRENT', '2006', 'JOVINO', 'WTK-20-15', 'BLANCO', 'AW5550', '');
-INSERT INTO `ven_almacen` VALUES (11, 'VALE-11', '2019-11-30', 28, 'VERSA', '2015', 'VICTOR', 'WTX-57-58', 'ROJO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (12, 'VALE-12', '2019-11-30', 29, 'NEON', '2001', 'JOVINO', 'WUB-81-96', 'ROJO', '413', '');
-INSERT INTO `ven_almacen` VALUES (13, 'VALE-13', '2019-11-30', 27, 'Dakota', '2009', 'Jesus', 'Suelta', 'Suelta', '42RLE', '');
-INSERT INTO `ven_almacen` VALUES (14, 'VALE-14', '2019-12-02', 32, 'CRUZE', '2013', 'ESTEBAN/JORGE', 'WSW-11-73', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (15, 'VALE-15', '2019-12-03', NULL, 'Ranger', '2002', 'MOYSES', 'VR-45-683', 'Blanco', 'Si', '');
-INSERT INTO `ven_almacen` VALUES (16, 'VALE-16', '2019-12-03', 33, 'Sentra', '2013', 'Jovino', 'WSH-86-71', 'Gris oscuro', 'CVT', '');
-INSERT INTO `ven_almacen` VALUES (17, 'VALE-17', '2019-12-04', 41, 'SONIC', '2014', 'JORGE', 'WTT-31-47', 'GRIS', 'X', '');
-INSERT INTO `ven_almacen` VALUES (18, 'VALE-18', '2019-12-04', 40, 'FIESTA', '2006', 'MOISES', 'ĎA7-ANY', 'GRIS', 'X', '');
-INSERT INTO `ven_almacen` VALUES (19, 'VALE-19', '2019-12-04', 10, 'SAVEIRO', '2014', 'MOISES', 'SUELTA', 'SUELTA ', 'X', '');
-INSERT INTO `ven_almacen` VALUES (20, 'VALE-20', '2019-12-04', 44, 'AVEO', '2014', 'MOISES', 'WSB-81-84', 'NEGRO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (21, 'VALE-21', '2019-12-04', 31, 'Exploeer ', '2002', 'Jesus', 'WTG-80-84', 'Roja', '5R55', '');
-INSERT INTO `ven_almacen` VALUES (22, 'VALE-22', '2019-12-05', 52, 'JOURNEY', '2009', 'VICTOR', 'DSU-68-16', 'ROJO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (23, 'VALE-23', '2019-12-05', 48, 'SUBURBAN', '2009', 'MOISES', 'WTG-95-76', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (24, 'VALE-24', '2019-12-05', 53, 'CHEYENNE', '2009', 'JORGE', 'VM-74-939', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (25, 'VALE-25', '2019-12-05', 54, 'F150', '2010', 'JORGE', 'VR-51-633', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (26, 'VALE-26', '2019-12-06', NULL, 'Sentra', '2004', 'Moyses', 'Suelta', 'Suelta', 'Si', '');
-INSERT INTO `ven_almacen` VALUES (27, 'VALE-27', '2019-12-07', 51, 'JETTA', '2007', 'JOVINO', 'VMH-332-A', 'BLANCO', '09G', '');
-INSERT INTO `ven_almacen` VALUES (28, 'VALE-28', '2019-12-07', 60, 'SENTRA', '2013', 'MOISES', 'TXX-27-75', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (29, 'VALE-29', '2019-12-07', 61, 'TOWN COUNTRY', '01998', 'JORGE', 'XKH-74-18', 'ROJO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (30, 'VALE-30', '2019-12-09', 56, 'TIIDA', '2007', 'ESTEBAN', 'DHX-51-44', 'GRIS', 'RL4F03A', '');
-INSERT INTO `ven_almacen` VALUES (31, 'VALE-31', '2019-12-09', 71, 'DAKOTA', '2006', 'JORGE', 'VM-53-472', 'BLANCO', 'X', '');
-INSERT INTO `ven_almacen` VALUES (32, 'VALE-32', '2019-12-09', 66, 'Altima', '2003', 'Jovino', '652-PS', 'Gris', 'X', '');
-INSERT INTO `ven_almacen` VALUES (33, 'VALE-33', '2019-12-09', 72, 'COLORADO', '2007', 'JORGE', 'VS-34-912', 'BLANCO', 'X', '');
+INSERT INTO `ven_almacen` VALUES (1, 'VALE-1', '2019-11-27', NULL, 'Fiesta', '2003', 'Moises', 'DHE 77 57', 'Azul', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (2, 'VALE-2', '2019-11-28', 21749, 'SENTRA', '2013', 'ESTEBAN', 'MYD-93-56', 'NEGRO', 'JF015E', '', NULL);
+INSERT INTO `ven_almacen` VALUES (3, 'VALE-3', '2019-11-28', 6, 'EDGE', '2009', 'ESTEBAN', 'NTK-28-20', 'NEGRO', '6F50', '', NULL);
+INSERT INTO `ven_almacen` VALUES (4, 'VALE-4', '2019-11-28', 24, 'FOCUS', '2001', 'ESTEBAN', 'WTY-88-65', 'BLANCO', '4F27E', '', NULL);
+INSERT INTO `ven_almacen` VALUES (5, 'VALE-5', '2019-11-28', 14, 'DAKOTA', '2006', 'JOVINO', 'VM-74-973', 'ROJO', '42RLE', '', NULL);
+INSERT INTO `ven_almacen` VALUES (6, 'VALE-6', '2019-11-28', 4, 'Malibu', '2000', 'Jesus', 'WUB-91-42', 'Azul', '4T40', '', NULL);
+INSERT INTO `ven_almacen` VALUES (7, 'VALE-7', '2019-11-28', 23, 'Torrent', '2007', 'Esteban', 'Suelta', 'Suelta', 'AW55-50', '', NULL);
+INSERT INTO `ven_almacen` VALUES (8, 'VALE-8', '2019-11-29', 20, 'MAZDA 6', '2009', 'MOISES/MANUEL', 'VMA-129-A', 'AZUL', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (9, 'VALE-9', '2019-11-29', 21, 'EUROVAN', '2008', 'MOISÉS ', 'VM-44-581', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (10, 'VALE-10', '2019-11-30', 25, 'TORRENT', '2006', 'JOVINO', 'WTK-20-15', 'BLANCO', 'AW5550', '', NULL);
+INSERT INTO `ven_almacen` VALUES (11, 'VALE-11', '2019-11-30', 28, 'VERSA', '2015', 'VICTOR', 'WTX-57-58', 'ROJO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (12, 'VALE-12', '2019-11-30', 29, 'NEON', '2001', 'JOVINO', 'WUB-81-96', 'ROJO', '413', '', NULL);
+INSERT INTO `ven_almacen` VALUES (13, 'VALE-13', '2019-11-30', 27, 'Dakota', '2009', 'Jesus', 'Suelta', 'Suelta', '42RLE', '', NULL);
+INSERT INTO `ven_almacen` VALUES (14, 'VALE-14', '2019-12-02', 32, 'CRUZE', '2013', 'ESTEBAN/JORGE', 'WSW-11-73', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (15, 'VALE-15', '2019-12-03', NULL, 'Ranger', '2002', 'MOYSES', 'VR-45-683', 'Blanco', 'Si', '', NULL);
+INSERT INTO `ven_almacen` VALUES (16, 'VALE-16', '2019-12-03', 33, 'Sentra', '2013', 'Jovino', 'WSH-86-71', 'Gris oscuro', 'CVT', '', NULL);
+INSERT INTO `ven_almacen` VALUES (17, 'VALE-17', '2019-12-04', 41, 'SONIC', '2014', 'JORGE', 'WTT-31-47', 'GRIS', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (18, 'VALE-18', '2019-12-04', 40, 'FIESTA', '2006', 'MOISES', 'ĎA7-ANY', 'GRIS', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (19, 'VALE-19', '2019-12-04', 10, 'SAVEIRO', '2014', 'MOISES', 'SUELTA', 'SUELTA ', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (20, 'VALE-20', '2019-12-04', 44, 'AVEO', '2014', 'MOISES', 'WSB-81-84', 'NEGRO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (21, 'VALE-21', '2019-12-04', 31, 'Exploeer ', '2002', 'Jesus', 'WTG-80-84', 'Roja', '5R55', '', NULL);
+INSERT INTO `ven_almacen` VALUES (22, 'VALE-22', '2019-12-05', 52, 'JOURNEY', '2009', 'VICTOR', 'DSU-68-16', 'ROJO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (23, 'VALE-23', '2019-12-05', 48, 'SUBURBAN', '2009', 'MOISES', 'WTG-95-76', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (24, 'VALE-24', '2019-12-05', 53, 'CHEYENNE', '2009', 'JORGE', 'VM-74-939', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (25, 'VALE-25', '2019-12-05', 54, 'F150', '2010', 'JORGE', 'VR-51-633', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (26, 'VALE-26', '2019-12-06', NULL, 'Sentra', '2004', 'Moyses', 'Suelta', 'Suelta', 'Si', '', NULL);
+INSERT INTO `ven_almacen` VALUES (27, 'VALE-27', '2019-12-07', 51, 'JETTA', '2007', 'JOVINO', 'VMH-332-A', 'BLANCO', '09G', '', NULL);
+INSERT INTO `ven_almacen` VALUES (28, 'VALE-28', '2019-12-07', 60, 'SENTRA', '2013', 'MOISES', 'TXX-27-75', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (29, 'VALE-29', '2019-12-07', 61, 'TOWN COUNTRY', '01998', 'JORGE', 'XKH-74-18', 'ROJO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (30, 'VALE-30', '2019-12-09', 56, 'TIIDA', '2007', 'ESTEBAN', 'DHX-51-44', 'GRIS', 'RL4F03A', '', NULL);
+INSERT INTO `ven_almacen` VALUES (31, 'VALE-31', '2019-12-09', 71, 'DAKOTA', '2006', 'JORGE', 'VM-53-472', 'BLANCO', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (32, 'VALE-32', '2019-12-09', 66, 'Altima', '2003', 'Jovino', '652-PS', 'Gris', 'X', '', NULL);
+INSERT INTO `ven_almacen` VALUES (33, 'VALE-33', '2019-12-09', 72, 'COLORADO', '2007', 'JORGE', 'VS-34-912', 'BLANCO', 'X', '', NULL);
 
 -- ----------------------------
 -- Table structure for ven_concepto
@@ -896,7 +899,9 @@ CREATE TABLE `ven_cotizacion`  (
   `cot_observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `cot_acepto` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `cot_elaboro` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`cot_id`) USING BTREE
+  `cot_fkuser` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`cot_id`) USING BTREE,
+  INDEX `cot_fkuser`(`cot_fkuser`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -1184,6 +1189,7 @@ CREATE TABLE `ven_recibo`  (
   `rec_nomresponsable` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `rec_fecha` date NOT NULL,
   `rec_folio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rec_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`rec_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Compact;
 
@@ -1208,6 +1214,7 @@ CREATE TABLE `ven_ventas`  (
   `ven_tecnico` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `ven_oi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `ven_garantia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `ven_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ven_id`) USING BTREE,
   INDEX `ven_fkfolio`(`ven_folio`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Compact;
@@ -1215,71 +1222,71 @@ CREATE TABLE `ven_ventas`  (
 -- ----------------------------
 -- Records of ven_ventas
 -- ----------------------------
-INSERT INTO `ven_ventas` VALUES (1, 'NOTA-1', '2019-11-25', 'SR FERNANDO ALBERTO ', 'DIVES', 'PEREZ', '', 'VILLAHERMOSA', '', 'JETTA', 'BLANCO', '2013', 'VW-332-A', 'JOVINO', '21996', '6 MESES SEGUN FORMATO ANEXO');
-INSERT INTO `ven_ventas` VALUES (2, 'NOTA-2', '2019-11-25', 'SR. JOSE JUAN', ' VAZCONCELOS ', '', '', '', '', 'CHEVY', 'SUELTA', '2002', 'SUELTA', 'MOISES', '1', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (3, 'NOTA-3', '2019-11-25', 'SR. MARIO', 'ANDRADE', '  MOSQUEDA', '', '', '99341125927', 'HILUX', 'BLANCO', '2012', 'VM-37-833', 'MOISES', 'S.O.', '60 DIAS DE GARANTIAS EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (4, 'NOTA-4', '2019-11-25', 'SR. REFUGIO', 'torres', '', '', '', '9932287090', 'aveo', 'ROJO', '2013', 'WSX-2338', 'MOYSES', 'S.O', '90 DIAS DE GARANTIA ');
-INSERT INTO `ven_ventas` VALUES (5, 'NOTA-5', '2019-11-25', 'SR. WILLIAM ENRIQUE', 'SALVADOR', 'FERNANDEZ', '', '', '9341060303', 'LUPO', 'NEGRO', '2006', 'DJN-15-16', 'MOISES', '2', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (6, 'NOTA-6', '2019-11-26', 'SR. JESUS', 'PALOMEQUE', '', '', 'VILLAHERMOSA', '9931988509', 'TORRENT PONTIAC', 'GRIS', '2008', 'WTU-68-11', 'JOVINO', '7', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (7, 'NOTA-7', '2019-11-26', 'JUAN REYES', 'RUIZ', 'GARCIA', '', '', '9931169802', 'JOURNEY', 'ROJO VINO', '2011', 'WTV-17-00', 'JESUS', '21997', '');
-INSERT INTO `ven_ventas` VALUES (8, 'NOTA-8', '2019-11-26', 'SR. JUAN ALBERTO', 'LEYVA', '', '', '', '9932502043', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (9, 'NOTA-9', '2019-11-27', 'SR. FELIPE ', 'BALCAZAR ', 'LOPEZ', '', 'VILLAHERMOSA', '9935611246', 'FOCUS', 'SUELTA', '2001', 'SUELTA', 'ESTEBAN', '3', '\" 6  MESES DE GARANTIA SEGUN FOERMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (10, 'NOTA-10', '2019-11-27', 'SR. EDUARDO ', 'MACIAS', '', '', 'VILLAHERMOSA', '9933200749', 'ODYSSEY', 'BLANCO', '2011', 'WSW-81-06', 'MOISES', '5', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (11, 'NOTA-11', '2019-11-27', 'SR. ESTEBAN', 'ALAMILLA ', 'ROBLES', '', 'VILLAHERMOSA', '9933023174', 'ATITUDE', 'BLANCO', '2010', 'WTA-60-83', 'MOISES', '17', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (12, 'NOTA-12', '2019-11-27', 'MARCOS ROBERTO', 'NIETO ', 'QUEVEDO', '', 'VILLAHERMOSA', '9931903612', 'TAHOE', 'BLANCO', '2007', 'WTS-68-78', 'JOVINO', '8', '60 DIAS DE GARANTIAS EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (13, 'NOTA-13', '2019-11-27', 'JORGE', 'HERNANDEZ', 'MAY', '', '', '9931704072', 'TSURU', 'AMARILLO', '2013', '99-10-VMF', 'MOISES', '16', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (14, 'NOTA-14', '2019-11-27', 'JUAN MANUEL', 'MARTINEZ', '', '', '', '9933300885', 'LOBO KINGSTON RANCH', 'BLANCO', '2011', 'VM-75-782', 'VICTOR', '13', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (15, 'NOTA-15', '2019-11-27', 'AULICER', 'HERNANDEZ', 'RUIZ', '', '', '9934186843', 'POLO', 'CAFE', '2003', 'DPY-8193', 'MOISES', '15', '');
-INSERT INTO `ven_ventas` VALUES (16, 'NOTA-16', '2019-11-27', 'EMMANUEL ', 'ZAPATA', 'HERNANDEZ', '', '', '9934366147', 'FIESTA', 'AZUL', '2003', 'DHE-77-57', 'MOISES', '18', '\" 60 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (17, 'NOTA-17', '2019-11-29', 'Carlos mario', 'Zamudio', 'Torres', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (19, 'NOTA-18', '2019-11-29', 'MIGUEL', 'GARCIA', '', '', '', '9931912422', 'MALIBU', 'AZUL', '2000', 'WUB-91-42', 'TEC. JESUS/CHEO', '4', '60 DIAS DE GARANTIAS EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (20, 'NOTA-19', '2019-11-29', 'RITA', 'MARIN', '', '', '', '9341072881', 'LOBO', 'NEGRO', '2005', 'VM-36-739', 'TEC. JOVINO', 'S.O.', '\" 6  MESES DE GARANTIA SEGUN FORMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (21, 'NOTA-20', '2019-11-30', 'NELLY ', 'HERNANDEZ ', 'CASTILLO', '', '', '9932192727', 'VERSA', 'ROJO', '2015', 'WTX-57-58', 'VICTOR', '28', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (22, 'NOTA-21', '2019-11-30', 'CARLOS AUGUSTO', 'LOPEZ', '', '', '', '9935133151', 'NEON', 'ROJO', '2001', 'WUB-81-96', 'JOVINO', '29', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO\"');
-INSERT INTO `ven_ventas` VALUES (23, 'NOTA-22', '2019-11-30', 'ABENAMAR', 'GIRON', 'SANTIAGO', '', '', '9372833817', 'EUROVAN', 'BLANCO', '2008', 'VM-44-581', 'MOISES', '21', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (24, 'NOTA-23', '2019-11-30', '	ABENAMAR ', 'GIRON ', 'SANTIAGO', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (25, 'NOTA-24', '2019-11-30', 'MARIA LUISA', 'OJEDA', '', '', '', '9935901855', 'SENTRA', 'NEGRO', '2013', 'MYD-93-56', 'ESTEBAN', '21749', '6 MESES SEGUN FORMATO ANEXO');
-INSERT INTO `ven_ventas` VALUES (26, 'NOTA-25', '2019-11-30', 'Gilberto', 'Ramos', 'Perez', 'Conocido', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (27, 'NOTA-26', '2019-11-30', 'MIGUEL ', 'ARTEAGA', '', '', '', '9982708394', 'RAV 4', 'GRIS', '2006', 'DJP-70-61', 'VICTOR', '30', '');
-INSERT INTO `ven_ventas` VALUES (28, 'NOTA-27', '2019-12-02', 'GUILLERMO', 'PRIETO', '', '', '', '', 'FIESTA', '', '2007', '', 'ESTEBAN', '', '');
-INSERT INTO `ven_ventas` VALUES (29, 'NOTA-28', '2019-12-02', 'REMIGIO', 'LOPEZ', 'DE LA CRUZ', '', '', '9141002253', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (30, 'NOTA-29', '2019-12-02', 'JOSE FRANCISCO', 'OLAN', '', '', '', '9931972177', 'STRATUS', 'BLANCO', '2006', 'WTY-18-51', 'VICTOR', '34', '\" AMPLIACION DE GARANTIA SEGUN FORMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (31, 'NOTA-30', '2019-12-02', 'THELMA', 'ROMERO', '', '', '', '9932206400', 'MAZDA 6', 'AZUL', '2009', 'WMA-129-A', 'MOISES/MANUEL', '20', '\" 90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (32, 'NOTA-31', '2019-12-03', 'SR. Carlos', 'Hernandez', 'Alcaraz', '', '', '', 'Lobo', 'Azul', '2007', 'VM-71-762', 'Jovino- victor', '35', '');
-INSERT INTO `ven_ventas` VALUES (33, 'NOTA-32', '2019-12-03', 'Sr. Pedro ', 'Alberto', 'Gonzales', '', '', '', 'March', 'Cobre', '2012', 'WTV-44-35', 'Jesús- victor', '36', '30 días de garantía por el servicio prestado');
-INSERT INTO `ven_ventas` VALUES (34, 'NOTA-33', '2019-12-03', 'SR. Mario', 'Hernandez', 'Feria', '', '', '', 'Aveo', 'Negro', '2014', 'WUC-40-58', 'Moyses', '38', '30 días de garantía por el servicio prestado');
-INSERT INTO `ven_ventas` VALUES (35, 'NOTA-34', '2019-12-03', 'SR. Miguel  ', 'Perdomo', 'Cerino', 'Conocido', '', '9933096761', 'Ranger', 'Blanco', '2002', 'Vr-45-683', 'Moyses', '37', '');
-INSERT INTO `ven_ventas` VALUES (36, 'NOTA-35', '2019-12-03', 'Javier alonzo', 'Lopez', 'Arevalo', 'Conocido', '', '9932282172', 'Cruze', '', '2013', 'WSW-11-73', 'Esteban', '32', '30 días de garantía por el servicio prestado');
-INSERT INTO `ven_ventas` VALUES (37, 'NOTA-36', '2019-12-03', 'Jaime', 'Torrez', '', 'Conocido', '', '99 31 52 90 26', 'Yaris', 'Negro', '2009', 'WTS-51-01', 'Jovino', '39', '30 días de garantía por el servicio prestado');
-INSERT INTO `ven_ventas` VALUES (38, 'NOTA-37', '2019-12-04', 'SR. Jesus', 'Predraza', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (39, 'NOTA-38', '2019-12-04', 'Mostradror ', '', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (40, 'NOTA-39', '2019-12-04', 'JUAN MARCOS', 'BEDOLLA', 'DE CASTRO', '', '', '9935918231', 'SONIC', 'GRIS', '2014', 'WTT-31-41', 'JORGE', '41', '');
-INSERT INTO `ven_ventas` VALUES (42, 'NOTA-40', '2019-12-04', 'LUIS ROBERTO', '', '', '', '', '9933080925', 'AVEO', 'NEGRO', '2014', 'WSB-81-84', 'MOISES', '44', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (43, 'NOTA-41', '2019-12-04', 'ULISES', 'HERNANDEZ ', 'ROMERO', '', '', '9931600158', 'TORRENT', 'SUELTA', '2007', 'SUELTA', 'ESTEBAN', '23', '\" 6  MESES DE GARANTÍA SEGÚN FORMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (44, 'NOTA-42', '2019-12-05', 'Antonio', 'Miranda', 'Guzman', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (45, 'NOTA-43', '2019-12-05', 'PUBLICO', 'GENERAL', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (46, 'NOTA-44', '2019-12-05', 'UBELMAR', 'LOPEZ', 'PALACIOS', '', '', '9161659974', 'JOURNEY', 'ROJO', '2009', 'DSU-68-16', ' VICTOR', '52', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO\"');
-INSERT INTO `ven_ventas` VALUES (47, 'NOTA-45', '2019-12-05', 'YVES DE DIOS', '', '', '', '', '9931100132', 'TIIDA', 'CAFE', '2007', 'WLW-457-A', 'JOVINO', '50', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (48, 'NOTA-46', '2019-12-05', 'JAVIER ALONSO', 'AREVALOS', '', '', '', '9932282172', 'CRUZE', 'BLANCO', '2013', 'WSW-11-73', 'ESTEBAN', '47', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (49, 'NOTA-47', '2019-12-05', 'DANIEL', 'MIRANDA', '', '', '', '9931577780', 'F150', 'BLANCO', '2010', 'VR-51-633', 'JORGE', '54', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (50, 'NOTA-48', '2019-12-05', 'JOSE', 'CERINO', '', '', '', '9932620055', 'RANGER', 'BLANCO', '2004', 'VM-52-541', 'MOISES', '49', '');
-INSERT INTO `ven_ventas` VALUES (51, 'NOTA-49', '2019-12-06', 'JORGE', 'COLLADO', '', '', '', '9933956260', '', '', '', '', '', '', 'SIN GARANTIA');
-INSERT INTO `ven_ventas` VALUES (52, 'NOTA-50', '2019-12-06', 'JOSE DEL CARMEN ', 'DIAZ', '', '', '', '9931117680', 'SENTRA', 'SUELTA', '2004', 'SUELTA', 'MOISES', '57', '60 DIAS DE GARANTIA EN EL SERVICIO REALIZADO');
-INSERT INTO `ven_ventas` VALUES (53, 'NOTA-51', '2019-12-07', 'PUBLICO', 'GENERAL', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (54, 'NOTA-52', '2019-12-07', 'DOLORES', 'GOMEZ ', 'DIAZ', '', '', '9381402075', '', '', '', '', '', '', 'RAV 2005');
-INSERT INTO `ven_ventas` VALUES (55, 'NOTA-53', '2019-12-07', 'LUCIANO', 'GIRON', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (56, 'NOTA-54', '2019-12-07', 'JOEL', 'ROSAS', '', '', '', '2227250531', 'SENTRA', 'BLANCO', '2013', 'TXX-27-75', 'MOISES', '60', 'SE ENCONTRO RESIDUOS EN EL ACEITE DEL VEHICULO YA ESTA ENTERADO EL CLIENTE HAY QUE CHECAR EL FUNCIONAMIENTO DEL VEHICULO');
-INSERT INTO `ven_ventas` VALUES (57, 'NOTA-55', '2019-12-07', 'ELOY', 'GARIBAY', '', '', '', '9931757197', 'TOWN COUNTRY', 'ROJO', '1998', 'XKH-74-18', 'JORGE', '61', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (58, 'NOTA-56', '2019-12-07', 'LUCIANO', 'GIRON', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (59, 'NOTA-57', '2019-12-07', 'JOSE  GUADALUPE', 'PEREZ', '', '', '', '9321031051', 'EXPLORER', 'ROJO', '2002', 'WTG-80-84', 'JESUS', '31', '\" 6  MESES DE GARANTIA SEGUN FORMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (60, 'NOTA-58', '2019-12-07', 'BLANCA', 'FUENTES', '', '', '', '9931678150', 'VERSA', 'GRIS', '2013', 'WTW-91-94', 'JOVINO', '58', '30 días de garantía por el servicio prestado');
-INSERT INTO `ven_ventas` VALUES (61, 'NOTA-59', '2019-12-09', 'VICTOR ', 'MEDEL', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (62, 'NOTA-60', '2019-12-09', 'ABELARDO ', 'LOPEZ', '', '', '', '9932203960', 'DAKOTA', 'SUELTA', '2009', 'SUELTA', 'JESUS', '27', '\" 6  MESES DE GARANTIA SEGUN FORMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (63, 'NOTA-61', '2019-12-09', 'SERVANDO ', 'CALACUAYO', '', '', '', '9932830002', 'JETTA', 'GRIS', '2006', 'WPG-44-38', 'ABRAHAN', '63', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (64, 'NOTA-62', '2019-12-09', 'ROBERTO ', '', '', '', '', '9935901275', 'OUTLANDER', 'BLANCO', '2009', 'WTT-56-17', 'JORGE', '62', '');
-INSERT INTO `ven_ventas` VALUES (65, 'NOTA-63', '2019-12-09', 'FRANCISCO ', 'OSORIO', '', '', '', '9933110829', 'DAKOTA', 'BLANCO', '2006', 'VM-53-472', 'JOVINO/JORGE', '71', '\" AMPLIACION DE GARANTIA SEGUN FORMATO ANEXO \"');
-INSERT INTO `ven_ventas` VALUES (66, 'NOTA-64', '2019-12-09', 'LUIS ', 'HERNANDEZ', '', '', '', '3500208', 'COLORADO', 'BLANCO', '2007', 'VS-34-912', 'JORGE', '72', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"');
-INSERT INTO `ven_ventas` VALUES (67, 'NOTA-65', '2019-12-09', 'FAUSTO', 'VELOZ', 'SANCHEZ', '', '', '9932337030', '', '', '', '', '', '', '');
-INSERT INTO `ven_ventas` VALUES (68, 'NOTA-66', '2019-12-09', 'JOSE MANUEL ', 'RUIZ', 'LISCANO', '', '', '9932294102', 'ECOSPORT', '', '2008', 'SUELTA', 'ESTEBAN', '64', '90 DIAS DE GARANTIA');
+INSERT INTO `ven_ventas` VALUES (1, 'NOTA-1', '2019-11-25', 'SR FERNANDO ALBERTO ', 'DIVES', 'PEREZ', '', 'VILLAHERMOSA', '', 'JETTA', 'BLANCO', '2013', 'VW-332-A', 'JOVINO', '21996', '6 MESES SEGUN FORMATO ANEXO', NULL);
+INSERT INTO `ven_ventas` VALUES (2, 'NOTA-2', '2019-11-25', 'SR. JOSE JUAN', ' VAZCONCELOS ', '', '', '', '', 'CHEVY', 'SUELTA', '2002', 'SUELTA', 'MOISES', '1', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (3, 'NOTA-3', '2019-11-25', 'SR. MARIO', 'ANDRADE', '  MOSQUEDA', '', '', '99341125927', 'HILUX', 'BLANCO', '2012', 'VM-37-833', 'MOISES', 'S.O.', '60 DIAS DE GARANTIAS EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (4, 'NOTA-4', '2019-11-25', 'SR. REFUGIO', 'torres', '', '', '', '9932287090', 'aveo', 'ROJO', '2013', 'WSX-2338', 'MOYSES', 'S.O', '90 DIAS DE GARANTIA ', NULL);
+INSERT INTO `ven_ventas` VALUES (5, 'NOTA-5', '2019-11-25', 'SR. WILLIAM ENRIQUE', 'SALVADOR', 'FERNANDEZ', '', '', '9341060303', 'LUPO', 'NEGRO', '2006', 'DJN-15-16', 'MOISES', '2', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (6, 'NOTA-6', '2019-11-26', 'SR. JESUS', 'PALOMEQUE', '', '', 'VILLAHERMOSA', '9931988509', 'TORRENT PONTIAC', 'GRIS', '2008', 'WTU-68-11', 'JOVINO', '7', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (7, 'NOTA-7', '2019-11-26', 'JUAN REYES', 'RUIZ', 'GARCIA', '', '', '9931169802', 'JOURNEY', 'ROJO VINO', '2011', 'WTV-17-00', 'JESUS', '21997', '', NULL);
+INSERT INTO `ven_ventas` VALUES (8, 'NOTA-8', '2019-11-26', 'SR. JUAN ALBERTO', 'LEYVA', '', '', '', '9932502043', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (9, 'NOTA-9', '2019-11-27', 'SR. FELIPE ', 'BALCAZAR ', 'LOPEZ', '', 'VILLAHERMOSA', '9935611246', 'FOCUS', 'SUELTA', '2001', 'SUELTA', 'ESTEBAN', '3', '\" 6  MESES DE GARANTIA SEGUN FOERMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (10, 'NOTA-10', '2019-11-27', 'SR. EDUARDO ', 'MACIAS', '', '', 'VILLAHERMOSA', '9933200749', 'ODYSSEY', 'BLANCO', '2011', 'WSW-81-06', 'MOISES', '5', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (11, 'NOTA-11', '2019-11-27', 'SR. ESTEBAN', 'ALAMILLA ', 'ROBLES', '', 'VILLAHERMOSA', '9933023174', 'ATITUDE', 'BLANCO', '2010', 'WTA-60-83', 'MOISES', '17', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (12, 'NOTA-12', '2019-11-27', 'MARCOS ROBERTO', 'NIETO ', 'QUEVEDO', '', 'VILLAHERMOSA', '9931903612', 'TAHOE', 'BLANCO', '2007', 'WTS-68-78', 'JOVINO', '8', '60 DIAS DE GARANTIAS EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (13, 'NOTA-13', '2019-11-27', 'JORGE', 'HERNANDEZ', 'MAY', '', '', '9931704072', 'TSURU', 'AMARILLO', '2013', '99-10-VMF', 'MOISES', '16', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (14, 'NOTA-14', '2019-11-27', 'JUAN MANUEL', 'MARTINEZ', '', '', '', '9933300885', 'LOBO KINGSTON RANCH', 'BLANCO', '2011', 'VM-75-782', 'VICTOR', '13', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (15, 'NOTA-15', '2019-11-27', 'AULICER', 'HERNANDEZ', 'RUIZ', '', '', '9934186843', 'POLO', 'CAFE', '2003', 'DPY-8193', 'MOISES', '15', '', NULL);
+INSERT INTO `ven_ventas` VALUES (16, 'NOTA-16', '2019-11-27', 'EMMANUEL ', 'ZAPATA', 'HERNANDEZ', '', '', '9934366147', 'FIESTA', 'AZUL', '2003', 'DHE-77-57', 'MOISES', '18', '\" 60 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (17, 'NOTA-17', '2019-11-29', 'Carlos mario', 'Zamudio', 'Torres', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (19, 'NOTA-18', '2019-11-29', 'MIGUEL', 'GARCIA', '', '', '', '9931912422', 'MALIBU', 'AZUL', '2000', 'WUB-91-42', 'TEC. JESUS/CHEO', '4', '60 DIAS DE GARANTIAS EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (20, 'NOTA-19', '2019-11-29', 'RITA', 'MARIN', '', '', '', '9341072881', 'LOBO', 'NEGRO', '2005', 'VM-36-739', 'TEC. JOVINO', 'S.O.', '\" 6  MESES DE GARANTIA SEGUN FORMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (21, 'NOTA-20', '2019-11-30', 'NELLY ', 'HERNANDEZ ', 'CASTILLO', '', '', '9932192727', 'VERSA', 'ROJO', '2015', 'WTX-57-58', 'VICTOR', '28', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (22, 'NOTA-21', '2019-11-30', 'CARLOS AUGUSTO', 'LOPEZ', '', '', '', '9935133151', 'NEON', 'ROJO', '2001', 'WUB-81-96', 'JOVINO', '29', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO\"', NULL);
+INSERT INTO `ven_ventas` VALUES (23, 'NOTA-22', '2019-11-30', 'ABENAMAR', 'GIRON', 'SANTIAGO', '', '', '9372833817', 'EUROVAN', 'BLANCO', '2008', 'VM-44-581', 'MOISES', '21', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (24, 'NOTA-23', '2019-11-30', '	ABENAMAR ', 'GIRON ', 'SANTIAGO', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (25, 'NOTA-24', '2019-11-30', 'MARIA LUISA', 'OJEDA', '', '', '', '9935901855', 'SENTRA', 'NEGRO', '2013', 'MYD-93-56', 'ESTEBAN', '21749', '6 MESES SEGUN FORMATO ANEXO', NULL);
+INSERT INTO `ven_ventas` VALUES (26, 'NOTA-25', '2019-11-30', 'Gilberto', 'Ramos', 'Perez', 'Conocido', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (27, 'NOTA-26', '2019-11-30', 'MIGUEL ', 'ARTEAGA', '', '', '', '9982708394', 'RAV 4', 'GRIS', '2006', 'DJP-70-61', 'VICTOR', '30', '', NULL);
+INSERT INTO `ven_ventas` VALUES (28, 'NOTA-27', '2019-12-02', 'GUILLERMO', 'PRIETO', '', '', '', '', 'FIESTA', '', '2007', '', 'ESTEBAN', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (29, 'NOTA-28', '2019-12-02', 'REMIGIO', 'LOPEZ', 'DE LA CRUZ', '', '', '9141002253', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (30, 'NOTA-29', '2019-12-02', 'JOSE FRANCISCO', 'OLAN', '', '', '', '9931972177', 'STRATUS', 'BLANCO', '2006', 'WTY-18-51', 'VICTOR', '34', '\" AMPLIACION DE GARANTIA SEGUN FORMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (31, 'NOTA-30', '2019-12-02', 'THELMA', 'ROMERO', '', '', '', '9932206400', 'MAZDA 6', 'AZUL', '2009', 'WMA-129-A', 'MOISES/MANUEL', '20', '\" 90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (32, 'NOTA-31', '2019-12-03', 'SR. Carlos', 'Hernandez', 'Alcaraz', '', '', '', 'Lobo', 'Azul', '2007', 'VM-71-762', 'Jovino- victor', '35', '', NULL);
+INSERT INTO `ven_ventas` VALUES (33, 'NOTA-32', '2019-12-03', 'Sr. Pedro ', 'Alberto', 'Gonzales', '', '', '', 'March', 'Cobre', '2012', 'WTV-44-35', 'Jesús- victor', '36', '30 días de garantía por el servicio prestado', NULL);
+INSERT INTO `ven_ventas` VALUES (34, 'NOTA-33', '2019-12-03', 'SR. Mario', 'Hernandez', 'Feria', '', '', '', 'Aveo', 'Negro', '2014', 'WUC-40-58', 'Moyses', '38', '30 días de garantía por el servicio prestado', NULL);
+INSERT INTO `ven_ventas` VALUES (35, 'NOTA-34', '2019-12-03', 'SR. Miguel  ', 'Perdomo', 'Cerino', 'Conocido', '', '9933096761', 'Ranger', 'Blanco', '2002', 'Vr-45-683', 'Moyses', '37', '', NULL);
+INSERT INTO `ven_ventas` VALUES (36, 'NOTA-35', '2019-12-03', 'Javier alonzo', 'Lopez', 'Arevalo', 'Conocido', '', '9932282172', 'Cruze', '', '2013', 'WSW-11-73', 'Esteban', '32', '30 días de garantía por el servicio prestado', NULL);
+INSERT INTO `ven_ventas` VALUES (37, 'NOTA-36', '2019-12-03', 'Jaime', 'Torrez', '', 'Conocido', '', '99 31 52 90 26', 'Yaris', 'Negro', '2009', 'WTS-51-01', 'Jovino', '39', '30 días de garantía por el servicio prestado', NULL);
+INSERT INTO `ven_ventas` VALUES (38, 'NOTA-37', '2019-12-04', 'SR. Jesus', 'Predraza', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (39, 'NOTA-38', '2019-12-04', 'Mostradror ', '', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (40, 'NOTA-39', '2019-12-04', 'JUAN MARCOS', 'BEDOLLA', 'DE CASTRO', '', '', '9935918231', 'SONIC', 'GRIS', '2014', 'WTT-31-41', 'JORGE', '41', '', NULL);
+INSERT INTO `ven_ventas` VALUES (42, 'NOTA-40', '2019-12-04', 'LUIS ROBERTO', '', '', '', '', '9933080925', 'AVEO', 'NEGRO', '2014', 'WSB-81-84', 'MOISES', '44', '90 DIAS DE GARANTIA EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (43, 'NOTA-41', '2019-12-04', 'ULISES', 'HERNANDEZ ', 'ROMERO', '', '', '9931600158', 'TORRENT', 'SUELTA', '2007', 'SUELTA', 'ESTEBAN', '23', '\" 6  MESES DE GARANTÍA SEGÚN FORMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (44, 'NOTA-42', '2019-12-05', 'Antonio', 'Miranda', 'Guzman', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (45, 'NOTA-43', '2019-12-05', 'PUBLICO', 'GENERAL', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (46, 'NOTA-44', '2019-12-05', 'UBELMAR', 'LOPEZ', 'PALACIOS', '', '', '9161659974', 'JOURNEY', 'ROJO', '2009', 'DSU-68-16', ' VICTOR', '52', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO\"', NULL);
+INSERT INTO `ven_ventas` VALUES (47, 'NOTA-45', '2019-12-05', 'YVES DE DIOS', '', '', '', '', '9931100132', 'TIIDA', 'CAFE', '2007', 'WLW-457-A', 'JOVINO', '50', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (48, 'NOTA-46', '2019-12-05', 'JAVIER ALONSO', 'AREVALOS', '', '', '', '9932282172', 'CRUZE', 'BLANCO', '2013', 'WSW-11-73', 'ESTEBAN', '47', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (49, 'NOTA-47', '2019-12-05', 'DANIEL', 'MIRANDA', '', '', '', '9931577780', 'F150', 'BLANCO', '2010', 'VR-51-633', 'JORGE', '54', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (50, 'NOTA-48', '2019-12-05', 'JOSE', 'CERINO', '', '', '', '9932620055', 'RANGER', 'BLANCO', '2004', 'VM-52-541', 'MOISES', '49', '', NULL);
+INSERT INTO `ven_ventas` VALUES (51, 'NOTA-49', '2019-12-06', 'JORGE', 'COLLADO', '', '', '', '9933956260', '', '', '', '', '', '', 'SIN GARANTIA', NULL);
+INSERT INTO `ven_ventas` VALUES (52, 'NOTA-50', '2019-12-06', 'JOSE DEL CARMEN ', 'DIAZ', '', '', '', '9931117680', 'SENTRA', 'SUELTA', '2004', 'SUELTA', 'MOISES', '57', '60 DIAS DE GARANTIA EN EL SERVICIO REALIZADO', NULL);
+INSERT INTO `ven_ventas` VALUES (53, 'NOTA-51', '2019-12-07', 'PUBLICO', 'GENERAL', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (54, 'NOTA-52', '2019-12-07', 'DOLORES', 'GOMEZ ', 'DIAZ', '', '', '9381402075', '', '', '', '', '', '', 'RAV 2005', NULL);
+INSERT INTO `ven_ventas` VALUES (55, 'NOTA-53', '2019-12-07', 'LUCIANO', 'GIRON', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (56, 'NOTA-54', '2019-12-07', 'JOEL', 'ROSAS', '', '', '', '2227250531', 'SENTRA', 'BLANCO', '2013', 'TXX-27-75', 'MOISES', '60', 'SE ENCONTRO RESIDUOS EN EL ACEITE DEL VEHICULO YA ESTA ENTERADO EL CLIENTE HAY QUE CHECAR EL FUNCIONAMIENTO DEL VEHICULO', NULL);
+INSERT INTO `ven_ventas` VALUES (57, 'NOTA-55', '2019-12-07', 'ELOY', 'GARIBAY', '', '', '', '9931757197', 'TOWN COUNTRY', 'ROJO', '1998', 'XKH-74-18', 'JORGE', '61', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (58, 'NOTA-56', '2019-12-07', 'LUCIANO', 'GIRON', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (59, 'NOTA-57', '2019-12-07', 'JOSE  GUADALUPE', 'PEREZ', '', '', '', '9321031051', 'EXPLORER', 'ROJO', '2002', 'WTG-80-84', 'JESUS', '31', '\" 6  MESES DE GARANTIA SEGUN FORMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (60, 'NOTA-58', '2019-12-07', 'BLANCA', 'FUENTES', '', '', '', '9931678150', 'VERSA', 'GRIS', '2013', 'WTW-91-94', 'JOVINO', '58', '30 días de garantía por el servicio prestado', NULL);
+INSERT INTO `ven_ventas` VALUES (61, 'NOTA-59', '2019-12-09', 'VICTOR ', 'MEDEL', '', '', '', '', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (62, 'NOTA-60', '2019-12-09', 'ABELARDO ', 'LOPEZ', '', '', '', '9932203960', 'DAKOTA', 'SUELTA', '2009', 'SUELTA', 'JESUS', '27', '\" 6  MESES DE GARANTIA SEGUN FORMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (63, 'NOTA-61', '2019-12-09', 'SERVANDO ', 'CALACUAYO', '', '', '', '9932830002', 'JETTA', 'GRIS', '2006', 'WPG-44-38', 'ABRAHAN', '63', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (64, 'NOTA-62', '2019-12-09', 'ROBERTO ', '', '', '', '', '9935901275', 'OUTLANDER', 'BLANCO', '2009', 'WTT-56-17', 'JORGE', '62', '', NULL);
+INSERT INTO `ven_ventas` VALUES (65, 'NOTA-63', '2019-12-09', 'FRANCISCO ', 'OSORIO', '', '', '', '9933110829', 'DAKOTA', 'BLANCO', '2006', 'VM-53-472', 'JOVINO/JORGE', '71', '\" AMPLIACION DE GARANTIA SEGUN FORMATO ANEXO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (66, 'NOTA-64', '2019-12-09', 'LUIS ', 'HERNANDEZ', '', '', '', '3500208', 'COLORADO', 'BLANCO', '2007', 'VS-34-912', 'JORGE', '72', '\" 30 DIAS DE GARANTIA EN EL SERVICIO REALIZADO \"', NULL);
+INSERT INTO `ven_ventas` VALUES (67, 'NOTA-65', '2019-12-09', 'FAUSTO', 'VELOZ', 'SANCHEZ', '', '', '9932337030', '', '', '', '', '', '', '', NULL);
+INSERT INTO `ven_ventas` VALUES (68, 'NOTA-66', '2019-12-09', 'JOSE MANUEL ', 'RUIZ', 'LISCANO', '', '', '9932294102', 'ECOSPORT', '', '2008', 'SUELTA', 'ESTEBAN', '64', '90 DIAS DE GARANTIA', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
