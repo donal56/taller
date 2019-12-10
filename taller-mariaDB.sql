@@ -177,19 +177,19 @@ COMMIT;
 DROP TABLE IF EXISTS `ven_almacen`;
 CREATE TABLE `ven_almacen`  (
   `alm_id` int(11) NOT NULL AUTO_INCREMENT,
-  `alm_folio` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `alm_folio` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `alm_fecha` date NOT NULL,
   `alm_noPedido` int(255) NULL DEFAULT NULL,
-  `alm_vehiculo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `alm_modelo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `alm_mecanico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `alm_placa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `alm_color` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `alm_trabajo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `alm_garantia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `alm_vehiculo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `alm_modelo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `alm_mecanico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `alm_placa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `alm_color` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `alm_trabajo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `alm_garantia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `alm_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`alm_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci;
 
 -- ----------------------------
 -- Records of ven_almacen
@@ -205,13 +205,13 @@ DROP TABLE IF EXISTS `ven_concepto`;
 CREATE TABLE `ven_concepto`  (
   `con_id` int(11) NOT NULL AUTO_INCREMENT,
   `con_cantidad` double(10, 2) NOT NULL,
-  `con_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `con_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NOT NULL,
   `con_precioUnitario` double(10, 2) NOT NULL,
   `con_fkalm_id` int(11) NOT NULL,
   PRIMARY KEY (`con_id`) USING BTREE,
   INDEX `con_fkalm_id`(`con_fkalm_id`) USING BTREE,
   CONSTRAINT `con_fk1` FOREIGN KEY (`con_fkalm_id`) REFERENCES `ven_almacen` (`alm_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci;
 
 -- ----------------------------
 -- Records of ven_concepto
@@ -272,11 +272,11 @@ CREATE TABLE `ven_detalle`  (
 DROP TABLE IF EXISTS `ven_folio`;
 CREATE TABLE `ven_folio`  (
   `fol_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fol_serie` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '',
-  `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `fol_serie` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NOT NULL,
+  `fol_folio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT '',
+  `fol_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`fol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci;
 
 -- ----------------------------
 -- Records of ven_folio
@@ -333,13 +333,13 @@ DROP TABLE IF EXISTS `ven_producto`;
 CREATE TABLE `ven_producto`  (
   `pro_id` int(11) NOT NULL AUTO_INCREMENT,
   `pro_unidad` int(11) NOT NULL,
-  `pro_nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `pro_nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NOT NULL,
   `pro_precio` decimal(10, 2) NOT NULL,
   `pro_fkventas` int(11) NOT NULL,
   PRIMARY KEY (`pro_id`) USING BTREE,
   INDEX `pro_fkven_folio`(`pro_fkventas`) USING BTREE,
   CONSTRAINT `ven_producto_ibfk_1` FOREIGN KEY (`pro_fkventas`) REFERENCES `ven_ventas` (`ven_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci;
 
 -- ----------------------------
 -- Records of ven_producto
@@ -354,15 +354,15 @@ COMMIT;
 DROP TABLE IF EXISTS `ven_recibo`;
 CREATE TABLE `ven_recibo`  (
   `rec_id` int(11) NOT NULL AUTO_INCREMENT,
-  `rec_nomcliente` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `rec_nomcliente` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `rec_cantidad` decimal(11, 2) NOT NULL,
-  `rec_concepto` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `rec_nomresponsable` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rec_concepto` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `rec_nomresponsable` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NOT NULL,
   `rec_fecha` date NOT NULL,
-  `rec_folio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rec_folio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NOT NULL,
   `rec_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`rec_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci;
 
 -- ----------------------------
 -- Table structure for ven_ventas
@@ -370,25 +370,25 @@ CREATE TABLE `ven_recibo`  (
 DROP TABLE IF EXISTS `ven_ventas`;
 CREATE TABLE `ven_ventas`  (
   `ven_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ven_folio` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `ven_folio` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `ven_fecha` date NOT NULL,
-  `ven_nombre` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_paterno` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_materno` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_domicilio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_ciudad` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_rfc` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_vehiculo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_color` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_modelo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_placa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_tecnico` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_oi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `ven_garantia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `ven_nombre` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_paterno` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_materno` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_domicilio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_ciudad` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_rfc` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_vehiculo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_color` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_modelo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_placa` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_tecnico` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_oi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ven_garantia` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `ven_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ven_id`) USING BTREE,
   INDEX `ven_fkfolio`(`ven_folio`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8_general_ci;
 
 -- ----------------------------
 -- Records of ven_ventas
