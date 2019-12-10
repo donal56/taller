@@ -53,6 +53,7 @@ class VenVentas extends \yii\db\ActiveRecord
 			[['ven_oi'], 'string', 'max' => 20],
 			[['ven_garantia'], 'string', 'max' => 200],
             [['ven_fullname'], 'safe'],
+            [['ven_fkuser'], 'number'],
         ];
 		
 
@@ -80,7 +81,8 @@ class VenVentas extends \yii\db\ActiveRecord
 			'ven_tecnico' => 'Tecnico',
 			'ven_oi' => 'O.I.',
 			'ven_garantia' => 'Garantia',
-            'ven_fullname' =>'Nombre'
+            'ven_fullname' =>'Nombre',
+            'ven_fkuser' => 'Elaboró',
         ];
     }
 

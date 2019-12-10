@@ -32,7 +32,7 @@ class VenRecibo extends \yii\db\ActiveRecord
     {
         return [
             [['rec_cantidad', 'rec_nomresponsable', 'rec_fecha', 'rec_folio'], 'required'],
-            [['rec_cantidad'], 'number'],
+            [['rec_cantidad','rec_fkuser'], 'number'],
             [['rec_fecha'], 'safe'],
             [['rec_nomcliente', 'rec_concepto', 'rec_nomresponsable'], 'string', 'max' => 200],
             [['rec_folio'], 'string', 'max' => 50],
@@ -52,6 +52,7 @@ class VenRecibo extends \yii\db\ActiveRecord
             'rec_cantidad' => 'Cantidad',
             'rec_concepto' => 'Concepto',
             'rec_nomresponsable' => 'Recibió',
+            'rec_fkuser' => 'Elaboró',
         ];
     }
 }
