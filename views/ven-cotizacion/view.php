@@ -15,23 +15,28 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ven-cotizacion-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <br>
-    <p>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->cot_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->cot_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => '¿Seguro que quieres eliminar esta cotización?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
+    <?= Html::a('Imprimir', ['report', 'id' => $model->cot_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
+    <?= Html::a('Actualizar', ['update', 'id' => $model->cot_id], ['class' => 'btn btn-primary']) ?>
+    <?= Html::a('Eliminar', ['delete', 'id' => $model->cot_id], [
+        'class' => 'btn btn-danger',
+        'data' => [
+            'confirm' => '¿Seguro que quieres eliminar esta cotización?',
+            'method' => 'post',
+        ],
+    ]) ?>
+ 
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'cot_id',
-            'cot_folio',
+            [
+                'attribute' => 'cot_folio',
+                'value'     => function ($model) {
+                    return str_replace('-','',$model->cot_folio);
+                }
+            ],
             'cot_fecha',
             'cot_nombre',
             'cot_nonuevoscontratos',

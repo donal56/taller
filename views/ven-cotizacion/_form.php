@@ -16,13 +16,14 @@ use app\models\VenFolio;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'cot_fecha', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->cot_fecha ]) ?>  
+
+    <?= $form->field($model, 'cot_nocont', ['options' => ['class' => 'form-group col-sm-3']])->textInput() ?>
+    
     <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-3']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
 
     <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
-    <?= $form->field($model, 'cot_fecha', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->cot_fecha ]) ?>  
-
-    <?= $form->field($model, 'cot_nocont', ['options' => ['class' => 'form-group col-sm-3']])->textInput() ?>
 
 
     <?= $form->field($model, 'cot_nombre', ['options' => ['class' => 'form-group col-sm-8']])->textInput(['maxlength' => true]) ?>
