@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\VenCotizacion;
 use app\models\VenCotizacionSearch;
+use app\models\VenFolio;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,13 +66,35 @@ class VenCotizacionController extends Controller
     public function actionCreate()
     {
         $model = new VenCotizacion();
+        $modelFol = new VenFolio();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->cot_id]);
+        if (Yii::$app->request->post()) {
+
+            #Se separan los componentes de un vale desde una misma respuesta POST
+            $cotizacion = Yii::$app->request->post();
+            $folio = array_pop($cotizacion);
+
+            #Se consigue el folio actual
+            $model->rec_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
+
+            $connection = Yii::$app->db;
+            $transaction = $connection->beginTransaction();
+
+            if ($model->load($cotizacion) && $model->save()) {
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->cot_id]);
+
+            }else{
+
+                throw new ServerErrorHttpException('NO SE HAN PODIDO GUARDAR LOS CAMBIOS'); 
+            
+            }
+  
         }
 
         return $this->render('create', [
             'model' => $model,
+            'modelFol' => $modelFol
         ]);
     }
 
@@ -85,9 +108,43 @@ class VenCotizacionController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $modelFol = $this->findFolio(explode("-", $model->cot_folio)[0]); 
+        $modelFol->fol_folio = explode("-", $model->cot_folio)[1];
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->cot_id]);
+        if (Yii::$app->request->post()) {
+            
+            //transacción
+            $connection = \Yii::$app->db;
+            $transaction = $connection->beginTransaction();
+            $datos = Yii::$app->request->post();
+
+            $folio = array_pop($datos);
+
+            if ( $model->cot_folio != $folio['fol_serie']."-".$folio['fol_folio']) 
+            {
+                $modelFol = $this->findFolio($folio['fol_serie']); 
+                $modelFol->fol_folio = strval($modelFol->fol_folio + 1);
+
+                $model->cot_folio = $modelFol->fol_serie."-". $modelFol->fol_folio;
+
+                if (!$modelFol->save())
+                {
+                    $transaction->rollback();               
+                    throw new ServerErrorHttpException('ERROR AL INCREMENTAR EL FOLIO.');
+                }
+            }
+
+            if($model->load($datos) && $model->save())
+            {
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->cot_id]);
+            }
+            else
+            {
+                $transaction->rollback();               
+                throw new ServerErrorHttpException('ERROR AL GUARDAR LA COTIZACIÓN.');  
+            }
+
         }
 
         return $this->render('update', [
@@ -124,4 +181,33 @@ class VenCotizacionController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    protected function increaseFolio($serie)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $serie])->one()) !== null) 
+        {
+            $model->aumentarFolio();
+
+            if( $model->save())
+            {
+                return $model->getFolio();
+            }
+           
+            throw new NotFoundHttpException('No se pudo actualizar la serie');
+        }  
+        else 
+        {
+            throw new NotFoundHttpException('No se encontro la serie');
+        }
+    }
+
+    protected function findFolio($id)
+    {
+        if (($model = VenFolio::find()->where(['fol_serie' => $id])->one()) !== null) {
+            return $model;
+        } else {
+            return $model = new VenFolio();
+        }
+    }
+
 }

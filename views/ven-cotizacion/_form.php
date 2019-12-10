@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\components\Utilidades;
 use kartik\date\DatePicker;
+use yii\helpers\ArrayHelper;
+use app\models\VenFolio;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenCotizacion */
@@ -14,7 +16,9 @@ use kartik\date\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'cot_folio', ['options' => ['class' => 'form-group col-sm-6']])->textInput(['maxlength' => true]) ?>
+    <?= $form->field($modelFol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-3']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
+
+    <?= $form->field($modelFol, 'fol_folio',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
     <?= $form->field($model, 'cot_fecha', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['readonly' => true, 'value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->cot_fecha ]) ?>  
 
@@ -64,7 +68,7 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'cot_elaboro',['options' => ['class' => 'form-group col-sm-6']])->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
+    <div class="form-group col-sm-12">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>
 
@@ -72,4 +76,31 @@ use kartik\date\DatePicker;
 
 </div>
 
+<?php 
+    $folios =  ArrayHelper::index(VenFolio::find()->asArray()->all(),'fol_serie');
+    if (!$model->isNewRecord) {
+        $folios[$modelFol->fol_serie]['fol_folio'] = explode("-", $model->cot_folio)[1];
+    }
+    $folios = json_encode($folios);
+    $js = <<<EOD
+    window.folios = {$folios};
+    $( document ).ready(function() {
+        folioin = $('#venfolio-fol_folio');
+        seriein = $('#venfolio-fol_serie');
+        seriein.on('change', function(e){
+            if (folios[$(this).val()] != null) {
+                folioin.val(folios[$(this).val()].fol_folio);
+            }else{
+                folioin.val('0');
+            }  
+        
+        });
+        seriein.trigger('change');
+
+    });
+EOD;
+
+?>
+
 <?= $this->registerCssFile("/css/cur-form.css"); ?>
+<?= $this->registerJs($js) ?>
