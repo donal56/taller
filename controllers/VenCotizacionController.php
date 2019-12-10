@@ -76,7 +76,7 @@ class VenCotizacionController extends Controller
             $folio = array_pop($cotizacion);
 
             #Se consigue el folio actual
-            $model->rec_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
+            $model->cot_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
             $connection = Yii::$app->db;
             $transaction = $connection->beginTransaction();
@@ -150,6 +150,7 @@ class VenCotizacionController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'modelFol' => $modelFol
         ]);
     }
 

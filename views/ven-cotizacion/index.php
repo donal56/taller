@@ -27,7 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'cot_id',
-            'cot_folio',
+            [
+                'attribute' => 'cot_folio',
+                'value'     => function ($model) {
+                    return str_replace('-','',$model->cot_folio);
+                }
+            ],
             'cot_fecha',
             'cot_nombre',
             //'cot_nonuevoscontratos',
@@ -47,7 +52,20 @@ $this->params['breadcrumbs'][] = $this->title;
             //'cot_acepto',
             //'cot_elaboro',
             //'cot_fkuser',
-
+            [
+                'class' => 'app\components\ActionColumnPlus',
+                'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),
+                'buttons' => 
+                [
+                    'print' => function ($url, $model, $key) 
+                    {
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['report', 'id' => $model->cot_id],['data-pjax'=>"0",'target' => '_blank']);
+                    },
+                ],
+                'template' => '{print}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'filterOptions' => ['style' => 'text-align: center']
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
