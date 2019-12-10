@@ -1,4 +1,4 @@
-<?php $detalles=$model->venDetalles?>
+<?php $detalles=$model->venDetalles;?>
 <html>
 <div style="float:left;width: 75mm; padding-right: 15px;"><img src="var:polo"></div>
     <div class="fblue px-25 red" style="float: right; width: 190px;padding-top:30px;">Folio: <?=$model->cot_folio?></div>
@@ -20,8 +20,8 @@
     <div style="width: 20mm; float: right;" class="div-underline">&#8203;<?=$model->cot_fecha?></div>
     <div style="width: 12mm; float: right;" class="div-label">Fecha</div>
     <p>
-    <div style="width: 20mm; float: right;" class="div-underline">&#8203;</div>
-    <div style="width: 16mm; float: right;" class="div-label">No.Cont.<?=$model->cot_nocont?></div>
+    <div style="width: 20mm; float: right;" class="div-underline">&#8203;<?=$model->cot_nocont?></div>
+    <div style="width: 16mm; float: right;" class="div-label">No.Cont.</div>
     <p>
     <div style="width: 15mm; " class="div-label">Nombre:</div>
     <div style="width: 105mm; padding-left: 9px;" class="div-underline">&#8203;<?=$model->cot_nombre?></div>
@@ -69,43 +69,65 @@
                 </tr>
             <?php
             $noDetalles=count($detalles);
-            echo $noDetalles;
-            for($i = 1; $i <= 15; $i++)
+            foreach ($detalles as $key => $value) 
             {
-                $str = <<<STR
+                $total=$value->det_cantidad*$value->det_unitario;
+                $sub+=$total;
+                $columns = <<<HTML
                         <tr>
-                            <td class= "cell"></td>
-                            <td class= "cell"></td>
-                            <td class= "cell"></td>
-                            <td class= "cell"></td>
-                            <td class= "cell"></td>
+                            <td class= "cell fblue">$value->det_cantidad</td>
+                            <td class= "cell fblue">$value->det_partida</td>
+                            <td class= "cell fblue">$value->det_descripcion</td>
+                            <td class= "cell fblue">$$value->det_unitario</td>
+                            <td class= "cell fblue">$$total</td>
                         </tr>
-STR;
-                echo $str;
+HTML;
+                echo $columns;
             }
-
-            ?>
+            $ext= 15-$noDetalles;
+            if ($ext>0) 
+            {
+                for($i = 1; $i <= (15-$noDetalles); $i++)
+                {
+                    $str = <<<STR
+                            <tr>
+                                <td class= "cell"></td>
+                                <td class= "cell"></td>
+                                <td class= "cell"></td>
+                                <td class= "cell"></td>
+                                <td class= "cell"></td>
+                            </tr>
+STR;
+                    echo $str;
+                }
+            }
+            $iva= $sub*0.16;
+            $tot=$sub+$iva;
+            $ult = <<<HTML
             <tr>
                 <td class= "cell2"></td>
                 <td class= "cell2"></td>
                 <td class= "cell2"></td>
                 <td class= "td1 fwhite px-12 cell">SUB-TOTAL</td>
-                <td class= "cell"></td>
+                <td class= "cell fblue">$$sub</td>
             </tr>
             <tr>
                 <td class= "cell2"></td>
                 <td class= "cell2"></td>
                 <td class= "cell2"></td>
                 <td class= "td1 fwhite px-12 cell">16% IVA</td>
-                <td class= "cell"></td>
+                <td class= "cell fblue">$$iva</td>
             </tr>
             <tr>
                 <td class= "cell2"></td>
                 <td class= "cell2"></td>
                 <td class= "cell2"></td>
                 <td class= "td1 fwhite px-12 cell">TOTAL</td>
-                <td class= "cell"></td>
+                <td class= "cell fblue">$$tot</td>
             </tr>
+HTML;
+            echo $ult;
+            ?>
             </table>
 </div>
 <br>
