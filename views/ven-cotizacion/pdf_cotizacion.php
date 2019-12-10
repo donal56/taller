@@ -50,8 +50,8 @@
     <div style="width: 43mm;" class="div-underline">&#8203;<?=$model->cot_psalida?></div>
     <div style="width: 15mm;" class="div-label">F.Salida:</div>
     <div style="width: 43mm;" class="div-underline">&#8203;<?=$model->cot_fechasalida?></div>
-    <div style="width: 21mm;" class="div-label">No.Contrato:</div>
-    <div style="width: 41mm;" class="div-underline">&#8203;</div>
+    <div style="width: 33mm;" class="div-label">No.Nuevo Contrato:</div>
+    <div style="width: 29mm;" class="div-underline">&#8203;<?=$model->cot_nonuevoscontratos?></div>
 
     <div style="width: 18mm; " class="div-label">Mecánico:</div>
     <div style="width: 164.6mm; padding-left: 9px;" class="div-underline">&#8203;<?=$model->cot_mecanico?></div>
