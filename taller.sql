@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 09/12/2019 17:42:37
+ Date: 10/12/2019 10:42:30
 */
 
 SET NAMES utf8mb4;
@@ -681,6 +681,7 @@ INSERT INTO `user_visit_log` VALUES (289, '5deecf4a5765a', '127.0.0.1', 'es', 'M
 INSERT INTO `user_visit_log` VALUES (290, '5deecfc224f8c', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575931842, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (291, '5deed9a6cb224', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575934374, 'Chrome', 'Windows');
 INSERT INTO `user_visit_log` VALUES (292, '5deeda73d7df5', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575934579, 'Chrome', 'Windows');
+INSERT INTO `user_visit_log` VALUES (293, '5defc3b6f0537', '127.0.0.1', 'es', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, 1575994295, 'Chrome', 'Windows');
 
 -- ----------------------------
 -- Table structure for ven_almacen
@@ -881,7 +882,7 @@ INSERT INTO `ven_concepto` VALUES (118, 1.00, 'FILTRO', 1.00, 33);
 -- ----------------------------
 DROP TABLE IF EXISTS `ven_cotizacion`;
 CREATE TABLE `ven_cotizacion`  (
-  `cot_id` int(11) NOT NULL,
+  `cot_id` int(11) NOT NULL AUTO_INCREMENT,
   `cot_folio` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `cot_fecha` date NULL DEFAULT NULL,
   `cot_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -911,7 +912,7 @@ CREATE TABLE `ven_cotizacion`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `ven_detalle`;
 CREATE TABLE `ven_detalle`  (
-  `det_id` int(11) NOT NULL,
+  `det_id` int(11) NOT NULL AUTO_INCREMENT,
   `det_cantidad` int(11) NULL DEFAULT NULL,
   `det_partida` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `det_descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
