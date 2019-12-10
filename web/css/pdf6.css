@@ -1,0 +1,143 @@
+.fblue{
+	color:#3369b7;
+}
+.titulo
+{
+	text-align: center !important;
+}
+.px-8
+{
+	font-size: 8px;
+}
+.px-9
+{
+	font-size: 9px;
+}
+.px-12
+{
+	font-size: 12px;
+}
+.px-20
+{
+	font-size: 20px;
+}
+.px-25
+{
+	font-size: 25px;
+}
+.border{
+	border: 1px solid #3369b7;
+}
+.folio
+{
+	height: 50px;
+	width: 15px;
+}
+.red
+{
+	color: red;
+}
+.div-titulo{
+    float:left;
+    width: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #3369b7;
+}
+.div-label{
+    float:left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #3369b7;
+    padding: 5px 0px 0px 2px;
+    /*border: 1px solid;*/
+}
+.div-labelpie{
+    float:left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #3369b7;
+    padding: 5px 0px 0px 2px;
+    /*border: 1px solid;*/
+}
+.div-underline{
+    float: left;
+    border-bottom: 1px solid #3369b7;
+    color: #3369b7;
+    text-align: left;
+    font-size: 10px;
+    padding: 2px 0px 0px 1px;
+    margin-top: 2px;  
+}
+.td1
+{
+	height: 6mm;
+}
+.rounded2{
+	float: right;
+	border: 5px solid #3369b7;
+}
+.fullheight{
+	
+	height: 75mm;
+}
+.fwhite{
+	background-color: #3369b7;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+.cell
+{
+	text-align: center;
+	font-size: 11px;
+	border: 1px solid #3369b7;
+	height: 5.5mm;
+}
+.cell2
+{
+	text-align: center;
+	font-size: 11px;
+	border: 0px solid #ffffff;
+	height: 5.5mm;
+}
+.rounded td{
+	border: 1px solid #3369b7;
+	border-top: 0;
+	border-right: 0;
+	vertical-align: top;
+	padding: 0;
+}
+.lineaFirmas
+{
+	width: 50mm; 
+	margin-left: 28mm;
+	float: left;
+	border-bottom: 1px solid #3369b7;
+	color: #3369b7;
+}
+.firmas
+{
+	float:left;
+	font-size: 12px;
+	font-weight: bold;
+	color: #3369b7;
+	height: 35px;
+	width:  52mm;
+	text-align: center;
+	margin-left: 26mm;
+}
+.tfirmas
+{
+	float:left;
+	font-size: 12px;
+	font-weight: bold;
+	color: #3369b7;
+	height: 35px;
+	width:  52mm;
+	text-align: center;
+	margin-left: 26mm;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

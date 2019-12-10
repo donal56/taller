@@ -9,6 +9,7 @@ use app\models\VenFolio;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use kartik\mpdf\Pdf;
 
 /**
  * VenCotizacionController implements the CRUD actions for VenCotizacion model.
@@ -165,7 +166,35 @@ class VenCotizacionController extends Controller
 
         return $this->redirect(['index']);
     }
+    public function actionReport($id) 
+    {
+        $model =  $this->findModel($id);
 
+        $pdf = new Pdf([
+            'format' => Pdf::FORMAT_LETTER,
+            'orientation' => Pdf::ORIENT_PORTRAIT, 
+            'destination' => Pdf::DEST_BROWSER, 
+            'marginTop' => '10',
+            'marginHeader' => '10',
+            'marginBottom' => '10',
+            'marginFooter' => '10',
+            'options' => ['title' => 'Recibo'],
+        ]);
+        
+        $mpdf = $pdf->api;
+        $mpdf->autoPageBreak = false;
+
+        //imagenes
+        $mpdf->imageVars['polo'   ] = file_get_contents('img/logopolo.jpg');
+        $mpdf->imageVars['donpolo'] = file_get_contents('img/logoagua.jpg');
+        $mpdf->imageVars['whats'  ] = file_get_contents('img/logowhats.png');
+        $mpdf->imageVars['pez'    ] = file_get_contents('img/pez.png');
+        
+        $pdf->cssFile = '@app/web/css/pdf6.css';
+        $pdf->content = $this->renderPartial('pdf_cotizacion',['model' =>  $model]); 
+        
+        return $pdf->render();
+    }
     /**
      * Finds the VenCotizacion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
