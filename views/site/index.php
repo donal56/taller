@@ -21,6 +21,7 @@ if(Yii::$app->user->identity->hasRole('Admin')) {
     ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
     ['texto' => 'Recibos', 'ruta' => ['/ven-recibo'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-seguimiento'],
     ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-checador'],
+    ['texto' => 'Cotizaciones', 'ruta' => ['/ven-cotizacion'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-factura'],
     ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
     ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
   ];
@@ -30,6 +31,7 @@ if(Yii::$app->user->identity->hasRole('Admin')) {
     ['texto' => 'Vales de almacén', 'ruta' => ['/ven-almacen'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-folio'],
     ['texto' => 'Recibos', 'ruta' => ['/ven-recibo'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-seguimiento'],
     ['texto' => 'Ordenes de servicio', 'ruta' => ['/ven-orden/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-checador'],
+    ['texto' => 'Cotizaciones', 'ruta' => ['/ven-cotizacion'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-factura'],
     ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
     ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
   ];
