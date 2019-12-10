@@ -47,12 +47,12 @@ class VenDetalle extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'det_id' => 'Det ID',
-            'det_cantidad' => 'Det Cantidad',
-            'det_partida' => 'Det Partida',
-            'det_descripcion' => 'Det Descripcion',
-            'det_unitario' => 'Det Unitario',
-            'det_fkcotizacion' => 'Det Fkcotizacion',
+            'det_id' => 'ID',
+            'det_cantidad' => 'Cantidad',
+            'det_partida' => 'Partida',
+            'det_descripcion' => 'Descripcion',
+            'det_unitario' => 'Unitario',
+            'det_fkcotizacion' => 'ID cotización',
         ];
     }
 
