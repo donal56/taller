@@ -50,6 +50,21 @@ class VenCotizacionSearch extends VenCotizacion
 
         $this->load($params);
 
+        if ( !empty($params['VenCotizacionSearch']['intervaloFecha'])) 
+        {
+            $fecha = explode( ' a ', $params['VenCotizacionSearch']['intervaloFecha']);
+            $query->andFilterWhere(['>=', 'cot_fecha', $fecha[0] ])
+                ->andFilterWhere(['<=', 'cot_fecha', $fecha[1]]);  
+        }
+
+        if ( !empty($params['VenCotizacionSearch']['intervaloFechaSalida'])) 
+        {
+            $fechaSalida = explode( ' a ', $params['VenCotizacionSearch']['intervaloFechaSalida']);
+            $query->andFilterWhere(['>=', 'cot_fechasalida', $fechaSalida[0]])
+                ->andFilterWhere(['<=', 'cot_fechasalida', $fechaSalida[1]]);
+        }
+
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -59,10 +74,10 @@ class VenCotizacionSearch extends VenCotizacion
         // grid filtering conditions
         $query->andFilterWhere([
             'cot_id' => $this->cot_id,
-            'cot_fecha' => $this->cot_fecha,
+         //   'cot_fecha' => $this->cot_fecha,
             'cot_nonuevoscontratos' => $this->cot_nonuevoscontratos,
             'cot_nocont' => $this->cot_nocont,
-            'cot_fechasalida' => $this->cot_fechasalida,
+            //'cot_fechasalida' => $this->cot_fechasalida,
             'cot_fkuser' => $this->cot_fkuser,
         ]);
 
