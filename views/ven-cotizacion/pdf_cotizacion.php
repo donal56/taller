@@ -2,7 +2,7 @@
 <html>
 <div style="float:left;width: 75mm; padding-right: 15px;"><img src="var:polo"></div>
     <div class="fblue px-25 red" style="float: right; width: 190px;padding-top:30px;">Folio: <?=$model->cot_folio?></div>
-<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 264mm; left: 55px; color: #3369b7;">
+<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 265mm; left: 55px; color: #3369b7;">
         <img src="var:whats" style="width:12px;" class="px-10 fblue"> 993 3 86 74 17<br>
 </div>
 
@@ -137,9 +137,9 @@ HTML;
 
     <div style="width: 280mm; height: 20mm;">
             <div class="tfirmas">ACEPTÓ PRESUPUESTO</div>
-            <div class="tfirmas">ELABORÓ PRESUPUESTO</div>
-            <div class="lineaFirmas">&#8203;</div>
-            <div class="lineaFirmas">&#8203;</div>
+            <div class="tfirmas">ELABORÓ PRESUPUESTO</div>    
+            <div class="lineaFirmas">&#8203;<?=$model->cot_acepto?></div>
+            <div class="lineaFirmas">&#8203;<?=$model->cot_elaboro?></div>
             <div class="firmas">NOMBRE Y FIRMA</div>
             <div class="firmas">VENTAS</div>
     </div>
