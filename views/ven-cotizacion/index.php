@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use kartik\daterange\DateRangePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenCotizacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -18,11 +19,12 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
+        <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Generar Cotización', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <br>
-    <?= GridView::widget
-    ([
+    <?= GridView::widget([
+        
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
