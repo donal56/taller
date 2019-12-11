@@ -95,3 +95,27 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label
 {
   padding-top: 10px;
 }
+
+div#wPaint1 canvas.wPaint-canvas-bg
+{
+  left: 63px !important;
+  top: 22px  !important;
+}
+
+div#wPaint1 canvas.wPaint-canvas
+{
+  left: 63px !important;
+  top: 22px  !important;
+}
+
+div#wPaint2 canvas.wPaint-canvas-bg
+{
+  left: 62px !important;
+  top: 21px  !important;
+}
+
+div#wPaint2 canvas.wPaint-canvas
+{
+  left: 62px !important;
+  top: 21px  !important;
+}
