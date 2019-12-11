@@ -6,6 +6,7 @@ use app\components\Utilidades;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use app\models\VenFolio;
+use unclead\multipleinput\MultipleInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenCotizacion */
@@ -63,6 +64,63 @@ use app\models\VenFolio;
 
     <?= $form->field($model, 'cot_nonuevoscontratos',['options' => ['class' => 'form-group col-sm-4']])->textInput() ?>
 
+    <div class="col-sm-12">
+        <?= $form->field($modelDet,'temp')->widget(MultipleInput::className(), 
+            [
+                'enableError' => true,
+                'allowEmptyList'    => true,
+                'addButtonPosition' => MultipleInput::POS_HEADER,
+                'sortable'  => true, 
+                'addButtonOptions' => 
+                [
+                    'class' => 'btn btn-success',
+                    'label' => '<i class="glyphicon glyphicon-plus"></i>' 
+                ],
+                'prepend'   => true,
+                'sortable' => true,
+                'columns' => 
+                [
+                    [
+                        'name' => 'det_id',
+                        'options' => 
+                        [
+                            'style' => 'display: none',
+                        ],
+                        'enableError' => false,
+                    ],
+                    [
+                        'name'  => 'det_cantidad',
+                        'title' => 'Cantidad',
+                        'enableError' => true,
+                    ],
+                    [
+                        'name'  => 'det_partida',
+                        'title' => 'Partida',
+                        'enableError' => true,
+                    ],
+                    [
+                        'name'  => 'det_descripcion',
+                        'title' => 'Descripción',
+                        'type' => 'textarea',
+                        'enableError' => true,
+                    ],
+
+                    [
+                        'name'  => 'det_unitario',
+                        'title' => 'Precio Unitario',
+                        'enableError' => true,
+                    ],
+                ]
+            ])->label("<h3>Detalles</h3>");
+        ?>
+    </div>
+    <br>
+    <br>
+
+
+
+
+
     <?= $form->field($model, 'cot_observaciones',['options' => ['class' => 'form-group col-sm-12']])->textarea(['rows' => 2]) ?>
 
     <?= $form->field($model, 'cot_acepto',['options' => ['class' => 'form-group col-sm-6']])->textInput(['maxlength' => true]) ?>
@@ -105,3 +163,4 @@ EOD;
 
 <?= $this->registerCssFile("/css/cur-form.css"); ?>
 <?= $this->registerJs($js) ?>
+<?= $this->registerJsFile("/js/validator3.js",['depends' => 'yii\web\JqueryAsset']); ?>

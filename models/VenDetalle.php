@@ -18,6 +18,8 @@ use Yii;
  */
 class VenDetalle extends \yii\db\ActiveRecord
 {
+    public $temp = null;
+    
     /**
      * {@inheritdoc}
      */
@@ -32,6 +34,7 @@ class VenDetalle extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [[ 'temp'] , 'safe' ],
             [['det_cantidad', 'det_fkcotizacion'], 'integer'],
             [['det_descripcion'], 'required'],
             [['det_descripcion'], 'string'],
