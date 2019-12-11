@@ -46,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'label' => 'Folio'
             ],
+            'ord_tipo',
             'ord_nombre',
             'ord_modelo',
             'ord_marca',
@@ -93,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'inputType' => \kartik\editable\Editable::INPUT_DATETIME,
                     'formOptions' =>
                     [
-                        'action' => '/ven-orden/reprogramar',
+                        'action' => 'reprogramar',
                     ],
                     'pluginOptions' => 
                     [

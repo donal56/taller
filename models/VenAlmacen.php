@@ -39,7 +39,7 @@ class VenAlmacen extends \yii\db\ActiveRecord
         return [
             [['alm_fecha'], 'required'],
             [['alm_fecha'], 'safe'],
-            [['alm_noPedido'], 'integer'],
+            [['alm_noPedido','alm_fkuser'], 'integer'],
             [['alm_folio'], 'string', 'max' => 11],
             [['alm_vehiculo', 'alm_modelo', 'alm_mecanico', 'alm_trabajo', 'alm_garantia'], 'string', 'max' => 255],
             [['alm_placa'], 'string', 'max' => 20],
@@ -64,6 +64,7 @@ class VenAlmacen extends \yii\db\ActiveRecord
             'alm_color' => 'Color',
             'alm_trabajo' => 'Trabajo',
             'alm_garantia' => 'Garantia',
+            'alm_fkuser' => 'Elaboró',
         ];
     }
 

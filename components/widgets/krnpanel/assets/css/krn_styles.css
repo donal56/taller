@@ -155,6 +155,13 @@ a.boton_prototype_3.btn-empresa
     background-position: -1px -1px;
     background-size: 118px 118px;
 }
+/*Botón de factura*/
+a.boton_prototype_3.btn-factura
+{
+    background: url(../images/factura.png) no-repeat;
+    background-position: -1px -1px;
+    background-size: 118px 118px;
+}
 
 /*Botón de folios*/
 a.boton_prototype_3.btn-folio
