@@ -15,7 +15,6 @@ use app\components\Utilidades;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 
-
 /**
  * VenOrdenController implements the CRUD actions for VenOrden model.
  */
@@ -103,17 +102,27 @@ class VenOrdenController extends Controller
             
             #Se remueve el csrf
             array_shift($datos);
-            
+
             #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
             $orden['VenOrden'] = array_shift($datos);
             $folio = array_shift($datos);
 
-            #Se guarda la imagen codificada sin el identificador data:image/png;base64,
+            #Se guarda las imagenes codificada sin el identificador data:image/png;base64,
+            $data2 = explode(',', array_pop($datos));
+            $firma2 = base64_decode($data2[1]);
+
+            $data1 = explode(',', array_pop($datos));
+            $firma1 = base64_decode($data1[1]);
+
             $data = explode(',', array_pop($datos));
             $image = base64_decode($data[1]);
+            
 
             if ( $model->load($orden) ) 
             {
+                #Usuario que elaboro originalmente
+                $model->ord_user = Yii::$app->user->identity->id;
+
                 #Se añade el folio nuevo al modelo
                 $model->ord_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
@@ -135,10 +144,12 @@ class VenOrdenController extends Controller
                 #Si se guarda la imagen correctamente y la orden se guarda
                 if($model->save())
                 {
-                    #Directorio de la imagen
+                    #Directorio de las imagenes
                     $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->ord_id . '.png';
+                    $path1 = Yii::getAlias("@webroot") . '/img/firmas/'. $model->ord_id . '-1.png';
+                    $path2 = Yii::getAlias("@webroot") . '/img/firmas/'. $model->ord_id . '-2.png';
 
-                    if(file_put_contents($path, $image))
+                    if(file_put_contents($path, $image) && file_put_contents($path1, $firma1) && file_put_contents($path2, $firma2))
                     {
                         $transaction->commit();
                         return $this->redirect(['view', 'id' => $model->ord_id]);
@@ -210,17 +221,27 @@ class VenOrdenController extends Controller
         if($datos)
         {
             $transaction = \Yii::$app->db->beginTransaction();
-            $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $model->ord_id . '.png';
+
+            $path  =    Yii::getAlias("@webroot")   . '/img/wPaint/files/'  . $model->ord_id . '.png';
+            $path1 =    Yii::getAlias("@webroot")   . '/img/firmas/'        . $model->ord_id . '-1.png';
+            $path2 =    Yii::getAlias("@webroot")   . '/img/firmas/'        . $model->ord_id . '-2.png';
+
             $folioAnterior = $model->ord_folio;
-            
+ 
             #Se remueve el csrf
             array_shift($datos);
             
             #Se clasifican los datos para solo dejar las opciones de vehiculo y accesorios elegidas
             $orden['VenOrden'] = array_shift($datos);
             $folio = array_shift($datos);
-            
-            #Se guarda la imagen codificada sin el identificador data:image/png;base64,
+
+            #Se guarda las imagenes codificada sin el identificador data:image/png;base64,
+            $data2 = explode(',', array_pop($datos));
+            $firma2 = base64_decode($data2[1]);
+
+            $data1 = explode(',', array_pop($datos));
+            $firma1 = base64_decode($data1[1]);
+
             $data = explode(',', array_pop($datos));
             $image = base64_decode($data[1]);
 
@@ -244,15 +265,22 @@ class VenOrdenController extends Controller
                 $model->ord_folio = $this->increaseFolio($folio['fol_serie']);
             }
 
-            if ($model->load($orden) && $model->update()) 
+            if ($model->load($orden) && $model->update() !== false) 
             {
                 try
                 {
-                    unlink($path);
+                    if(file_exists($path))
+                        unlink($path);
+    
+                    if(file_exists($path1))
+                        unlink($path1);
+    
+                    if(file_exists($path2))
+                        unlink($path2);
                 }
                 catch(\yii\base\Exception $e) {  }
 
-                if(file_put_contents($path, $image))
+                if(file_put_contents($path, $image) && file_put_contents($path1, $firma1) && file_put_contents($path2, $firma2))
                     $transaction->commit();
                 else
                     $transaction->rollback();      
@@ -284,10 +312,19 @@ class VenOrdenController extends Controller
         try
         {
             $path = Yii::getAlias("@webroot") . '/img/wPaint/files/'. $id . '.png';
+            $path1 = Yii::getAlias("@webroot") . '/img/firmas/'. $id . '-1.png';
+            $path2 = Yii::getAlias("@webroot") . '/img/firmas/'. $id . '-2.png';
 
             try
             {
-                unlink($path);
+                if(file_exists($path))
+                    unlink($path);
+
+                if(file_exists($path1))
+                    unlink($path1);
+
+                if(file_exists($path2))
+                    unlink($path2);
             }
             catch(\yii\base\Exception $e) {  }
 
@@ -342,15 +379,16 @@ class VenOrdenController extends Controller
         $mpdf->autoPageBreak = false;
 
         //imagenes
-        $mpdf->imageVars['donpolo' ] = file_get_contents('img/bluepolo.png');
-        $mpdf->imageVars['logopolo'] = file_get_contents('img/logopolo_letra.png');
-        $mpdf->imageVars['fondoTan'] = file_get_contents('img/fondoTanque.png');
-        $mpdf->imageVars['linea'   ] = file_get_contents('img/linea.png');
-        $mpdf->imageVars['facebook'] = file_get_contents('img/facebook.png');
-        $mpdf->imageVars['whats'   ] = file_get_contents('img/bluewa.png');
-        $mpdf->imageVars['pez'     ] = file_get_contents('img/pez.png');
-        $mpdf->imageVars['auto'    ] = file_get_contents('img/wPaint/files/'.$id.".png");
-
+        $mpdf->imageVars['donpolo' ] = Utilidades::getImage('img/bluepolo.png');
+        $mpdf->imageVars['logopolo'] = Utilidades::getImage('img/logopolo_letra.png');
+        $mpdf->imageVars['fondoTan'] = Utilidades::getImage('img/fondoTanque.png');
+        $mpdf->imageVars['linea'   ] = Utilidades::getImage('img/linea.png');
+        $mpdf->imageVars['facebook'] = Utilidades::getImage('img/facebook.png');
+        $mpdf->imageVars['whats'   ] = Utilidades::getImage('img/bluewa.png');
+        $mpdf->imageVars['pez'     ] = Utilidades::getImage('img/pez.png');
+        $mpdf->imageVars['auto'    ] = Utilidades::getImage('img/wPaint/files/'.$id.".png");
+        $mpdf->imageVars['firma1'  ] = Utilidades::getImage('img/firmas/'.$id."-1.png");
+        $mpdf->imageVars['firma2'  ] = Utilidades::getImage('img/firmas/'.$id."-2.png");
 
         $pdf->cssFile = '@app/web/css/pdf5.css';
       

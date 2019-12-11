@@ -112,6 +112,9 @@ class VenVentasController extends Controller
             $modelfol->fol_folio = strval($modelfol->fol_folio+1);
             $model->ven_folio = mb_strtoupper($modelfol->fol_serie."-". $modelfol->fol_folio);
 
+            #Usuario que elaboro originalmente
+            $model->ven_fkuser = Yii::$app->user->identity->id;
+
             if ($modelfol->save() && $model->load($venta) && $model->save()) {
 
 

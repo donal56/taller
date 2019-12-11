@@ -4,17 +4,36 @@
 	$date1=new DateTime($model->ord_fechaIngreso);
 	$date2=new DateTime($model->ord_fechaEntrega);
 	$exteriores=json_decode($model->ord_vehiculoExterior,true);
+    $elab='';
+    $user = $model->ord_user;
+    if (isset($user)) 
+    {
+        if ($user==1) 
+        {
+            $elab='V-1';
+        }
+        if ($user==5)
+        {
+            $elab='V-2';
+        }else
+        {
+            $elab='V-3';
+        }
+    }
 ?>
 
 <body>
+    <div style="position: absolute;width: 9mm;right: 55px;top:20px; color: rgb(50,50,50);"><?=$elab?></div>
     <!--Logo-->
     <div style="position: absolute; top: 6mm; left: 15mm">
         <img src="var:donpolo" id="polo">
     </div>
+
     <!-- Imagen auto -->
     <div style="position: absolute; top: 80mm; left: 48mm">
         <img width="73%" src="var:auto">
     </div>
+
     <!-- tanque de gasolina -->
     <div class="tanque" style="padding-left: 3mm; padding-top: 3mm">
         <div class="px-10 azul bold">TANQUE DE GASOLINA</div>
@@ -32,6 +51,7 @@
         <br>
         <span class="px-10"><b><?= $model->ord_tanque*100 ?>%</b></span>
     </div>
+
     <!--Líneas fijas-->
     <div style="border-bottom: 0.05mm solid #3369b7; width: 80mm; position: absolute; top: 206.15mm; left: 18.17mm">
     </div>
@@ -58,6 +78,16 @@
     <div id="cuadroFolio" class="bordered azul"
         style="color:red; font-size:1.5em; text-align: center; vertical-align: middle;">
         <?= mb_strtoupper('Nº ' . explode("-", $model->ord_folio)[1])?>
+    </div>
+
+    <!-- Firmas -->
+    <div style="position: absolute; bottom: 56mm; left: 37mm">
+        <img width= "100px" src="var:firma1">
+    </div>
+
+    <!-- Firmas -->
+    <div style="position: absolute; bottom: 56mm; right: 42mm">
+        <img width= "100px" src="var:firma2">
     </div>
 
     <div class="borde">

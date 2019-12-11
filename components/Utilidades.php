@@ -598,4 +598,18 @@ class Utilidades
         $date = new \DateTime('NOW', new \DateTimeZone('America/Mexico_City'));
         return $date->format($format);
     }
+
+    public static function getImage(string $location)
+    {
+        if (file_exists($location)) 
+        {
+            $path = file_get_contents($location);
+        } 
+        else 
+        {
+            $path = file_get_contents('img/blank.png');;
+        }
+
+        return $path;
+    }
 }

@@ -1,4 +1,23 @@
+<?php 
+$elab='';
+$user = $recibo->rec_fkuser;
+if (isset($user)) 
+{
+    if ($user==1) 
+    {
+        $elab='V-1';
+    }
+    if ($user==5)
+    {
+        $elab='V-2';
+    }else
+    {
+        $elab='V-3';
+    }
+}
+?>
 <html>
+<div style="position: absolute;width: 9mm;right: 15px;top:15px; color: rgb(100,100,100);"><?=$elab?></div>
 <div style="position: absolute; top: 13mm; right: 100mm; width: 11mm"><img src="var:donpolo"></div>
 <div style="position: absolute; top: 155mm; right: 100mm; width: 11mm"><img src="var:donpolo"></div>
 <div>

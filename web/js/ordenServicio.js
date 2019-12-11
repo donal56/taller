@@ -1,8 +1,12 @@
 $('#w0').one('submit', function (e) 
 {
     var imageData = $("#wPaint").wPaint("image");
+    var imageData1 = $("#wPaint1").wPaint("image");
+    var imageData2 = $("#wPaint2").wPaint("image");
 
     $('#image').val(imageData);
+    $('#firma1').val(imageData1);
+    $('#firma2').val(imageData2);
 
     validateForm('#w0');
     

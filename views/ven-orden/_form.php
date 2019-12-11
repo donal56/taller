@@ -77,7 +77,7 @@ use yii\web\View;
 
                     <?=$form->field($model, 'ord_fechaEntrega', ['options' => ['class' => 'form-group col-sm-3']])->widget(DateTimePicker::classname(), 
                         [
-                            'options' => ['value' => $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em'], 
+                            'options' => ['value' => $model->ord_fechaEntrega, 'style' => 'font-size: 0.9em','autocomplete' => 'off'], 
                             'language' => 'es',
                             'removeButton' => false,
                             'pluginOptions' => [
@@ -115,9 +115,6 @@ use yii\web\View;
                     <?=$form->field($model, 'ord_color', ['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true])?>
 
                     <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
-
-                     <?=$form->field($model, 'ord_user', ['options' => ['class' => 'form-group col-sm-3']])->hiddenInput(['readonly' => true, 'value' => Yii::$app->user->identity->id])->label(false) ?>
-
 
                 </div>
             </div>
@@ -301,6 +298,39 @@ use yii\web\View;
     </div>
 </div>
 
+
+<div class="panel panel-success">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion_sce_1" href="#collapse3">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default btn-xs" data-content="Minimizar/Maximizar"
+                    data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top">
+                    <i class="glyphicon glyphicon-eye-open"></i> Min/Max
+                </button>
+            </div>
+            <h4 class="panel-title">Firmas</h4>
+            </h4>
+        </div>
+
+        <div id="collapse3" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row col-sm-12 pt-10" style="min-height: 250px">
+                    <div class="col-sm-6" style= 'margin: 0 auto'>
+                        <label class="control-label">Firma del asesor</label>
+                        <div id="wPaint1" style="width:400px; height:200px; border: 1px solid gray; border-radius: 10px; margin: 0 auto"></div>
+                    </div>
+                    <div class="col-sm-6" style= 'margin: 0 auto'>
+                        <label class="control-label">Firma del cliente</label>
+                        <div id="wPaint2" style="width:400px; height:200px; border: 1px solid gray; border-radius: 10px; margin: 0 auto"></div>
+                    </div>
+                </div>
+                
+                <?= Html::hiddenInput('firma1' , '', ['id' => 'firma1']); ?>
+                <?= Html::hiddenInput('firma2' , '', ['id' => 'firma2']); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <?=Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'])?>
     <?=Html::a('Cancelar', '/ven-orden/index', ['class' => 'btn btn-danger'])?>
@@ -340,11 +370,17 @@ EOD;
 <?= $this->registerJsFile("/js/modal.js", ['depends' => 'yii\web\JqueryAsset']); ?>
 <?= $this->registerJsFile("/js/ordenServicio.js", ['depends' => 'yii\web\JqueryAsset']); ?>
 <?= $this->registerJsFile("/js/wPaintInit.js", ['depends' => 'app\assets\wPaintAsset']); ?>
+<?= $this->registerJsFile("/js/wPaintInit2.js", ['depends' => 'app\assets\wPaintAsset']); ?>
 <?= $this->registerCssFile("/css/ordenServicio.css"); ?>
 
 <?php 
     if (!$model->isNewRecord)
+    {
         echo $this->registerJs("
             $('#wPaint').wPaint('image', '/img/wPaint/files/" . $model->ord_id . ".png');
+            $('#wPaint1').wPaint('image', '/img/firmas/" . $model->ord_id . "-1.png');
+            $('#wPaint2').wPaint('image', '/img/firmas/" . $model->ord_id . "-2.png');
         ", View::POS_READY, "wPaintUpdate");
+
+    }
 ?>
