@@ -95,4 +95,16 @@ class VenCotizacion extends \yii\db\ActiveRecord
     {
         return $this->hasMany(VenDetalle::className(), ['det_fkcotizacion' => 'cot_id']);
     }
+
+    public function getSerie()
+    {
+        return explode("-", $this->cot_folio)[0];
+    }
+
+
+    public function getFolio()
+    {
+        return explode("-", $this->cot_folio)[1];
+    }
+
 }

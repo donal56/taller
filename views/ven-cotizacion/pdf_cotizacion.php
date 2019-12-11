@@ -68,6 +68,8 @@
                     <td class="td1 fwhite px-12 cell" style= "padding: 0; margin: 0" width="15%">TOTAL   </td>
                 </tr>
             <?php
+            $sub = 0;
+            $total = 0;
             $noDetalles=count($detalles);
             foreach ($detalles as $key => $value) 
             {

@@ -6,6 +6,8 @@ use Yii;
 use app\models\VenCotizacion;
 use app\models\VenCotizacionSearch;
 use app\models\VenFolio;
+use app\models\VenDetalle;
+use app\components\Utilidades;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -68,20 +70,48 @@ class VenCotizacionController extends Controller
     {
         $model = new VenCotizacion();
         $modelFol = new VenFolio();
+        $modelDet = new VenDetalle();
 
         if (Yii::$app->request->post()) {
 
             #Se separan los componentes de un vale desde una misma respuesta POST
             $cotizacion = Yii::$app->request->post();
+            $detalles = Utilidades::limpiarArreglos( array_pop($cotizacion)['temp'] );
             $folio = array_pop($cotizacion);
-
-            #Se consigue el folio actual
-            $model->cot_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
             $connection = Yii::$app->db;
             $transaction = $connection->beginTransaction();
+            
+            #Se consigue el folio actual
+            $model->cot_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
+
 
             if ($model->load($cotizacion) && $model->save()) {
+
+                foreach($detalles as $detalle)
+                {
+                    #Si el vale se guarda por cada concepto se guardan sus datos
+                    $detalle['det_fkcotizacion'] = $model->cot_id;
+                    $datos['VenDetalle'] = $detalle;
+
+                    if ($modelDet->load($datos) && $modelDet->save())
+                    {
+                        $modelDet = new VenDetalle();    
+                    } 
+                    else 
+                    {
+                        $transaction->rollback();
+                        $model->isNewRecord = true;
+                        return $this->render('create', 
+                        [
+                            'model' => $model,
+                            'modelFol' => $modelFol,
+                            'modelDet' => $modelDet,
+                        ]);
+                    }
+                   
+                }
+
                 $transaction->commit();
                 return $this->redirect(['view', 'id' => $model->cot_id]);
 
@@ -95,7 +125,8 @@ class VenCotizacionController extends Controller
 
         return $this->render('create', [
             'model' => $model,
-            'modelFol' => $modelFol
+            'modelFol' => $modelFol,
+            'modelDet' => $modelDet,
         ]);
     }
 
@@ -109,48 +140,76 @@ class VenCotizacionController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelFol = $this->findFolio(explode("-", $model->cot_folio)[0]); 
-        $modelFol->fol_folio = explode("-", $model->cot_folio)[1];
+        $idList = []; //listado de los detalles actualizados y creados, sin eliminados
+        
+        $modelDet = new VenDetalle();
+        $modelDet->temp = $this->findAllDetalles($id);
+
+        $modelFol = $this->findFolio($model->getSerie()); 
+        $modelFol->fol_folio = $model->getFolio();
 
         if (Yii::$app->request->post()) {
             
+            
+            $datos = Yii::$app->request->post();
+            $detalles = Utilidades::limpiarArreglos( array_pop($datos)['temp'] );
+            $folioAnterior = $model->cot_folio;
+            $folio = array_pop($datos);
+
+
             //transacción
             $connection = \Yii::$app->db;
             $transaction = $connection->beginTransaction();
-            $datos = Yii::$app->request->post();
 
-            $folio = array_pop($datos);
 
             if ( $model->cot_folio != $folio['fol_serie']."-".$folio['fol_folio']) 
             {
-                $modelFol = $this->findFolio($folio['fol_serie']); 
-                $modelFol->fol_folio = strval($modelFol->fol_folio + 1);
-
-                $model->cot_folio = $modelFol->fol_serie."-". $modelFol->fol_folio;
-
-                if (!$modelFol->save())
-                {
-                    $transaction->rollback();               
-                    throw new ServerErrorHttpException('ERROR AL INCREMENTAR EL FOLIO.');
-                }
+                $model->cot_folio = $this->increaseFolio($folio['fol_serie']);
             }
 
             if($model->load($datos) && $model->save())
             {
-                $transaction->commit();
-                return $this->redirect(['view', 'id' => $model->cot_id]);
-            }
-            else
-            {
-                $transaction->rollback();               
-                throw new ServerErrorHttpException('ERROR AL GUARDAR LA COTIZACIÓN.');  
+
+                 //update detalles
+                foreach( $detalles as $detalle )
+                {  
+
+                    $detalle['det_fkcotizacion'] = $id;
+                    $datos['VenDetalle'] = $detalle;
+                    $modelDet =  $this->findDetalle($datos['VenDetalle']['det_id']);
+                    if ($modelDet->load($datos) && $modelDet->save()) 
+                    {
+                        array_push($idList, $modelDet->det_id);
+                
+                    } 
+                    else 
+                    {
+                        $idList = null;  
+                        end($detalles);
+                        break;
+                    }
+
+                }
+
+                if(!empty($idList))
+                {
+                    $this->deleteNotListed($id, $idList);
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $id]);
+                }
+                else
+                {
+                    $model->det_folio = $folioAnterior;
+                    $transaction->rollback();
+                }
             }
 
         }
 
         return $this->render('update', [
             'model' => $model,
-            'modelFol' => $modelFol
+            'modelFol' => $modelFol,
+            'modelDet' => $modelDet,
         ]);
     }
 
@@ -239,5 +298,35 @@ class VenCotizacionController extends Controller
             return $model = new VenFolio();
         }
     }
+
+    protected function findAllDetalles($id)
+    {
+        if (($model = VenDetalle::find()->where(['det_fkcotizacion' => $id])->asArray()->all()) !== null) 
+        {
+            return $model;
+        } 
+        else 
+        {
+            throw new NotFoundHttpException('Los detalles requeridos no existen.');
+        }
+    }
+
+    protected function findDetalle($id)
+    {
+        if(isset($id)){
+            if (($model = VenDetalle::findOne($id)) !== null) {
+                return $model;
+            }
+        }
+        return new VenDetalle(); 
+      
+    }
+
+    private function deleteNotListed($id,$idlist)
+    {
+        VenDetalle::deleteAll('det_id NOT IN ('.implode(", ",$idlist).') AND det_fkcotizacion = '.$id);
+
+    }
+
 
 }
