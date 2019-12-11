@@ -17,14 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
     <?= Html::a('Imprimir', ['report', 'id' => $model->cot_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
-    <?= Html::a('Actualizar', ['update', 'id' => $model->cot_id], ['class' => 'btn btn-primary']) ?>
-    <?= Html::a('Eliminar', ['delete', 'id' => $model->cot_id], [
+    <?php
+    if (Yii::$app->user->isSuperAdmin)
+    {
+
+        echo Html::a('Actualizar', ['update', 'id' => $model->cot_id], ['class' => 'btn btn-primary']);
+        echo Html::a('Eliminar', ['delete', 'id' => $model->cot_id], [
         'class' => 'btn btn-danger',
         'data' => [
             'confirm' => '¿Seguro que quieres eliminar esta cotización?',
-            'method' => 'post',
-        ],
-    ]) ?>
+            'method' => 'post',],]); 
+    }
+    ?>
  
 
     <?= DetailView::widget([

@@ -9,6 +9,7 @@ use yii\widgets\Pjax;
 
 $this->title = 'Cotizaciones';
 $this->params['breadcrumbs'][] = $this->title;
+if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->superadmin) {
 ?>
 <div class="ven-cotizacion-index">
 
@@ -20,7 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Generar Cotización', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <br>
-    <?= GridView::widget([
+    <?= GridView::widget
+    ([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -62,13 +64,19 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['report', 'id' => $model->cot_id],['data-pjax'=>"0",'target' => '_blank']);
                     },
                 ],
-                'template' => '{print}',
+                'template' => '{print} {view}',
                 'contentOptions' => ['style' => 'text-align: center'],
                 'filterOptions' => ['style' => 'text-align: center']
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn', 
+                'visible' => Yii::$app->user->isSuperAdmin,
+                'template' => '{update} {delete}',
+                'contentOptions' => ['style' => 'text-align: center']
+            ],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
+    <?php Pjax::end();
+}?>
 </div>
 <?= $this->registerCssFile("/css/cur-form.css");   ?>

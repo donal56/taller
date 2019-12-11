@@ -17,23 +17,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <br>
-
-    <!-- <p>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->ord_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->ord_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => '¿Estás seguro de eliminar este elemento?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p> -->
+    <p>
+    <?php
+    if (Yii::$app->user->isSuperAdmin)
+       
+    ?>
+    </p>
     <?php 
     
     if (Yii::$app->user->isSuperAdmin) 
         echo Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']);
     else
         echo Html::a('', ['index', 'usr' => Yii::$app->user->identity->id], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']); ?>
+
     <?= Html::a('Imprimir', ['report', 'id' => $model->ord_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
     <br>
 
