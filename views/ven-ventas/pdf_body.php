@@ -1,6 +1,22 @@
 <?php 
 use app\components\Utilidades; 
-//$iva = 0.16;	
+//$iva = 0.16;
+$elab='';
+$user = $model->ven_fkuser;
+if (isset($user)) 
+{
+    if ($user==1) 
+    {
+        $elab='V-1';
+    }
+    if ($user==5)
+    {
+        $elab='V-2';
+    }else
+    {
+        $elab='V-3';
+    }
+}	
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,6 +103,6 @@ EOT;
 				<td>$<?= $numformat($model->total) ?></td>
 			</tr>
 	</table> 
+	<div style="position: absolute;width: 9mm;right: 15px;top:15px; color: rgb(100,100,100);"><?=$elab?></div>
 </body>
 </html>
-<?php  ?>

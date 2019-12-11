@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
+use yii\helpers\Url;
 
 /**
  * VenCotizacionController implements the CRUD actions for VenCotizacion model.
@@ -228,8 +229,12 @@ class VenCotizacionController extends Controller
 
         return $this->redirect(['index']);
     }
-    public function actionReport($id) 
+    public function actionReport($id, $pdfjs = false) 
     {
+        if (!$pdfjs) {
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true']) ]);
+        }
+
         $model =  $this->findModel($id);
 
         $pdf = new Pdf([
@@ -240,7 +245,7 @@ class VenCotizacionController extends Controller
             'marginHeader' => '10',
             'marginBottom' => '10',
             'marginFooter' => '10',
-            'options' => ['title' => 'Recibo'],
+            'options' => ['title' => 'Cotización'],
         ]);
         
         $mpdf = $pdf->api;
