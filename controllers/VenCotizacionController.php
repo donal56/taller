@@ -85,6 +85,8 @@ class VenCotizacionController extends Controller
             #Se consigue el folio actual
             $model->cot_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
+            #Usuario que elaboro originalmente
+            $model->cot_fkuser = Yii::$app->user->identity->id;
 
             if ($model->load($cotizacion) && $model->save()) {
 

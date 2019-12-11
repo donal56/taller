@@ -116,9 +116,6 @@ use yii\web\View;
 
                     <?=$form->field($model, 'ord_kilometraje', ['options' => ['class' => 'form-group col-sm-3']])->textInput()?>
 
-                     <?=$form->field($model, 'ord_user', ['options' => ['class' => 'form-group col-sm-3']])->hiddenInput(['readonly' => true, 'value' => Yii::$app->user->identity->id])->label(false) ?>
-
-
                 </div>
             </div>
         </div>

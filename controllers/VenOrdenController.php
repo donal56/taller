@@ -116,9 +116,13 @@ class VenOrdenController extends Controller
 
             $data = explode(',', array_pop($datos));
             $image = base64_decode($data[1]);
+            
 
             if ( $model->load($orden) ) 
             {
+                #Usuario que elaboro originalmente
+                $model->ord_user = Yii::$app->user->identity->id;
+
                 #Se añade el folio nuevo al modelo
                 $model->ord_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
