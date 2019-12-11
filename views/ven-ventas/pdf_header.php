@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-
 <body>
-	<div >
-
+	<div>
 		<div style="width: 125mm; float: left;">
 			<div style="margin-bottom: 4px;">
 				<div class="fblue div-underline" style="text-align: center;font-size:6mm">
@@ -77,4 +73,3 @@
 	<br>
 
 </body>
-</html>
