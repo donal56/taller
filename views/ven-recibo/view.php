@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use webvimark\modules\UserManagement\models\User;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenRecibo */
@@ -34,7 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'rec_cantidad',
             'rec_concepto',
             'rec_nomresponsable',
-           
+            [
+                'attribute' => 'rec_fkuser',
+                'visible'   => Yii::$app->user->isSuperAdmin,
+                'label'     => 'Generado por: ',
+                'value'     => function($model)
+                {
+                    return User::findOne($model->rec_fkuser)->username;
+                }
+            ]
         ],
     ]) ?>
 

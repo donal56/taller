@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\components\Utilidades;
+use webvimark\modules\UserManagement\models\User;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenVentas */
@@ -62,6 +64,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     };
 
                     return Utilidades::array2table($arr);;
+                }
+            ],
+            [
+                'attribute' => 'ven_fkuser',
+                'visible'   => Yii::$app->user->isSuperAdmin,
+                'label'     => 'Generado por: ',
+                'value'     => function($model)
+                {
+                    return User::findOne($model->ven_fkuser)->username;
                 }
             ]
         ],

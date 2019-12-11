@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\components\Utilidades;
+use webvimark\modules\UserManagement\models\User;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenAlmacen */
@@ -51,6 +53,15 @@ $this->title = 'Vale ' . str_replace('-','',$model->alm_folio);
                     };
 
                     return Utilidades::array2table($arr);;
+                }
+            ],
+            [
+                'attribute' => 'alm_fkuser',
+                'visible'   => Yii::$app->user->isSuperAdmin,
+                'label'     => 'Generado por: ',
+                'value'     => function($model)
+                {
+                    return User::findOne($model->alm_fkuser)->username;
                 }
             ]
         ],
