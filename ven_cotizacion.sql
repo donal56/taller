@@ -45,7 +45,7 @@ CREATE TABLE `ven_cotizacion`  (
   `cot_fkuser` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`cot_id`) USING BTREE,
   INDEX `cot_fkuser`(`cot_fkuser`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for ven_detalle
