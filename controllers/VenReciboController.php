@@ -98,6 +98,9 @@ class VenReciboController extends Controller
             #Se consigue el folio actual
             $model->rec_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
+            #Usuario que elaboro originalmente
+            $model->rec_fkuser = Yii::$app->user->identity->id;
+
             if($model->load($recibo) && $model->save())
             {
                 $transaction->commit();

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\components\Utilidades;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenCotizacion */
@@ -15,20 +16,21 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ven-cotizacion-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <br>
     <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
     <?= Html::a('Imprimir', ['report', 'id' => $model->cot_id], ['class' => 'btn btn-primary','target' => '_blank'])?>
     <?php
     if (Yii::$app->user->isSuperAdmin)
     {
 
-        echo Html::a('Actualizar', ['update', 'id' => $model->cot_id], ['class' => 'btn btn-primary']);
-        echo Html::a('Eliminar', ['delete', 'id' => $model->cot_id], [
-        'class' => 'btn btn-danger',
-        'data' => [
-            'confirm' => '¿Seguro que quieres eliminar esta cotización?',
-            'method' => 'post',],]); 
+        echo Html::a('Actualizar', ['update', 'id' => $model->cot_id], ['class' => 'btn btn-primary']) . "   " . 
+            Html::a('Eliminar', ['delete', 'id' => $model->cot_id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => '¿Seguro que quieres eliminar esta cotización?',
+                    'method' => 'post',],]); 
     }
-    ?>
+    ?><br><br>
  
 
     <?= DetailView::widget([
@@ -60,6 +62,27 @@ $this->params['breadcrumbs'][] = $this->title;
             'cot_acepto',
             'cot_elaboro',
             'cot_fkuser',
+            [
+                'attribute' => 'venDetalles',
+                'format' => 'raw',
+                'label' => 'Detalles',
+                'value' => function($model)
+                {
+                    $arr = array();
+
+                    foreach( $model->venDetalles as $detalle)
+                    {
+                        $arr[] = [
+                                    'Cantidad'          =>  $detalle->det_cantidad, 
+                                    'Partida'           =>  $detalle->det_partida, 
+                                    'Descripción'       =>  $detalle->det_descripcion, 
+                                    'Precio unitario'   =>  $detalle->det_unitario
+                                ];
+                    };
+
+                    return Utilidades::array2table($arr);;
+                }
+            ]
         ],
     ]) ?>
 

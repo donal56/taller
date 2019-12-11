@@ -170,9 +170,28 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Vehículo',
                 'format' => 'raw',
+                'visible' => file_exists("img/wPaint/files/" . $model->ord_id . ".png"),
                 'value' => function ($model) 
                 {
-                    return Html::img('@web/img/wPaint/files/' . $model->ord_id . ".png", ['alt'=>'Logo', 'width'=>'350']);
+                    return Html::img('@web/img/wPaint/files/' . $model->ord_id . ".png", ['alt'=>'Vehículo', 'width'=>'350']);
+                }
+            ],
+            [
+                'label' => 'Firma del asesor',
+                'format' => 'raw',
+                'visible' => file_exists("img/firmas/" . $model->ord_id . "-1.png"),
+                'value' => function ($model) 
+                {
+                    return Html::img('@web/img/firmas/' . $model->ord_id . "-1.png", ['alt'=>'Firma 1', 'width'=>'350', 'style' => 'margin: 20px']);
+                }
+            ],
+            [
+                'label' => 'Firma del cliente',
+                'format' => 'raw',
+                'visible' => file_exists("img/firmas/" . $model->ord_id . "-2.png"),
+                'value' => function ($model) 
+                {
+                    return Html::img('@web/img/firmas/' . $model->ord_id . "-2.png", ['alt'=>'Firma 2', 'width'=>'350', 'style' => 'margin: 20px']);
                 }
             ],
         ],

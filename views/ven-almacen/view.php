@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\components\Utilidades;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenAlmacen */
@@ -32,6 +33,26 @@ $this->title = 'Vale ' . str_replace('-','',$model->alm_folio);
             'alm_color',
             'alm_trabajo',
             'alm_garantia',
+            [
+                'attribute' => 'venConceptos',
+                'format' => 'raw',
+                'label' => 'Conceptos',
+                'value' => function($model)
+                {
+                    $arr = array();
+
+                    foreach( $model->venConceptos as $con)
+                    {
+                        $arr[] = [
+                                    'Cantidad'          =>  $con->con_cantidad, 
+                                    'Descripción'           =>  $con->con_descripcion, 
+                                    'Precio unitario'       =>  $con->con_precioUnitario, 
+                                ];
+                    };
+
+                    return Utilidades::array2table($arr);;
+                }
+            ]
         ],
     ]) ?>
 

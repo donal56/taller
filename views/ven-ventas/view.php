@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\components\Utilidades;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenVentas */
@@ -43,6 +44,26 @@ $this->params['breadcrumbs'][] = $this->title;
             'ven_domicilio',
             'ven_ciudad',
             'ven_rfc',
+            [
+                'attribute' => 'venProductos',
+                'format' => 'raw',
+                'label' => 'Productos',
+                'value' => function($model)
+                {
+                    $arr = array();
+
+                    foreach( $model->venProductos as $pro)
+                    {
+                        $arr[] = [
+                                    'Unidad'          =>  $pro->pro_unidad, 
+                                    'Nombre'           =>  $pro->pro_nombre, 
+                                    'Precio'       =>  $pro->pro_precio, 
+                                ];
+                    };
+
+                    return Utilidades::array2table($arr);;
+                }
+            ]
         ],
     ]) ?>
 

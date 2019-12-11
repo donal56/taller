@@ -105,6 +105,9 @@ class VenAlmacenController extends Controller
             #Se consigue el folio actual
             $model->alm_folio = mb_strtoupper($this->increaseFolio($folio['fol_serie']));
 
+            #Usuario que elaboro originalmente
+            $model->alm_fkuser = Yii::$app->user->identity->id;
+
             if($model->load($vale) && $model->save())
             {
                 foreach($conceptos as $concepto)
