@@ -4,7 +4,7 @@ $elab='';
 $user = $model->cot_fkuser;
 if (isset($user)) 
 {
-    if ($user==1) 
+    if ($user==12) 
     {
         $elab='V-1';
     }

@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'ord_fechaEntrega',
                 'value' => function($model)
                 {
-                    return (new DateTime($model->ord_fechaEntrega))->format('d-m-Y h:i A');
+                    return ($model->ord_fechaEntrega)? (new DateTime($model->ord_fechaEntrega))->format('d-m-Y h:i A'): null;
                 }
             ],
             'ord_noSerie',
