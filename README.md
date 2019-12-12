@@ -1,2 +1,2 @@
-# CursosCIIE
-Aplicación web para manejar los registros a cursos en el C.I.I.E.
+# Taller Automotriz
+Aplicación web para manejar los registros de ventas de un taller automotriz
