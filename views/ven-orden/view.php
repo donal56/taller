@@ -202,7 +202,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'     => 'Generado por: ',
                 'value'     => function($model)
                 {
-                    return User::findOne($model->ord_user)->username;
+                    return (($user = User::findOne($model->ord_user))) ? $user->username : null;
                 }
             ]
         ],
