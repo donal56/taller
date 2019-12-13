@@ -66,6 +66,15 @@ class VenCotizacionSearch extends VenCotizacion
             'cot_fkuser' => $this->cot_fkuser,
         ]);
 
+        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        {
+            $query->andFilterWhere(['cot_status' => 0]);
+        }
+        else
+        {
+            $query->andFilterWhere(['cot_status' => 1]);
+        }
+
         $query->andFilterWhere(['like', 'cot_folio', $this->cot_folio])
             ->andFilterWhere(['like', 'cot_nombre', $this->cot_nombre])
             ->andFilterWhere(['like', 'cot_telefono', $this->cot_telefono])

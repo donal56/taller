@@ -18,6 +18,19 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
     <p>
         <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Crear vale', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php 
+            if(Yii::$app->user->isSuperAdmin)
+            {
+                if(isset($_GET['c']))
+                {
+                    echo  Html::a('Ver aprobadas', ['index'], ['class' => 'btn btn-warning pull-right']);
+                }
+                else
+                {
+                    echo  Html::a('Ver canceladas', ['index', 'c' => true], ['class' => 'btn btn-danger pull-right']);
+                }
+            }
+        ?>
     </p>
     <br>
 
@@ -70,8 +83,30 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'visible' => Yii::$app->user->isSuperAdmin,
-                'template' => '{view} {update} {delete}',
-                'contentOptions' => ['style' => 'text-align: center']
+                'template' => '{view} {update} {delete} {cancel} {aprobe}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'buttons' => 
+                [
+                    'cancel' => function ($url, $model, $key) 
+                    {
+                        return Html::a ('<span class="glyphicon glyphicon-ban-circle"></span>', ['ven-almacen/cancel', 'id' => $model->alm_id],[]);
+                    },
+                    'aprobe' => function ($url, $model, $key) 
+                    {
+                        return Html::a ('<span class="glyphicon glyphicon-ok-circle"></span>', ['ven-almacen/approve', 'id' => $model->alm_id],[]);
+                    },
+                ],
+                'visibleButtons' =>
+                [
+                    'cancel' => function($model, $key, $index)
+                    {
+                        return $model->alm_status;
+                    },
+                    'aprobe' => function($model, $key, $index) 
+                    {
+                        return ! $model->alm_status;
+                    },
+                ]
             ],
         ],
     ]); ?>

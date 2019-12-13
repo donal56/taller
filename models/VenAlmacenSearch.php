@@ -72,6 +72,15 @@ class VenAlmacenSearch extends VenAlmacen
             'alm_noPedido' => $this->alm_noPedido,
         ]);
 
+        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        {
+            $query->andFilterWhere(['alm_status' => 0]);
+        }
+        else
+        {
+            $query->andFilterWhere(['alm_status' => 1]);
+        }
+
         $query->andFilterWhere(['like', 'REPLACE(alm_folio, "-", "")',  $this->alm_folio])
             ->andFilterWhere(['like', 'alm_vehiculo', $this->alm_vehiculo])
             ->andFilterWhere(['like', 'alm_modelo', $this->alm_modelo])

@@ -203,6 +203,30 @@ class VenOrdenController extends Controller
         //throw new \yii\base\Exception("Ocurrio un error durante la solicitud.");
     }
 
+    public function actionObs()
+    {
+        $model = $this->findModel($_POST['editableKey']);
+
+        if (isset($model) && isset($_POST['hasEditable'])) 
+        {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $model->ord_observaciones = $_POST['VenOrden'][$_POST['editableIndex']]['ord_observaciones'];
+
+            if ($model->update() !== false) 
+            {
+                return ['output'=> $model->ord_observaciones, 'message'=>'Modificado.'];
+            }
+            else 
+            {
+                return ['output'=>'', 'message'=>'No se pudieron actualizar las observaciones.'];
+            }
+        }
+
+        return $this->render('index');
+        //throw new \yii\base\Exception("Ocurrio un error durante la solicitud.");
+    }
+
     /**
      * Updates an existing VenOrden model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -425,4 +449,30 @@ class VenOrdenController extends Controller
             throw new NotFoundHttpException('No se encontro la serie');
         }
     }
+
+    public function actionCancel($id)
+    {
+        $model = $this->findModel($id);
+
+        if(\Yii::$app->user->isSuperAdmin)
+        {
+            $model->ord_status = 0;
+            $model->update();
+
+        }
+        return $this->redirect(['index']);
+    }	
+
+    public function actionApprove($id)
+    {
+        $model = $this->findModel($id);
+
+        if(\Yii::$app->user->isSuperAdmin)
+        {
+            $model->ord_status = 1;
+            $model->update();
+
+        }
+        return $this->redirect(['index', 'c' => true]);
+    }	
 }

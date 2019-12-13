@@ -20,6 +20,19 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
     <p>  
         <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Generar Ventas', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php 
+            if(Yii::$app->user->isSuperAdmin)
+            {
+                if(isset($_GET['c']))
+                {
+                    echo  Html::a('Ver aprobadas', ['index'], ['class' => 'btn btn-warning pull-right']);
+                }
+                else
+                {
+                    echo  Html::a('Ver canceladas', ['index', 'c' => true], ['class' => 'btn btn-danger pull-right']);
+                }
+            }
+        ?>
       
     </p><br>
 <?php Pjax::begin(); ?>    
@@ -71,12 +84,33 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                 'contentOptions' => ['style' => 'text-align: center'],
                 'filterOptions' => ['style' => 'text-align: center']
             ],
-
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'visible' => Yii::$app->user->isSuperAdmin,
-                'template' => '{view} {update} {delete}',
-                'contentOptions' => ['style' => 'text-align: center']
+                'template' => '{view} {update} {delete} {cancel} {aprobe}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'buttons' => 
+                [
+                    'cancel' => function ($url, $model, $key) 
+                    {
+                        return Html::a ('<span class="glyphicon glyphicon-ban-circle"></span>', ['ven-ventas/cancel', 'id' => $model->ven_id],[]);
+                    },
+                    'aprobe' => function ($url, $model, $key) 
+                    {
+                        return Html::a ('<span class="glyphicon glyphicon-ok-circle"></span>', ['ven-ventas/approve', 'id' => $model->ven_id],[]);
+                    },
+                ],
+                'visibleButtons' =>
+                [
+                    'cancel' => function($model, $key, $index)
+                    {
+                        return $model->ven_status;
+                    },
+                    'aprobe' => function($model, $key, $index) 
+                    {
+                        return ! $model->ven_status;
+                    },
+                ]
             ],
         ],
     ]); 

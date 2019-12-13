@@ -72,6 +72,16 @@ class VenVentasSearch extends VenVentas
             'ven_fecha' => $this->ven_fecha,
         ]);
 
+        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        {
+            $query->andFilterWhere(['ven_status' => 0]);
+        }
+        else
+        {
+            $query->andFilterWhere(['ven_status' => 1]);
+        }
+
+
         $query->andFilterWhere(['like', 'REPLACE(ven_folio, "-", "")',  $this->ven_folio])
             //->andFilterWhere(['like', 'ven_nombre', $this->ven_nombre])
             ->andFilterWhere([
