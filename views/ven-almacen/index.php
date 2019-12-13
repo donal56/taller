@@ -53,6 +53,7 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             ],
             'alm_noPedido',
             'alm_mecanico',
+            'alm_vehiculo',
             [
                 'class' => 'app\components\ActionColumnPlus',
                 'filter'=> Html::a('Limpiar', ['index'], ['class' => 'btn btn-sm btn-default']),

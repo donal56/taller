@@ -104,5 +104,6 @@ EOT;
 			</tr>
 	</table> 
 	<div style="position: absolute;width: 9mm;right: 15px;top:15px; color: rgb(100,100,100);"><?=$elab?></div>
+	<div style="width: 14px;font-size: 10px;text-align: left;">Fecha de Creación:&nbsp;<?=$model->ven_fecha?></div>
 </body>
 </html>

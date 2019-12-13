@@ -25,6 +25,7 @@ if (isset($user))
 <div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 265mm; left: 55px; color: #3369b7;">
         <img src="var:whats" style="width:12px;" class="px-10 fblue"> 993 3 86 74 17<br>
 </div>
+<div style= "position: absolute; width: 45mm; font-size:10px;top: 270mm; right:50px;">Fecha de Creación:&nbsp;<?= $model->cot_fecha?></div>
 
 
 <div >
@@ -169,4 +170,5 @@ HTML;
     <div style="width: 20mm; float: left; text-align: left;" class="div-labelpie px-10">Telefonos 3-54-86-83 3-54-02-47</div>
     <div style="float:right;width: 25mm;"><img src="var:polo">
     <div style="width: 125mm; float: right; text-align: right;" class="div-labelpie px-10">www.polotransmisionesautomaticas.com.mx       polotransmisiones@hotmail.com   Av.Niños Héroes No.165 Col.Atasta C.P.86100 Villahermosa,Tabasco.</div>
+
 </html>
