@@ -51,7 +51,21 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                     return str_replace('-','',$model->cot_folio);
                 }
             ],
-            'cot_fecha',
+            [
+                'attribute'=>'cot_fecha',
+                'format'=>'date',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenCotizacionSearch[intervaloFecha]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+            ],
             'cot_nombre',
             //'cot_nonuevoscontratos',
             //'cot_nocont',
@@ -64,7 +78,21 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
             //'cot_color',
             //'cot_mecanico',
             //'cot_psalida',
-            'cot_fechasalida',
+            [
+                'attribute'=>'cot_fechasalida',
+                'format'=>'date',
+                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
+                    DateRangePicker::widget(
+                    [
+                        'name'  => 'VenCotizacionSearch[intervaloFechaSalida]',
+                        'useWithAddon'=>'true',
+                        'pluginOptions'=>
+                        [ 
+                            'locale'=> [ 'separator'=>' a '],
+                            'opens'=>'right'
+                        ] 
+                    ]) . '</div>',
+            ],
             //'cot_solocotizacion',
             //'cot_observaciones:ntext',
             //'cot_acepto',

@@ -20,14 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
         <?= Html::a('Imprimir', ['report', 'id' => $model->ven_id], ['class' => 'btn btn-primary','target' => '_blank']) ?>
-        <?/*= Html::a('Actualizar', ['update', 'id' => $model->ven_id], ['class' => 'btn btn-primary']) ?>
+<!--         <?= Html::a('Actualizar', ['update', 'id' => $model->ven_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Eliminar', ['delete', 'id' => $model->ven_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '¿Seguro que quieres eliminarlo?',
                 'method' => 'post',
             ],
-        ])*/ ?>
+        ])?> -->
     </p>
     <br>
     
@@ -72,7 +72,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'     => 'Generado por: ',
                 'value'     => function($model)
                 {
-                    return User::findOne($model->ven_fkuser)->username;
+                    
+                    return (($user = User::findOne($model->ven_fkuser))) ? $user->username : null;
+                    
                 }
             ]
         ],

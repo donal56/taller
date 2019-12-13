@@ -61,7 +61,7 @@ $this->title = 'Vale ' . str_replace('-','',$model->alm_folio);
                 'label'     => 'Generado por: ',
                 'value'     => function($model)
                 {
-                    return User::findOne($model->alm_fkuser)->username;
+                    return (($user = User::findOne($model->alm_fkuser))) ? $user->username : null;
                 }
             ]
         ],

@@ -2,17 +2,20 @@
 
 <?php 
 	$date1=new DateTime($model->ord_fechaIngreso);
-	$date2=new DateTime($model->ord_fechaEntrega);
+	$date2 = ($model->ord_fechaEntrega)? (new DateTime($model->ord_fechaEntrega))->format('d-m-Y h:i A'): "";
 	$exteriores=json_decode($model->ord_vehiculoExterior,true);
     $elab='';
     $user = $model->ord_user;
     if (isset($user)) 
     {
-        if ($user==1) 
+        if($user==1){
+            $elab='V-0';
+        }
+        elseif ($user==12) 
         {
             $elab='V-1';
         }
-        if ($user==5)
+        elseif ($user==5)
         {
             $elab='V-2';
         }else
@@ -151,7 +154,7 @@
             <div style="width: 32mm ;" class="div-underline">&#8203;<?= $date1->format('h:i A')?></div>
 
             <div style="width: 18mm ;" class="div-label">F/ENTREGA:</div>
-            <div style="width: 41.3mm ;" class="div-underline">&#8203;<?= $date2->format('d-m-Y h:i A');?></div>
+            <div style="width: 41.3mm ;" class="div-underline">&#8203;<?= $date2 ?></div>
             <!-- linea6 -->
             <div style="width: 21mm ;" class="div-label">NO.DE SERIE:</div>
             <div style="width: 35mm ;" class="div-underline">&#8203; <?= mb_strtoupper($model->ord_noSerie)?></div>
