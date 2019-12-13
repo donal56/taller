@@ -4,11 +4,14 @@ $elab='';
 $user = $model->cot_fkuser;
 if (isset($user)) 
 {
-    if ($user==12) 
+    if($user==1){
+        $elab='V-0';
+    }
+    elseif ($user==12) 
     {
         $elab='V-1';
     }
-    if ($user==5)
+    elseif ($user==5)
     {
         $elab='V-2';
     }else
