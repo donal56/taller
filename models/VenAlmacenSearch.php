@@ -41,7 +41,7 @@ class VenAlmacenSearch extends VenAlmacen
      */
     public function search($params)
     {
-        $query = VenAlmacen::find();
+        $query = VenAlmacen::find()->orderBy(['alm_id'=>SORT_DESC]);
 
 
         if (!empty($params['VenAlmacenSearch']['intervalo'])) 

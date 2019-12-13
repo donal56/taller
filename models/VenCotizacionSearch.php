@@ -40,7 +40,7 @@ class VenCotizacionSearch extends VenCotizacion
      */
     public function search($params)
     {
-        $query = VenCotizacion::find();
+        $query = VenCotizacion::find()->orderBy(['cot_id'=>SORT_DESC]);
 
         // add conditions that should always apply here
 

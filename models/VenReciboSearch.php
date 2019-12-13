@@ -42,7 +42,7 @@ class VenReciboSearch extends VenRecibo
      */
     public function search($params)
     {
-        $query = VenRecibo::find();
+        $query = VenRecibo::find()->orderBy(['rec_id'=>SORT_DESC]);
         
         if (!empty($params['VenReciboSearch']['intervalo'])) 
         {

@@ -41,7 +41,7 @@ class VenVentasSearch extends VenVentas
      */
     public function search($params)
     {
-        $query = VenVentas::find();
+        $query = VenVentas::find()->orderBy(['ven_id'=>SORT_DESC]);
 
 
         // add conditions that should always apply here
