@@ -335,5 +335,29 @@ class VenCotizacionController extends Controller
 
     }
 
+    public function actionCancel($id)
+    {
+        $model = $this->findModel($id);
 
+        if(\Yii::$app->user->isSuperAdmin)
+        {
+            $model->cot_status = 0;
+            $model->update();
+
+        }
+        return $this->redirect(['index']);
+    }	
+
+    public function actionApprove($id)
+    {
+        $model = $this->findModel($id);
+
+        if(\Yii::$app->user->isSuperAdmin)
+        {
+            $model->cot_status = 1;
+            $model->update();
+
+        }
+        return $this->redirect(['index', 'c' => true]);
+    }	
 }

@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\components\Utilidades;
+use webvimark\modules\UserManagement\models\User;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenVentas */
@@ -18,14 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('', ['index'], ['class' => 'btn btn-success glyphicon glyphicon-arrow-left']) ?>
         <?= Html::a('Imprimir', ['report', 'id' => $model->ven_id], ['class' => 'btn btn-primary','target' => '_blank']) ?>
-        <?/*= Html::a('Actualizar', ['update', 'id' => $model->ven_id], ['class' => 'btn btn-primary']) ?>
+<!--         <?= Html::a('Actualizar', ['update', 'id' => $model->ven_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Eliminar', ['delete', 'id' => $model->ven_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '¿Seguro que quieres eliminarlo?',
                 'method' => 'post',
             ],
-        ])*/ ?>
+        ])?> -->
     </p>
     <br>
     
@@ -62,6 +64,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     };
 
                     return Utilidades::array2table($arr);;
+                }
+            ],
+            [
+                'attribute' => 'ven_fkuser',
+                'visible'   => Yii::$app->user->isSuperAdmin,
+                'label'     => 'Generado por: ',
+                'value'     => function($model)
+                {
+                    
+                    return (($user = User::findOne($model->ven_fkuser))) ? $user->username : null;
+                    
                 }
             ]
         ],

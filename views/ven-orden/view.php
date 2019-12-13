@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\components\Utilidades;
+use webvimark\modules\UserManagement\models\User;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VenOrden */
@@ -66,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'ord_fechaEntrega',
                 'value' => function($model)
                 {
-                    return (new DateTime($model->ord_fechaEntrega))->format('d-m-Y h:i A');
+                    return ($model->ord_fechaEntrega)? (new DateTime($model->ord_fechaEntrega))->format('d-m-Y h:i A'): null;
                 }
             ],
             'ord_noSerie',
@@ -194,6 +196,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img('@web/img/firmas/' . $model->ord_id . "-2.png", ['alt'=>'Firma 2', 'width'=>'350', 'style' => 'margin: 20px']);
                 }
             ],
+            [
+                'attribute' => 'ord_user',
+                'visible'   => Yii::$app->user->isSuperAdmin,
+                'label'     => 'Generado por: ',
+                'value'     => function($model)
+                {
+                    return (($user = User::findOne($model->ord_user))) ? $user->username : null;
+                }
+            ]
         ],
     ]) ?>
 

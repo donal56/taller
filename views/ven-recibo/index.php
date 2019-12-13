@@ -20,10 +20,23 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
     <p>
         <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Generar Recibo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php 
+            if(Yii::$app->user->isSuperAdmin)
+            {
+                if(isset($_GET['c']))
+                {
+                    echo  Html::a('Ver aprobadas', ['index'], ['class' => 'btn btn-warning pull-right']);
+                }
+                else
+                {
+                    echo  Html::a('Ver canceladas', ['index', 'c' => true], ['class' => 'btn btn-danger pull-right']);
+                }
+            }
+        ?>
     </p>
     <br>
-    
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+
+    <?php Pjax::begin(); ?> <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -76,13 +89,35 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
         [
             'class' => 'yii\grid\ActionColumn', 
             'visible' => Yii::$app->user->isSuperAdmin,
-            'template' => '{view} {update} {delete}',
-            'contentOptions' => ['style' => 'text-align: center']
+            'template' => '{view} {update} {delete} {cancel} {aprobe}',
+            'contentOptions' => ['style' => 'text-align: center'],
+            'buttons' => 
+            [
+                'cancel' => function ($url, $model, $key) 
+                {
+                    return Html::a ('<span class="glyphicon glyphicon-ban-circle"></span>', ['ven-recibo/cancel', 'id' => $model->rec_id],[]);
+                },
+                'aprobe' => function ($url, $model, $key) 
+                {
+                    return Html::a ('<span class="glyphicon glyphicon-ok-circle"></span>', ['ven-recibo/approve', 'id' => $model->rec_id],[]);
+                },
+            ],
+            'visibleButtons' =>
+            [
+                'cancel' => function($model, $key, $index)
+                {
+                    return $model->rec_status;
+                },
+                'aprobe' => function($model, $key, $index) 
+                {
+                    return ! $model->rec_status;
+                },
+            ]
         ],
         ],
     ]); ?>
-<?php Pjax::end(); ?>
-<?php }else{  header ("Location: /ven-folio");  //cambiar ruta
+    <?php Pjax::end(); ?>
+    <?php }else{  header ("Location: /ven-folio");  //cambiar ruta
 }?>
 </div>
 

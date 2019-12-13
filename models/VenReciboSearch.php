@@ -72,6 +72,15 @@ class VenReciboSearch extends VenRecibo
             'rec_fecha' => $this->rec_fecha,
         ]);
 
+        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        {
+            $query->andFilterWhere(['rec_status' => 0]);
+        }
+        else
+        {
+            $query->andFilterWhere(['rec_status' => 1]);
+        }
+
         $query->andFilterWhere(['like', 'rec_nomcliente', $this->rec_nomcliente])
             ->andFilterWhere(['like', 'rec_concepto', $this->rec_concepto])
             ->andFilterWhere(['like', 'rec_nomresponsable', $this->rec_nomresponsable])   

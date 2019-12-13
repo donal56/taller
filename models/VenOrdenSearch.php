@@ -82,6 +82,15 @@ class VenOrdenSearch extends VenOrden
             'ord_user' => $this->ord_user,
         ]);
 
+        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        {
+            $query->andFilterWhere(['ord_status' => 0]);
+        }
+        else
+        {
+            $query->andFilterWhere(['ord_status' => 1]);
+        }
+
         $query->andFilterWhere(['like', 'ord_nombre', $this->ord_nombre])
             ->andFilterWhere(['like', 'REPLACE(ord_folio, "-", "")',  $this->ord_folio])
             ->andFilterWhere(['like', 'ord_direccion', $this->ord_direccion])

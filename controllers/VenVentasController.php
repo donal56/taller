@@ -398,5 +398,30 @@ class VenVentasController extends Controller
         VenProducto::deleteAll('pro_id NOT IN ('.implode(", ",$idlist).') AND pro_fkventas= '.$id);
 
     }
-	
+
+    public function actionCancel($id)
+    {
+        $model = $this->findModel($id);
+
+        if(\Yii::$app->user->isSuperAdmin)
+        {
+            $model->ven_status = 0;
+            $model->update();
+
+        }
+        return $this->redirect(['index']);
+    }
+    
+    public function actionApprove($id)
+    {
+        $model = $this->findModel($id);
+
+        if(\Yii::$app->user->isSuperAdmin)
+        {
+            $model->ven_status = 1;
+            $model->update();
+
+        }
+        return $this->redirect(['index', 'c' => true]);
+    }	
 }

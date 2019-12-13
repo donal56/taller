@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use kartik\daterange\DateRangePicker;
 use kartik\grid\GridView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenOrdenSearch */
@@ -21,6 +22,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>      Atras', ['site/index'], ['class' => 'btn btn-info']) ?>
         <?= Html::a('Generar orden de servicio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php 
+            if(Yii::$app->user->isSuperAdmin)
+            {
+                if(isset($_GET['c']))
+                {
+                    echo  Html::a('Ver aprobadas', ['index'], ['class' => 'btn btn-warning pull-right']);
+                }
+                else
+                {
+                    echo  Html::a('Ver canceladas', ['index', 'c' => true], ['class' => 'btn btn-danger pull-right']);
+                }
+            }
+        ?>
     </p>
     <br>
     
@@ -72,7 +86,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'kartik\grid\EditableColumn',
                 'attribute' => 'ord_fechaEntrega',
                 'format' => 'datetime',
-                'vAlign'=>'middle',
                 'headerOptions'=>['class'=>'kv-sticky-column'],
                 'contentOptions'=>['class'=>'kv-sticky-column', 'style' => 'width: 170px'],
                 'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
@@ -113,9 +126,38 @@ $this->params['breadcrumbs'][] = $this->title;
 
                             $(event.target).find('button').html(fecha);
                         }",
-                        "editableSuccess"=>"function(event, val, form, data) { console.log('Successful submission of value ' + val); }",
                     ]
                 ],
+            ],
+            [
+                'class' => 'kartik\grid\EditableColumn',
+                'attribute' => 'ord_observaciones',
+                'format' => 'text',
+                'headerOptions'=>['class'=>'kv-sticky-column'],
+                'contentOptions'=>['class'=>'kv-sticky-column'],
+                'editableOptions' => 
+                [
+                    'header' => 'observaciones', 
+                    'size' => 'lg',
+                    'placement' => 'left',
+                    'inputType' => \kartik\editable\Editable::INPUT_TEXTAREA,
+                    'editableValueOptions' => ['style' => 'text-align: left'],
+                    'formOptions' =>
+                    [
+                        'action' => 'obs',
+                    ],
+                    'pluginEvents' =>
+                    [
+                        "editableSubmit"=>"function(event, val, form, jqXHR) 
+                        {
+                             $(event.target).find('button').html(val);
+                        }",
+                    ]
+                ],
+                'value' => function ($model)
+                {
+                    return StringHelper::truncate($model->ord_observaciones, 25);
+                }
             ],
             [
                 'class' => 'app\components\ActionColumnPlus',
@@ -134,8 +176,30 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'visible' => Yii::$app->user->isSuperAdmin,
-                'template' => '{view} {update} {delete}',
-                'contentOptions' => ['style' => 'text-align: center']
+                'template' => '{view} {update} {delete} {cancel} {aprobe}',
+                'contentOptions' => ['style' => 'text-align: center'],
+                'buttons' => 
+                [
+                    'cancel' => function ($url, $model, $key) 
+                    {
+                        return Html::a ('<span class="glyphicon glyphicon-ban-circle"></span>', ['ven-orden/cancel', 'id' => $model->ord_id],[]);
+                    },
+                    'aprobe' => function ($url, $model, $key) 
+                    {
+                        return Html::a ('<span class="glyphicon glyphicon-ok-circle"></span>', ['ven-orden/approve', 'id' => $model->ord_id],[]);
+                    },
+                ],
+                'visibleButtons' =>
+                [
+                    'cancel' => function($model, $key, $index)
+                    {
+                        return $model->ord_status;
+                    },
+                    'aprobe' => function($model, $key, $index) 
+                    {
+                        return ! $model->ord_status;
+                    },
+                ]
             ],
         ],
         'responsiveWrap' => false,
