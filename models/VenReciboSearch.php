@@ -72,7 +72,7 @@ class VenReciboSearch extends VenRecibo
             'rec_fecha' => $this->rec_fecha,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['rec_status' => 0]);
         }

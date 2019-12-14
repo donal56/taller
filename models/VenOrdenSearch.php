@@ -82,7 +82,7 @@ class VenOrdenSearch extends VenOrden
             'ord_user' => $this->ord_user,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['ord_status' => 0]);
         }

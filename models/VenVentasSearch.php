@@ -72,7 +72,7 @@ class VenVentasSearch extends VenVentas
             'ven_fecha' => $this->ven_fecha,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['ven_status' => 0]);
         }
