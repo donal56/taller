@@ -132,6 +132,15 @@ a.boton_prototype_3.btn-periodo
     background-size: 118px 118px;
 }
 
+/*Boton estadisticas*/
+a.boton_prototype_3.btn-estadisticas
+{
+    background: url(../images/grafica.png) no-repeat;
+    background-position: -1px -1px;
+    background-size: 118px 118px;
+}
+
+
 /*Botón de carreras*/
 a.boton_prototype_3.btn-carrera
 {
