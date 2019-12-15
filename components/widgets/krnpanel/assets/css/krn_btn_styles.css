@@ -142,7 +142,7 @@ a.boton_prototype_3.administrar_cuestionario
 }
 
 /*Boton estadisticas*/
-a.boton_prototype_3.estadisticas
+a.boton_prototype_3.btn-estadisticas
 {
     background: url(../images/grafica.png) no-repeat;
     background-position: 13px 13px;

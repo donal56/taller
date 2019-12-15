@@ -42,7 +42,7 @@ class VenReciboSearch extends VenRecibo
      */
     public function search($params)
     {
-        $query = VenRecibo::find();
+        $query = VenRecibo::find()->orderBy(['rec_id'=>SORT_DESC]);
         
         if (!empty($params['VenReciboSearch']['intervalo'])) 
         {
@@ -72,7 +72,7 @@ class VenReciboSearch extends VenRecibo
             'rec_fecha' => $this->rec_fecha,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['rec_status' => 0]);
         }

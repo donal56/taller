@@ -41,7 +41,7 @@ class VenVentasSearch extends VenVentas
      */
     public function search($params)
     {
-        $query = VenVentas::find();
+        $query = VenVentas::find()->orderBy(['ven_id'=>SORT_DESC]);
 
 
         // add conditions that should always apply here
@@ -72,7 +72,7 @@ class VenVentasSearch extends VenVentas
             'ven_fecha' => $this->ven_fecha,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['ven_status' => 0]);
         }

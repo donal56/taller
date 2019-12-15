@@ -67,6 +67,7 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                 'contentOptions' => ['style' => 'width: 12em; font-size: 0.85em'],
             ],
             'ven_fullname',
+            'ven_vehiculo',
             //'ven_domicilio',
             //'ven_ciudad',
             'ven_rfc',

@@ -23,9 +23,11 @@
             $elab='V-3';
         }
     }
+    $fecha=$date1->format('Y-m-d');
 ?>
 
 <body>
+    <div style= "position: absolute;top:22px;right: 90px; font-size:8px;">Fecha de Creación:&nbsp;<?= $fecha?></div>
     <div style="position: absolute;width: 9mm;right: 55px;top:20px; color: rgb(50,50,50);"><?=$elab?></div>
     <!--Logo-->
     <div style="position: absolute; top: 6mm; left: 15mm">
@@ -344,5 +346,4 @@ CAD;
         PAGARÁ $50 PESOS DE PENSIÓN DIARIA Y SERÁ RESPONSABLE DE LOS DAÑOS QUE ÉSTA SUFRA DURANTE LA ESTANCIA.
     </div>
 </body>
-
 </html>

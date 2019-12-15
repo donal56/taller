@@ -11,6 +11,7 @@ use webvimark\modules\UserManagement\models\rbacDB\Route;
 use webvimark\modules\UserManagement\UserManagementModule;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use app\models\VenOrden;
 
 /**
  * This is the model class for table "user".
@@ -426,5 +427,12 @@ class User extends UserIdentity
     public function getRolesnombres()
     {
         return implode(', ', $this->rolesarray);
+    }
+
+    public function countOrdenes($conditions)
+    {	
+    	$conditions['ord_user'] = $this->id;
+    	$conditions['ord_status'] = 1;
+    	return VenOrden::find()->where($conditions)->count();
     }
 }

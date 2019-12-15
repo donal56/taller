@@ -40,7 +40,7 @@ class VenOrdenSearch extends VenOrden
      */
     public function search($params)
     {
-        $query = VenOrden::find();
+        $query = VenOrden::find()->orderBy(['ord_id'=>SORT_DESC]);
 
         // add conditions that should always apply here
 
@@ -81,7 +81,7 @@ class VenOrdenSearch extends VenOrden
             'ord_user' => $this->ord_user,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['ord_status' => 0]);
         }

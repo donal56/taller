@@ -41,7 +41,7 @@ class VenAlmacenSearch extends VenAlmacen
      */
     public function search($params)
     {
-        $query = VenAlmacen::find();
+        $query = VenAlmacen::find()->orderBy(['alm_id'=>SORT_DESC]);
 
 
         if (!empty($params['VenAlmacenSearch']['intervalo'])) 
@@ -72,7 +72,7 @@ class VenAlmacenSearch extends VenAlmacen
             'alm_noPedido' => $this->alm_noPedido,
         ]);
 
-        if(\Yii::$app->user->isSuperAdmin && $params['c'])
+        if(\Yii::$app->user->isSuperAdmin && array_key_exists('c',$params))
         {
             $query->andFilterWhere(['alm_status' => 0]);
         }

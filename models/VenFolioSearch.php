@@ -42,7 +42,7 @@ class VenFolioSearch extends VenFolio
      */
     public function search($params)
     {
-        $query = VenFolio::find();
+        $query = VenFolio::find()->orderBy(['fol_id'=>SORT_DESC]);
 
         // add conditions that should always apply here
 

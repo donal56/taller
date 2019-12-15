@@ -11,6 +11,9 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SwsDashboard;
 use webvimark\modules\UserManagement\models\User;
+use yii\helpers\Url;
+use app\models\VenOrden;
+use kartik\mpdf\Pdf;
 
 class SiteController extends Controller
 {
@@ -83,6 +86,53 @@ class SiteController extends Controller
         }
       
     }
+
+    public function actionReporte()
+    {
+        return $this->render('report-index');
+    }
+
+
+    public function actionReportOrden($pdfjs = false) 
+    {
+        if (!$pdfjs) {
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report-orden','pdfjs' => 'true']) ]);
+        }
+
+        $users = User::find()
+                ->where(['not in','id',[4,18]])
+                ->all();
+
+        $pdf = new Pdf([
+            'orientation' => Pdf::ORIENT_PORTRAIT, 
+            'destination' => Pdf::DEST_BROWSER, 
+            'marginTop' => '5',
+            'marginHeader' => '5',
+            'marginBottom' => '5',
+            // 'marginTop' => '10',
+            // 'marginHeader' => '10',
+            // 'marginBottom' => '10',
+            'marginFooter' => '10',
+            'options' => ['title' => 'Orden de servicio'],
+        ]);
+        
+        $mpdf = $pdf->api;
+        $mpdf->autoPageBreak = false;
+
+        //imagenes
+        $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
+        $mpdf->imageVars['donpolo'] = file_get_contents('img/logoagua.jpg');
+        $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
+        $mpdf->imageVars['pez'] = file_get_contents('img/pez.png');
+
+        $pdf->cssFile = '@app/web/css/pdf-report.css';
+      
+        $pdf->content = $this->renderPartial('report-orden',['users' => $users]); 
+
+        return $pdf->render();
+
+    }
+
 
     public function actionDash()
     {

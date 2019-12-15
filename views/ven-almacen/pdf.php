@@ -21,6 +21,7 @@ if (isset($user))
 ?>
 <html>
 	<div style="position: absolute;width: 9mm;right: 15px;top:15px; color: rgb(100,100,100);"><?=$elab?></div>
+	<div style= "position: absolute;width: 45mm;right: 45px;top:17px; font-size:10px;">Fecha de Creación:&nbsp;<?= $model->alm_fecha?></div>
 	<div style= "position: absolute; width: 15mm; top: 18mm; right: 100mm;"><img src="var:polo0"></div>
 	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 17mm; right: 165px;">TEL. 993 3 54 86 83</div>
 	<div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 21mm; right: 150px;">     993 3 54 02 47</div>

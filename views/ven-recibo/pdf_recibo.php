@@ -21,6 +21,7 @@ if (isset($user))
 ?>
 <html>
 <div style="position: absolute;width: 9mm;right: 15px;top:15px; color: rgb(100,100,100);"><?=$elab?></div>
+<div style= "position: absolute; width: 45mm;right: 35px;top: 17px; font-size:10px;">Fecha de Creación:&nbsp;<?= $recibo->rec_fecha?></div>
 <div style="position: absolute; top: 13mm; right: 100mm; width: 11mm"><img src="var:donpolo"></div>
 <div style="position: absolute; top: 155mm; right: 100mm; width: 11mm"><img src="var:donpolo"></div>
 <div>
