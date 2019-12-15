@@ -50,18 +50,17 @@ class VenOrdenSearch extends VenOrden
 
         $this->load($params);
         
-        if ( !empty($params['VenOrdenSearch']['intervaloIngreso'])) 
+        if ( !empty($params['VenOrdenSearch']['ord_fechaIngreso'])) 
         {
-            $fechaIngreso = explode( ' a ', $params['VenOrdenSearch']['intervaloIngreso']);
-            $query->andFilterWhere(['>=', 'ord_fechaIngreso', $fechaIngreso[0] ])
-                ->andFilterWhere(['<=', 'ord_fechaIngreso', $fechaIngreso[1]]);  
+            $fechaIngreso = explode( ' a ', $params['VenOrdenSearch']['ord_fechaIngreso']);
+            $query->andFilterWhere(['between', 'ord_fechaIngreso', $fechaIngreso[0], $fechaIngreso[1] . ' 23:59:59.999']);  
         }
 
-        if ( !empty($params['VenOrdenSearch']['intervaloEntrega'])) 
+        if ( !empty($params['VenOrdenSearch']['ord_fechaEntrega'])) 
         {
-            $fechaEntrega = explode( ' a ', $params['VenOrdenSearch']['intervaloEntrega']);
-            $query->andFilterWhere(['>=', 'ord_fechaEntrega', $fechaEntrega[0]])
-                ->andFilterWhere(['<=', 'ord_fechaEntrega', $fechaEntrega[1]]);
+            $fechaEntrega = explode( ' a ', $params['VenOrdenSearch']['ord_fechaEntrega']);
+            $query->andFilterWhere(['between', 'ord_fechaEntrega', $fechaEntrega[0], $fechaEntrega[1] . ' 23:59:59.999']);  
+
         }
 
         if( array_key_exists('usr', $params)){

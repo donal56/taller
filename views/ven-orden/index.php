@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'timeZone' => 'America/Mexico_City',
             'defaultTimeZone' => 'America/Mexico_City',
         ],
-        'pjaxSettings' => [ 'refreshGrid'=>true, ],
+        'pjaxSettings' => [ 'refreshGrid'=>true ],
         'columns' => 
         [
             ['class' => 'kartik\grid\SerialColumn'],
@@ -69,17 +69,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'ord_fechaIngreso',
                 'label'=>'Fecha de ingreso',
                 'format' => 'datetime',
-                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
-                    DateRangePicker::widget(
-                    [
-                        'name'  => 'VenOrdenSearch[intervaloIngreso]',
-                        'useWithAddon'=>'true',
-                        'pluginOptions'=>
+                'filterType' => GridView::FILTER_DATE_RANGE,
+                'filterWidgetOptions' => 
+                [
+                    'pluginOptions'=>
+                    [ 
+                        'locale'=> 
                         [ 
-                            'locale'=> [ 'separator'=>' a '],
-                            'opens'=>'right'
-                        ] 
-                    ]) . '</div>',
+                            'separator' => ' a ',
+                            'format'    => 'YYYY-MM-DD',
+                        ],
+                        'opens'=>'right',
+                    ],
+                    'hideInput' => true,
+                ],
                 'contentOptions' => ['style' => 'width: 12em;'],
             ],
             [
@@ -88,17 +91,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'datetime',
                 'headerOptions'=>['class'=>'kv-sticky-column'],
                 'contentOptions'=>['class'=>'kv-sticky-column', 'style' => 'width: 170px'],
-                'filter'=> '<div class="drp-container input-group-sm input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>'.
-                DateRangePicker::widget(
+                'filterType' => GridView::FILTER_DATE_RANGE,
+                'filterWidgetOptions' => 
                 [
-                    'name'  => 'VenOrdenSearch[intervaloEntrega]',
-                    'useWithAddon'=>'true',
                     'pluginOptions'=>
                     [ 
-                        'locale'=> [ 'separator'=>' a '],
-                        'opens'=>'right'
-                    ] 
-                ]) . '</div>',
+                        'locale'=> 
+                        [ 
+                            'separator' => ' a ',
+                            'format'    => 'YYYY-MM-DD',
+                        ],
+                        'opens'=>'right',
+                    ],
+                    'hideInput' => true,
+                ],
                 'editableOptions' => 
                 [
                     'header' => 'fecha de entrega', 
