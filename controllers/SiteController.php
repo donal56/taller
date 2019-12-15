@@ -113,7 +113,7 @@ class SiteController extends Controller
             // 'marginHeader' => '10',
             // 'marginBottom' => '10',
             'marginFooter' => '10',
-            'options' => ['title' => 'Orden de servicio'],
+            'options' => ['title' => 'Reportes'],
         ]);
         
         $mpdf = $pdf->api;
@@ -121,8 +121,6 @@ class SiteController extends Controller
 
         //imagenes
         $mpdf->imageVars['polo'] = file_get_contents('img/logopolo.jpg');
-        $mpdf->imageVars['donpolo'] = file_get_contents('img/logoagua.jpg');
-        $mpdf->imageVars['whats'] = file_get_contents('img/logowhats.png');
         $mpdf->imageVars['pez'] = file_get_contents('img/pez.png');
 
         $pdf->cssFile = '@app/web/css/pdf-report.css';

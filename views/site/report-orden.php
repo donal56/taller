@@ -35,7 +35,7 @@ use app\components\Utilidades;
 
 <div class="col-sm-12 title-header">REPORTE DE ÓRDENES DE SERVICIO</div>
 
-<div class="title">Ordenes de la semana <?= Utilidades::getDate('W') ?></div>
+<div class="title">Órdenes de la semana <?= Utilidades::getDate('W') ?></div>
 
 <div>
 	<table class="rounded" style="border: 0px;" width="100%" cellpadding="3" cellspacing="0">
@@ -63,7 +63,7 @@ EOT;
 </div>
 
 
-<div class="title">Ordenes del mes <?= Utilidades::getDate('m') ?></div>
+<div class="title">Órdenes del mes <?= Utilidades::getDate('m') ?></div>
 
 <div>
 	<table class="rounded" style="border: 0px;" width="100%" cellpadding="3" cellspacing="0">
@@ -81,6 +81,34 @@ EOT;
 				<td> {$user->username}</td>
 
 				<td> {$user->countOrdenes([ 'MONTH(ord_fechaIngreso)' =>  Utilidades::getDate('m')])}</td>
+
+			<tr>
+EOT;
+
+		}	
+	?>
+	</table>
+</div>
+
+
+<div class="title">Órdenes del año <?= Utilidades::getDate('Y') ?></div>
+
+<div>
+	<table class="rounded" style="border: 0px;" width="100%" cellpadding="3" cellspacing="0">
+		<tr>
+			<td class="fwhite"><b>Usuario</b></td>
+			<td class="fwhite"><b>Órdenes Atendidas</b></td>
+		</tr>
+	
+	<?php
+		foreach ($users as $user)
+		{
+			echo <<<EOT
+
+			<tr>
+				<td> {$user->username}</td>
+
+				<td> {$user->countOrdenes([ 'YEAR(ord_fechaIngreso)' =>  Utilidades::getDate('Y')])}</td>
 
 			<tr>
 EOT;
