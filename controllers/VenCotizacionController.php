@@ -13,6 +13,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
 use yii\helpers\Url;
+use yii\filters\AccessControl;
+use yii\web\ServerErrorHttpException;
 
 /**
  * VenCotizacionController implements the CRUD actions for VenCotizacion model.
@@ -25,6 +27,21 @@ class VenCotizacionController extends Controller
     public function behaviors()
     {
         return [
+            'access' =>  
+            [ 
+ 
+                'class' => AccessControl::className(),
+                'only' =>  ['index', 'view', 'create','update','delete','report'],
+                'rules' =>  
+                [ 
+                    // allow authenticated users
+                    [ 
+                        'allow' => true, 
+                        'roles' => ['@'], 
+                    ], 
+                    // everything else is denied 
+                ], 
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -119,7 +136,7 @@ class VenCotizacionController extends Controller
                 return $this->redirect(['view', 'id' => $model->cot_id]);
 
             }else{
-
+ 					$transaction->rollback();
                 throw new ServerErrorHttpException('NO SE HAN PODIDO GUARDAR LOS CAMBIOS'); 
             
             }

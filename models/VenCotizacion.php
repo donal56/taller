@@ -51,7 +51,7 @@ class VenCotizacion extends \yii\db\ActiveRecord
             [['cot_nonuevoscontratos', 'cot_nocont', 'cot_fkuser'], 'integer'], 
             [['cot_fecha', 'cot_fechasalida'], 'safe'],
             [['cot_observaciones'], 'string'],
-            [['cot_folio'], 'string', 'max' => 11],
+            [['cot_folio'], 'string', 'max' => 30],
             [['cot_nombre', 'cot_atencion'], 'string', 'max' => 100],
             [['cot_telefono', 'cot_modelo', 'cot_tipo', 'cot_marca', 'cot_placas', 'cot_color'], 'string', 'max' => 20],
             [['cot_mecanico', 'cot_psalida', 'cot_solocotizacion', 'cot_acepto', 'cot_elaboro'], 'string', 'max' => 50],

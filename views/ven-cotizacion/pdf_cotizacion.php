@@ -24,7 +24,7 @@ if (isset($user))
 <div style="float:right;width: 9mm; padding-right: 0; color: rgb(100,100,100);"><?=$elab?></div>
 
 <div style="float:left;width: 75mm; padding-right: 15px;"><img src="var:polo"></div>
-    <div class="fblue px-25 red" style="float: right; width: 190px;padding-top:30px;">Folio: <?=$model->cot_folio?></div>
+    <div class="fblue px-25 red" style="float: right; width: 190px;padding-top:30px;">Folio: <?= mb_strtoupper('Nº ' . explode("-", $model->cot_folio)[1]) ?> </div>
 <div style= "position: absolute; width: 50mm; font-size:12px; font-weight: bold; top: 265mm; left: 55px; color: #3369b7;">
         <img src="var:whats" style="width:12px;" class="px-10 fblue"> 993 3 86 74 17<br>
 </div>
