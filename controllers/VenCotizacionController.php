@@ -177,7 +177,7 @@ class VenCotizacionController extends Controller
             $folio = array_pop($datos);
 
 
-            //transacciÃ³n
+            //transacción
             $connection = \Yii::$app->db;
             $transaction = $connection->beginTransaction();
 
@@ -262,7 +262,7 @@ class VenCotizacionController extends Controller
             'marginHeader' => '10',
             'marginBottom' => '10',
             'marginFooter' => '10',
-            'options' => ['title' => 'CotizaciÃ³n'],
+            'options' => ['title' => 'Cotización'],
         ]);
         
         $mpdf = $pdf->api;
@@ -376,5 +376,30 @@ class VenCotizacionController extends Controller
 
         }
         return $this->redirect(['index', 'c' => true]);
-    }	
+    }
+    public function actionAjax_send($id)
+    {
+        $url = Url::toRoute(['taller.test/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true'])]);
+        if ($datos=Yii::$app->request->post()) {
+            $this->enviar($datos,$url);
+            return $this->redirect(['index']);
+        }
+        return $this->renderAjax('createSend',['id'=>$id]); 
+    }
+    public function enviar($datos,$url)
+    {
+        try
+        {
+            Yii::$app->mailer->compose()
+                ->setFrom('elizabeth050698@gmail.com')
+                ->setTo($datos['email'])
+                ->setSubject('Cotizacion')
+                ->setHtmlBody('<h1>Su cotizacion esta lista</h1>')
+                ->setHtmlBody('<h2>'.$datos['mensaje'].'</h2>')
+                ->attachContent($url, ["fileName" => "Cotizacion.pdf",'contentType' => 'application/pdf'])
+                ->send();
+        } 
+        catch (\Throwable $th) {    }
+    }
+    
 }

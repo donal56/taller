@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use kartik\daterange\DateRangePicker;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VenCotizacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -107,8 +109,19 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                     {
                         return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['report', 'id' => $model->cot_id],['data-pjax'=>"0",'target' => '_blank']);
                     },
+                    'send' => function ($url, $model, $key) 
+                    {
+                       return Html::a('', '',[
+                        'id' => 'abrirModal',
+                        'class' => 'glyphicon glyphicon-envelope',
+                        'data-toggle' => 'modal',
+                        'data-target' => '#modal',
+                        'data-url' => Url::to(['ven-cotizacion/ajax_send','id'=>$model->cot_id]),
+                        'data-pjax' => '0',
+                        ]); 
+                    },
                 ],
-                'template' => '{print} {view}',
+                'template' => '{print} {view} {send}',
                 'contentOptions' => ['style' => 'text-align: center'],
                 'filterOptions' => ['style' => 'text-align: center']
             ],
@@ -143,6 +156,14 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
         ],
     ]); ?>
     <?php Pjax::end();
+
+Modal::begin([
+    'id'     =>'modal',
+    'header' => '<h4 class="modal-title">Rellene</h4>',
+    'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Cerrar</a>',]);   
+Modal::end();
+
 }?>
 </div>
 <?= $this->registerCssFile("/css/cur-form.css");   ?>
+<?= $this->registerJsFile("/js/modalCorreo.js", ['depends' => 'yii\web\JqueryAsset']); ?>

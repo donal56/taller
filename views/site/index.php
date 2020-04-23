@@ -24,6 +24,7 @@ if(Yii::$app->user->identity->hasRole('Admin')) {
     ['texto' => 'Cotizaciones', 'ruta' => ['/ven-cotizacion'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-factura'],
     ['texto' => 'Folios', 'ruta' => ['/ven-folio'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-adscripcion'],
     ['texto' => 'Reportes', 'ruta' => ['/site/reporte'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-estadisticas'],
+    ['texto' => 'Garantias', 'ruta' => ['/ven-garantia'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-password'],
     ['texto' => 'Usuarios', 'ruta' => ['/user-management/user/index'], 'clase' => 'boton_prototype_3 plantilla plantilla_hover btn-usuario'],
   ];
 } else if(Yii::$app->user->identity->hasRole('operador')) {

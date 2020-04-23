@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'pjaxSettings' => [ 'refreshGrid'=>true ],
         'columns' => 
         [
-            ['class' => 'kartik\grid\SerialColumn'],
+            'ord_id',
             [
                 'attribute' => 'ord_folio',
                 'value' => function($model)

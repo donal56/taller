@@ -1,0 +1,152 @@
+.fblue{
+	color:#3369b7;
+}
+.titulo
+{
+	text-align: center !important;
+}
+.px-8
+{
+	font-size: 8px;
+}
+.px-9
+{
+	font-size: 9px;
+}
+.px-12
+{
+	font-size: 12px;
+}
+.px-20
+{
+	font-size: 20px;
+}
+.px-25
+{
+	font-size: 25px;
+}
+.border{
+	border: 1px solid #3369b7;
+}
+.folio
+{
+	height: 50px;
+	width: 15px;
+}
+.red
+{
+	color: red;
+}
+.div-titulo{
+    float:left;
+    width: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #3369b7;
+}
+.div-cuerpo{
+	text-align: justify;
+	font-size: 12px;
+	font-family: arial;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.div-label{
+    float:left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #3369b7;
+    padding: 5px 0px 0px 2px;
+    /*border: 1px solid;*/
+}
+.div-labelpie{
+    float:left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #3369b7;
+    padding: 5px 0px 0px 2px;
+    /*border: 1px solid;*/
+}
+.div-underline{
+    float: left;
+    border-bottom: 1px solid #3369b7;
+    color: #3369b7;
+    text-align: left;
+    font-size: 10px;
+    padding: 2px 0px 0px 1px;
+    margin-top: 2px;  
+}
+
+.fullheight{
+	
+	height: 75mm;
+}
+.fwhite{
+	background-color: #3369b7;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+table td{
+	text-align: center;
+	padding-left: 45px;
+	padding-right: 45px;
+	margin-top: 50px;
+}
+.tabla
+{
+	text-align: center;
+}
+.lineas
+{
+	width: 20mm; 
+	margin-left: 28mm;
+	float: left;
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+.lineaFirmas
+{
+	width: 58mm; 
+	margin-left: 22mm;
+	float: left;
+	border-bottom: 1px solid #3369b7;
+	color: #3369b7;
+	text-align: center;
+}
+.firmas
+{
+	float:left;
+	font-size: 12px;
+	font-weight: bold;
+	color: #3369b7;
+	height: 35px;
+	width:  52mm;
+	text-align: center;
+	margin-left: 26mm;
+}
+.tfirmas
+{
+	float:left;
+	font-size: 12px;
+	font-weight: bold;
+	color: #3369b7;
+	height: 35px;
+	width:  52mm;
+	text-align: center;
+	margin-left: 26mm;
+	padding-top: 15px;
+	padding-bottom: 20px;
+}
+.nfirmas
+{
+	float:left;
+	font-size: 10px;
+	font-weight: bold;
+	color: #3369b7;
+	height: 35px;
+	width:  52mm;
+	text-align: center;
+	margin-left: 26mm;
+}

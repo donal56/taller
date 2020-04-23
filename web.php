@@ -50,15 +50,15 @@ $config = [
         ],*/
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-				    'username' => 'polotransmisiones2019@gmail.com',//user email
-				    'password' => 'polo2019',// password email
+                'username' => 'polotransmisiones2019@gmail.com',
+                'password' => 'polo2019',
                 'port' => '465',
                 'encryption' => 'ssl',
-            ],
-        ],
+            ],        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -110,23 +110,21 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) 
-{
+if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = 
-    [
+/*    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
-
-    $config['bootstrap'][] = 'gii';
+*/
+/*    $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
+    ];*/
 }
 
 return $config;
