@@ -246,10 +246,11 @@ class VenCotizacionController extends Controller
 
         return $this->redirect(['index']);
     }
-    public function actionReport($id, $pdfjs = false) 
+    public function actionReport($id, $pdfjs = false,$parametro) 
     {
+            
         if (!$pdfjs) {
-            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true']) ]);
+            return $this->redirect(['/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true','parametro'=>'0']) ]);
         }
 
         $model =  $this->findModel($id);
@@ -276,8 +277,16 @@ class VenCotizacionController extends Controller
         
         $pdf->cssFile = '@app/web/css/pdf6.css';
         $pdf->content = $this->renderPartial('pdf_cotizacion',['model' =>  $model]); 
+
+        if($parametro==0)
+        {
+            return $pdf->render();
+        }else if ($parametro=1) 
+        {
+            $path = $mpdf->Output('', 'S');
+            return $path;
+        }
         
-        return $pdf->render();
     }
     /**
      * Finds the VenCotizacion model based on its primary key value.
@@ -379,7 +388,8 @@ class VenCotizacionController extends Controller
     }
     public function actionAjax_send($id)
     {
-        $url = Url::toRoute(['taller.test/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true'])]);
+        /*$url = Url::toRoute(['taller.test/pdfjs', 'file' => Url::to(['report', 'id' => $id , 'pdfjs' => 'true','parametro'=>0])]);*/
+        $url= $this->actionReport($id,true,0);
         if ($datos=Yii::$app->request->post()) {
             $this->enviar($datos,$url);
             return $this->redirect(['index']);
@@ -396,7 +406,7 @@ class VenCotizacionController extends Controller
                 ->setSubject('Cotizacion')
                 ->setHtmlBody('<h1>Su cotizacion esta lista</h1>')
                 ->setHtmlBody('<h2>'.$datos['mensaje'].'</h2>')
-                ->attachContent($url, ["fileName" => "Cotizacion.pdf",'contentType' => 'application/pdf'])
+                ->attachContent($url, ['fileName' => 'Cotizacion.pdf',   'contentType' => 'application/pdf'])
                 ->send();
         } 
         catch (\Throwable $th) {    }

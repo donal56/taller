@@ -107,7 +107,7 @@ if(Yii::$app->user->identity->hasRole('operador') || Yii::$app->user->identity->
                 [
                     'print' => function ($url, $model, $key) 
                     {
-                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['report', 'id' => $model->cot_id],['data-pjax'=>"0",'target' => '_blank']);
+                        return Html::a ( '<span class="glyphicon glyphicon-print"></span>', ['report', 'id' => $model->cot_id,'parametro'=>0],['data-pjax'=>"0",'target' => '_blank']);
                     },
                     'send' => function ($url, $model, $key) 
                     {
