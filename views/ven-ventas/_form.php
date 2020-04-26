@@ -9,6 +9,8 @@ use app\models\VenFolio;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
 use app\components\Utilidades;
+use kartik\select2\Select2;
+use yii\web\JsExpression;
 /* @var $this yii\web\View */
 /* @var $model app\models\VenVentas */
 /* @var $form yii\widgets\ActiveForm */
@@ -19,11 +21,56 @@ use app\components\Utilidades;
     <br>
     <div class="row">
 
-        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-3']])->textInput(['value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->ven_fecha ,'readonly' =>'true']) ?>
+        <div class= "form-group col-sm-3" style= 'height: 30px' id="est">
+            <label class="control-label">O.I.</label>
+            <?php 
+            echo Select2::widget(
+                [
+                    'name' => 'VenVentas[ven_oi]',
+                    'value' => $model->ven_oi,
+                    'initValueText' => $model->ven_oi,
+                    'options' => 
+                    [
+                        'placeholder' => 'Seleccionar orden de servicio...',
+                        'multiple' => false,
+                        'onchange'=>'
 
-        <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-4']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
+                        $.post( "'.urldecode(Yii::$app->urlManager->createUrl('ven-orden/orden?id=')).'"+$(this).val(), function(data){
+                            let datos = JSON.parse(data);
+                            $( "#venventas-ven_nombre").val(datos.ord_nombre.toUpperCase());
+                            $( "#venventas-ven_rfc").val(datos.ord_telefono);
+                            $( "#venventas-ven_domicilio").val(datos.ord_direccion.toUpperCase());
+                            $( "#venventas-ven_vehiculo").val(datos.ord_marca.toUpperCase());
+                            $( "#venventas-ven_placa").val(datos.ord_placa);
+                            $( "#venventas-ven_modelo").val(datos.ord_modelo);
+                            $( "#venventas-ven_color").val(datos.ord_color.toUpperCase());
+                        });
 
-        <?= $form->field($modelfol, 'fol_folio',['options' => ['class' => 'form-group col-sm-4', 'style' => 'width: calc(33.33333333% + 36px)']])->textInput(['maxlength' => true,'readonly' => true]) ?>
+                        '
+                    ],
+                    'pluginOptions' => 
+                    [
+                        'minimumInputLength' => 1,
+                        'language' => 
+                        [
+                            'errorLoading' => new JsExpression("function () { return 'Esperando resultados...'; }"),
+                        ],
+                        'ajax' => 
+                        [
+                            'url' =>  Url::to(['ven-orden/all']),
+                            'dataType' => 'json',
+                            'data' => new JsExpression('function(params) { return {q:params.term}; }')
+                        ],
+                    ]
+                ]);         
+                ?>
+        </div>
+
+        <?= $form->field($model, 'ven_fecha',['options' => ['class' => 'form-group col-sm-2']])->textInput(['value' => $model->isNewRecord ? Utilidades::getDate('Y-m-d') : $model->ven_fecha ,'readonly' =>'true']) ?>
+
+        <?= $form->field($modelfol, 'fol_serie', ['options' => ['class' => 'form-group col-sm-2']])->dropDownList(ArrayHelper::map(VenFolio::find()->all(),'fol_serie','fol_descripcion'),[ 'prompt' => 'Seleccione Uno' ]) ?>
+
+        <?= $form->field($modelfol, 'fol_folio',['options' => ['class' => 'form-group col-sm-2', 'style' => 'width: calc(33.33333333% + 36px)']])->textInput(['maxlength' => true,'readonly' => true]) ?>
 
         <?php if(Yii::$app->user->isSuperAdmin) {?>
 
@@ -74,7 +121,7 @@ use app\components\Utilidades;
         <?= $form->field($model, 'ven_modelo',['options' => ['class' => 'form-group col-sm-3']])->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'ven_color',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'ven_tecnico',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'ven_oi',['options' => ['class' => 'form-group col-sm-4']])->textInput(['maxlength' => true]) ?>
+
         <?= $form->field($model, 'ven_garantia',['options' => ['class' => 'form-group col-sm-12']])->textInput(['maxlength' => true]) ?>
 
     </div>

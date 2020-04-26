@@ -14,6 +14,7 @@ use app\models\VenFolio;
 use app\components\Utilidades;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
+use yii\db\Query;
 
 /**
  * VenOrdenController implements the CRUD actions for VenOrden model.
@@ -361,6 +362,64 @@ class VenOrdenController extends Controller
             throw new \yii\base\Exception("No se pudo eliminar la orden de servicio");
         }
     }
+
+    public function actionAll($q = null, $id = null)
+    {
+        //Respuesta en json
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        //Respuesta vacía
+        $out['results'] = array('text' => '', 'children' => ['id' => '', 'text' => '']);
+        //Si hay query
+        if (!is_null($q)) 
+        {
+            //se vacia el array
+            $out['results'] = array();
+            //se hace una query con las llaves que solicita 
+            $query = new Query;
+            $query->select(["SUBSTRING_INDEX(ord_folio,'-',-1) AS text", " SUBSTRING_INDEX(ord_folio,'-',-1) AS id"])
+                ->from('ven_orden')
+                ->having(['like', 'text', $q])
+                ->orderBy("LOCATE(".$q.",SUBSTRING_INDEX(ord_folio,('-'),(-1)))")
+                ->limit(50);
+            $command = $query->createCommand();
+            $data = $command->queryAll();
+         
+            foreach ($data as $registro) 
+            {
+                     //se agrega a la cola
+                    array_push($out['results'], array(
+                        'text' => null,
+                        'children' => array(
+                            [
+                                'id' => $registro['id'],
+                                'text' => $registro['text']
+                            ]
+                        )
+                    ));
+                
+            }
+        } 
+        elseif ($id > 0) 
+        {
+            $out['results'] = array('text' => null, 'children' => ['id' => $id, 'text' => $id]);
+        }
+        return $out;
+    }
+
+
+
+  public function actionOrden($id)
+    {          
+   
+        $orden = VenOrden::find()->where(["SUBSTRING_INDEX(ord_folio,'-',-1)"=>$id])->asArray()->one();
+      
+        return  json_encode($orden);
+    }
+
+
+
+
+
 
     /**
      * Finds the VenOrden model based on its primary key value.
